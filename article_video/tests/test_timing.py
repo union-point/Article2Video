@@ -241,13 +241,81 @@ def test_timing_cli_preflight_and_generation(timing_setup, tmp_path, monkeypatch
     assert main([*args, '--force']) == 2
 
 
-def test_zero_duration_word_is_flagged_and_falls_back(timing_setup):
+@pytest.mark.parametrize('position', ['first', 'internal', 'last', 'multiple'])
+def test_zero_duration_words_preserve_usable_sentences(timing_setup, position):
     p, config, provider, _ = timing_setup
-    provider.transcript.words[0].end = provider.transcript.words[0].start
+    script = p.approved_script()[0].data
+    count = len(script.scenes[0].narration[0].text.split())
+    indices = {'first': [0], 'internal': [4], 'last': [count - 1], 'multiple': [4, 5]}[position]
+    for i in indices:
+        provider.transcript.words[i].end = provider.transcript.words[i].start
+    original = provider.transcript.model_dump()
     result = TimingGenerator(p, config, provider).generate()
-    assert any(issue['code'] == 'ZERO_DURATION_WORD' for issue in result['issues'])
-    assert result['scenes'][0]['method'] == 'even_fallback'
+    issue, = result['issues']
+    assert issue['code'] == 'ZERO_DURATION_WORD'
+    assert issue['word_indices'] == indices and issue['word_count'] == len(indices)
+    assert result['status'] == 'review_required'
+    assert result['zero_duration_word_count'] == len(indices)
+    assert all(scene['method'] == 'aligned' for scene in result['scenes'])
+    sentence = result['scenes'][0]['sentences'][0]
+    assert sentence['start'] == provider.transcript.words[0].start
+    assert sentence['end'] == provider.transcript.words[count - 1].end
+    assert sentence['boundary_timestamp_review'] == (position in ('first', 'last'))
+    assert provider.transcript.model_dump() == original
+    validate_timings(result, script, 2, config)
+
+
+def test_zero_duration_name_suppresses_only_affected_cue(timing_setup):
+    p, config, provider, _ = timing_setup
+    script = p.approved_script()[0].data
+    # Acme is a sparse name cue in both scenes, with distinct word intervals.
+    provider.transcript.words[0].end = provider.transcript.words[0].start
+    result = align_script(script, provider.transcript, 2, config, p.config.company_aliases)
     assert result['scenes'][0]['word_cues'] == []
+    assert result['scenes'][1]['word_cues']
+    assert result['scenes'][0]['elements'][0]['method'] == 'claim_sentence'
+    validate_timings(result, script, 2, config)
+
+
+def test_zero_duration_inside_multiword_name_suppresses_cue(timing_setup):
+    p, config, _, _ = timing_setup
+    script = p.approved_script()[0].data.model_copy(deep=True)
+    script.scenes[0].narration[0].text = 'Search Bloom reports a documented baseline.'
+    script.scenes[0].narration[0].company_names = ['Searchbloom']
+    transcript = transcript_for(script)
+    transcript.words[1].end = transcript.words[1].start
+    result = align_script(script, transcript, 2, config, {'Searchbloom': ['Search Bloom']})
+    assert result['scenes'][0]['method'] == 'aligned'
+    assert result['scenes'][0]['word_cues'] == []
+    validate_timings(result, script, 2, config)
+
+
+def test_internal_zero_preserves_clean_sentence_in_same_scene(timing_setup):
+    p, config, _, _ = timing_setup
+    script = p.approved_script()[0].data.model_copy(deep=True)
+    script.scenes[0].narration[0].text = 'Acme reports a documented baseline. Teams inspect original evidence.'
+    transcript = transcript_for(script)
+    clean = align_script(script, transcript, 2, config, p.config.company_aliases)
+    transcript.words[3].end = transcript.words[3].start
+    result = align_script(script, transcript, 2, config, p.config.company_aliases)
+    assert result['scenes'][0]['sentences'][1] == clean['scenes'][0]['sentences'][1]
+    assert result['scenes'][0]['word_cues'] == clean['scenes'][0]['word_cues']
+    assert result['scenes'][0]['elements'] == clean['scenes'][0]['elements']
+    validate_timings(result, script, 2, config)
+
+
+def test_collapsed_sentence_still_falls_back_and_preserves_original_bounds(timing_setup):
+    p, config, provider, _ = timing_setup
+    script = p.approved_script()[0].data
+    count = len(script.scenes[0].narration[0].text.split())
+    for word in provider.transcript.words[:count]:
+        word.start = word.end = 0
+    result = align_script(script, provider.transcript, 2, config, p.config.company_aliases)
+    scene = result['scenes'][0]
+    assert scene['method'] == 'even_fallback'
+    assert scene['sentences'][0]['aligned_start'] == scene['sentences'][0]['aligned_end'] == 0
+    assert any(i['code'] == 'INVALID_SENTENCE_BOUNDS' for i in result['issues'])
+    validate_timings(result, script, 2, config)
 
 
 def test_api_response_capture_and_optional_fields():

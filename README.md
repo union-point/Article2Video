@@ -531,9 +531,13 @@ is checked locally; oversized audio is not silently compressed or split.
 
 Whisper sometimes emits empty word entries, zero-duration words, or slight
 timestamp overlaps. Empty entries are counted and omitted from speech-word
-alignment; the original response is retained. Zero spans and overlaps/reversals
-within 300 ms flag the affected scene for fallback without changing raw times.
-Larger ordering errors fail validation. Clean output always has monotonic,
+alignment; the original response is retained. Zero spans remain explicit review findings, with word counts, transcript word indices,
+and flags for affected sentence boundaries. Alignment v2 preserves usable positive,
+ordered sentence bounds and claim-linked elements; sparse cues containing any
+zero-duration word are suppressed. Original aligned bounds are retained alongside
+any fallback bounds. Overlaps/reversals within 300 ms, unusable sentence bounds,
+and text mismatches still trigger scene fallback without changing raw times.
+Larger ordering errors or unusable scene cuts fail validation. Clean output always has monotonic,
 positive sentence/scene/element times.
 
 Successful validated transcripts are cached in `cache/timing/<hash>.json`, keyed

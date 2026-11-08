@@ -36,7 +36,9 @@ def timing_markdown(result):
     lines = ['# Stage 6 timing review', '', f"Status: **{result['status']}**",
              f"Audio: {result['audio_duration_seconds']:.3f}s; {result['fps']} fps; {result['duration_frames']} frames including tail padding.",
              f"Sentences: {result['sentence_count']}; overall normalized similarity: {result['overall_score']:.4f}.",
+             f"Zero-duration words: {result['zero_duration_word_count']}; affected sentences: {sum(bool(s['zero_duration_word_indices']) for scene in result['scenes'] for s in scene['sentences'])}.",
              '', 'Audio is the master clock. Word cues are approximate (typically 100–300 ms uncertainty).',
+             'Aligned spans may retain timestamp review findings; text similarity does not establish acoustic accuracy.',
              'Fallback spans are estimates, not exact scene durations. Human listening review remains pending.', '',
              '| Scene | Start | End | Frames | Method | Minimum sentence score |',
              '| --- | ---: | ---: | ---: | --- | ---: |']
@@ -49,6 +51,8 @@ def timing_markdown(result):
         for sentence in scene['sentences']:
             lines += [f"- {sentence['sentence_id']} ({sentence['start']:.3f}–{sentence['end']:.3f}s, score {sentence['score']:.4f}, {sentence['method']})",
                       f"  - Approved: {sentence['text']}", f"  - Transcript: {sentence['transcript_text']}"]
+            if sentence['boundary_timestamp_review']:
+                lines.append('  - Timestamp review: first or last word has zero duration; sentence boundary remains uncertain.')
     return '\n'.join(lines) + '\n'
 
 

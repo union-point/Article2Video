@@ -7,7 +7,7 @@ from article_parser.sentences import normalize, split_sentences
 
 from .normalization import normalize_name, normalize_number_words, quantities
 
-ALIGNMENT_VERSION = 'alignment.v1'
+ALIGNMENT_VERSION = 'alignment.v2'
 
 
 def alignment_text(text, aliases):
@@ -102,6 +102,12 @@ def sparse_cues(scene, sentences, words, aliases, max_cues):
                     matches = (alignment_text(phrase, aliases) == alignment_text(value, aliases)
                                if kind == 'name' else value in quantities(phrase))
                     if matches:
+                        # A multiword cue can have positive outer bounds even
+                        # when an internal word has no usable timestamp.
+                        if any(w.end <= w.start for w in words[start:end]):
+                            continue
+                        if not sentence['start'] <= words[start].start < words[end - 1].end <= sentence['end']:
+                            continue
                         cues.append({'kind': kind, 'value': value, 'sentence_id': sentence['sentence_id'],
                                      'start': words[start].start, 'end': words[end - 1].end,
                                      'transcript_text': phrase, 'word_start': start, 'word_end': end})
@@ -128,10 +134,18 @@ def align_script(script, transcript, duration, config, aliases):
         extra = quantities(phrase) - quantities(sentence['text'])
         sentence.update(word_start=start, word_end=end, score=score, transcript_text=phrase,
                         start=transcript.words[start].start, end=transcript.words[end - 1].end,
+                        aligned_start=transcript.words[start].start,
+                        aligned_end=transcript.words[end - 1].end,
                         method='aligned')
-        if any(w.end == w.start for w in transcript.words[start:end]):
+        zero_indices = [n for n in range(start, end)
+                        if transcript.words[n].end == transcript.words[n].start]
+        sentence['zero_duration_word_indices'] = zero_indices
+        sentence['boundary_timestamp_review'] = start in zero_indices or end - 1 in zero_indices
+        if zero_indices:
             issues.append({'code': 'ZERO_DURATION_WORD', 'target': sentence['sentence_id'],
-                           'message': 'Whisper returned a word without a positive time span; use scene fallback'})
+                           'word_indices': zero_indices, 'word_count': len(zero_indices),
+                           'boundary_affected': sentence['boundary_timestamp_review'],
+                           'message': f'{len(zero_indices)} words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps'})
         if any(n and transcript.words[n].start < transcript.words[n - 1].end
                for n in range(start, min(end + 1, len(transcript.words)))):
             issues.append({'code': 'OVERLAPPING_WORDS', 'target': sentence['sentence_id'],
@@ -160,12 +174,22 @@ def align_script(script, transcript, duration, config, aliases):
     groups = [[s for s in sentences if s['scene_id'] == scene.scene_id] for scene in script.scenes]
     # Each scene owns the pause before its next scene; the first starts at zero.
     boundaries = [0.] + [group[0]['start'] for group in groups[1:]] + [duration]
+    if any(not a < b for a, b in zip(boundaries, boundaries[1:])):
+        raise ValueError('Transcript cannot provide positive, ordered scene boundaries')
     frames = [math.ceil(t * config.fps) for t in boundaries]
     frames[-1] += config.tail_padding_frames
     scenes = []
     for i, (scene, group) in enumerate(zip(script.scenes, groups, strict=True)):
         start, end = boundaries[i:i + 2]
-        bad_ids = {issue['target'] for issue in issues}
+        # Word-level zero spans are review findings, not evidence that the
+        # sentence's outer interval is unusable. Other findings still block.
+        prior_end = start
+        for sentence in group:
+            if not prior_end <= sentence['start'] < sentence['end'] <= end:
+                issues.append({'code': 'INVALID_SENTENCE_BOUNDS', 'target': sentence['sentence_id'],
+                               'message': 'Aligned sentence bounds are not positive and ordered inside the scene; use scene fallback'})
+            prior_end = sentence['end']
+        bad_ids = {issue['target'] for issue in issues if issue['code'] != 'ZERO_DURATION_WORD'}
         fallback = any(s['sentence_id'] in bad_ids for s in group) or 'timing' in bad_ids
         if fallback:
             issues.append({'code': 'SCENE_FALLBACK', 'target': scene.scene_id,
@@ -191,6 +215,7 @@ def align_script(script, transcript, duration, config, aliases):
     return {'audio_duration_seconds': duration, 'fps': config.fps,
             'duration_frames': frames[-1], 'tail_padding_frames': config.tail_padding_frames,
             'sentence_count': len(sentences), 'overall_score': overall,
+            'zero_duration_word_count': sum(w.start == w.end for w in transcript.words),
             'transcript_text_score': text_score, 'status': 'review_required' if issues else 'valid',
             'issues': issues, 'scenes': scenes}
 
