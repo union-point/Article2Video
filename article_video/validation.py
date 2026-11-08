@@ -3,7 +3,7 @@ import re
 
 from article_parser.sentences import normalize, split_sentences
 
-from .normalization import NameMatcher, quantities
+from .normalization import NameMatcher, contains_name, quantities
 from .schemas import Review, ReviewItem
 from .storage import digest
 
@@ -79,11 +79,38 @@ def validate_script(script, approved):
             raise ValueError(f"{target}: unknown or unapproved claim IDs")
 
 
-def token_checks(report, target, text, source_texts, matcher, company_names=(), link="source"):
+def attribution_only(text, publisher, aliases=()):
+    """Recognize a publisher used only as a reporting source, not a claim entity.
+
+    This authorizes a name from already approved attribution metadata. It does
+    not authorize quantities or conclusions; the full candidate still goes to
+    the independent verifier. A self-ranking/report retains its entity check.
+    """
+    name = re.escape(publisher)
+    patterns = [
+        rf"\baccording to {name}\b",
+        rf"\b{name}['’]s\s+(?:ranking|list|report|assessment|criteria|comparison|methodology)\b",
+        rf"\b{name}\s+(?:reports|ranks|rates|scores|recommends|says|lists)\b",
+    ]
+    remainder = text
+    for pattern in patterns:
+        remainder = re.sub(pattern, "", remainder, flags=re.I)
+    # Do not mistake the publisher as ranked company (including anaphora) for
+    # attribution alone. Semantic review still decides the actual relationship.
+    return (remainder != text
+            and not any(contains_name(remainder, name) for name in [publisher, *aliases])
+            and not re.search(r"\b(?:itself|its|it|they|their|them|themselves)\b", remainder, re.I))
+
+
+def token_checks(report, target, text, source_texts, matcher, company_names=(), link="source", attribution=None):
     source_values = set().union(*(quantities(s) for s in source_texts))
     for value in sorted(quantities(text) - source_values):
         add_issue(report, "flags", "MISSING_VALUE", target, f"{link}: {value} is absent from cited text")
-    for name in matcher.missing(text, source_texts, company_names):
+    name_sources = source_texts
+    aliases = matcher.groups.get(attribution, [])
+    if attribution and attribution_only(text, attribution, aliases):
+        name_sources = [*source_texts, attribution]
+    for name in matcher.missing(text, name_sources, company_names):
         add_issue(report, "flags", "MISSING_NAME", target, f"{link}: {name} is absent from cited text")
 
 
@@ -115,8 +142,9 @@ def script_review(artifact, index, approved, config):
     for target, item in script_items(artifact.data):
         claims = [approved[c] for c in item.claim_ids]
         sources = [index.evidence[s].text for c in claims for s in c.source_ids]
-        token_checks(report, target, item.text, [c.text for c in claims], matcher, item.company_names, "approved claims")
-        token_checks(report, target, item.text, sources, matcher, item.company_names, "source sentences")
+        attribution = config.publisher if all(c.attribution.casefold() == config.publisher.casefold() for c in claims) else None
+        token_checks(report, target, item.text, [c.text for c in claims], matcher, item.company_names, "approved claims", attribution)
+        token_checks(report, target, item.text, sources, matcher, item.company_names, "source sentences", attribution)
         if RANKING_WORDS.search(item.text):
             publisher = re.escape(config.publisher)
             attributed = re.search(

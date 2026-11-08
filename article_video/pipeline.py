@@ -7,6 +7,7 @@ from pydantic import Field, create_model
 from . import prompts
 from .evidence import EvidenceIndex
 from .llm import ModelRunner
+from .quality import quality_markdown, script_quality_review
 from .render import review_markdown, script_markdown
 from .schemas import Approval, Artifact, Check, Facts, PipelineConfig, RankedSection, Script, Selection, Verdict
 from .storage import digest, read_json, write_json, write_text
@@ -76,6 +77,21 @@ class Pipeline:
     def _save_review(self, report, artifact):
         write_json(self.output_dir / f"{report.stage}_review.json", report)
         write_text(self.output_dir / f"{report.stage}_review.md", review_markdown(report, artifact, self.index))
+        if report.quality is not None:
+            self._save_quality(report.quality)
+
+    def _save_quality(self, report):
+        write_json(self.output_dir / "script_quality_review.json", report)
+        write_text(self.output_dir / "script_quality_review.md", quality_markdown(report))
+
+    def review_quality(self):
+        """Inspect even an unapproved draft offline; this cannot grant approval."""
+        artifact = Artifact[Script].model_validate(read_json(self.path("script")))
+        if artifact.stage != "script":
+            raise ValueError("Expected a script artifact")
+        report = script_quality_review(artifact, self.index, self.config)
+        self._save_quality(report)
+        return report
 
     def _verify(self, report, target, payload, force):
         verdict, info = self.runner.run(
@@ -100,6 +116,10 @@ class Pipeline:
 
     def _script_report(self, artifact, approved, force=False):
         report = script_review(artifact, self.index, approved, self.config)
+        report.quality = script_quality_review(artifact, self.index, self.config)
+        # Editorial findings use the same explicit acceptance/automatic-stop gate,
+        # but never enter the factual verifier or trigger generation retries.
+        report.flags.extend(report.quality.flags)
         if not report.errors:
             for target, item in script_items(artifact.data):
                 claims = [approved[c] for c in item.claim_ids]

@@ -7,7 +7,7 @@
   `gpt-4.1-2025-04-14`. Both are configurable snapshot IDs; availability depends on
   the API account. Every result records requested and returned model IDs, response
   ID, usage, prompt version, and cache key. Every semantic check has its own record.
-- Prompt versions: `selection.v2`, `facts.v1`, `script.v1`, `verify.v1`. Prompts live
+- Prompt versions: `selection.v2`, `facts.v1`, `script.v2`, `verify.v1`. Prompts live
   in `article_video/prompts.py`; both version and actual prompt text affect caching.
 - Structured output uses OpenAI Python 2.26.0 Responses API `responses.parse`
   with strict Pydantic schemas. Refusals, incomplete output, API failures, and
@@ -78,6 +78,39 @@
   estimates remain decisions for their corresponding later stages.
 
 - On 2026-11-08, the script was repaired using the 17 approved claims: 375 narration words in six scenes, one sentence per narration item, explicit publisher attribution, and cited on-screen statements. All Python and semantic checks passed with zero errors and zero flags; a machine approval receipt was recorded. No validator rules were relaxed.
+
+- A subsequent investigation traced the current script's mechanical attribution,
+  damaged capitalization, repeated visuals, and copied title/screen text to its
+  `local-edit` / `script.repair.v1` provenance. The old review measured factual
+  support, not editorial quality. `script.v2` now defines the writing contract,
+  and a separate offline quality gate reports 34 heuristic flags on that artifact.
+  The 26 factual verdicts were reused from cache; the old script approval is stale.
+  No script content, facts, or receipts were rewritten and no API calls were made.
+  Publisher attribution metadata now satisfies name recall only for explicit
+  attribution-only uses; factual entities, numbers, and semantic checks remain
+  guarded. See `docs/script_quality_investigation.md` for evidence and limits.
+
+- At the user's request, one `script.v2` draft was generated from the unchanged
+  approved facts. A provider guard prohibited corrective script generation.
+  The resulting seven-scene, 340-word draft has zero structural errors, 35
+  supported / five partial / one unsupported factual verdicts, and seven quality
+  flags (68 combined flags). It remains unapproved; all receipts are unchanged.
+  Previous and new artifacts are preserved under
+  `output/script_comparisons/20261108-213650/`, with verified backup hashes and a
+  comparison report. There was one generation request and 41 factual verification
+  requests; upstream verdicts were cached and quality review was offline.
+
+- The user then requested one targeted repair and a stop for approval. A direct
+  local patch preserved the seven scene IDs/order and used only already-used,
+  approved claim IDs. Exact values, attribution, currency labels and production
+  directions were repaired; narration is 363 words. One review pass returned 44
+  supported / two partial / one unsupported factual verdicts and three quality
+  flags (eight combined flags, zero structural errors). Seven verdicts were
+  cached and 40 changed items were verified; there were no generation calls or
+  repair loops. Remaining findings were retained without acceptance, all receipts
+  stayed unchanged, and no audio/video was generated. The before/after artifacts,
+  exact patch, change list, preservation hashes and review summary are under
+  `output/script_repairs/20261108-targeted-01/`.
 
 - Stage 5 is implemented as the explicit `voiceover` command. The existing `run`
   behavior stops at Stage 4. It checks current script/upstream approvals without

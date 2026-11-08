@@ -18,6 +18,23 @@ LONG_SENTENCE = (
     "comparison before deciding whether the reported changes are useful for their own work."
 )
 
+# A readable synthetic draft. Repetition and generic visuals are tested as
+# explicit defects, not built into every supposedly clean approval fixture.
+SCENE_COPY = [
+    ("Acme baseline", "Acme reports that its measurement process starts with a documented baseline so that teams can understand the starting point and keep the original observations available when they inspect changes over time.",
+     "The documented starting point", "Show the documented baseline in a left-hand panel and reveal its original observations beneath it."),
+    ("Acme questions", "According to Acme, the process compares the same questions over time while keeping the original evidence available, allowing teams to inspect the observations behind each comparison before deciding how useful those changes are.",
+     "The same questions over time", "Arrange the questions in parallel columns and highlight the matching question as the comparison is discussed."),
+    ("Acme evidence", "Its measurement process keeps the original evidence available for review so that teams can inspect the underlying observations themselves and understand what each comparison shows before deciding whether it is useful for their work.",
+     "The original evidence remains available", "Place the original evidence beneath the comparison and reveal the connection between the observations and the review."),
+    ("Acme observations", "Teams can inspect the underlying observations in Acme's measurement process and review the original evidence before deciding whether the reported changes are useful, with the same questions compared over time from a documented baseline.",
+     "Review the underlying observations", "Display the observations as separate cards and highlight the original evidence associated with the card under review."),
+    ("Acme limits", "The underlying observations help teams understand the limits of each comparison in Acme's measurement process, which keeps the original evidence available for review while comparing the same questions over time against a documented baseline.",
+     "Understand the limits of each comparison", "Outline the comparison in a panel and reveal a separate limits area beside the underlying observations."),
+    ("Acme review", "Before deciding whether reported changes are useful for their work, teams can review Acme's original evidence and inspect the observations underlying each comparison, using the documented baseline and the same questions over time.",
+     "Review before deciding", "Build a review sequence connecting the baseline, questions, observations, and limits with arrows showing the order of inspection."),
+]
+
 
 class FakeProvider:
     def __init__(self):
@@ -48,10 +65,10 @@ class FakeProvider:
                 return CitedText(text=text, claim_ids=[claim["claim_id"]], company_names=["Acme"])
 
             data = Script(title=item("Acme measurement", claims[0]), scenes=[
-                Scene(scene_id=f"scene_{n:03d}", title=item("Acme measurement", claim),
-                      claim_ids=[claim["claim_id"]], narration=[item(claim["text"], claim)],
-                      on_screen=[item("Acme measurement", claim)], visual_direction="Reveal the baseline label.")
-                for n, claim in enumerate((claims * 6)[:6], 1)
+                Scene(scene_id=f"scene_{n:03d}", title=item(copy[0], claim),
+                      claim_ids=[claim["claim_id"]], narration=[item(copy[1], claim)],
+                      on_screen=[item(copy[2], claim)], visual_direction=copy[3])
+                for n, (claim, copy) in enumerate(zip((claims * 6)[:6], SCENE_COPY), 1)
             ])
         else:
             data = Verdict(status=self.verdict, reason="Checked only the provided evidence.")
@@ -90,7 +107,7 @@ def article_path(tmp_path):
 @pytest.fixture
 def setup_pipeline(article_path, tmp_path):
     provider = FakeProvider()
-    config = PipelineConfig(publisher="Acme", company_aliases={"Acme": ["Acme's"]}, min_narration_words=300)
+    config = PipelineConfig(publisher="Acme", company_aliases={"Acme": ["Acme's"]}, min_narration_words=180)
     pipeline = Pipeline(article_path, tmp_path / "output", tmp_path / "cache", config, provider)
     return pipeline, provider
 

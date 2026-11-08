@@ -232,3 +232,12 @@ TASK.md
 
 # Regenerable LLM response cache; reviewed output artifacts remain trackable
 /cache/
+
+# Regenerable media; retain provenance and exact narration text in git
+/output/*.wav
+/output/*.mp4
+/output/*.mp3
+
+# Local script experiments duplicate the active reviewed artifacts
+/output/script_comparisons/
+/output/script_repairs/

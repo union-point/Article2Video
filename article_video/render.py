@@ -27,10 +27,14 @@ def script_markdown(artifact):
 def review_markdown(report, artifact=None, index=None):
     lines = [f"# {report.stage.title()} review", "", f"Artifact SHA-256: `{report.artifact_sha256}`", "",
              f"Errors: {len(report.errors)}. Review flags: {len(report.flags)}. Semantic checks: {len(report.checks)}.", ""]
-    for issue in [*report.errors, *report.flags]:
+    for issue in [*report.errors, *(f for f in report.flags if not f.code.startswith("QUALITY_"))]:
         lines.append(f"- `{issue.id}` **{issue.code}** — {issue.target}: {issue.message}")
     for check in report.checks:
         lines.append(f"- {check.target}: **{check.verdict.status}** — {check.verdict.reason}")
+    if report.quality is not None:
+        lines += ["", "## Script quality (separate from factual verification)", "",
+                  "Offline heuristic findings; see script_quality_review.md for scope and limitations.", ""]
+        lines += [f"- `{f.id}` **{f.code}** — {f.target}: {f.message}" for f in report.quality.flags]
     if artifact is not None and artifact.stage == "selection":
         lines += ["", "## Proposed angle", "", artifact.data.angle, "", "## Full section ranking", ""]
         for section in sorted(artifact.data.ranked_sections, key=lambda s: s.rank):

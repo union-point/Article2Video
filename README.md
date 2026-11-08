@@ -151,6 +151,37 @@ rejects new conclusions unsupported by the approved claims. Rankings/opinions
 must retain publisher attribution; the Searchbloom self-ranking caveat matters.
 The target is 350–450 narration words, with outliers flagged for review.
 
+Script generation uses `script.v2`: claims are evidence units, not narration
+templates. The writer varies explicit ranking attribution, preserves brand and
+acronym casing, uses short topic labels and distinct screen takeaways, and gives
+each scene a specific visual subject, layout, and action. A publisher used solely
+as an attribution can be established by approved claim attribution metadata;
+publisher-as-company facts still require citations. This avoids adding unrelated
+self-ranking claims just to establish the reporting source's name.
+
+Editorial quality is checked separately from factual verification. Every script
+review writes `script_quality_review.json` and `.md`, and includes that report in
+the approval-bound combined review. Offline heuristics flag dense narration,
+capitalization, repetition, scene/label alignment, weak screen copy, and generic
+or potentially misleading visuals. These checks cannot establish full semantic
+coherence or production readiness; human editorial judgment is still needed.
+Quality flags stop automatic approval and require the same explicit item IDs and
+human note as other review findings. Existing script receipts become stale when
+their report no longer matches; upstream facts/selection approvals are preserved.
+
+To inspect a script draft without model calls or upstream approvals:
+
+```sh
+uv run main.py review-quality
+```
+
+This command writes only the separate quality reports, returns `2` on findings,
+and does not grant approval or refresh factual verification. Normal `review script`
+runs both checks, reusing exact factual caches. Quality checks make no LLM calls,
+rewrite no content, and trigger no regeneration retries. See
+[the current artifact investigation](docs/script_quality_investigation.md) for
+the traced causes and limitations.
+
 Edit script content in `scenes.json`, then regenerate the readable markdown:
 
 ```sh

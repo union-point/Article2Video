@@ -154,13 +154,15 @@ def test_scene_boundary_fallback_and_oversized_scene_preflight(setup_voiceover):
     assert '\n\n'.join(chunks) == '\n\n'.join(scene_texts)
     result = VoiceoverGenerator(p, config, speech, normalizer).generate()
     assert len(result['chunks']) == 6
-    # Identical scene text in this synthetic fixture shares one paid cache entry.
-    assert len(speech.calls) == 1
+    # Distinct scene text needs one request per segment, then reuses the cache.
+    assert len(speech.calls) == 6
+    VoiceoverGenerator(p, config, speech, normalizer).generate()
+    assert len(speech.calls) == 6
     assert all(settings == config.speech_settings() for _, settings in speech.calls)
     config.max_input_characters = 10
     with pytest.raises(ValueError, match='scene exceeds'):
         VoiceoverGenerator(p, config, speech, normalizer).generate(force=True)
-    assert len(speech.calls) == 1
+    assert len(speech.calls) == 6
 
 
 def test_token_limit_includes_instructions(setup_voiceover):
@@ -168,6 +170,22 @@ def test_token_limit_includes_instructions(setup_voiceover):
     config.max_input_tokens = 5
     with pytest.raises(ValueError, match='scene exceeds'):
         narration_chunks(p.approved_script()[0].data, config)
+
+
+def test_repeated_scene_reuses_paid_speech_after_explicit_editorial_review(setup_voiceover):
+    p, config, speech, normalizer = setup_voiceover
+    data = read_json(p.path('script'))
+    scenes = data['data']['scenes']
+    scenes[1]['narration'][0]['text'] = scenes[0]['narration'][0]['text']
+    write_json(p.path('script'), data)
+    _, report = p.review('script')
+    assert any(f.code == 'QUALITY_REPETITION' for f in report.flags)
+    p.approve('script', 'Reviewer', note='Inspected and explicitly accepted this repeated scene.',
+              accepted=[f.id for f in report.flags])
+    config.max_input_characters = max(len(s['narration'][0]['text']) for s in scenes)
+    result = VoiceoverGenerator(p, config, speech, normalizer).generate()
+    assert len(result['chunks']) == 6
+    assert len(speech.calls) == 5
 
 
 def test_corrupt_normalized_cache_rebuilds_without_speech(setup_voiceover):

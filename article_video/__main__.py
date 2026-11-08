@@ -26,6 +26,7 @@ def main(argv=None):
     review = commands.add_parser("review", help="Revalidate a generated or edited artifact")
     review.add_argument("stage", choices=("selection", "facts", "script"))
     review.add_argument("--force", action="store_true", help="Rerun semantic verification")
+    commands.add_parser("review-quality", help="Check script editorial quality offline, without approval or model calls")
     repair = commands.add_parser("repair-facts", help="Repair flagged claims into a separate draft")
     repair.add_argument("--claim-id", action="append", default=[])
     repair.add_argument("--source-id", action="append", default=[], help="Additional selected evidence ID for repair")
@@ -39,6 +40,10 @@ def main(argv=None):
     try:
         config = PipelineConfig.model_validate(read_json(args.config))
         pipeline = Pipeline(args.article, args.output_dir, args.cache_dir, config)
+        if args.command == "review-quality":
+            report = pipeline.review_quality()
+            print(f"Script quality: {len(report.flags)} flags; see {args.output_dir / 'script_quality_review.md'}")
+            return 2 if report.flags else 0
         if args.command == "voiceover":
             from .voiceover import VoiceoverConfig, VoiceoverGenerator
             voice_config = VoiceoverConfig.model_validate(read_json(args.voiceover_config))

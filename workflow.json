@@ -9,7 +9,7 @@
   "prompt_versions": {
     "selection": "selection.v2",
     "facts": "facts.v1",
-    "script": "script.v1",
+    "script": "script.v2",
     "verify": "verify.v1"
   },
   "run_command": "uv run --env-file .env main.py run",
@@ -85,9 +85,12 @@
         "output/scenes.json",
         "output/script.md",
         "output/script_review.json",
-        "output/script_review.md"
+        "output/script_review.md",
+        "output/script_quality_review.json",
+        "output/script_quality_review.md"
       ],
       "command": "uv run --env-file .env main.py script",
+      "quality_command": "uv run main.py review-quality",
       "checkpoint": "approve script --reviewer NAME"
     },
     {

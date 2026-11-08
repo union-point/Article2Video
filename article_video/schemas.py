@@ -81,12 +81,21 @@ class Check(Model):
     run: RunInfo
 
 
+class ScriptQualityReview(Model):
+    version: str
+    artifact_sha256: str
+    method: Literal["deterministic"] = "deterministic"
+    categories: list[str]
+    flags: list[ReviewItem]
+
+
 class Review(Model):
     stage: Literal["selection", "facts", "script"]
     artifact_sha256: str
     errors: list[ReviewItem]
     flags: list[ReviewItem]
     checks: list[Check]
+    quality: ScriptQualityReview | None = Field(default=None, exclude_if=lambda value: value is None)
 
 
 T = TypeVar("T", bound=Model)
