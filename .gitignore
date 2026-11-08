@@ -229,3 +229,6 @@ TASK.md
 
 # Ad hoc fetch cache; frozen source HTML lives in tests/fixtures
 /snapshots/
+
+# Regenerable LLM response cache; reviewed output artifacts remain trackable
+/cache/

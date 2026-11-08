@@ -1,15 +1,17 @@
 [project]
 name = "article2video"
 version = "0.1.0"
-description = "Add your description here"
+description = "Evidence-grounded article extraction and video script planning"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "beautifulsoup4==4.14.3",
     "lxml==6.0.2",
+    "openai==2.26.0",
     "pydantic==2.12.5",
     "pysbd==0.3.4",
     "requests==2.32.5",
+    "tiktoken==0.12.0",
     "trafilatura==2.0.0",
 ]
 

@@ -1,6 +1,6 @@
-def main():
-    print("Hello from article2video!")
+"""Run the evidence-grounded article-to-video pipeline CLI."""
+from article_video.__main__ import main
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

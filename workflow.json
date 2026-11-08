@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "scope": "Implemented Stages 1\u20135; manual checkpoints by default, optional automatic approval of clean reviews; voiceover is an explicit command",
+  "config": "pipeline_config.json",
+  "models": {
+    "generation": "gpt-4.1-mini-2025-04-14",
+    "verification": "gpt-4.1-2025-04-14"
+  },
+  "prompt_versions": {
+    "selection": "selection.v2",
+    "facts": "facts.v1",
+    "script": "script.v1",
+    "verify": "verify.v1"
+  },
+  "run_command": "uv run --env-file .env main.py run",
+  "auto_approve_command": "uv run --env-file .env main.py run --auto-approve",
+  "auto_approve_policy": {
+    "opt_in": true,
+    "requires_zero_errors": true,
+    "requires_zero_flags": true,
+    "requires_supported_semantic_checks": true,
+    "preserves_valid_human_approvals": true,
+    "receipt_mode": "automatic",
+    "stops_after_stage": 4
+  },
+  "exit_codes": {
+    "0": "Command completed",
+    "1": "Error",
+    "2": "Human review required"
+  },
+  "stages": [
+    {
+      "number": 1,
+      "name": "extraction",
+      "inputs": [
+        "saved HTML and original URL"
+      ],
+      "outputs": [
+        "output/article.json"
+      ],
+      "command": "uv run python -m article_parser --html-file article_parser/tests/fixtures/searchbloom_article.html --url https://www.searchbloom.com/strategy/best-ai-seo-agency-companies-services-usa --output output/article.json"
+    },
+    {
+      "number": 2,
+      "name": "selection",
+      "inputs": [
+        "output/article.json",
+        "pipeline_config.json"
+      ],
+      "outputs": [
+        "output/selection.json",
+        "output/selection_review.json",
+        "output/selection_review.md"
+      ],
+      "command": "uv run --env-file .env main.py select",
+      "checkpoint": "approve selection --reviewer NAME"
+    },
+    {
+      "number": 3,
+      "name": "facts",
+      "inputs": [
+        "output/article.json",
+        "output/selection.json",
+        "output/approvals/selection.json",
+        "pipeline_config.json"
+      ],
+      "outputs": [
+        "output/facts.json",
+        "output/facts_review.json",
+        "output/facts_review.md"
+      ],
+      "command": "uv run --env-file .env main.py facts",
+      "checkpoint": "approve facts --reviewer NAME"
+    },
+    {
+      "number": 4,
+      "name": "script",
+      "inputs": [
+        "output/article.json",
+        "output/facts.json",
+        "output/approvals/facts.json",
+        "pipeline_config.json"
+      ],
+      "outputs": [
+        "output/scenes.json",
+        "output/script.md",
+        "output/script_review.json",
+        "output/script_review.md"
+      ],
+      "command": "uv run --env-file .env main.py script",
+      "checkpoint": "approve script --reviewer NAME"
+    },
+    {
+      "number": 5,
+      "name": "voiceover",
+      "inputs": [
+        "output/article.json",
+        "output/facts.json",
+        "output/scenes.json",
+        "output/approvals/script.json",
+        "pipeline_config.json",
+        "voiceover_config.json"
+      ],
+      "outputs": [
+        "output/narration.wav",
+        "output/narration.txt",
+        "output/narration.json"
+      ],
+      "command": "uv run --env-file .env main.py voiceover",
+      "model": "gpt-4o-mini-tts-2025-12-15",
+      "tts_version": "tts.v1",
+      "audio_processing_version": "voiceover.v1",
+      "requires": "current approved script and valid upstream approvals",
+      "review": "Human listening review; narration is AI generated"
+    }
+  ],
+  "voiceover_config": "voiceover_config.json"
+}
