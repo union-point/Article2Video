@@ -230,3 +230,46 @@
   attempts, and preservation of all 23 protected upstream files. Re-running
   `uv run main.py timing` returned the same 28 findings and exit 2 from the
   transcript cache, with no additional API calls. `git diff --check` passed.
+
+
+## Stage 7 — reusable storyboard templates
+
+Implemented a Python template planner plus six Remotion templates with pinned npm
+dependencies and a shared Zod publication/preview gate. The LLM selects enums only;
+local code populates exact approved screen copy and original evidence IDs. This
+narrows creative freedom to preserve the existing semantic approval. Quantities
+and known/declared names still require cited source text. Text rankings avoid
+invented bar values. Named paper/slate, wide/split and calm/brisk variants use one
+token owner. Card layouts accumulate from Stage 6 cue onset; spotlight layouts
+resolve overlapping cues to one active item. Human listening/visual review stays
+pending. No audio regeneration, approval changes, or MP4 rendering were performed. The
+user directed Stage 7 to use the new GPT‑6.1 artifacts in
+`runs/20261108-224733-gpt61-stages2-4/`. Its complete upstream chain passed
+cache-only preflight. One `gpt-6.1-sol` planner request used 2,173 input and 544
+output tokens; a local review-envelope correction reused that cached plan. The
+legacy default output remains untouched. Publisher-only attribution is linked
+to identity evidence from another approved claim, without changing screen text.
+
+The checked-in Studio manifest now uses the seven-scene GPT‑6.1 storyboard.
+Synthetic six-template fixtures with `demo` evidence IDs live under tests only.
+All seven actual scenes were inspected in Studio with zero text-fit warnings.
+Stage 8 audio/export remains separate. Source docs: Remotion composition,
+Sequence, useCurrentFrame/interpolate and layout-utils fitTextOnNLines (official
+Remotion docs through Context7). Verification uses mocked upstream/model tests,
+Zod rejection tests, TypeScript/ESLint, bundling and Studio inspection.
+
+
+## Stage7 editorial redesign
+
+Replaced the initial slide frame with an editorial motion system, source-linked
+diagram nodes and typed composition/hierarchy/reveal choices. All six templates
+use deterministic frame animation and fit text against width and height. Nodes
+are exact approved narration excerpts; reveal frames come from saved Stage6
+sentence cues. The new GPT‑6.1 storyboard was regenerated (including correction
+attempts), then refined offline to cover early technical narration. That edit
+records local-editorial provenance and a plan hash. No further planner calls
+were needed for the refinement. Original model plans remain cached. Upstream
+facts, scripts, approvals, WAV and timing were hash-checked as unchanged.
+Independent review found height overflow in dense layouts; explicit height
+budgets and multi-column dense lists resolve it. Human visual semantics and
+listening approval remain pending, including existing timing uncertainty.

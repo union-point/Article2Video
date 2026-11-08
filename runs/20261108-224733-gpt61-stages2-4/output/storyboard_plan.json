@@ -1,0 +1,196 @@
+{
+  "scenes": [
+    {
+      "scene_id": "scene_001",
+      "component": "title",
+      "layout": "wide",
+      "animation": "calm",
+      "theme": "slate",
+      "composition": "dossier",
+      "reveal": "focus",
+      "primary_node": 1,
+      "visual_nodes": [
+        {
+          "text": "Searchbloom",
+          "narration_index": 0
+        },
+        {
+          "text": "ranks itself first",
+          "narration_index": 0
+        },
+        {
+          "text": "companies' own reporting",
+          "narration_index": 1
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_002",
+      "component": "methodology",
+      "layout": "wide",
+      "animation": "brisk",
+      "theme": "paper",
+      "composition": "pipeline",
+      "reveal": "cascade",
+      "primary_node": 0,
+      "visual_nodes": [
+        {
+          "text": "leads, sign-ups, or revenue from AI referrals",
+          "narration_index": 0
+        },
+        {
+          "text": "dated AI search result",
+          "narration_index": 1
+        },
+        {
+          "text": "a figure, and a period",
+          "narration_index": 1
+        },
+        {
+          "text": "promises of AI citations in weeks",
+          "narration_index": 2
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_003",
+      "component": "comparison",
+      "layout": "split",
+      "animation": "calm",
+      "theme": "slate",
+      "composition": "dual",
+      "reveal": "focus",
+      "primary_node": 0,
+      "visual_nodes": [
+        {
+          "text": "real buyer questions",
+          "narration_index": 1
+        },
+        {
+          "text": "branded",
+          "narration_index": 2
+        },
+        {
+          "text": "non-branded",
+          "narration_index": 2
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_004",
+      "component": "statistic",
+      "layout": "wide",
+      "animation": "calm",
+      "theme": "slate",
+      "composition": "magnitude",
+      "reveal": "draw",
+      "primary_node": 0,
+      "visual_nodes": [
+        {
+          "text": "about nine of every ten sources AI cites",
+          "narration_index": 0
+        },
+        {
+          "text": "other people's sites",
+          "narration_index": 0
+        },
+        {
+          "text": "inspect the pages it cited",
+          "narration_index": 2
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_005",
+      "component": "comparison",
+      "layout": "split",
+      "animation": "brisk",
+      "theme": "slate",
+      "composition": "dual",
+      "reveal": "focus",
+      "primary_node": 3,
+      "visual_nodes": [
+        {
+          "text": "Crawler access",
+          "narration_index": 0
+        },
+        {
+          "text": "correct structured data",
+          "narration_index": 0
+        },
+        {
+          "text": "technical, content, and entity work",
+          "narration_index": 1
+        },
+        {
+          "text": "implements technical changes",
+          "narration_index": 2
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_006",
+      "component": "methodology",
+      "layout": "wide",
+      "animation": "calm",
+      "theme": "paper",
+      "composition": "orbit",
+      "reveal": "draw",
+      "primary_node": 0,
+      "visual_nodes": [
+        {
+          "text": "Your team",
+          "narration_index": 0
+        },
+        {
+          "text": "sponsorship and affiliate budgets",
+          "narration_index": 0
+        },
+        {
+          "text": "retailer, marketplace, and partner listings",
+          "narration_index": 1
+        },
+        {
+          "text": "social media and community work",
+          "narration_index": 2
+        },
+        {
+          "text": "brand positioning",
+          "narration_index": 2
+        },
+        {
+          "text": "the budget behind PR",
+          "narration_index": 2
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_007",
+      "component": "conclusion",
+      "layout": "wide",
+      "animation": "calm",
+      "theme": "paper",
+      "composition": "checklist",
+      "reveal": "cascade",
+      "primary_node": 3,
+      "visual_nodes": [
+        {
+          "text": "unpublished fees",
+          "narration_index": 1
+        },
+        {
+          "text": "minimums",
+          "narration_index": 1
+        },
+        {
+          "text": "contract lengths",
+          "narration_index": 1
+        },
+        {
+          "text": "in writing",
+          "narration_index": 1
+        }
+      ]
+    }
+  ]
+}
