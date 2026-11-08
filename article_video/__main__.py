@@ -9,7 +9,7 @@ from .storage import read_json
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="Article-to-video Stages 2–5 with evidence and approval")
+    parser = argparse.ArgumentParser(description="Article-to-video Stages 2–6 with evidence and approval")
     parser.add_argument("--article", type=Path, default=Path("output/article.json"))
     parser.add_argument("--output-dir", type=Path, default=Path("output"))
     parser.add_argument("--cache-dir", type=Path, default=Path("cache"))
@@ -23,6 +23,10 @@ def main(argv=None):
     voiceover = commands.add_parser("voiceover", help="Generate normalized WAV from the approved script")
     voiceover.add_argument("--voiceover-config", type=Path, default=Path("voiceover_config.json"))
     voiceover.add_argument("--force", action="store_true", help="Regenerate speech and normalized audio")
+    timing = commands.add_parser("timing", help="Align approved narration with Whisper word timestamps")
+    timing.add_argument("--timing-config", type=Path, default=Path("timing_config.json"))
+    timing.add_argument("--force", action="store_true", help="Bypass the transcription cache; never regenerate script or audio")
+    timing.add_argument("--check-inputs", action="store_true", help="Validate approvals and narration offline, without transcription or output writes")
     review = commands.add_parser("review", help="Revalidate a generated or edited artifact")
     review.add_argument("stage", choices=("selection", "facts", "script"))
     review.add_argument("--force", action="store_true", help="Rerun semantic verification")
@@ -40,6 +44,18 @@ def main(argv=None):
     try:
         config = PipelineConfig.model_validate(read_json(args.config))
         pipeline = Pipeline(args.article, args.output_dir, args.cache_dir, config)
+        if args.command == "timing":
+            from .timing import TimingConfig, TimingGenerator
+            timing_config = TimingConfig.model_validate(read_json(args.timing_config))
+            generator = TimingGenerator(pipeline, timing_config)
+            if args.check_inputs:
+                generator.preflight()
+                print("Timing inputs valid: selection/facts/script approvals, exact narration text, WAV hash and metadata. No model requests.")
+                return 0
+            result = generator.generate(args.force)
+            print(f"Timing: {args.output_dir / 'timings.json'} ({result['sentence_count']} sentences, {len(result['scenes'])} scenes, {len(result['issues'])} findings)")
+            print(f"Review: {args.output_dir / 'timing_review.md'}; human listening review remains pending.")
+            return 2 if result['issues'] else 0
         if args.command == "review-quality":
             report = pipeline.review_quality()
             print(f"Script quality: {len(report.flags)} flags; see {args.output_dir / 'script_quality_review.md'}")

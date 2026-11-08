@@ -106,7 +106,7 @@ class ModelRunner:
         self.usage_log = UsageLog(cache_dir / "usage.jsonl")
 
     def run(self, stage: str, *, model: str, version: str, prompt: str, payload,
-            schema: type[Model], validate: Callable, force=False, usage_stage=None):
+            schema: type[Model], validate: Callable, force=False, usage_stage=None, cache_only=False):
         key = digest({"model": model, "prompt_version": version, "prompt": prompt,
                       "payload": payload, "schema": schema.model_json_schema(),
                       "max_output_tokens": self.max_output_tokens, "validation_attempts": 2})
@@ -130,6 +130,8 @@ class ModelRunner:
                 emit("cache_invalid")
                 path.unlink(missing_ok=True)
         emit("cache_bypass" if force else "cache_miss")
+        if cache_only:
+            raise GenerationError("Required semantic cache is missing or invalid; review upstream artifacts explicitly before timing")
         request_payload = payload
         for attempt in range(2):
             def attempt_log(event, **fields):

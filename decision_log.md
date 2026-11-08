@@ -142,3 +142,81 @@
 - Per the user's latest instruction, Stage 5 was tested exclusively with mocked
   speech/HTTP and synthetic PCM audio. No real API request, excerpt comparison,
   or full narration WAV was generated. The existing approved script is unchanged.
+
+
+## Stage 6 timing — 2026-11-08
+
+- Implemented the plan's Whisper timing workflow as the explicit `timing` CLI,
+  with offline `timing --check-inputs`. `run` still stops after Stage 4. No
+  generation, fact repair, script edits, automatic approvals, TTS, or video
+  rendering are part of this stage.
+- Preflight confirmed valid selection/facts/script receipts (including the nine
+  explicit human script exceptions), exact narration text, audio hash/format,
+  Stage 5 script/receipt provenance, and the upload-size limit. All 23 upstream
+  artifact files were byte-for-byte unchanged after execution; their hashes are
+  retained in `output/stage6_run_summary.json`. Semantic checks used exact caches
+  and reran deterministic checks; cache misses stop rather than call a verifier.
+- API settings: `whisper-1`, `language: en`, `response_format: verbose_json`,
+  `timestamp_granularities: [word]`, temperature 0, no prompt, 180-second timeout,
+  disabled SDK retries. No dependency changes were needed (OpenAI Python 2.26.0).
+  [Official transcription docs](https://developers.openai.com/api/docs/guides/speech-to-text)
+  confirm the 25 MB file limit and Whisper word-timestamp contract, and schedule
+  Whisper shutdown for 2027-02-26. The requested plan workflow is preserved;
+  replacing the model requires a separately verified timestamp contract.
+- `transcription.v1` keys the successful transcript cache by audio SHA-256 and
+  exact request settings. Full HTTP 200 responses are retained separately before
+  validation. Response receipts bind audio/settings/body hashes and can be
+  revalidated locally; failed validation never becomes a successful cache or
+  triggers an automatic request. Token usage is not invented. API usage is
+  recorded as returned, including duration-based usage.
+- `alignment.v1` partitions words monotonically across locally split approved
+  sentences, with a bounded beam search (width 12). It shares number/name
+  normalization with fact checks and ignores spaces for brand matching. Match
+  threshold is 0.85; differing quantities or unrecognized declared company names
+  also need review. The finite search and ASR errors can yield imperfect spans;
+  the results do not certify speech fidelity or pronunciation.
+- Timestamp anomalies are retained as findings. Empty word entries are counted
+  and omitted from speech-word alignment, while the complete API response stays
+  in its receipt. Zero durations and small overlaps/reversals up to 300 ms use
+  scene fallback; larger timestamp-order errors fail. Fallback spreads sentence
+  and screen elements evenly inside estimated scene boundaries and suppresses
+  word cues. It never claims exact per-scene audio. The plan's per-scene TTS
+  fallback remains a deliberate future voiceover operation, not a repair loop.
+- Audio is the master clock: 155.15 seconds, 30 fps, cumulative `ceil(time * fps)`
+  scene boundaries, plus six final padding frames (4,661 frames total). Cumulative
+  rounding avoids per-scene drift. Padding does not change the WAV or word times.
+  Sparse name/quantity cues are limited to three per reliable scene; word timing
+  has roughly 100–300 ms uncertainty.
+- Execution used **two Whisper requests**. Both returned HTTP 200 with API usage
+  `{"type":"duration","seconds":156}`. Initial strict validation rejected empty
+  word strings. The first response was not retained, an adapter defect corrected
+  before the second request. The second response was retained and reused locally
+  after handling these word entries and timestamp jitter. There were no automatic
+  retries and no further API calls. The usage ledger preserves both local
+  validation-failure outcomes and their returned usage; 312 seconds reported by
+  the API does not assert a dollar charge. Request IDs are in the run summary's
+  source ledger and the retained transcription provenance.
+- Outputs: `output/transcript.json`, `output/timings.json`,
+  `output/timing_review.md`, and `output/stage6_run_summary.json`. Eighteen
+  sentences and seven scenes passed structural timing checks, with overall
+  normalized similarity 0.9878. Status is `review_required`, exit 2: all seven
+  scenes use estimated fallback and there are no precise word cues. Findings
+  include two empty word entries, zero-duration words in eleven sentences, one
+  overlap, three name mismatches, and five conservative quantity mismatches.
+  Whisper's word list omits punctuation/units present in its full text, so these
+  quantity flags do not establish spoken errors. Tinuiti/iPullRank spellings,
+  possible omitted “team” and “AEO,” and currency rendering need human listening
+  review. No content or audio was silently repaired.
+- The early timing spike used synthetic/mock data rather than a new short TTS
+  request, reusing the approved full narration for the real integration. Tests
+  cover approval/cache gates, exact-input preservation, number/name normalization,
+  sentence splitting/order, jitter, fallback, API request/diagnostic retention,
+  request failures, cache integrity, frame totals, and the CLI. Full suite and
+  repeat-run validation results are recorded below.
+
+- Final validation: `uv run python -m pytest article_parser/tests article_video/tests -q`
+  passed **197 tests**. An independent check confirmed 18 unique sentences, all
+  match scores above 0.85, 4,661 contiguous frames, exactly two external Whisper
+  attempts, and preservation of all 23 protected upstream files. Re-running
+  `uv run main.py timing` returned the same 28 findings and exit 2 from the
+  transcript cache, with no additional API calls. `git diff --check` passed.

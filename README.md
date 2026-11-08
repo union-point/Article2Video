@@ -2,10 +2,10 @@
 
 Article2Video — AI-Powered Article-to-Video Automation
 
-Stages 1–5 are implemented: extraction, selection, verified facts, a cited
-script/scene outline, and voiceover generation. Stages 2–4 use the frozen `article.json`, with explicit human
+Stages 1–6 are implemented: extraction, selection, verified facts, a cited
+script/scene outline, voiceover generation, and transcription/timing. Stages 2–4 use the frozen `article.json`, with explicit human
 approvals before downstream work, with an optional mode to approve clean reviews
-automatically. Stage 5 is an explicit command; video rendering is not implemented.
+automatically. Stages 5 and 6 are explicit commands; video rendering is not implemented.
 
 The extraction layer converts an article into normalized JSON with stable sentence
 IDs, source hashes, structural locators, and validation results. It makes no OpenAI
@@ -29,10 +29,10 @@ uv run python -m pytest article_parser/tests article_video/tests
 
 Dependencies are pinned in `pyproject.toml` and locked in `uv.lock`; update both
 together. Tests include the real Searchbloom fixture, unrelated fictional articles,
-and offline Stages 2–5 tests. `main.py` runs the Stages 2–5 CLI;
+and offline Stages 2–6 tests. `main.py` runs the Stages 2–6 CLI;
 use the parser module CLI for extraction.
 
-Keep `OPENAI_API_KEY` in the ignored `.env` for Stages 2–5. Extraction
+Keep `OPENAI_API_KEY` in the ignored `.env` for uncached Stages 2–6 requests. Extraction
 requires no credentials or environment variables.
 
 ## Selection, facts, and script (Stages 2–4)
@@ -437,7 +437,7 @@ normalized in two FFmpeg passes to -16 LUFS with a -1.5 dBTP ceiling; a final
 measurement checks the result. Metadata records the script and approval hashes,
 full settings/instructions, audio hash, segment cache provenance, measurements,
 and AI-generated disclosure. A human listening review is still pending; Stage 6
-transcription/alignment will be needed to assess spoken-text accuracy. Automated
+transcription/alignment checks spoken-text similarity and timing. Automated
 WAV/loudness checks do not establish pronunciation or verbatim speech fidelity.
 
 Raw speech lives in `cache/voiceover/raw/<hash>.wav` with a JSON manifest. Its key
@@ -464,5 +464,94 @@ workflow change, not merely a different model ID. See the [official speech API
 reference](https://developers.openai.com/api/reference/python/resources/audio/subresources/speech/methods/create)
 and [model limits](https://developers.openai.com/api/docs/models/gpt-4o-mini-tts).
 
-Stage 5 was tested using mocked HTTP/speech responses and synthetic audio. No
-real speech request or full narration was generated during implementation.
+Stage 5 was tested using mocked HTTP/speech responses and synthetic audio. The current approved narration was subsequently generated and its provenance is
+recorded in `output/narration.json`; the regenerable WAV is ignored by git.
+
+
+## Timing (Stage 6)
+
+Use the existing approved script and Stage 5 narration:
+
+```sh
+# Offline approval, text, audio hash/format, and upload-size preflight:
+uv run main.py timing --check-inputs
+# One Whisper request on a cache miss, followed by local alignment:
+uv run --env-file .env main.py timing
+# Explicitly bypass only the paid transcription cache:
+uv run --env-file .env main.py timing --force
+```
+
+`timing_config.json` selects `whisper-1`, English, `verbose_json`, word timestamps,
+and temperature zero. The command checks all upstream approvals, reruns Python
+validators, and reuses exact factual-verification caches. A missing semantic
+cache stops the command without a verifier request. It never regenerates or
+edits facts, script, approvals, narration, or upstream reviews. Human listening
+review is pending and does not block automated timing; accepted upstream review
+findings remain explicit exceptions.
+
+Outputs are `transcript.json` (word timestamps and request/cache provenance),
+`timings.json` (sentence, scene, element and sparse word cues), and
+`timing_review.md` (scores, findings and every approved/transcribed sentence pair).
+Sentence IDs derive from scene ID, narration-item index and sentence index, with
+character offsets within that item's normalized text and approved claim IDs.
+Multi-sentence narration items are split locally without changing the script.
+
+A bounded monotonic search partitions transcript words in order, consuming each
+word exactly once. Number and company normalization is shared with fact checks;
+fuzzy comparison ignores spaces to accommodate split brand names. The default
+minimum sentence similarity is 0.85; quantity differences and unrecognized named
+companies are flagged even when the overall fuzzy score is high. These checks
+cannot prove pronunciation, entailment or verbatim audio fidelity. Word cues are
+limited to three names/quantities per scene and are approximate (100–300 ms).
+
+WAV duration is the master clock. Scene cuts use the first timestamped word of
+the next scene, preserving inter-scene pauses. Cumulative frame boundaries use
+`ceil(time * fps)` at 30 fps to avoid accumulated rounding drift, with six padding
+frames only at the end. Padding changes video duration, never audio timestamps.
+Sentence and element times are seconds; frame ranges are half-open.
+
+Unreliable sentence matches trigger even timing within that scene's estimated
+span, suppress its word cues, save findings, and return exit `2`. The estimated
+scene boundaries still require inspection. No fallback is represented as exact
+per-scene audio. The plan's per-scene TTS fallback is a separate deliberate
+voiceover operation, never a timing-stage repair loop. Malformed or severely disordered
+word timestamps, incompatible durations, missing approvals, oversized uploads,
+or changed inputs fail before replacing timing outputs. The 25 MB upload limit
+is checked locally; oversized audio is not silently compressed or split.
+
+Whisper sometimes emits empty word entries, zero-duration words, or slight
+timestamp overlaps. Empty entries are counted and omitted from speech-word
+alignment; the original response is retained. Zero spans and overlaps/reversals
+within 300 ms flag the affected scene for fallback without changing raw times.
+Larger ordering errors fail validation. Clean output always has monotonic,
+positive sentence/scene/element times.
+
+Successful validated transcripts are cached in `cache/timing/<hash>.json`, keyed
+by WAV SHA-256, request settings and transcription version. Alignment/settings
+changes reuse that transcript without paid calls. Every hit checks its hash and
+timestamp contract, then recomputes local alignment. Transcript cache survives
+local alignment/publication failure. HTTP 200 response receipts are retained
+separately in `cache/timing/responses/`, before schema validation, with audio and
+settings hashes. They are diagnostics, not successful caches; a later local run
+can revalidate a retained response without another paid call. Invalid retained
+responses stop the command rather than triggering automatic regeneration. `cache/usage.jsonl` records stage `timing`
+requests, cache hits and failures without audio, narration or credentials. SDK
+retries are disabled; a request failure stops after one attempt. API usage is
+recorded exactly when returned, otherwise `null`. Outputs use per-file atomic
+writes, not a multi-file transaction.
+
+The [official transcription documentation](https://developers.openai.com/api/docs/guides/speech-to-text)
+still supports the plan's Whisper word-timestamp workflow, but schedules
+`whisper-1` shutdown for **February 26, 2027**. Model migration needs a separately
+verified timing contract; the command does not silently substitute a model.
+
+
+The current Stage 6 run produced all 18 sentence timings and seven scene spans
+for the 155.15-second narration (4,661 frames with tail padding). Its normalized
+similarity is 0.9878, but **review is required**: all seven scenes use estimated
+even timing, with no precise word cues. See `output/timing_review.md` and
+`output/stage6_run_summary.json` for timestamp anomalies, conservative quantity
+flags, name transcription differences, and possible omitted words. Two Whisper
+requests were made while correcting the adapter's handling of empty word entries;
+the second response was reused locally. No facts, script, approval, or narration
+files were modified, and no generation, verifier, or speech requests were made.

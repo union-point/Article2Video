@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "scope": "Implemented Stages 1\u20135; manual checkpoints by default, optional automatic approval of clean reviews; voiceover is an explicit command",
+  "scope": "Implemented Stages 1–6; explicit approval checkpoints; voiceover and timing are separate commands",
   "config": "pipeline_config.json",
   "models": {
     "generation": "gpt-4.1-mini-2025-04-14",
@@ -115,7 +115,43 @@
       "audio_processing_version": "voiceover.v1",
       "requires": "current approved script and valid upstream approvals",
       "review": "Human listening review; narration is AI generated"
+    },
+    {
+      "number": 6,
+      "name": "timing",
+      "inputs": [
+        "output/article.json",
+        "output/selection.json",
+        "output/facts.json",
+        "output/scenes.json",
+        "output/approvals/selection.json",
+        "output/approvals/facts.json",
+        "output/approvals/script.json",
+        "output/narration.wav",
+        "output/narration.txt",
+        "output/narration.json",
+        "pipeline_config.json",
+        "timing_config.json",
+        "exact semantic verification caches"
+      ],
+      "outputs": [
+        "output/transcript.json",
+        "output/timings.json",
+        "output/timing_review.md"
+      ],
+      "command": "uv run --env-file .env main.py timing",
+      "preflight_command": "uv run main.py timing --check-inputs",
+      "model": "whisper-1",
+      "transcription_version": "transcription.v1",
+      "alignment_version": "alignment.v1",
+      "requires": "Current selection/facts/script approvals and matching Stage 5 WAV, metadata and text",
+      "policy": "Cache-only semantic validation; one transcription attempt on a cache miss; no script/fact/audio regeneration",
+      "fallback": "Even sentence/element timing within estimated scene spans; exit 2 and inspect findings; no automatic per-scene TTS",
+      "review": "Human listening and approximate word cues; no new approval is granted",
+      "diagnostics": "HTTP 200 responses retained before validation under cache/timing/responses; local revalidation makes no new request",
+      "execution_audit": "output/stage6_run_summary.json (recorded for this execution)"
     }
   ],
-  "voiceover_config": "voiceover_config.json"
+  "voiceover_config": "voiceover_config.json",
+  "timing_config": "timing_config.json"
 }

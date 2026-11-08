@@ -29,6 +29,7 @@ class StaleArtifactError(ValueError):
 class Pipeline:
     def __init__(self, article: Path, output_dir=Path("output"), cache_dir=Path("cache"),
                  config=None, provider=None):
+        self.article_path = article
         self.index = EvidenceIndex.load(article)
         self.output_dir = output_dir
         self.config = config or PipelineConfig()
@@ -93,11 +94,12 @@ class Pipeline:
         self._save_quality(report)
         return report
 
-    def _verify(self, report, target, payload, force):
+    def _verify(self, report, target, payload, force, cache_only=False):
         verdict, info = self.runner.run(
             "verify", model=self.config.verifier_model, version=prompts.VERSIONS["verify"],
             prompt=prompts.VERIFY, payload=payload, schema=Verdict, validate=lambda value: None, force=force,
             usage_stage=report.stage,
+            cache_only=cache_only,
         )
         # Store exact verifier model/prompt/cache provenance with each check.
         check = Check(target=target, text_sha256=digest(payload), verdict=verdict, run=info)
@@ -105,16 +107,16 @@ class Pipeline:
         if verdict.status != "supported":
             add_issue(report, "flags", "SEMANTIC_REVIEW", target, f"{verdict.status}: {verdict.reason}")
 
-    def _facts_report(self, artifact, selection, force=False):
+    def _facts_report(self, artifact, selection, force=False, cache_only=False):
         report = facts_review(artifact, self.index, selection.data.selected_section_ids, self.config)
         if not report.errors:
             for claim in artifact.data.claims:
                 self._verify(report, claim.claim_id,
                              {"candidate": claim.model_dump(), "publisher": self.config.publisher,
-                              "evidence": self.index.records(claim.source_ids)}, force)
+                              "evidence": self.index.records(claim.source_ids)}, force, cache_only)
         return report
 
-    def _script_report(self, artifact, approved, force=False):
+    def _script_report(self, artifact, approved, force=False, cache_only=False):
         report = script_review(artifact, self.index, approved, self.config)
         report.quality = script_quality_review(artifact, self.index, self.config)
         # Editorial findings use the same explicit acceptance/automatic-stop gate,
@@ -127,7 +129,7 @@ class Pipeline:
                 self._verify(report, target,
                              {"candidate": item.model_dump(), "publisher": self.config.publisher,
                               "approved_claims": [c.model_dump() for c in claims],
-                              "evidence": self.index.records(source_ids)}, force)
+                              "evidence": self.index.records(source_ids)}, force, cache_only)
         return report
 
     def _selection_report(self, artifact):
@@ -167,20 +169,20 @@ class Pipeline:
         report = self._selection_report(artifact)
         return artifact, self._receipt(artifact, report)
 
-    def _facts(self):
+    def _facts(self, cache_only=False):
         selection, selection_approval = self._selection()
         inputs = {**self.base_inputs(), "selection": digest(selection), "selection_approval": digest(selection_approval)}
         artifact = self.load("facts", inputs)
-        report = self._facts_report(artifact, selection)
+        report = self._facts_report(artifact, selection, cache_only=cache_only)
         receipt = self._receipt(artifact, report)
         approved = {c.claim_id: c for c in artifact.data.claims if c.claim_id in receipt.approved_claim_ids}
         return artifact, receipt, approved
 
-    def approved_script(self):
+    def approved_script(self, cache_only=False):
         """Validate current approved content without rewriting any review artifacts."""
-        facts, approval, approved = self._facts()
+        facts, approval, approved = self._facts(cache_only=cache_only)
         artifact = self.load("script", {**self.base_inputs(), "facts": digest(facts), "facts_approval": digest(approval)})
-        report = self._script_report(artifact, approved)
+        report = self._script_report(artifact, approved, cache_only=cache_only)
         return artifact, self._receipt(artifact, report)
 
     def select(self, force=False):
