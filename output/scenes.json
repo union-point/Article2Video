@@ -8,19 +8,18 @@
     "facts_approval": "4c220e7079db9de00da4b8645117662491c4365f21509bd852b3e2ea1de41ed1"
   },
   "run": {
-    "requested_model": "local-edit",
-    "resolved_model": "local-edit",
-    "prompt_version": "script.repair.v1",
-    "cache_key": "04b7aa789c57d883b0b54408718dd522f0608494eea91a16bb262b0e69936ff9",
+    "requested_model": "local-targeted-edit",
+    "resolved_model": "local-targeted-edit",
+    "prompt_version": "script.minimal-repair.v1",
+    "cache_key": "eefaf26cec5049b42f8aead9a1b0ef949b18eb73c6de37e07fa88d3e809e099d",
     "response_id": null,
     "usage": {}
   },
   "data": {
     "title": {
-      "text": "Searchbloom's AI SEO companies",
+      "text": "AI SEO companies and published evidence",
       "claim_ids": [
-        "claim_001",
-        "claim_072"
+        "claim_001"
       ],
       "company_names": []
     },
@@ -28,291 +27,507 @@
       {
         "scene_id": "scene_001",
         "title": {
-          "text": "AI SEO companies",
+          "text": "AI SEO and visibility",
           "claim_ids": [
-            "claim_001",
-            "claim_072"
+            "claim_004"
           ],
           "company_names": []
         },
         "claim_ids": [
-          "claim_001",
-          "claim_072"
+          "claim_004",
+          "claim_001"
         ],
         "narration": [
           {
-            "text": "According to Searchbloom, the best AI SEO companies in 2026 are Searchbloom, The SEO Works, Tinuiti, Graphite, and iPullRank.",
+            "text": "Searchbloom lists Searchbloom, The SEO Works, Tinuiti, Graphite, and iPullRank as the best AI SEO companies in 2026.",
             "claim_ids": [
-              "claim_001",
-              "claim_072"
+              "claim_001"
             ],
-            "company_names": []
+            "company_names": [
+              "Searchbloom",
+              "The SEO Works",
+              "Tinuiti",
+              "Graphite",
+              "iPullRank"
+            ]
           },
           {
-            "text": "Searchbloom ranks itself as the best overall AI SEO company in 2026 based on its published method and results.",
+            "text": "AI SEO mostly involves traditional SEO work, but now adds measuring AI visibility and citations from external pages.",
             "claim_ids": [
-              "claim_072"
+              "claim_004"
             ],
             "company_names": []
           }
         ],
         "on_screen": [
           {
-            "text": "AI SEO companies",
+            "text": "Searchbloom's AI SEO company list",
             "claim_ids": [
-              "claim_001",
-              "claim_072"
+              "claim_001"
+            ],
+            "company_names": [
+              "Searchbloom"
+            ]
+          },
+          {
+            "text": "Traditional SEO plus AI visibility measurement",
+            "claim_ids": [
+              "claim_004"
             ],
             "company_names": []
           }
         ],
-        "visual_direction": "Reveal the cited text in sequence."
+        "visual_direction": "Arrange company names as plain text cards beside the AI SEO explanation; reveal the AI visibility measurement item as the narration moves to that topic. Use only the cited on-screen items, without logos or endorsement symbols."
       },
       {
         "scene_id": "scene_002",
         "title": {
-          "text": "AI SEO criteria",
+          "text": "AI SEO evaluation criteria",
           "claim_ids": [
-            "claim_002",
-            "claim_004",
-            "claim_072"
+            "claim_002"
           ],
           "company_names": []
         },
         "claim_ids": [
-          "claim_002",
-          "claim_004",
-          "claim_072"
+          "claim_002"
         ],
         "narration": [
           {
-            "text": "According to Searchbloom, the top scoring criteria for AI SEO companies include measuring AI visibility, earning brand presence on other people's pages AI reads, technical and structured-data foundation, content and entity authority, and documented results.",
+            "text": "Searchbloom lists AI visibility, brand presence on external pages, technical and structured-data foundations, content and entity authority, and documented results as scoring criteria.",
             "claim_ids": [
-              "claim_002",
-              "claim_072"
+              "claim_002"
             ],
-            "company_names": []
-          },
-          {
-            "text": "According to Searchbloom, aI SEO includes mostly traditional SEO work, with the new aspect being measurement of AI visibility and external page citations.",
-            "claim_ids": [
-              "claim_004",
-              "claim_072"
-            ],
-            "company_names": []
+            "company_names": [
+              "Searchbloom"
+            ]
           }
         ],
         "on_screen": [
           {
-            "text": "AI SEO criteria",
+            "text": "AI visibility and external citations",
             "claim_ids": [
-              "claim_002",
-              "claim_004",
-              "claim_072"
+              "claim_002"
+            ],
+            "company_names": []
+          },
+          {
+            "text": "Technical foundation and content authority",
+            "claim_ids": [
+              "claim_002"
             ],
             "company_names": []
           }
         ],
-        "visual_direction": "Reveal the cited text in sequence."
+        "visual_direction": "Show a checklist of the cited AI visibility, external-page, technical, content, and results criteria; highlight each row as it is narrated, without assigning weights or scores."
       },
       {
         "scene_id": "scene_003",
         "title": {
-          "text": "AI visibility",
+          "text": "AI visibility and outside pages",
           "claim_ids": [
-            "claim_005",
-            "claim_006",
-            "claim_072"
+            "claim_006"
           ],
           "company_names": []
         },
         "claim_ids": [
-          "claim_005",
           "claim_006",
-          "claim_072"
+          "claim_005"
         ],
         "narration": [
           {
-            "text": "According to Searchbloom, searchbloom measured 68,631 AI answers in its category where its own website was cited 8.9% of the time, highlighting that most AI citations come from external pages.",
+            "text": "Searchbloom reports measuring 68,631 AI answers in its category, with its own website cited 8.9% of the time.",
             "claim_ids": [
-              "claim_005",
-              "claim_072"
+              "claim_005"
             ],
-            "company_names": []
+            "company_names": [
+              "Searchbloom"
+            ]
           },
           {
-            "text": "According to Searchbloom, the best AI SEO company manages SEO work, measures AI visibility daily, and provides a list of outside pages worth earning, leaving PR, social, sponsorships, and partner listings to the client's own team.",
+            "text": "Searchbloom says the best AI SEO company manages SEO work, measures AI visibility daily, and identifies outside pages worth earning.",
             "claim_ids": [
-              "claim_006",
-              "claim_072"
+              "claim_006"
+            ],
+            "company_names": [
+              "Searchbloom"
+            ]
+          },
+          {
+            "text": "PR, social, sponsorships, and partner listings remain with the client's own team.",
+            "claim_ids": [
+              "claim_006"
             ],
             "company_names": []
           }
         ],
         "on_screen": [
           {
-            "text": "AI visibility",
+            "text": "AI answers tracked: 68,631",
             "claim_ids": [
-              "claim_005",
-              "claim_006",
-              "claim_072"
+              "claim_005"
+            ],
+            "company_names": [
+              "Searchbloom"
+            ]
+          },
+          {
+            "text": "Searchbloom's website: 8.9% of AI answers",
+            "claim_ids": [
+              "claim_005"
+            ],
+            "company_names": [
+              "Searchbloom"
+            ]
+          },
+          {
+            "text": "SEO work, daily measurement, outside page guidance",
+            "claim_ids": [
+              "claim_006"
             ],
             "company_names": []
           }
         ],
-        "visual_direction": "Reveal the cited text in sequence."
+        "visual_direction": "Arrange the cited AI answer count and website citation percentage as static tiles; connect them to a conceptual SEO-work and outside-page layout, with a separate client-team area. Use no fabricated dashboard readings or trend lines."
       },
       {
         "scene_id": "scene_004",
         "title": {
-          "text": "According to Searchbloom, Searchbloom ranked first.",
+          "text": "Searchbloom's reported search leads",
           "claim_ids": [
-            "claim_010",
-            "claim_011",
-            "claim_072"
+            "claim_007"
           ],
-          "company_names": []
+          "company_names": [
+            "Searchbloom"
+          ]
         },
         "claim_ids": [
-          "claim_010",
-          "claim_011",
-          "claim_072"
+          "claim_007",
+          "claim_072",
+          "claim_010"
         ],
         "narration": [
           {
-            "text": "According to Searchbloom, searchbloom ranked first with a score of 48 out of 50, noted for AI search tied to leads and revenue, using a published methodology, and SEO starting at $3,000 a month.",
+            "text": "Searchbloom ranks itself as the best overall AI SEO company in 2026 based on published methods and results.",
             "claim_ids": [
-              "claim_010",
               "claim_072"
+            ],
+            "company_names": [
+              "Searchbloom"
+            ]
+          },
+          {
+            "text": "Searchbloom reports a custom closet company's search leads rose 122% in a year.",
+            "claim_ids": [
+              "claim_007"
+            ],
+            "company_names": [
+              "Searchbloom"
+            ]
+          },
+          {
+            "text": "That company's CRM recorded 20 of its 51 September 2026 leads as coming from AI search.",
+            "claim_ids": [
+              "claim_007"
             ],
             "company_names": []
           },
           {
-            "text": "According to Searchbloom, the SEO Works ranked second with 44 out of 50, best for specialist SEO and AI SEO partnership with published price tiers, starting from GBP 1,500 a month.",
+            "text": "In Searchbloom's ranking, the company scored 48 out of 50 for AI search tied to leads and revenue.",
             "claim_ids": [
-              "claim_011",
-              "claim_072"
+              "claim_010"
             ],
-            "company_names": []
+            "company_names": [
+              "Searchbloom"
+            ]
           }
         ],
         "on_screen": [
           {
-            "text": "According to Searchbloom, Searchbloom ranked first.",
+            "text": "Searchbloom ranks itself best overall",
             "claim_ids": [
-              "claim_010",
-              "claim_011",
               "claim_072"
             ],
-            "company_names": []
+            "company_names": [
+              "Searchbloom"
+            ]
+          },
+          {
+            "text": "Searchbloom reports 122% search-lead growth in 1 year",
+            "claim_ids": [
+              "claim_007"
+            ],
+            "company_names": [
+              "Searchbloom"
+            ]
+          },
+          {
+            "text": "Searchbloom's score: 48 out of 50",
+            "claim_ids": [
+              "claim_010"
+            ],
+            "company_names": [
+              "Searchbloom"
+            ]
+          },
+          {
+            "text": "20 of 51 leads attributed to AI search",
+            "claim_ids": [
+              "claim_007"
+            ],
+            "company_names": [
+              "Searchbloom"
+            ]
           }
         ],
-        "visual_direction": "Reveal the cited text in sequence."
+        "visual_direction": "Display the self-ranking disclosure above static search-lead and score tiles; reveal the cited client result alongside the CRM lead counts as they are narrated. Keep publisher attribution visible, with no award badge, logo, or invented time series."
       },
       {
         "scene_id": "scene_005",
         "title": {
-          "text": "According to Searchbloom, Tinuiti ranked third.",
+          "text": "The SEO Works and Tinuiti",
           "claim_ids": [
-            "claim_012",
-            "claim_013",
-            "claim_014",
-            "claim_072"
+            "claim_011",
+            "claim_012"
           ],
-          "company_names": []
+          "company_names": [
+            "The SEO Works",
+            "Tinuiti"
+          ]
         },
         "claim_ids": [
-          "claim_012",
-          "claim_013",
-          "claim_014",
-          "claim_072"
+          "claim_011",
+          "claim_012"
         ],
         "narration": [
           {
-            "text": "According to Searchbloom, tinuiti ranked third with 44 out of 50, best for AI search inside a full-funnel media engagement; fees are not published.",
+            "text": "In Searchbloom's ranking, The SEO Works placed second with 44 out of 50 for specialist SEO and AI SEO partnerships, starting at GBP 1,500 a month.",
             "claim_ids": [
-              "claim_012",
-              "claim_072"
+              "claim_011"
             ],
-            "company_names": []
+            "company_names": [
+              "Searchbloom",
+              "The SEO Works"
+            ]
           },
           {
-            "text": "According to Searchbloom, graphite ranked fourth with 42 out of 50, best for AEO and SEO grounded in original research; fees and minimums not published; SEO engagements have a 12-month minimum term.",
+            "text": "Searchbloom ranks Tinuiti third with 44 out of 50 for AI search within full-funnel media engagements; fees are not published.",
             "claim_ids": [
-              "claim_013",
-              "claim_072"
+              "claim_012"
             ],
-            "company_names": []
-          },
-          {
-            "text": "According to Searchbloom, iPullRank ranked fifth with 41 out of 50, best for relevance engineering and technical work for AI search; fees, minimums, and terms are not published.",
-            "claim_ids": [
-              "claim_014",
-              "claim_072"
-            ],
-            "company_names": []
+            "company_names": [
+              "Searchbloom",
+              "Tinuiti"
+            ]
           }
         ],
         "on_screen": [
           {
-            "text": "According to Searchbloom, Tinuiti ranked third.",
+            "text": "The SEO Works: from GBP 1,500 monthly",
             "claim_ids": [
-              "claim_012",
-              "claim_013",
-              "claim_014",
-              "claim_072"
+              "claim_011"
             ],
-            "company_names": []
+            "company_names": [
+              "The SEO Works"
+            ]
+          },
+          {
+            "text": "Searchbloom's ranking: Tinuiti third, 44/50",
+            "claim_ids": [
+              "claim_012"
+            ],
+            "company_names": [
+              "Searchbloom",
+              "Tinuiti"
+            ]
+          },
+          {
+            "text": "Tinuiti: AI search within full-funnel media",
+            "claim_ids": [
+              "claim_012"
+            ],
+            "company_names": [
+              "Tinuiti"
+            ]
           }
         ],
-        "visual_direction": "Reveal the cited text in sequence."
+        "visual_direction": "Split the layout into The SEO Works and Tinuiti columns; reveal the cited price and specialty items alongside their narration, preserving GBP and the unpublished-fee status. Use text and simple layout shapes, not assumed company assets."
       },
       {
         "scene_id": "scene_006",
         "title": {
-          "text": "According to Searchbloom, only three companies publish prices.",
+          "text": "Graphite and iPullRank strengths and terms",
           "claim_ids": [
-            "claim_003",
-            "claim_008a",
-            "claim_072"
+            "claim_013",
+            "claim_014"
           ],
-          "company_names": []
+          "company_names": [
+            "Graphite",
+            "iPullRank"
+          ]
         },
         "claim_ids": [
-          "claim_003",
-          "claim_008a",
-          "claim_072"
+          "claim_013",
+          "claim_014"
         ],
         "narration": [
           {
-            "text": "According to Searchbloom, only three companies publish prices: Searchbloom starts SEO at $3,000 a month with no lengthy contracts, The SEO Works from GBP 1,500 a month, and Siege Media from $8,000 a month.",
+            "text": "Searchbloom ranks Graphite fourth with 42 out of 50 for AEO and SEO grounded in original research, with unpublished fees and a 12-month minimum SEO term.",
             "claim_ids": [
-              "claim_003",
-              "claim_072"
+              "claim_013"
             ],
-            "company_names": []
+            "company_names": [
+              "Searchbloom",
+              "Graphite"
+            ]
           },
           {
-            "text": "According to Searchbloom, eight of the nine companies publish a dated AI search result and all nine say how they track AI visibility.",
+            "text": "Searchbloom ranks iPullRank fifth with 41 out of 50 for relevance engineering and technical AI search work; fees, minimums, and terms are not published.",
             "claim_ids": [
-              "claim_008a",
-              "claim_072"
+              "claim_014"
+            ],
+            "company_names": [
+              "Searchbloom",
+              "iPullRank"
+            ]
+          }
+        ],
+        "on_screen": [
+          {
+            "text": "Graphite: AEO/SEO grounded in original research",
+            "claim_ids": [
+              "claim_013"
+            ],
+            "company_names": [
+              "Graphite"
+            ]
+          },
+          {
+            "text": "iPullRank: relevance engineering and technical AI search",
+            "claim_ids": [
+              "claim_014"
+            ],
+            "company_names": [
+              "iPullRank"
+            ]
+          }
+        ],
+        "visual_direction": "Arrange Graphite and iPullRank in parallel text columns; highlight the cited research and technical-work items, then their narrated contract and disclosure terms. Use no logos or award symbols."
+      },
+      {
+        "scene_id": "scene_007",
+        "title": {
+          "text": "Pricing transparency and industry cautions",
+          "claim_ids": [
+            "claim_003",
+            "claim_069",
+            "claim_070",
+            "claim_008a"
+          ],
+          "company_names": [
+            "Searchbloom",
+            "The SEO Works",
+            "Siege Media",
+            "Google"
+          ]
+        },
+        "claim_ids": [
+          "claim_003",
+          "claim_069",
+          "claim_070",
+          "claim_008a"
+        ],
+        "narration": [
+          {
+            "text": "Only three companies publish a price: Searchbloom starts SEO at $3,000 a month with no lengthy contracts, The SEO Works starts at GBP 1,500 a month, and Siege Media’s minimum is $8,000 a month.",
+            "claim_ids": [
+              "claim_003"
+            ],
+            "company_names": [
+              "Searchbloom",
+              "The SEO Works",
+              "Siege Media"
+            ]
+          },
+          {
+            "text": "Searchbloom says AI SEO priced at a few hundred dollars a month likely produces automated content flagged by Google's spam policies.",
+            "claim_ids": [
+              "claim_069"
+            ],
+            "company_names": [
+              "Searchbloom",
+              "Google"
+            ]
+          },
+          {
+            "text": "The SEO Works and Siege Media publish all key transparency items, while Searchbloom publishes all but minimums beyond starting fees.",
+            "claim_ids": [
+              "claim_070"
+            ],
+            "company_names": [
+              "Searchbloom",
+              "The SEO Works",
+              "Siege Media"
+            ]
+          },
+          {
+            "text": "Eight of the nine companies publish dated AI search results, and all nine say how they track AI visibility.",
+            "claim_ids": [
+              "claim_008a"
             ],
             "company_names": []
           }
         ],
         "on_screen": [
           {
-            "text": "According to Searchbloom, only three companies publish prices.",
+            "text": "Searchbloom: SEO from $3,000 a month",
             "claim_ids": [
-              "claim_003",
-              "claim_008a",
-              "claim_072"
+              "claim_003"
+            ],
+            "company_names": [
+              "Searchbloom"
+            ]
+          },
+          {
+            "text": "The SEO Works: from GBP 1,500 monthly",
+            "claim_ids": [
+              "claim_003"
+            ],
+            "company_names": [
+              "The SEO Works"
+            ]
+          },
+          {
+            "text": "Siege Media: $8,000/mo minimum",
+            "claim_ids": [
+              "claim_003"
+            ],
+            "company_names": [
+              "Siege Media"
+            ]
+          },
+          {
+            "text": "AI SEO pricing and automated content",
+            "claim_ids": [
+              "claim_069"
+            ],
+            "company_names": []
+          },
+          {
+            "text": "Disclosure varies by company",
+            "claim_ids": [
+              "claim_070"
+            ],
+            "company_names": []
+          },
+          {
+            "text": "Fee, minimum, term, results, tracking, audit",
+            "claim_ids": [
+              "claim_070"
             ],
             "company_names": []
           }
         ],
-        "visual_direction": "Reveal the cited text in sequence."
+        "visual_direction": "Display each cited company price in its own row with its original currency and monthly basis; do not position currencies on a shared numerical axis. Then highlight the transparency checklist and close on the narrated AI-visibility disclosures, without a price range or a warning label against any named company."
       }
     ]
   }
