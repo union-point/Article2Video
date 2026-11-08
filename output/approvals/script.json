@@ -1,0 +1,11 @@
+{
+  "mode": "automatic",
+  "stage": "script",
+  "artifact_sha256": "275e080bab8402cd0dbd2b4b3f17f166fb581f47d9c3d8df6c0828c557a64e65",
+  "review_sha256": "26707d17973f77088aa346382080223b87241efd411b0a386016665db34c73ab",
+  "reviewer": "article_video:auto-approve",
+  "reviewed_at": "2026-11-08T15:56:51.630341+00:00",
+  "note": "Opt-in automatic approval: no structural errors, no review flags, and all required semantic checks supported.",
+  "accepted_review_items": [],
+  "approved_claim_ids": []
+}

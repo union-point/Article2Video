@@ -1,0 +1,528 @@
+{
+  "stage": "script",
+  "artifact_sha256": "275e080bab8402cd0dbd2b4b3f17f166fb581f47d9c3d8df6c0828c557a64e65",
+  "errors": [],
+  "flags": [],
+  "checks": [
+    {
+      "target": "title",
+      "text_sha256": "ff55205132b08509bf70db2071494139024dd1bd766debbcb4a4c9e467a96504",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence shows that Searchbloom lists itself among the best AI SEO companies and ranks itself as the best overall in 2026 using its published method and results."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "dd98c75b475b8030ba18e0bdf09d90d631c728b5e02cc6c5cb9fa220319252c1",
+        "response_id": "resp_09aace23141ddb5e016af09b85c30887d28ec90dc9d9c32444",
+        "usage": {
+          "input_tokens": 1055,
+          "output_tokens": 45,
+          "total_tokens": 1100
+        }
+      }
+    },
+    {
+      "target": "scene_001.title",
+      "text_sha256": "5a7f10b15d94d51b6fe2b49f3ead673e1dc17aae077f93c6a26f0e67a6726f99",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence lists the best AI SEO companies for 2026 (Searchbloom, The SEO Works, Tinuiti, Graphite, iPullRank), and shows Searchbloom ranking itself as the best based on its published method and results, matching the approved claims."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "fd57342741b6f1d2a6476db7276a8e11f68c08adf10e84a2c089864126df1bff",
+        "response_id": "resp_058aaf25221f5923016af09b86f5dc87d29cabb1e2b0c865b8",
+        "usage": {
+          "input_tokens": 1051,
+          "output_tokens": 67,
+          "total_tokens": 1118
+        }
+      }
+    },
+    {
+      "target": "scene_001.narration.1",
+      "text_sha256": "9801c8dfcf4a02cac7c8286529862296bc0b4239c9a36aa874a33368e8bcf600",
+      "verdict": {
+        "status": "supported",
+        "reason": "The statement accurately reports Searchbloom's own ranking of the best AI SEO companies in 2026, as listed in block_0002.s1."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "dcdacc4c61fcb461c489e12bb648dedab5f6b70f91796ebf62f81f63fc9ef983",
+        "response_id": "resp_01dcf8159b9a0b04016af09b87f2fc87d2880154600ae8df19",
+        "usage": {
+          "input_tokens": 1083,
+          "output_tokens": 43,
+          "total_tokens": 1126
+        }
+      }
+    },
+    {
+      "target": "scene_001.narration.2",
+      "text_sha256": "ae6e74c8df4c3ac53f6ca2c1bf46d81d9cda82d5705466ad40fc124c8c5f2c15",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence clearly states that Searchbloom ranks itself as the best overall AI SEO company in 2026 based on its published method and results, directly supporting the candidate."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "1d168d5693610018d2f0ab6041635f55a9fb2ca178e5f753514994a9fb05b647",
+        "response_id": "resp_0c19a8ac8ccdef60016af09b88ebc887d28b94408e2e4d16c7",
+        "usage": {
+          "input_tokens": 878,
+          "output_tokens": 46,
+          "total_tokens": 924
+        }
+      }
+    },
+    {
+      "target": "scene_001.on_screen.1",
+      "text_sha256": "5a7f10b15d94d51b6fe2b49f3ead673e1dc17aae077f93c6a26f0e67a6726f99",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence lists the best AI SEO companies for 2026 (Searchbloom, The SEO Works, Tinuiti, Graphite, iPullRank), and shows Searchbloom ranking itself as the best based on its published method and results, matching the approved claims."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "fd57342741b6f1d2a6476db7276a8e11f68c08adf10e84a2c089864126df1bff",
+        "response_id": "resp_058aaf25221f5923016af09b86f5dc87d29cabb1e2b0c865b8",
+        "usage": {
+          "input_tokens": 1051,
+          "output_tokens": 67,
+          "total_tokens": 1118
+        }
+      }
+    },
+    {
+      "target": "scene_002.title",
+      "text_sha256": "fb819e4a03ec39d98f46c822a3e8d03768936ceba3140ea2474184282584f2cd",
+      "verdict": {
+        "status": "supported",
+        "reason": "All claims are directly supported by the cited evidence: the top AI SEO scoring criteria, the predominance of traditional SEO with new AI visibility measurement, and Searchbloom's self-ranking as best based on its results and method."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "d50bf069df6246c30a3f5e6575e386f77e2a70acbef38f5e9f8dbb991d9df255",
+        "response_id": "resp_01f4251d2b5fb5cc016af09b89ae3087d2aa958d0e988e5498",
+        "usage": {
+          "input_tokens": 1273,
+          "output_tokens": 57,
+          "total_tokens": 1330
+        }
+      }
+    },
+    {
+      "target": "scene_002.narration.1",
+      "text_sha256": "dc5125a697c99c6c9c60d5195034c1323e6a6477d2a83d02f8a6c6519b662c54",
+      "verdict": {
+        "status": "supported",
+        "reason": "The candidate accurately reflects the evidence, which states that the top scoring criteria for AI SEO companies include measuring AI visibility, earning brand presence on other people's pages AI reads, technical and structured-data foundation, content and entity authority, and documented results."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "f90acc8e0def1902f9f193e4b033818fce67b8b303e010c495b288fdc50e40cd",
+        "response_id": "resp_0224bad68e3d000a016af09b8a90e887d29f066cb3231043e2",
+        "usage": {
+          "input_tokens": 1071,
+          "output_tokens": 60,
+          "total_tokens": 1131
+        }
+      }
+    },
+    {
+      "target": "scene_002.narration.2",
+      "text_sha256": "4236720f9b4c1dff306c088a39571fe4e73a6f3aae61081ad40ac852468c88e7",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence from block_0003.s1 and block_0003.s2 directly states that AI SEO is mostly traditional SEO, with the new aspect being measurement of AI visibility and external citations, as claimed."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "34ffcc7635e04cf1f265d61d6341c17c11ffbcf5d6de7a5588c7b8c7f8230879",
+        "response_id": "resp_05162b3b3038cda7016af09b8b569487d2bbc6cb516d05bc41",
+        "usage": {
+          "input_tokens": 1125,
+          "output_tokens": 54,
+          "total_tokens": 1179
+        }
+      }
+    },
+    {
+      "target": "scene_002.on_screen.1",
+      "text_sha256": "fb819e4a03ec39d98f46c822a3e8d03768936ceba3140ea2474184282584f2cd",
+      "verdict": {
+        "status": "supported",
+        "reason": "All claims are directly supported by the cited evidence: the top AI SEO scoring criteria, the predominance of traditional SEO with new AI visibility measurement, and Searchbloom's self-ranking as best based on its results and method."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "d50bf069df6246c30a3f5e6575e386f77e2a70acbef38f5e9f8dbb991d9df255",
+        "response_id": "resp_01f4251d2b5fb5cc016af09b89ae3087d2aa958d0e988e5498",
+        "usage": {
+          "input_tokens": 1273,
+          "output_tokens": 57,
+          "total_tokens": 1330
+        }
+      }
+    },
+    {
+      "target": "scene_003.title",
+      "text_sha256": "fcff7ac4310c113fff6e3eece22a42c5cfe1881de2766532bad0d2e8723fff0b",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence substantiates all claims: Searchbloom tracked AI citations (8.9% self-citation, block_0003.s2), describes daily AI visibility measurement and providing lists of pages (block_0003.s3), and ranks itself as the top AI SEO company using its published method and outcomes (block_0007.r2c2, block_0004.s2, block_0028.f1.s1)."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "4ccda872e7803632751e3770fc3d0f86505d83ccf59efff1087f074e7c19347a",
+        "response_id": "resp_09ae69a45216a2a5016af09b8c2e2087d294542e9791ce8df0",
+        "usage": {
+          "input_tokens": 1295,
+          "output_tokens": 100,
+          "total_tokens": 1395
+        }
+      }
+    },
+    {
+      "target": "scene_003.narration.1",
+      "text_sha256": "48357e71cd4c8dcdf3204cd1e6851c63380d7042fd5201f06454a7a0698a677e",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence states that Searchbloom tracked 68,631 AI answers in its category, and its own website was cited 8.9% of the time, supporting the candidate's statement."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "65c8f596142d38560642b918e528743e8938543503f709a79c7302e984a049ca",
+        "response_id": "resp_05da6487fee12033016af09b8d2eb487d298c862b9a49efb64",
+        "usage": {
+          "input_tokens": 1092,
+          "output_tokens": 51,
+          "total_tokens": 1143
+        }
+      }
+    },
+    {
+      "target": "scene_003.narration.2",
+      "text_sha256": "eefd576fcbe4e518cfc41a9b7baaef5b64acca1ad0a9063f0bbaeb496d36be01",
+      "verdict": {
+        "status": "supported",
+        "reason": "The candidate accurately reflects Searchbloom's statements that the best AI SEO company manages SEO, measures AI visibility daily, provides a list of outside pages worth earning, and leaves PR, social, sponsorships, and partnerships to the client team as shown in block_0003.s3 and block_0003.s4."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "4b62264f58599678b8ff070176f84f9e9d1738e12b7c307592861771c15e3a8b",
+        "response_id": "resp_0d4ee3170b17b57c016af09b8e7ac087d284c5803c0ae20bbc",
+        "usage": {
+          "input_tokens": 1145,
+          "output_tokens": 76,
+          "total_tokens": 1221
+        }
+      }
+    },
+    {
+      "target": "scene_003.on_screen.1",
+      "text_sha256": "fcff7ac4310c113fff6e3eece22a42c5cfe1881de2766532bad0d2e8723fff0b",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence substantiates all claims: Searchbloom tracked AI citations (8.9% self-citation, block_0003.s2), describes daily AI visibility measurement and providing lists of pages (block_0003.s3), and ranks itself as the top AI SEO company using its published method and outcomes (block_0007.r2c2, block_0004.s2, block_0028.f1.s1)."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "4ccda872e7803632751e3770fc3d0f86505d83ccf59efff1087f074e7c19347a",
+        "response_id": "resp_09ae69a45216a2a5016af09b8c2e2087d294542e9791ce8df0",
+        "usage": {
+          "input_tokens": 1295,
+          "output_tokens": 100,
+          "total_tokens": 1395
+        }
+      }
+    },
+    {
+      "target": "scene_004.title",
+      "text_sha256": "5d231a8d47095dd3c7a1ba25bbe3d9d4b44a1eb624da4bd3827eaa78b28fd1c1",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence from the AI SEO Company Comparison table explicitly shows Searchbloom ranked first, supporting the claim as stated."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "673b9ea88375df412ed5d40691662cbbb74275db42c638e3d1741e2198f8c6e8",
+        "response_id": "resp_0db4e29b6daffde0016af09bc1035087d2b5acfae863657bbb",
+        "usage": {
+          "input_tokens": 3171,
+          "output_tokens": 35,
+          "total_tokens": 3206
+        }
+      }
+    },
+    {
+      "target": "scene_004.narration.1",
+      "text_sha256": "dc21738abfc322ac8d78066e94bd8862139c8a9c8e2c6ee35c69e772ae19e4b4",
+      "verdict": {
+        "status": "supported",
+        "reason": "The table evidence shows Searchbloom ranked first with a score of 48 out of 50, noted for AI search tied to leads and revenue, a published methodology, and SEO starting at $3,000 a month."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "8549e8b2ed4cb770b5ac775779ba602789a654b446ea389a232c0e9df646fe69",
+        "response_id": "resp_085e524df59d306f016af09b90467087d28a2b451d38e47b50",
+        "usage": {
+          "input_tokens": 1962,
+          "output_tokens": 57,
+          "total_tokens": 2019
+        }
+      }
+    },
+    {
+      "target": "scene_004.narration.2",
+      "text_sha256": "06a03e5b33cd1fb417e2431f433ca771e027cf6f2bfba273f0e8ca64dac1be34",
+      "verdict": {
+        "status": "supported",
+        "reason": "All details in the candidate about The SEO Works' ranking, score, specialty, and price are directly supported by the cited table evidence."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "35a3ad742301b0be2269115d76bc4412dcd82e1cb80ec882a4577ea0008b0ab0",
+        "response_id": "resp_07a7190f417132be016af09b912a6087d2bc823da480244757",
+        "usage": {
+          "input_tokens": 2141,
+          "output_tokens": 39,
+          "total_tokens": 2180
+        }
+      }
+    },
+    {
+      "target": "scene_004.on_screen.1",
+      "text_sha256": "5d231a8d47095dd3c7a1ba25bbe3d9d4b44a1eb624da4bd3827eaa78b28fd1c1",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence from the AI SEO Company Comparison table explicitly shows Searchbloom ranked first, supporting the claim as stated."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "673b9ea88375df412ed5d40691662cbbb74275db42c638e3d1741e2198f8c6e8",
+        "response_id": "resp_0db4e29b6daffde0016af09bc1035087d2b5acfae863657bbb",
+        "usage": {
+          "input_tokens": 3171,
+          "output_tokens": 35,
+          "total_tokens": 3206
+        }
+      }
+    },
+    {
+      "target": "scene_005.title",
+      "text_sha256": "2e4560d3f52d13d92b3d4de24538fcb413c9fbecc9d584ddfb4e1dc282e6868c",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence from the 'AI SEO Company Comparison' table clearly shows Tinuiti ranked third according to Searchbloom."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "7028f285efa22bf2dc4fd4dde4ab54da9c0bdb000764bdcea9233d37209b0537",
+        "response_id": "resp_0439b25c38c5e52b016af09bc1f13487d2b0ceea511d03b225",
+        "usage": {
+          "input_tokens": 4392,
+          "output_tokens": 36,
+          "total_tokens": 4428
+        }
+      }
+    },
+    {
+      "target": "scene_005.narration.1",
+      "text_sha256": "9cca9e62ced447438b048b9ee620fb15a398a3408a09bb9046a5a2a3e41bd1d9",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence table shows Tinuiti ranked third with a score of 44/50, is noted as best for AI search inside a full-funnel media engagement, and 'Fee' is 'Not published,' all matching the candidate text."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "5ab1358f8f558b40596e1ef02c3d32d77376fd9c56d3f3ffedf8a6e7813967f6",
+        "response_id": "resp_021f47c701131610016af09b9317d887d2bf2d92d4ce19a8aa",
+        "usage": {
+          "input_tokens": 2081,
+          "output_tokens": 60,
+          "total_tokens": 2141
+        }
+      }
+    },
+    {
+      "target": "scene_005.narration.2",
+      "text_sha256": "69b20591614e145bcfff8fc7cf94de8aef861d9fc4c9df3f1d3a48f61c56f018",
+      "verdict": {
+        "status": "supported",
+        "reason": "All details in the candidate are supported: rank (4), score (42/50), 'best for' original research-based AEO/SEO, unpublished fees/minimum, and 12-month SEO minimum are present in the cited evidence."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "493e16e8921d99af04f01493fb37818920bd21eaeccd0084846fba4df33e311e",
+        "response_id": "resp_0bd45229d2dd3ce6016af09b93f01887d2b87fd6afc6f4f459",
+        "usage": {
+          "input_tokens": 2067,
+          "output_tokens": 60,
+          "total_tokens": 2127
+        }
+      }
+    },
+    {
+      "target": "scene_005.narration.3",
+      "text_sha256": "d05acdf677d4b9c9b1e495718ac2c077d0faf493c8d2859bc4a9f684261e48b6",
+      "verdict": {
+        "status": "supported",
+        "reason": "All elements of the candidate are directly corroborated by the provided table rows and sections, confirming iPullRank ranked fifth with a score of 41, is best for relevance engineering and technical work for AI search, and its fees, minimums, and terms are not published."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "86fa197ab6039bd5fe301432d7a6214de5ca7b4a6db82813b60882e2b3111fb5",
+        "response_id": "resp_0002637576ee90ac016af09b94c29487d2b9403f085425ab5b",
+        "usage": {
+          "input_tokens": 2062,
+          "output_tokens": 67,
+          "total_tokens": 2129
+        }
+      }
+    },
+    {
+      "target": "scene_005.on_screen.1",
+      "text_sha256": "2e4560d3f52d13d92b3d4de24538fcb413c9fbecc9d584ddfb4e1dc282e6868c",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence from the 'AI SEO Company Comparison' table clearly shows Tinuiti ranked third according to Searchbloom."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "7028f285efa22bf2dc4fd4dde4ab54da9c0bdb000764bdcea9233d37209b0537",
+        "response_id": "resp_0439b25c38c5e52b016af09bc1f13487d2b0ceea511d03b225",
+        "usage": {
+          "input_tokens": 4392,
+          "output_tokens": 36,
+          "total_tokens": 4428
+        }
+      }
+    },
+    {
+      "target": "scene_006.title",
+      "text_sha256": "805d7fa29dae6a8cb987f8f0211fe14633837a6d506f49f9c480bc16cfc0c21a",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence from block_0002.s3 and block_0014.s3 directly states that only three companies publish prices, supporting the candidate's claim."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "e03960a3d1afc9e9c1b01a831c52b7dba8dcef35f4526bacb797cc829dcb6cc5",
+        "response_id": "resp_08e3d34008599b86016af09bc2dbf087d29e0b8ca747ce43ea",
+        "usage": {
+          "input_tokens": 1253,
+          "output_tokens": 43,
+          "total_tokens": 1296
+        }
+      }
+    },
+    {
+      "target": "scene_006.narration.1",
+      "text_sha256": "4f2a155d880d527dbd6e69a80ef27347aef89737c87e380ed0814f703f2d4878",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence states that only three companies publish prices—Searchbloom, The SEO Works, and Siege Media—with the same details and starting prices as in the candidate."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "c6563572c7c29b430a4e14693b35a8d0379c54980ec805a72e42a129158b36ec",
+        "response_id": "resp_0beef439536c8a6c016af09b9684f887d28718d3b2e2f0e203",
+        "usage": {
+          "input_tokens": 1111,
+          "output_tokens": 45,
+          "total_tokens": 1156
+        }
+      }
+    },
+    {
+      "target": "scene_006.narration.2",
+      "text_sha256": "67441424e4d55cd127b06dea8487472c52efb836c0d40f1b1830ce91378be323",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence from block_0014.s3 explicitly states that 8 of 9 companies publish a dated AI search result and all 9 say how they track AI visibility, directly supporting the candidate's text and approved claim."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "d1b8e3db120514a76fb01b14d3e882bc5364df5f85190cf85d819c8acd4af6c8",
+        "response_id": "resp_094cd0f1bbc2ccbd016af09b977cec87d2bdbdb75bfa3653ad",
+        "usage": {
+          "input_tokens": 1063,
+          "output_tokens": 57,
+          "total_tokens": 1120
+        }
+      }
+    },
+    {
+      "target": "scene_006.on_screen.1",
+      "text_sha256": "805d7fa29dae6a8cb987f8f0211fe14633837a6d506f49f9c480bc16cfc0c21a",
+      "verdict": {
+        "status": "supported",
+        "reason": "The evidence from block_0002.s3 and block_0014.s3 directly states that only three companies publish prices, supporting the candidate's claim."
+      },
+      "run": {
+        "requested_model": "gpt-4.1-2025-04-14",
+        "resolved_model": "gpt-4.1-2025-04-14",
+        "prompt_version": "verify.v1",
+        "cache_key": "e03960a3d1afc9e9c1b01a831c52b7dba8dcef35f4526bacb797cc829dcb6cc5",
+        "response_id": "resp_08e3d34008599b86016af09bc2dbf087d29e0b8ca747ce43ea",
+        "usage": {
+          "input_tokens": 1253,
+          "output_tokens": 43,
+          "total_tokens": 1296
+        }
+      }
+    }
+  ]
+}
