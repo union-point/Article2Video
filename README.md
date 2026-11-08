@@ -38,10 +38,19 @@ requires no credentials or environment variables.
 ## Selection, facts, and script (Stages 2–4)
 
 Configure the publisher, company aliases, exact generation/verifier model IDs,
-and word limits in `pipeline_config.json`. The baseline uses
-`gpt-4.1-mini-2025-04-14` for generation and `gpt-4.1-2025-04-14` for the independent
-verifier. Use models available to your API account that support structured outputs.
+and word limits in `pipeline_config.json`. Selection, fact extraction, script
+generation, and targeted fact repairs use `gpt-6.1-sol`; independent semantic
+verification uses `gpt-6.1-terra`. These are the user-selected model IDs; account
+availability and structured-output compatibility have not been tested with live
+requests. Each result records the requested and returned model IDs.
 For a different publisher, change `publisher` and review the aliases.
+
+Historical artifacts, approvals, cached responses, usage records, and archived
+configurations retain their original model provenance, including GPT-4.1 runs.
+Changing the active model configuration changes input hashes and cache keys;
+existing artifacts become stale under that configuration and require explicit
+regeneration, review, and approval before a future pipeline run can use them.
+The configuration update itself does not regenerate artifacts or make API calls.
 
 Run from the repository root. Common options go **before** the command:
 
@@ -209,7 +218,8 @@ existing stage outputs. Writes are atomic per file; related output files are not
 one filesystem transaction.
 
 See `workflow.json` for stage commands and [decision_log.md](decision_log.md) for
-model snapshots, prompt versions, source caveats, and limits. The structured API
+model IDs and historical snapshots, prompt versions, source caveats, and limits.
+The structured API
 integration follows the [official OpenAI documentation](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=responses).
 
 ## Usage

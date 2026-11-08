@@ -108,6 +108,7 @@ def test_targeted_repairs_preserve_valid_claims_and_original_files(setup_pipelin
     original_generate = provider.generate
     def generate(**kwargs):
         if kwargs['schema'] is Claim:
+            assert kwargs['model'] == p.config.generation_model
             payload = kwargs['payload']
             assert payload['claim']['claim_id'] == 'claim_001'
             assert 'draft' not in payload
@@ -116,6 +117,8 @@ def test_targeted_repairs_preserve_valid_claims_and_original_files(setup_pipelin
             result.claim_id = 'claim_001'
             result.source_ids = ['block_0003.s1']
             return result, {'resolved_model':'test','response_id':'repair','usage':{'total_tokens':20}}
+        if kwargs['schema'] is Verdict:
+            assert kwargs['model'] == p.config.verifier_model
         return original_generate(**kwargs)
     provider.generate = generate
     repaired, report = repair_facts(p)

@@ -3,8 +3,8 @@
   "scope": "Implemented Stages 1–6; explicit approval checkpoints; voiceover and timing are separate commands",
   "config": "pipeline_config.json",
   "models": {
-    "generation": "gpt-4.1-mini-2025-04-14",
-    "verification": "gpt-4.1-2025-04-14"
+    "generation": "gpt-6.1-sol",
+    "verification": "gpt-6.1-terra"
   },
   "prompt_versions": {
     "selection": "selection.v2",

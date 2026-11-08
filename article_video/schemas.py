@@ -123,9 +123,9 @@ class Approval(Model):
 
 
 class PipelineConfig(Model):
-    # Explicit snapshots are a reproducible baseline, not a 'latest model' alias.
-    generation_model: str = Field(default="gpt-4.1-mini-2025-04-14", min_length=1)
-    verifier_model: str = Field(default="gpt-4.1-2025-04-14", min_length=1)
+    # Configurable model IDs; each run records the requested and resolved IDs.
+    generation_model: str = Field(default="gpt-6.1-sol", min_length=1)
+    verifier_model: str = Field(default="gpt-6.1-terra", min_length=1)
     publisher: str = Field(default="Searchbloom", min_length=1)
     company_aliases: dict[str, list[str]] = Field(default_factory=lambda: {
         "Searchbloom": ["Search Bloom"],

@@ -66,7 +66,7 @@ def repair_facts(pipeline, claim_ids=(), extra_source_ids=()):
                 raise ValueError('Repair cited evidence outside its supplied scope')
             validate_facts(Facts(claims=[candidate]), pipeline.index, selected)
         candidate, info = pipeline.runner.run(
-            'repair_facts', model=pipeline.config.verifier_model, version='targeted-repair.v1',
+            'repair_facts', model=pipeline.config.generation_model, version='targeted-repair.v1',
             prompt=REPAIR_PROMPT, payload=payload, schema=Claim, validate=validate, usage_stage="facts")
         repaired.data.claims[pos] = candidate
         # Per-claim provenance retains each independent model result.

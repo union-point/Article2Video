@@ -1,6 +1,6 @@
 {
-  "generation_model": "gpt-4.1-mini-2025-04-14",
-  "verifier_model": "gpt-4.1-2025-04-14",
+  "generation_model": "gpt-6.1-sol",
+  "verifier_model": "gpt-6.1-terra",
   "publisher": "Searchbloom",
   "company_aliases": {
     "Searchbloom": ["Search Bloom"],

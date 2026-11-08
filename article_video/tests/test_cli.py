@@ -44,5 +44,8 @@ def test_exported_model_and_prompt_config_matches_implementation():
     root = Path(__file__).resolve().parents[2]
     config = PipelineConfig.model_validate(read_json(root / "pipeline_config.json"))
     workflow = read_json(root / "workflow.json")
+    defaults = PipelineConfig()
+    assert config.generation_model == defaults.generation_model
+    assert config.verifier_model == defaults.verifier_model
     assert workflow["models"] == {"generation": config.generation_model, "verification": config.verifier_model}
     assert workflow["prompt_versions"] == prompts.VERSIONS

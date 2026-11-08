@@ -3,8 +3,18 @@
 - Input is the frozen, validated parser artifact. Evidence IDs, offsets, and
   reconstruction are checked again without claiming a new original-HTML coverage
   measurement. Retrieval time is excluded from its content hash.
-- Generation baseline: `gpt-4.1-mini-2025-04-14`. Independent verification baseline:
-  `gpt-4.1-2025-04-14`. Both are configurable snapshot IDs; availability depends on
+- On 2026-11-08, the user selected `gpt-6.1-sol` for selection, fact extraction,
+  script generation, and targeted fact repairs, and `gpt-6.1-terra` for independent
+  semantic verification. Defaults, active configuration, and workflow metadata
+  now use those IDs. Fact repairs use `generation_model` rather than
+  `verifier_model`; repaired claims still receive independent verification.
+  No live compatibility or availability check was performed, and no artifacts
+  were regenerated. Historical artifacts, approvals, caches, usage records, and
+  archived configurations retain their original provenance. The model changes
+  change cache keys and configuration hashes, so existing artifacts are stale
+  under the new configuration and need explicit regeneration and renewed review.
+- Historical generation baseline: `gpt-4.1-mini-2025-04-14`. Historical independent
+  verification baseline: `gpt-4.1-2025-04-14`. Both are snapshot IDs; availability depends on
   the API account. Every result records requested and returned model IDs, response
   ID, usage, prompt version, and cache key. Every semantic check has its own record.
 - Prompt versions: `selection.v2`, `facts.v1`, `script.v2`, `verify.v1`. Prompts live
