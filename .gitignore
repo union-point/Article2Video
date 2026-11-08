@@ -218,3 +218,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local planning and specification documents
+*[Pp][Ll][Aa][Nn]*.[Mm][Dd]
+*[Ss][Pp][Ee][Cc]*.[Mm][Dd]
+TASK.md
+
+# Browser Save Page assets are not needed by the offline parser
+/article_parser/tests/fixtures/*_files/
+
+# Ad hoc fetch cache; frozen source HTML lives in tests/fixtures
+/snapshots/
