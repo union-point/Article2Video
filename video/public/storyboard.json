@@ -1,0 +1,890 @@
+{
+  "schema_version": "1.0",
+  "stage": "storyboard",
+  "template_version": "storyboard.v2",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "duration_frames": 4074,
+  "scenes": [
+    {
+      "scene_id": "scene_001",
+      "component": "title",
+      "layout": "wide",
+      "animation": "calm",
+      "theme": "slate",
+      "composition": "dossier",
+      "reveal": "focus",
+      "primary_node": 1,
+      "visual_nodes": [
+        {
+          "element_id": "scene_001.node_0",
+          "role": "body",
+          "text": "Searchbloom",
+          "claim_ids": [
+            "claim_001"
+          ],
+          "source_ids": [
+            "block_0145.s2",
+            "block_0145.s3"
+          ],
+          "start_frame": 0,
+          "end_frame": 543
+        },
+        {
+          "element_id": "scene_001.node_1",
+          "role": "body",
+          "text": "ranks itself first",
+          "claim_ids": [
+            "claim_001"
+          ],
+          "source_ids": [
+            "block_0145.s2",
+            "block_0145.s3"
+          ],
+          "start_frame": 0,
+          "end_frame": 543
+        },
+        {
+          "element_id": "scene_001.node_2",
+          "role": "body",
+          "text": "companies' own reporting",
+          "claim_ids": [
+            "claim_002"
+          ],
+          "source_ids": [
+            "block_0024.s2"
+          ],
+          "start_frame": 285,
+          "end_frame": 543
+        }
+      ],
+      "start_frame": 0,
+      "duration_frames": 543,
+      "timing_method": "aligned",
+      "elements": [
+        {
+          "element_id": "scene_001.screen_0",
+          "role": "title",
+          "text": "Publisher context",
+          "claim_ids": [
+            "claim_001",
+            "claim_002"
+          ],
+          "source_ids": [
+            "block_0024.s2",
+            "block_0145.s2",
+            "block_0145.s3"
+          ],
+          "start_frame": 0,
+          "end_frame": 543
+        },
+        {
+          "element_id": "scene_001.screen_1",
+          "role": "body",
+          "text": "Searchbloom ranks itself first",
+          "claim_ids": [
+            "claim_001"
+          ],
+          "source_ids": [
+            "block_0145.s2",
+            "block_0145.s3"
+          ],
+          "start_frame": 0,
+          "end_frame": 263
+        },
+        {
+          "element_id": "scene_001.screen_2",
+          "role": "body",
+          "text": "Company-reported case-study figures",
+          "claim_ids": [
+            "claim_002"
+          ],
+          "source_ids": [
+            "block_0024.s2"
+          ],
+          "start_frame": 285,
+          "end_frame": 531
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_002",
+      "component": "methodology",
+      "layout": "wide",
+      "animation": "brisk",
+      "theme": "paper",
+      "composition": "pipeline",
+      "reveal": "cascade",
+      "primary_node": 0,
+      "visual_nodes": [
+        {
+          "element_id": "scene_002.node_0",
+          "role": "body",
+          "text": "leads, sign-ups, or revenue from AI referrals",
+          "claim_ids": [
+            "claim_003"
+          ],
+          "source_ids": [
+            "block_0102.s1",
+            "block_0102.s2",
+            "block_0102.s3"
+          ],
+          "start_frame": 543,
+          "end_frame": 1233
+        },
+        {
+          "element_id": "scene_002.node_1",
+          "role": "body",
+          "text": "dated AI search result",
+          "claim_ids": [
+            "claim_004"
+          ],
+          "source_ids": [
+            "block_0103.s1",
+            "block_0103.s2"
+          ],
+          "start_frame": 812,
+          "end_frame": 1233
+        },
+        {
+          "element_id": "scene_002.node_2",
+          "role": "body",
+          "text": "a figure, and a period",
+          "claim_ids": [
+            "claim_004"
+          ],
+          "source_ids": [
+            "block_0103.s1",
+            "block_0103.s2"
+          ],
+          "start_frame": 812,
+          "end_frame": 1233
+        },
+        {
+          "element_id": "scene_002.node_3",
+          "role": "body",
+          "text": "promises of AI citations in weeks",
+          "claim_ids": [
+            "claim_020"
+          ],
+          "source_ids": [
+            "block_0093",
+            "block_0095.s1",
+            "block_0098.s1"
+          ],
+          "start_frame": 1027,
+          "end_frame": 1233
+        }
+      ],
+      "start_frame": 543,
+      "duration_frames": 690,
+      "timing_method": "aligned",
+      "elements": [
+        {
+          "element_id": "scene_002.screen_0",
+          "role": "title",
+          "text": "Success and evidence",
+          "claim_ids": [
+            "claim_003",
+            "claim_004",
+            "claim_020"
+          ],
+          "source_ids": [
+            "block_0093",
+            "block_0095.s1",
+            "block_0098.s1",
+            "block_0102.s1",
+            "block_0102.s2",
+            "block_0102.s3",
+            "block_0103.s1",
+            "block_0103.s2"
+          ],
+          "start_frame": 543,
+          "end_frame": 1233
+        },
+        {
+          "element_id": "scene_002.screen_1",
+          "role": "body",
+          "text": "Searchbloom recommends tracking leads from AI referrals",
+          "claim_ids": [
+            "claim_003",
+            "claim_001"
+          ],
+          "source_ids": [
+            "block_0102.s1",
+            "block_0102.s2",
+            "block_0102.s3",
+            "block_0145.s2",
+            "block_0145.s3"
+          ],
+          "start_frame": 543,
+          "end_frame": 1233
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_003",
+      "component": "comparison",
+      "layout": "split",
+      "animation": "calm",
+      "theme": "slate",
+      "composition": "dual",
+      "reveal": "focus",
+      "primary_node": 0,
+      "visual_nodes": [
+        {
+          "element_id": "scene_003.node_0",
+          "role": "body",
+          "text": "real buyer questions",
+          "claim_ids": [
+            "claim_006"
+          ],
+          "source_ids": [
+            "block_0065.s5"
+          ],
+          "start_frame": 1393,
+          "end_frame": 1947
+        },
+        {
+          "element_id": "scene_003.node_1",
+          "role": "body",
+          "text": "branded",
+          "claim_ids": [
+            "claim_007"
+          ],
+          "source_ids": [
+            "block_0066.s1",
+            "block_0066.s2"
+          ],
+          "start_frame": 1598,
+          "end_frame": 1947
+        },
+        {
+          "element_id": "scene_003.node_2",
+          "role": "body",
+          "text": "non-branded",
+          "claim_ids": [
+            "claim_007"
+          ],
+          "source_ids": [
+            "block_0066.s1",
+            "block_0066.s2"
+          ],
+          "start_frame": 1598,
+          "end_frame": 1947
+        }
+      ],
+      "start_frame": 1233,
+      "duration_frames": 714,
+      "timing_method": "aligned",
+      "elements": [
+        {
+          "element_id": "scene_003.screen_0",
+          "role": "title",
+          "text": "Questions and tracking",
+          "claim_ids": [
+            "claim_005",
+            "claim_006",
+            "claim_007",
+            "claim_009"
+          ],
+          "source_ids": [
+            "block_0065.s3",
+            "block_0065.s5",
+            "block_0066.s1",
+            "block_0066.s2",
+            "block_0104.s1",
+            "block_0104.s2"
+          ],
+          "start_frame": 1233,
+          "end_frame": 1947
+        },
+        {
+          "element_id": "scene_003.screen_1",
+          "role": "body",
+          "text": "Same question, potentially different brands",
+          "claim_ids": [
+            "claim_005"
+          ],
+          "source_ids": [
+            "block_0065.s3"
+          ],
+          "start_frame": 1233,
+          "end_frame": 1947
+        },
+        {
+          "element_id": "scene_003.screen_2",
+          "role": "body",
+          "text": "To track buyer questions daily",
+          "claim_ids": [
+            "claim_006"
+          ],
+          "source_ids": [
+            "block_0065.s5"
+          ],
+          "start_frame": 1393,
+          "end_frame": 1947
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_004",
+      "component": "statistic",
+      "layout": "wide",
+      "animation": "calm",
+      "theme": "slate",
+      "composition": "magnitude",
+      "reveal": "draw",
+      "primary_node": 0,
+      "visual_nodes": [
+        {
+          "element_id": "scene_004.node_0",
+          "role": "body",
+          "text": "about nine of every ten sources AI cites",
+          "claim_ids": [
+            "claim_010"
+          ],
+          "source_ids": [
+            "block_0078.s1"
+          ],
+          "start_frame": 1947,
+          "end_frame": 2579
+        },
+        {
+          "element_id": "scene_004.node_1",
+          "role": "body",
+          "text": "other people's sites",
+          "claim_ids": [
+            "claim_010"
+          ],
+          "source_ids": [
+            "block_0078.s1"
+          ],
+          "start_frame": 1947,
+          "end_frame": 2579
+        },
+        {
+          "element_id": "scene_004.node_2",
+          "role": "body",
+          "text": "inspect the pages it cited",
+          "claim_ids": [
+            "claim_012"
+          ],
+          "source_ids": [
+            "block_0078.s2",
+            "block_0078.s3"
+          ],
+          "start_frame": 2339,
+          "end_frame": 2579
+        }
+      ],
+      "start_frame": 1947,
+      "duration_frames": 632,
+      "timing_method": "aligned",
+      "elements": [
+        {
+          "element_id": "scene_004.screen_0",
+          "role": "title",
+          "text": "Outside citation opportunities",
+          "claim_ids": [
+            "claim_010",
+            "claim_011",
+            "claim_012"
+          ],
+          "source_ids": [
+            "block_0078.s1",
+            "block_0078.s2",
+            "block_0078.s3",
+            "block_0105.s1",
+            "block_0105.s2"
+          ],
+          "start_frame": 1947,
+          "end_frame": 2579
+        },
+        {
+          "element_id": "scene_004.screen_1",
+          "role": "body",
+          "text": "To request outside cited URLs",
+          "claim_ids": [
+            "claim_011"
+          ],
+          "source_ids": [
+            "block_0105.s1",
+            "block_0105.s2"
+          ],
+          "start_frame": 2122,
+          "end_frame": 2317
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_005",
+      "component": "comparison",
+      "layout": "split",
+      "animation": "brisk",
+      "theme": "slate",
+      "composition": "dual",
+      "reveal": "focus",
+      "primary_node": 3,
+      "visual_nodes": [
+        {
+          "element_id": "scene_005.node_0",
+          "role": "body",
+          "text": "Crawler access",
+          "claim_ids": [
+            "claim_013"
+          ],
+          "source_ids": [
+            "block_0074.s2"
+          ],
+          "start_frame": 2579,
+          "end_frame": 3207
+        },
+        {
+          "element_id": "scene_005.node_1",
+          "role": "body",
+          "text": "correct structured data",
+          "claim_ids": [
+            "claim_013"
+          ],
+          "source_ids": [
+            "block_0074.s2"
+          ],
+          "start_frame": 2579,
+          "end_frame": 3207
+        },
+        {
+          "element_id": "scene_005.node_2",
+          "role": "body",
+          "text": "technical, content, and entity work",
+          "claim_ids": [
+            "claim_014",
+            "claim_015"
+          ],
+          "source_ids": [
+            "block_0083",
+            "block_0084.s1",
+            "block_0085.s1"
+          ],
+          "start_frame": 2770,
+          "end_frame": 3207
+        },
+        {
+          "element_id": "scene_005.node_3",
+          "role": "body",
+          "text": "implements technical changes",
+          "claim_ids": [
+            "claim_017"
+          ],
+          "source_ids": [
+            "block_0107.s2",
+            "block_0107.s3"
+          ],
+          "start_frame": 2965,
+          "end_frame": 3207
+        }
+      ],
+      "start_frame": 2579,
+      "duration_frames": 628,
+      "timing_method": "aligned",
+      "elements": [
+        {
+          "element_id": "scene_005.screen_0",
+          "role": "title",
+          "text": "Technical work and tracking",
+          "claim_ids": [
+            "claim_013",
+            "claim_014",
+            "claim_015",
+            "claim_017"
+          ],
+          "source_ids": [
+            "block_0074.s2",
+            "block_0083",
+            "block_0084.s1",
+            "block_0085.s1",
+            "block_0107.s2",
+            "block_0107.s3"
+          ],
+          "start_frame": 2579,
+          "end_frame": 3207
+        },
+        {
+          "element_id": "scene_005.screen_1",
+          "role": "body",
+          "text": "To clarify builds versus recommendations",
+          "claim_ids": [
+            "claim_017"
+          ],
+          "source_ids": [
+            "block_0107.s2",
+            "block_0107.s3"
+          ],
+          "start_frame": 2965,
+          "end_frame": 3207
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_006",
+      "component": "methodology",
+      "layout": "wide",
+      "animation": "calm",
+      "theme": "paper",
+      "composition": "orbit",
+      "reveal": "draw",
+      "primary_node": 0,
+      "visual_nodes": [
+        {
+          "element_id": "scene_006.node_0",
+          "role": "body",
+          "text": "Your team",
+          "claim_ids": [
+            "claim_016"
+          ],
+          "source_ids": [
+            "block_0088",
+            "block_0089.s1",
+            "block_0090.s1",
+            "block_0091.s1",
+            "block_0092.s1"
+          ],
+          "start_frame": 3207,
+          "end_frame": 3719
+        },
+        {
+          "element_id": "scene_006.node_1",
+          "role": "body",
+          "text": "sponsorship and affiliate budgets",
+          "claim_ids": [
+            "claim_016"
+          ],
+          "source_ids": [
+            "block_0088",
+            "block_0089.s1",
+            "block_0090.s1",
+            "block_0091.s1",
+            "block_0092.s1"
+          ],
+          "start_frame": 3207,
+          "end_frame": 3719
+        },
+        {
+          "element_id": "scene_006.node_2",
+          "role": "body",
+          "text": "retailer, marketplace, and partner listings",
+          "claim_ids": [
+            "claim_016"
+          ],
+          "source_ids": [
+            "block_0088",
+            "block_0089.s1",
+            "block_0090.s1",
+            "block_0091.s1",
+            "block_0092.s1"
+          ],
+          "start_frame": 3399,
+          "end_frame": 3719
+        },
+        {
+          "element_id": "scene_006.node_3",
+          "role": "body",
+          "text": "social media and community work",
+          "claim_ids": [
+            "claim_016"
+          ],
+          "source_ids": [
+            "block_0088",
+            "block_0089.s1",
+            "block_0090.s1",
+            "block_0091.s1",
+            "block_0092.s1"
+          ],
+          "start_frame": 3529,
+          "end_frame": 3719
+        },
+        {
+          "element_id": "scene_006.node_4",
+          "role": "body",
+          "text": "brand positioning",
+          "claim_ids": [
+            "claim_016"
+          ],
+          "source_ids": [
+            "block_0088",
+            "block_0089.s1",
+            "block_0090.s1",
+            "block_0091.s1",
+            "block_0092.s1"
+          ],
+          "start_frame": 3529,
+          "end_frame": 3719
+        },
+        {
+          "element_id": "scene_006.node_5",
+          "role": "body",
+          "text": "the budget behind PR",
+          "claim_ids": [
+            "claim_016"
+          ],
+          "source_ids": [
+            "block_0088",
+            "block_0089.s1",
+            "block_0090.s1",
+            "block_0091.s1",
+            "block_0092.s1"
+          ],
+          "start_frame": 3529,
+          "end_frame": 3719
+        }
+      ],
+      "start_frame": 3207,
+      "duration_frames": 512,
+      "timing_method": "aligned",
+      "elements": [
+        {
+          "element_id": "scene_006.screen_0",
+          "role": "title",
+          "text": "Client responsibilities",
+          "claim_ids": [
+            "claim_016"
+          ],
+          "source_ids": [
+            "block_0088",
+            "block_0089.s1",
+            "block_0090.s1",
+            "block_0091.s1",
+            "block_0092.s1"
+          ],
+          "start_frame": 3207,
+          "end_frame": 3719
+        },
+        {
+          "element_id": "scene_006.screen_1",
+          "role": "body",
+          "text": "Clients own the PR budget",
+          "claim_ids": [
+            "claim_016"
+          ],
+          "source_ids": [
+            "block_0088",
+            "block_0089.s1",
+            "block_0090.s1",
+            "block_0091.s1",
+            "block_0092.s1"
+          ],
+          "start_frame": 3207,
+          "end_frame": 3719
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_007",
+      "component": "conclusion",
+      "layout": "wide",
+      "animation": "calm",
+      "theme": "paper",
+      "composition": "checklist",
+      "reveal": "cascade",
+      "primary_node": 3,
+      "visual_nodes": [
+        {
+          "element_id": "scene_007.node_0",
+          "role": "body",
+          "text": "unpublished fees",
+          "claim_ids": [
+            "claim_019"
+          ],
+          "source_ids": [
+            "block_0108.s2",
+            "block_0108.s3"
+          ],
+          "start_frame": 3905,
+          "end_frame": 4074
+        },
+        {
+          "element_id": "scene_007.node_1",
+          "role": "body",
+          "text": "minimums",
+          "claim_ids": [
+            "claim_019"
+          ],
+          "source_ids": [
+            "block_0108.s2",
+            "block_0108.s3"
+          ],
+          "start_frame": 3905,
+          "end_frame": 4074
+        },
+        {
+          "element_id": "scene_007.node_2",
+          "role": "body",
+          "text": "contract lengths",
+          "claim_ids": [
+            "claim_019"
+          ],
+          "source_ids": [
+            "block_0108.s2",
+            "block_0108.s3"
+          ],
+          "start_frame": 3905,
+          "end_frame": 4074
+        },
+        {
+          "element_id": "scene_007.node_3",
+          "role": "body",
+          "text": "in writing",
+          "claim_ids": [
+            "claim_019"
+          ],
+          "source_ids": [
+            "block_0108.s2",
+            "block_0108.s3"
+          ],
+          "start_frame": 3905,
+          "end_frame": 4074
+        }
+      ],
+      "start_frame": 3719,
+      "duration_frames": 355,
+      "timing_method": "aligned",
+      "elements": [
+        {
+          "element_id": "scene_007.screen_0",
+          "role": "title",
+          "text": "Written commercial terms",
+          "claim_ids": [
+            "claim_018",
+            "claim_019"
+          ],
+          "source_ids": [
+            "block_0010.s1",
+            "block_0108.s2",
+            "block_0108.s3"
+          ],
+          "start_frame": 3719,
+          "end_frame": 4074
+        },
+        {
+          "element_id": "scene_007.screen_1",
+          "role": "body",
+          "text": "To get unpublished terms in writing",
+          "claim_ids": [
+            "claim_019"
+          ],
+          "source_ids": [
+            "block_0108.s2",
+            "block_0108.s3"
+          ],
+          "start_frame": 3905,
+          "end_frame": 4060
+        }
+      ]
+    }
+  ],
+  "inputs": {
+    "article": "2288fad3b123b449e29c4c733f88f6aadcfbffb742875401d913f24d7a068b53",
+    "config": "9ab2305817d6a3817161e6b5432e5e669059e06ea2860c25bce11453aef24e87",
+    "script": "f66dcc89d2344962614f105b3610a28e6c7f1a742ec49a293f3f94e8e56ebf9c",
+    "timings": "2fd70130fed173efea3563554a3461bb2ca770358e9a7b1aadf6d74531df0a45",
+    "schema": "6619d799f668ac2e8e52a2b21cf0fedb713c2776c5d432ae03ccc9862cc1ba7b",
+    "editorial_plan": "b8bbfc87caae8445d1453c2cad9c51c4426d567eb400e9caeb8d3b8c30f123e1"
+  },
+  "run": {
+    "requested_model": "local-editorial",
+    "resolved_model": "local-editorial",
+    "prompt_version": "storyboard.v2",
+    "cache_key": "ede28009c25a3bd85ae7b7cef8946c9058c1e098ef621fec7b7b461f93d7587e",
+    "response_id": null,
+    "usage": {}
+  },
+  "review": {
+    "status": "review_required",
+    "timing_status": "review_required",
+    "timing_issues": [
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_002.n1.s1",
+        "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_002.n2.s1",
+        "message": "4 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_002.n3.s1",
+        "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_003.n1.s1",
+        "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_003.n2.s1",
+        "message": "3 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_003.n3.s1",
+        "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_003.n4.s1",
+        "message": "2 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_004.n1.s1",
+        "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_004.n2.s1",
+        "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_004.n3.s1",
+        "message": "4 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_005.n1.s1",
+        "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_005.n2.s1",
+        "message": "3 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_005.n3.s1",
+        "message": "2 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_006.n2.s1",
+        "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_006.n3.s1",
+        "message": "2 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      },
+      {
+        "code": "ZERO_DURATION_WORD",
+        "target": "scene_007.n1.s1",
+        "message": "3 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+      }
+    ],
+    "listening_review": "pending",
+    "visual_review": "pending"
+  }
+}

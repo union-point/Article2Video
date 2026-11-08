@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "scope": "Implemented Stages 1–6; explicit approval checkpoints; voiceover and timing are separate commands",
+  "scope": "Implemented Stages 1\u20137; explicit approval checkpoints; voiceover, timing and storyboard are separate commands",
   "config": "pipeline_config.json",
   "models": {
     "generation": "gpt-6.1-sol",
@@ -150,6 +150,34 @@
       "review": "Human listening and approximate word cues; no new approval is granted",
       "diagnostics": "HTTP 200 responses retained before validation under cache/timing/responses; local revalidation makes no new request",
       "execution_audit": "output/stage6_run_summary.json (recorded for this execution)"
+    },
+    {
+      "number": 7,
+      "name": "storyboard",
+      "inputs": [
+        "current approved script and upstream approvals",
+        "output/narration.wav",
+        "output/narration.json",
+        "output/narration.txt",
+        "output/transcript.json",
+        "output/timings.json",
+        "pipeline_config.json",
+        "exact upstream semantic caches",
+        "video/src/schema.mjs"
+      ],
+      "outputs": [
+        "output/storyboard.json",
+        "output/storyboard_review.md"
+      ],
+      "command": "uv run --env-file .env main.py storyboard",
+      "preflight_command": "uv run main.py storyboard --check-inputs",
+      "prompt_version": "storyboard.v2",
+      "validation": "Pydantic plan and Zod manifest; one automatic correction attempt; exact approved copy with cited source IDs",
+      "preview_command": "npm --prefix video run prepare-storyboard -- ../output/storyboard.json",
+      "review": "Always exit 2 after generation; retain timing findings; visual and listening review pending; no rendering",
+      "current_run": "runs/20261108-224733-gpt61-stages2-4",
+      "current_run_command": "uv run --env-file .env main.py --article runs/20261108-224733-gpt61-stages2-4/input/article.json --output-dir runs/20261108-224733-gpt61-stages2-4/output --cache-dir runs/20261108-224733-gpt61-stages2-4/cache --config runs/20261108-224733-gpt61-stages2-4/pipeline_config.json storyboard",
+      "editorial_plan": "runs/20261108-224733-gpt61-stages2-4/output/storyboard_plan.json"
     }
   ],
   "voiceover_config": "voiceover_config.json",

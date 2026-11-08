@@ -1,0 +1,245 @@
+{
+  "schema_version": "1.0",
+  "stage": "storyboard",
+  "template_version": "storyboard.v1",
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "duration_frames": 1080,
+  "scenes": [
+    {
+      "scene_id": "demo_0",
+      "component": "title",
+      "layout": "wide",
+      "animation": "calm",
+      "theme": "paper",
+      "start_frame": 0,
+      "duration_frames": 180,
+      "timing_method": "even_fallback",
+      "elements": [
+        {
+          "element_id": "demo_0_title",
+          "role": "title",
+          "text": "Evidence-grounded video",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 0,
+          "end_frame": 180
+        },
+        {
+          "element_id": "demo_0_0",
+          "role": "body",
+          "text": "Preview copy \u2014 not article evidence",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 0,
+          "end_frame": 90
+        },
+        {
+          "element_id": "demo_0_1",
+          "role": "body",
+          "text": "12 is a placeholder \u2014 not an article fact",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 90,
+          "end_frame": 180
+        }
+      ]
+    },
+    {
+      "scene_id": "demo_1",
+      "component": "methodology",
+      "layout": "split",
+      "animation": "calm",
+      "theme": "paper",
+      "start_frame": 180,
+      "duration_frames": 180,
+      "timing_method": "even_fallback",
+      "elements": [
+        {
+          "element_id": "demo_1_title",
+          "role": "title",
+          "text": "Template preview",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 180,
+          "end_frame": 360
+        },
+        {
+          "element_id": "demo_1_0",
+          "role": "body",
+          "text": "Preview copy \u2014 not article evidence",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 180,
+          "end_frame": 270
+        },
+        {
+          "element_id": "demo_1_1",
+          "role": "body",
+          "text": "12 is a placeholder \u2014 not an article fact",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 270,
+          "end_frame": 360
+        }
+      ]
+    },
+    {
+      "scene_id": "demo_2",
+      "component": "ranking",
+      "layout": "wide",
+      "animation": "calm",
+      "theme": "paper",
+      "start_frame": 360,
+      "duration_frames": 180,
+      "timing_method": "even_fallback",
+      "elements": [
+        {
+          "element_id": "demo_2_title",
+          "role": "title",
+          "text": "Template preview",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 360,
+          "end_frame": 540
+        },
+        {
+          "element_id": "demo_2_0",
+          "role": "body",
+          "text": "Preview copy \u2014 not article evidence",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 360,
+          "end_frame": 450
+        },
+        {
+          "element_id": "demo_2_1",
+          "role": "body",
+          "text": "12 is a placeholder \u2014 not an article fact",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 450,
+          "end_frame": 540
+        }
+      ]
+    },
+    {
+      "scene_id": "demo_3",
+      "component": "statistic",
+      "layout": "split",
+      "animation": "calm",
+      "theme": "paper",
+      "start_frame": 540,
+      "duration_frames": 180,
+      "timing_method": "even_fallback",
+      "elements": [
+        {
+          "element_id": "demo_3_title",
+          "role": "title",
+          "text": "Template preview",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 540,
+          "end_frame": 720
+        },
+        {
+          "element_id": "demo_3_0",
+          "role": "body",
+          "text": "Preview copy \u2014 not article evidence",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 540,
+          "end_frame": 630
+        },
+        {
+          "element_id": "demo_3_1",
+          "role": "body",
+          "text": "12 is a placeholder \u2014 not an article fact",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 630,
+          "end_frame": 720
+        }
+      ]
+    },
+    {
+      "scene_id": "demo_4",
+      "component": "comparison",
+      "layout": "wide",
+      "animation": "calm",
+      "theme": "paper",
+      "start_frame": 720,
+      "duration_frames": 180,
+      "timing_method": "even_fallback",
+      "elements": [
+        {
+          "element_id": "demo_4_title",
+          "role": "title",
+          "text": "Template preview",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 720,
+          "end_frame": 900
+        },
+        {
+          "element_id": "demo_4_0",
+          "role": "body",
+          "text": "Preview copy \u2014 not article evidence",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 720,
+          "end_frame": 810
+        },
+        {
+          "element_id": "demo_4_1",
+          "role": "body",
+          "text": "12 is a placeholder \u2014 not an article fact",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 810,
+          "end_frame": 900
+        }
+      ]
+    },
+    {
+      "scene_id": "demo_5",
+      "component": "conclusion",
+      "layout": "split",
+      "animation": "calm",
+      "theme": "paper",
+      "start_frame": 900,
+      "duration_frames": 180,
+      "timing_method": "even_fallback",
+      "elements": [
+        {
+          "element_id": "demo_5_title",
+          "role": "title",
+          "text": "Template preview",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 900,
+          "end_frame": 1080
+        },
+        {
+          "element_id": "demo_5_0",
+          "role": "body",
+          "text": "Preview copy \u2014 not article evidence",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 900,
+          "end_frame": 990
+        },
+        {
+          "element_id": "demo_5_1",
+          "role": "body",
+          "text": "12 is a placeholder \u2014 not an article fact",
+          "claim_ids": ["demo"],
+          "source_ids": ["demo"],
+          "start_frame": 990,
+          "end_frame": 1080
+        }
+      ]
+    }
+  ]
+}

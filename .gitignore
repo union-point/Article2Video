@@ -246,3 +246,8 @@ TASK.md
 /runs/**/*.wav
 /runs/**/*.mp4
 /runs/**/*.mp3
+
+# Remotion dependencies and regenerable bundles
+/video/node_modules/
+/video/build/
+/video/out/

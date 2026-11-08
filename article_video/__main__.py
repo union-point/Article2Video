@@ -9,7 +9,7 @@ from .storage import read_json
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="Article-to-video Stages 2–6 with evidence and approval")
+    parser = argparse.ArgumentParser(description="Article-to-video Stages 2–7 with evidence and approval")
     parser.add_argument("--article", type=Path, default=Path("output/article.json"))
     parser.add_argument("--output-dir", type=Path, default=Path("output"))
     parser.add_argument("--cache-dir", type=Path, default=Path("cache"))
@@ -27,6 +27,10 @@ def main(argv=None):
     timing.add_argument("--timing-config", type=Path, default=Path("timing_config.json"))
     timing.add_argument("--force", action="store_true", help="Bypass the transcription cache; never regenerate script or audio")
     timing.add_argument("--check-inputs", action="store_true", help="Validate approvals and narration offline, without transcription or output writes")
+    storyboard = commands.add_parser("storyboard", help="Choose cited Remotion templates from the approved script and timing")
+    storyboard.add_argument("--plan-file", type=Path, help="Validate and build an editorial plan offline, without planner requests")
+    storyboard.add_argument("--force", action="store_true", help="Bypass the template planner cache")
+    storyboard.add_argument("--check-inputs", action="store_true", help="Validate upstream inputs offline without generation or writes")
     review = commands.add_parser("review", help="Revalidate a generated or edited artifact")
     review.add_argument("stage", choices=("selection", "facts", "script"))
     review.add_argument("--force", action="store_true", help="Rerun semantic verification")
@@ -44,6 +48,17 @@ def main(argv=None):
     try:
         config = PipelineConfig.model_validate(read_json(args.config))
         pipeline = Pipeline(args.article, args.output_dir, args.cache_dir, config)
+        if args.command == "storyboard":
+            from .storyboard import StoryboardGenerator
+            generator = StoryboardGenerator(pipeline)
+            if args.check_inputs:
+                generator.preflight()
+                print("Storyboard inputs valid. No model requests or output writes.")
+                return 0
+            result = generator.generate(args.force, args.plan_file)
+            print(f"Storyboard: {args.output_dir / 'storyboard.json'} ({len(result['scenes'])} scenes)")
+            print(f"Review: {args.output_dir / 'storyboard_review.md'}; visual and listening review pending.")
+            return 2
         if args.command == "timing":
             from .timing import TimingConfig, TimingGenerator
             timing_config = TimingConfig.model_validate(read_json(args.timing_config))
