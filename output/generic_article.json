@@ -1,0 +1,446 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "requested_url": "https://example.org/orchard",
+    "final_url": "https://example.org/orchard",
+    "retrieved_at": "2026-11-08T13:00:39.114068+00:00",
+    "html_sha256": "fc481f10f1b53aa13fdb4448b3c3953bcc5298450c3cfb41c30d4572924c4014",
+    "snapshot_path": "article_parser/tests/fixtures/generic_article.html"
+  },
+  "extraction": {
+    "parser_name": "trafilatura",
+    "parser_version": "2.0.0+adapter.1",
+    "splitter_name": "pysbd-en",
+    "splitter_version": "0.3.4+offsets.1",
+    "fallback_used": false
+  },
+  "article": {
+    "title": "Restoring the community orchard",
+    "author": "Mira Patel",
+    "published_at": "2026-03-12",
+    "modified_at": null,
+    "language": "en",
+    "canonical_url": "https://example.org/orchard",
+    "cover_image": "https://example.org/orchard.jpg"
+  },
+  "blocks": [
+    {
+      "id": "block_0001",
+      "type": "heading",
+      "order": 1,
+      "section_path": [
+        "Restoring the community orchard"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/head[1]",
+      "text": "Restoring the community orchard",
+      "links": [],
+      "level": 1
+    },
+    {
+      "id": "block_0002",
+      "type": "paragraph",
+      "order": 2,
+      "section_path": [
+        "Restoring the community orchard"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/p[1]",
+      "text": "The community orchard reopened on Saturday after a year of restoration. Volunteers repaired the paths and planted apple trees beside the old stone wall. The project preserves a place where neighbors have gathered for generations.",
+      "sentences": [
+        {
+          "id": "block_0002.s1",
+          "text": "The community orchard reopened on Saturday after a year of restoration.",
+          "start": 0,
+          "end": 71
+        },
+        {
+          "id": "block_0002.s2",
+          "text": "Volunteers repaired the paths and planted apple trees beside the old stone wall.",
+          "start": 72,
+          "end": 152
+        },
+        {
+          "id": "block_0002.s3",
+          "text": "The project preserves a place where neighbors have gathered for generations.",
+          "start": 153,
+          "end": 229
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "block_0003",
+      "type": "heading",
+      "order": 3,
+      "section_path": [
+        "Restoring the community orchard",
+        "A careful survey"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/head[2]",
+      "text": "A careful survey",
+      "links": [],
+      "level": 2
+    },
+    {
+      "id": "block_0004",
+      "type": "paragraph",
+      "order": 4,
+      "section_path": [
+        "Restoring the community orchard",
+        "A careful survey"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/p[2]",
+      "text": "Before planting began, the team measured soil moisture at twelve locations. They recorded each result in a shared notebook and compared the measurements with observations from the previous spring. The survey helped identify patches that needed better drainage.",
+      "sentences": [
+        {
+          "id": "block_0004.s1",
+          "text": "Before planting began, the team measured soil moisture at twelve locations.",
+          "start": 0,
+          "end": 75
+        },
+        {
+          "id": "block_0004.s2",
+          "text": "They recorded each result in a shared notebook and compared the measurements with observations from the previous spring.",
+          "start": 76,
+          "end": 196
+        },
+        {
+          "id": "block_0004.s3",
+          "text": "The survey helped identify patches that needed better drainage.",
+          "start": 197,
+          "end": 260
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "block_0005",
+      "type": "paragraph",
+      "order": 5,
+      "section_path": [
+        "Restoring the community orchard",
+        "A careful survey"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/p[3]",
+      "text": "Orchard coordinator Mira Patel said, “We wanted the old trees to thrive. New planting alone would not achieve that.” The volunteers kept the mature trees and cleared invasive plants by hand.",
+      "sentences": [
+        {
+          "id": "block_0005.s1",
+          "text": "Orchard coordinator Mira Patel said, “We wanted the old trees to thrive. New planting alone would not achieve that.”",
+          "start": 0,
+          "end": 116
+        },
+        {
+          "id": "block_0005.s2",
+          "text": "The volunteers kept the mature trees and cleared invasive plants by hand.",
+          "start": 117,
+          "end": 190
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "block_0006",
+      "type": "heading",
+      "order": 6,
+      "section_path": [
+        "Restoring the community orchard",
+        "Work and observations"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/head[3]",
+      "text": "Work and observations",
+      "links": [],
+      "level": 2
+    },
+    {
+      "id": "block_0007",
+      "type": "paragraph",
+      "order": 7,
+      "section_path": [
+        "Restoring the community orchard",
+        "Work and observations"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/p[4]",
+      "text": "The first workday focused on paths and fences. Later sessions addressed soil health, watering, and pruning. Participants documented their work so that next year's volunteers could understand what had changed and why.",
+      "sentences": [
+        {
+          "id": "block_0007.s1",
+          "text": "The first workday focused on paths and fences.",
+          "start": 0,
+          "end": 46
+        },
+        {
+          "id": "block_0007.s2",
+          "text": "Later sessions addressed soil health, watering, and pruning.",
+          "start": 47,
+          "end": 107
+        },
+        {
+          "id": "block_0007.s3",
+          "text": "Participants documented their work so that next year's volunteers could understand what had changed and why.",
+          "start": 108,
+          "end": 216
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "block_0008",
+      "type": "list_item",
+      "order": 8,
+      "section_path": [
+        "Restoring the community orchard",
+        "Work and observations"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/list/item[1]",
+      "text": "Inspect the watering system before each session.",
+      "sentences": [
+        {
+          "id": "block_0008.s1",
+          "text": "Inspect the watering system before each session.",
+          "start": 0,
+          "end": 48
+        }
+      ],
+      "links": [],
+      "list_depth": 1,
+      "list_ordered": false
+    },
+    {
+      "id": "block_0009",
+      "type": "list_item",
+      "order": 9,
+      "section_path": [
+        "Restoring the community orchard",
+        "Work and observations"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/list/item[2]",
+      "text": "Record observations in the public notebook.",
+      "sentences": [
+        {
+          "id": "block_0009.s1",
+          "text": "Record observations in the public notebook.",
+          "start": 0,
+          "end": 43
+        }
+      ],
+      "links": [
+        {
+          "text": "public notebook",
+          "url": "https://example.org/notebook"
+        }
+      ],
+      "list_depth": 1,
+      "list_ordered": false
+    },
+    {
+      "id": "block_0010",
+      "type": "table",
+      "order": 10,
+      "section_path": [
+        "Restoring the community orchard",
+        "Work and observations"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/table",
+      "links": [],
+      "rows": [
+        [
+          {
+            "id": "block_0010.r1c1",
+            "text": "Area",
+            "header": true,
+            "links": []
+          },
+          {
+            "id": "block_0010.r1c2",
+            "text": "Trees planted",
+            "header": true,
+            "links": []
+          }
+        ],
+        [
+          {
+            "id": "block_0010.r2c1",
+            "text": "East garden",
+            "header": false,
+            "links": []
+          },
+          {
+            "id": "block_0010.r2c2",
+            "text": "12",
+            "header": false,
+            "links": []
+          }
+        ],
+        [
+          {
+            "id": "block_0010.r3c1",
+            "text": "West garden",
+            "header": false,
+            "links": []
+          },
+          {
+            "id": "block_0010.r3c2",
+            "text": "8",
+            "header": false,
+            "links": []
+          }
+        ]
+      ]
+    },
+    {
+      "id": "block_0011",
+      "type": "paragraph",
+      "order": 11,
+      "section_path": [
+        "Restoring the community orchard",
+        "Work and observations"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/p[5]",
+      "text": "The counts describe new trees only. Existing trees were surveyed separately, and the organizers cautioned that survival rates would need to be checked after the first summer. These observations are preliminary rather than a forecast.",
+      "sentences": [
+        {
+          "id": "block_0011.s1",
+          "text": "The counts describe new trees only.",
+          "start": 0,
+          "end": 35
+        },
+        {
+          "id": "block_0011.s2",
+          "text": "Existing trees were surveyed separately, and the organizers cautioned that survival rates would need to be checked after the first summer.",
+          "start": 36,
+          "end": 174
+        },
+        {
+          "id": "block_0011.s3",
+          "text": "These observations are preliminary rather than a forecast.",
+          "start": 175,
+          "end": 233
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "block_0012",
+      "type": "image",
+      "order": 12,
+      "section_path": [
+        "Restoring the community orchard",
+        "Work and observations"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/graphic",
+      "links": [],
+      "url": "https://example.org/orchard.jpg",
+      "alt": "Apple trees beside a stone wall"
+    },
+    {
+      "id": "block_0013",
+      "type": "heading",
+      "order": 13,
+      "section_path": [
+        "Restoring the community orchard",
+        "What happens next"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/head[4]",
+      "text": "What happens next",
+      "links": [],
+      "level": 2
+    },
+    {
+      "id": "block_0014",
+      "type": "paragraph",
+      "order": 14,
+      "section_path": [
+        "Restoring the community orchard",
+        "What happens next"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/p[6]",
+      "text": "Volunteers will return every month to inspect the paths and water young trees. Residents can read the full restoration report before joining a workday. The report includes the survey method, equipment list, and notes from each session.",
+      "sentences": [
+        {
+          "id": "block_0014.s1",
+          "text": "Volunteers will return every month to inspect the paths and water young trees.",
+          "start": 0,
+          "end": 78
+        },
+        {
+          "id": "block_0014.s2",
+          "text": "Residents can read the full restoration report before joining a workday.",
+          "start": 79,
+          "end": 151
+        },
+        {
+          "id": "block_0014.s3",
+          "text": "The report includes the survey method, equipment list, and notes from each session.",
+          "start": 152,
+          "end": 235
+        }
+      ],
+      "links": [
+        {
+          "text": "restoration report",
+          "url": "https://example.org/report"
+        }
+      ]
+    },
+    {
+      "id": "block_0015",
+      "type": "paragraph",
+      "order": 15,
+      "section_path": [
+        "Restoring the community orchard",
+        "What happens next"
+      ],
+      "source_kind": "extracted_xml",
+      "source_locator": "/doc/main/p[7]",
+      "text": "Editor's note: This fictional article is a deterministic test fixture written for this project. It is unrelated to Searchbloom and is not a substitute for the required source snapshot.",
+      "sentences": [
+        {
+          "id": "block_0015.s1",
+          "text": "Editor's note: This fictional article is a deterministic test fixture written for this project.",
+          "start": 0,
+          "end": 95
+        },
+        {
+          "id": "block_0015.s2",
+          "text": "It is unrelated to Searchbloom and is not a substitute for the required source snapshot.",
+          "start": 96,
+          "end": 184
+        }
+      ],
+      "links": []
+    }
+  ],
+  "validation": {
+    "status": "warning",
+    "warnings": [
+      {
+        "code": "UNSUPPORTED_STRUCTURES_REVIEW",
+        "message": "Source has captions, embedded media, or table spans that Trafilatura may not preserve; compare with the snapshot"
+      }
+    ],
+    "errors": [],
+    "counts": {
+      "blocks": 15,
+      "headings": 4,
+      "paragraphs": 7,
+      "sentences": 21,
+      "tables": 1,
+      "images": 1,
+      "ranked_entries": 0
+    }
+  }
+}

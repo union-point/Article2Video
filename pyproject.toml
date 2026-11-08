@@ -1,0 +1,19 @@
+[project]
+name = "article2video"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4==4.14.3",
+    "lxml==6.0.2",
+    "pydantic==2.12.5",
+    "pysbd==0.3.4",
+    "requests==2.32.5",
+    "trafilatura==2.0.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest==9.0.2",
+]
