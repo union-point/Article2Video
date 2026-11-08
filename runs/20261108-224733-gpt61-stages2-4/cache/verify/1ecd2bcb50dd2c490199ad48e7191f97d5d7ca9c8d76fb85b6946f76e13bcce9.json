@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The approved claim recommends using leads from AI referrals as a measure of success."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "1ecd2bcb50dd2c490199ad48e7191f97d5d7ca9c8d76fb85b6946f76e13bcce9",
+    "response_id": "resp_0a7714953b402513016af0c9342c0887d2ba609fa76a2f9639",
+    "usage": {
+      "input_tokens": 612,
+      "output_tokens": 51,
+      "total_tokens": 663
+    }
+  }
+}

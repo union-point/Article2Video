@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited text recommends asking for a dated AI search result with a named or described company, a figure, and a period."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "ead37de5728f33d4f5c1d576883872dbdd005ca4b475ccd5e129668f606251fb",
+    "response_id": "resp_09ddaed4f9007985016af0c4b8553487d297f9b5bb45cb3c71",
+    "usage": {
+      "input_tokens": 531,
+      "output_tokens": 41,
+      "total_tokens": 572
+    }
+  }
+}

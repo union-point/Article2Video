@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The disclosure says Searchbloom publishes the list and ranks itself first, supporting the characterization as its own assessment rather than an independent verdict."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "8bfdf2bf97e34ad00456a46832e532e94a90384e810ec7ebe44263d38b1e5784",
+    "response_id": "resp_0afe1c847db8251f016af0ca331f8087d284dd73a136b2ede2",
+    "usage": {
+      "input_tokens": 606,
+      "output_tokens": 104,
+      "total_tokens": 710
+    }
+  }
+}

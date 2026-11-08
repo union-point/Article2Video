@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The approved claim and evidence support Searchbloom’s distinction between agencies that build changes and those that provide recommendations."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "7e306bdb52738748aea4314fe05d48cc6e002bcd9299477de338b8902a44880a",
+    "response_id": "resp_006e16a3676a96fe016af0c94aa99487d2b3b245d463cd3159",
+    "usage": {
+      "input_tokens": 567,
+      "output_tokens": 71,
+      "total_tokens": 638
+    }
+  }
+}

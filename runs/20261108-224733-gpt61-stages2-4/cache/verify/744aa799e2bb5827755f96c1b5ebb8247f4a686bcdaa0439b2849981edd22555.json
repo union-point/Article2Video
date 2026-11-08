@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "partial",
+    "reason": "The recommendation matches the evidence, but the candidate presents Searchbloom’s view without attributing it."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "744aa799e2bb5827755f96c1b5ebb8247f4a686bcdaa0439b2849981edd22555",
+    "response_id": "resp_022ca00541219b90016af0ca522e0087d29f1816096aa7dffb",
+    "usage": {
+      "input_tokens": 743,
+      "output_tokens": 90,
+      "total_tokens": 833
+    }
+  }
+}

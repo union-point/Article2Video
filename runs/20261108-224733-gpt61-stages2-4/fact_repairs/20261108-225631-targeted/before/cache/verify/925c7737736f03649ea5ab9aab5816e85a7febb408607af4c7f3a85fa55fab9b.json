@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The evidence recommends splitting branded and non-branded prompts and grouping them by awareness, consideration, and purchase stage."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "925c7737736f03649ea5ab9aab5816e85a7febb408607af4c7f3a85fa55fab9b",
+    "response_id": "resp_016c989d977eec46016af0c4bc42b887d2bacfc225e82fc156",
+    "usage": {
+      "input_tokens": 536,
+      "output_tokens": 38,
+      "total_tokens": 574
+    }
+  }
+}

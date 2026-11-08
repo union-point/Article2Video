@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The evidence recommends getting fees, minimums, and contract lengths in writing before comparing the companies that do not publish a price."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "5267d37e9971be8303147301de99a82247579ec97e620aeae9e918c1e6876bb5",
+    "response_id": "resp_054c1ef6baeda0e5016af0c4cf181c87d2872904a559e726d1",
+    "usage": {
+      "input_tokens": 534,
+      "output_tokens": 41,
+      "total_tokens": 575
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "model": "whisper-1",
+  "language": "en",
+  "response_format": "verbose_json",
+  "timestamp_granularities": ["word"],
+  "temperature": 0,
+  "timeout_seconds": 180,
+  "max_audio_bytes": 25000000,
+  "duration_tolerance_seconds": 0.35,
+  "fps": 30,
+  "tail_padding_frames": 6,
+  "min_sentence_score": 0.85,
+  "max_word_cues_per_scene": 3
+}

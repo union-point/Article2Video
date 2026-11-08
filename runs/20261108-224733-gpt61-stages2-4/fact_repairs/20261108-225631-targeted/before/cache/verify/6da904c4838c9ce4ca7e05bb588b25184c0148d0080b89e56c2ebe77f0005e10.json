@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited red flags include promises of AI citations in weeks and reports that count citations without mentioning leads or revenue."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "6da904c4838c9ce4ca7e05bb588b25184c0148d0080b89e56c2ebe77f0005e10",
+    "response_id": "resp_06b4e860d7fcff54016af0c4d0b89c87d2a021e2ff5109dd4c",
+    "usage": {
+      "input_tokens": 567,
+      "output_tokens": 38,
+      "total_tokens": 605
+    }
+  }
+}

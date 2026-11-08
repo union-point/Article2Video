@@ -1,0 +1,962 @@
+{
+  "audio_duration_seconds": 135.6,
+  "fps": 30,
+  "duration_frames": 4074,
+  "tail_padding_frames": 6,
+  "sentence_count": 20,
+  "overall_score": 0.9988931931377975,
+  "zero_duration_word_count": 31,
+  "transcript_text_score": 1.0,
+  "status": "review_required",
+  "issues": [
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_002.n1.s1",
+      "word_indices": [
+        59
+      ],
+      "word_count": 1,
+      "boundary_affected": false,
+      "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_002.n2.s1",
+      "word_indices": [
+        68,
+        74,
+        76,
+        82
+      ],
+      "word_count": 4,
+      "boundary_affected": true,
+      "message": "4 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_002.n3.s1",
+      "word_indices": [
+        90
+      ],
+      "word_count": 1,
+      "boundary_affected": false,
+      "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_003.n1.s1",
+      "word_indices": [
+        105
+      ],
+      "word_count": 1,
+      "boundary_affected": false,
+      "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_003.n2.s1",
+      "word_indices": [
+        113,
+        127,
+        132
+      ],
+      "word_count": 3,
+      "boundary_affected": true,
+      "message": "3 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_003.n3.s1",
+      "word_indices": [
+        138
+      ],
+      "word_count": 1,
+      "boundary_affected": false,
+      "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_003.n4.s1",
+      "word_indices": [
+        151,
+        152
+      ],
+      "word_count": 2,
+      "boundary_affected": false,
+      "message": "2 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_004.n1.s1",
+      "word_indices": [
+        176
+      ],
+      "word_count": 1,
+      "boundary_affected": true,
+      "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_004.n2.s1",
+      "word_indices": [
+        177
+      ],
+      "word_count": 1,
+      "boundary_affected": true,
+      "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_004.n3.s1",
+      "word_indices": [
+        208,
+        216,
+        220,
+        222
+      ],
+      "word_count": 4,
+      "boundary_affected": true,
+      "message": "4 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_005.n1.s1",
+      "word_indices": [
+        233
+      ],
+      "word_count": 1,
+      "boundary_affected": false,
+      "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_005.n2.s1",
+      "word_indices": [
+        243,
+        252,
+        253
+      ],
+      "word_count": 3,
+      "boundary_affected": true,
+      "message": "3 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_005.n3.s1",
+      "word_indices": [
+        257,
+        274
+      ],
+      "word_count": 2,
+      "boundary_affected": true,
+      "message": "2 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_006.n2.s1",
+      "word_indices": [
+        303
+      ],
+      "word_count": 1,
+      "boundary_affected": false,
+      "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_006.n3.s1",
+      "word_indices": [
+        314,
+        318
+      ],
+      "word_count": 2,
+      "boundary_affected": false,
+      "message": "2 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_007.n1.s1",
+      "word_indices": [
+        331,
+        334,
+        338
+      ],
+      "word_count": 3,
+      "boundary_affected": false,
+      "message": "3 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": "scene_001",
+      "start": 0.0,
+      "end": 18.079999923706055,
+      "start_frame": 0,
+      "duration_frames": 543,
+      "method": "aligned",
+      "sentences": [
+        {
+          "sentence_id": "scene_001.n1.s1",
+          "scene_id": "scene_001",
+          "narration_index": 0,
+          "text": "Searchbloom publishes this agency list and ranks itself first, so its ranking reflects the publisher's own assessment, not an independent verdict.",
+          "char_start": 0,
+          "char_end": 146,
+          "claim_ids": [
+            "claim_001"
+          ],
+          "word_start": 0,
+          "word_end": 22,
+          "score": 1.0,
+          "transcript_text": "Search Bloom publishes this agency list and ranks itself first so its ranking reflects the publisher's own assessment not an independent verdict",
+          "start": 0.0,
+          "end": 8.760000228881836,
+          "aligned_start": 0.0,
+          "aligned_end": 8.760000228881836,
+          "method": "aligned",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_001.n2.s1",
+          "scene_id": "scene_001",
+          "narration_index": 1,
+          "text": "Throughout this guide, the source is Searchbloom: its facts come from company websites, and its case-study figures are the companies' own reporting.",
+          "char_start": 0,
+          "char_end": 148,
+          "claim_ids": [
+            "claim_002"
+          ],
+          "word_start": 22,
+          "word_end": 46,
+          "score": 0.9833333333333333,
+          "transcript_text": "Throughout this guide the source is Search Bloom Its facts come from company websites and its case study figures are the company's own reporting",
+          "start": 9.5,
+          "end": 17.68000030517578,
+          "aligned_start": 9.5,
+          "aligned_end": 17.68000030517578,
+          "method": "aligned",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
+        }
+      ],
+      "elements": [
+        {
+          "element_index": 0,
+          "claim_ids": [
+            "claim_001"
+          ],
+          "start": 0.0,
+          "end": 8.760000228881836,
+          "method": "claim_sentence"
+        },
+        {
+          "element_index": 1,
+          "claim_ids": [
+            "claim_002"
+          ],
+          "start": 9.5,
+          "end": 17.68000030517578,
+          "method": "claim_sentence"
+        }
+      ],
+      "word_cues": [
+        {
+          "kind": "name",
+          "value": "Searchbloom",
+          "sentence_id": "scene_001.n1.s1",
+          "start": 0.0,
+          "end": 0.6200000047683716,
+          "transcript_text": "Search Bloom",
+          "word_start": 0,
+          "word_end": 2
+        },
+        {
+          "kind": "quantity",
+          "value": "number:1",
+          "sentence_id": "scene_001.n1.s1",
+          "start": 0.0,
+          "end": 3.859999895095825,
+          "transcript_text": "Search Bloom publishes this agency list and ranks itself first",
+          "word_start": 0,
+          "word_end": 10
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_002",
+      "start": 18.079999923706055,
+      "end": 41.08000183105469,
+      "start_frame": 543,
+      "duration_frames": 690,
+      "method": "aligned",
+      "sentences": [
+        {
+          "sentence_id": "scene_002.n1.s1",
+          "scene_id": "scene_002",
+          "narration_index": 0,
+          "text": "Start by defining success: leads, sign-ups, or revenue from AI referrals, rather than citation counts or visibility scores.",
+          "char_start": 0,
+          "char_end": 123,
+          "claim_ids": [
+            "claim_003"
+          ],
+          "word_start": 46,
+          "word_end": 64,
+          "score": 1.0,
+          "transcript_text": "Start by defining success leads signups or revenue from AI referrals rather than citation counts or visibility scores",
+          "start": 18.079999923706055,
+          "end": 26.34000015258789,
+          "aligned_start": 18.079999923706055,
+          "aligned_end": 26.34000015258789,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            59
+          ],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_002.n2.s1",
+          "scene_id": "scene_002",
+          "narration_index": 1,
+          "text": "Then ask for a dated AI search result with a named or described company, a figure, and a period.",
+          "char_start": 0,
+          "char_end": 96,
+          "claim_ids": [
+            "claim_004"
+          ],
+          "word_start": 64,
+          "word_end": 83,
+          "score": 1.0,
+          "transcript_text": "Then ask for a dated AI search result with a named or described company a figure and a period",
+          "start": 27.059999465942383,
+          "end": 33.220001220703125,
+          "aligned_start": 27.059999465942383,
+          "aligned_end": 33.220001220703125,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            68,
+            74,
+            76,
+            82
+          ],
+          "boundary_timestamp_review": true
+        },
+        {
+          "sentence_id": "scene_002.n3.s1",
+          "scene_id": "scene_002",
+          "narration_index": 2,
+          "text": "Watch for promises of AI citations in weeks, or reports that count citations without mentioning leads or revenue.",
+          "char_start": 0,
+          "char_end": 113,
+          "claim_ids": [
+            "claim_020"
+          ],
+          "word_start": 83,
+          "word_end": 101,
+          "score": 1.0,
+          "transcript_text": "Watch for promises of AI citations in weeks or reports that count citations without mentioning leads or revenue",
+          "start": 34.20000076293945,
+          "end": 40.20000076293945,
+          "aligned_start": 34.20000076293945,
+          "aligned_end": 40.20000076293945,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            90
+          ],
+          "boundary_timestamp_review": false
+        }
+      ],
+      "elements": [
+        {
+          "element_index": 0,
+          "claim_ids": [
+            "claim_003"
+          ],
+          "start": 18.079999923706055,
+          "end": 26.34000015258789,
+          "method": "claim_sentence"
+        }
+      ],
+      "word_cues": []
+    },
+    {
+      "scene_id": "scene_003",
+      "start": 41.08000183105469,
+      "end": 64.87999725341797,
+      "start_frame": 1233,
+      "duration_frames": 714,
+      "method": "aligned",
+      "sentences": [
+        {
+          "sentence_id": "scene_003.n1.s1",
+          "scene_id": "scene_003",
+          "narration_index": 0,
+          "text": "AI answers are probabilistic: repeating the same question can produce different brands.",
+          "char_start": 0,
+          "char_end": 87,
+          "claim_ids": [
+            "claim_005"
+          ],
+          "word_start": 101,
+          "word_end": 113,
+          "score": 1.0,
+          "transcript_text": "AI answers are probabilistic Repeating the same question can produce different brands",
+          "start": 41.08000183105469,
+          "end": 45.459999084472656,
+          "aligned_start": 41.08000183105469,
+          "aligned_end": 45.459999084472656,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            105
+          ],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_003.n2.s1",
+          "scene_id": "scene_003",
+          "narration_index": 1,
+          "text": "Track a fixed set of real buyer questions daily across the AI platforms your buyers use, then read the trend.",
+          "char_start": 0,
+          "char_end": 109,
+          "claim_ids": [
+            "claim_006"
+          ],
+          "word_start": 113,
+          "word_end": 133,
+          "score": 1.0,
+          "transcript_text": "Track a fixed set of real buyer questions daily across the AI platforms your buyers use then read the trend",
+          "start": 46.41999816894531,
+          "end": 52.5,
+          "aligned_start": 46.41999816894531,
+          "aligned_end": 52.5,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            113,
+            127,
+            132
+          ],
+          "boundary_timestamp_review": true
+        },
+        {
+          "sentence_id": "scene_003.n3.s1",
+          "scene_id": "scene_003",
+          "narration_index": 2,
+          "text": "Separate branded and non-branded prompts, and segment them by awareness, consideration, and purchase.",
+          "char_start": 0,
+          "char_end": 101,
+          "claim_ids": [
+            "claim_007"
+          ],
+          "word_start": 133,
+          "word_end": 147,
+          "score": 1.0,
+          "transcript_text": "Separate branded and non branded prompts and segment them by awareness consideration and purchase",
+          "start": 53.2599983215332,
+          "end": 58.560001373291016,
+          "aligned_start": 53.2599983215332,
+          "aligned_end": 58.560001373291016,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            138
+          ],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_003.n4.s1",
+          "scene_id": "scene_003",
+          "narration_index": 3,
+          "text": "Ask which tracking tool, prompts, platforms, and run frequency an agency uses.",
+          "char_start": 0,
+          "char_end": 78,
+          "claim_ids": [
+            "claim_009"
+          ],
+          "word_start": 147,
+          "word_end": 159,
+          "score": 1.0,
+          "transcript_text": "Ask which tracking tool prompts platforms and run frequency an agency uses",
+          "start": 59.22999954223633,
+          "end": 64.19999694824219,
+          "aligned_start": 59.22999954223633,
+          "aligned_end": 64.19999694824219,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            151,
+            152
+          ],
+          "boundary_timestamp_review": false
+        }
+      ],
+      "elements": [
+        {
+          "element_index": 0,
+          "claim_ids": [
+            "claim_005"
+          ],
+          "start": 41.08000183105469,
+          "end": 45.459999084472656,
+          "method": "claim_sentence"
+        },
+        {
+          "element_index": 1,
+          "claim_ids": [
+            "claim_006"
+          ],
+          "start": 46.41999816894531,
+          "end": 52.5,
+          "method": "claim_sentence"
+        }
+      ],
+      "word_cues": []
+    },
+    {
+      "scene_id": "scene_004",
+      "start": 64.87999725341797,
+      "end": 85.95999908447266,
+      "start_frame": 1947,
+      "duration_frames": 632,
+      "method": "aligned",
+      "sentences": [
+        {
+          "sentence_id": "scene_004.n1.s1",
+          "scene_id": "scene_004",
+          "narration_index": 0,
+          "text": "In Searchbloom's own tracking, about nine of every ten sources AI cites are on other people's sites.",
+          "char_start": 0,
+          "char_end": 100,
+          "claim_ids": [
+            "claim_010"
+          ],
+          "word_start": 159,
+          "word_end": 177,
+          "score": 1.0,
+          "transcript_text": "In Search Bloom's own tracking about nine of every 10 sources AI cites are on other people's sites",
+          "start": 64.87999725341797,
+          "end": 69.81999969482422,
+          "aligned_start": 64.87999725341797,
+          "aligned_end": 69.81999969482422,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            176
+          ],
+          "boundary_timestamp_review": true
+        },
+        {
+          "sentence_id": "scene_004.n2.s1",
+          "scene_id": "scene_004",
+          "narration_index": 1,
+          "text": "Ask which outside URLs are retrieved and cited for your top buyer questions, and which placements the agency can help you secure.",
+          "char_start": 0,
+          "char_end": 129,
+          "claim_ids": [
+            "claim_011"
+          ],
+          "word_start": 177,
+          "word_end": 199,
+          "score": 1.0,
+          "transcript_text": "Ask which outside URLs are retrieved and cited for your top buyer questions and which placements the agency can help you secure",
+          "start": 70.72000122070312,
+          "end": 77.22000122070312,
+          "aligned_start": 70.72000122070312,
+          "aligned_end": 77.22000122070312,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            177
+          ],
+          "boundary_timestamp_review": true
+        },
+        {
+          "sentence_id": "scene_004.n3.s1",
+          "scene_id": "scene_004",
+          "narration_index": 2,
+          "text": "When an answer leaves your business out, inspect the pages it cited; often, the fix is a listing through outreach, a review, or sponsorship.",
+          "char_start": 0,
+          "char_end": 140,
+          "claim_ids": [
+            "claim_012"
+          ],
+          "word_start": 199,
+          "word_end": 223,
+          "score": 1.0,
+          "transcript_text": "When an answer leaves your business out inspect the pages it cited Often the fix is a listing through outreach a review or sponsorship",
+          "start": 77.95999908447266,
+          "end": 85.27999877929688,
+          "aligned_start": 77.95999908447266,
+          "aligned_end": 85.27999877929688,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            208,
+            216,
+            220,
+            222
+          ],
+          "boundary_timestamp_review": true
+        }
+      ],
+      "elements": [
+        {
+          "element_index": 0,
+          "claim_ids": [
+            "claim_011"
+          ],
+          "start": 70.72000122070312,
+          "end": 77.22000122070312,
+          "method": "claim_sentence"
+        }
+      ],
+      "word_cues": [
+        {
+          "kind": "quantity",
+          "value": "number:10",
+          "sentence_id": "scene_004.n1.s1",
+          "start": 64.87999725341797,
+          "end": 67.55999755859375,
+          "transcript_text": "In Search Bloom's own tracking about nine of every 10",
+          "word_start": 159,
+          "word_end": 169
+        },
+        {
+          "kind": "quantity",
+          "value": "number:9",
+          "sentence_id": "scene_004.n1.s1",
+          "start": 64.87999725341797,
+          "end": 66.95999908447266,
+          "transcript_text": "In Search Bloom's own tracking about nine",
+          "word_start": 159,
+          "word_end": 166
+        },
+        {
+          "kind": "name",
+          "value": "Searchbloom",
+          "sentence_id": "scene_004.n1.s1",
+          "start": 64.95999908447266,
+          "end": 65.55999755859375,
+          "transcript_text": "Search Bloom's",
+          "word_start": 160,
+          "word_end": 162
+        }
+      ]
+    },
+    {
+      "scene_id": "scene_005",
+      "start": 85.95999908447266,
+      "end": 106.87999725341797,
+      "start_frame": 2579,
+      "duration_frames": 628,
+      "method": "aligned",
+      "sentences": [
+        {
+          "sentence_id": "scene_005.n1.s1",
+          "scene_id": "scene_005",
+          "narration_index": 0,
+          "text": "Crawler access, correct structured data, and clean architecture make a site legible to AI platforms.",
+          "char_start": 0,
+          "char_end": 100,
+          "claim_ids": [
+            "claim_013"
+          ],
+          "word_start": 223,
+          "word_end": 238,
+          "score": 1.0,
+          "transcript_text": "Crawler access correct structured data and clean architecture make a site legible to AI platforms",
+          "start": 85.95999908447266,
+          "end": 91.5999984741211,
+          "aligned_start": 85.95999908447266,
+          "aligned_end": 91.5999984741211,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            233
+          ],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_005.n2.s1",
+          "scene_id": "scene_005",
+          "narration_index": 1,
+          "text": "The agency should handle technical, content, and entity work, and review visibility tracking with you monthly.",
+          "char_start": 0,
+          "char_end": 110,
+          "claim_ids": [
+            "claim_014",
+            "claim_015"
+          ],
+          "word_start": 238,
+          "word_end": 254,
+          "score": 1.0,
+          "transcript_text": "The agency should handle technical content and entity work and review visibility tracking with you monthly",
+          "start": 92.30000305175781,
+          "end": 97.83999633789062,
+          "aligned_start": 92.30000305175781,
+          "aligned_end": 97.83999633789062,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            243,
+            252,
+            253
+          ],
+          "boundary_timestamp_review": true
+        },
+        {
+          "sentence_id": "scene_005.n3.s1",
+          "scene_id": "scene_005",
+          "narration_index": 2,
+          "text": "Clarify whether the agency implements technical changes or supplies technical recommendations, and price the developer time you will need to provide.",
+          "char_start": 0,
+          "char_end": 149,
+          "claim_ids": [
+            "claim_017"
+          ],
+          "word_start": 254,
+          "word_end": 275,
+          "score": 1.0,
+          "transcript_text": "Clarify whether the agency implements technical changes or supplies technical recommendations and price the developer time you will need to provide",
+          "start": 98.81999969482422,
+          "end": 106.30000305175781,
+          "aligned_start": 98.81999969482422,
+          "aligned_end": 106.30000305175781,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            257,
+            274
+          ],
+          "boundary_timestamp_review": true
+        }
+      ],
+      "elements": [
+        {
+          "element_index": 0,
+          "claim_ids": [
+            "claim_017"
+          ],
+          "start": 98.81999969482422,
+          "end": 106.30000305175781,
+          "method": "claim_sentence"
+        }
+      ],
+      "word_cues": []
+    },
+    {
+      "scene_id": "scene_006",
+      "start": 106.87999725341797,
+      "end": 123.94000244140625,
+      "start_frame": 3207,
+      "duration_frames": 512,
+      "method": "aligned",
+      "sentences": [
+        {
+          "sentence_id": "scene_006.n1.s1",
+          "scene_id": "scene_006",
+          "narration_index": 0,
+          "text": "Your team must own sponsorship and affiliate budgets when the most-retrieved roundup in your category is a paid placement.",
+          "char_start": 0,
+          "char_end": 122,
+          "claim_ids": [
+            "claim_016"
+          ],
+          "word_start": 275,
+          "word_end": 295,
+          "score": 1.0,
+          "transcript_text": "Your team must own sponsorship and affiliate budgets when the most retrieved roundup in your category is a paid placement",
+          "start": 106.87999725341797,
+          "end": 112.73999786376953,
+          "aligned_start": 106.87999725341797,
+          "aligned_end": 112.73999786376953,
+          "method": "aligned",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_006.n2.s1",
+          "scene_id": "scene_006",
+          "narration_index": 1,
+          "text": "Your team must also own retailer, marketplace, and partner listings.",
+          "char_start": 0,
+          "char_end": 68,
+          "claim_ids": [
+            "claim_016"
+          ],
+          "word_start": 295,
+          "word_end": 305,
+          "score": 1.0,
+          "transcript_text": "Your team must also own retailer marketplace and partner listings",
+          "start": 113.27999877929688,
+          "end": 116.95999908447266,
+          "aligned_start": 113.27999877929688,
+          "aligned_end": 116.95999908447266,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            303
+          ],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_006.n3.s1",
+          "scene_id": "scene_006",
+          "narration_index": 2,
+          "text": "That responsibility extends to social media and community work, brand positioning, and the budget behind PR.",
+          "char_start": 0,
+          "char_end": 108,
+          "claim_ids": [
+            "claim_016"
+          ],
+          "word_start": 305,
+          "word_end": 321,
+          "score": 1.0,
+          "transcript_text": "That responsibility extends to social media and community work brand positioning and the budget behind PR",
+          "start": 117.62000274658203,
+          "end": 123.27999877929688,
+          "aligned_start": 117.62000274658203,
+          "aligned_end": 123.27999877929688,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            314,
+            318
+          ],
+          "boundary_timestamp_review": false
+        }
+      ],
+      "elements": [
+        {
+          "element_index": 0,
+          "claim_ids": [
+            "claim_016"
+          ],
+          "start": 106.87999725341797,
+          "end": 123.27999877929688,
+          "method": "claim_sentence"
+        }
+      ],
+      "word_cues": []
+    },
+    {
+      "scene_id": "scene_007",
+      "start": 123.94000244140625,
+      "end": 135.6,
+      "start_frame": 3719,
+      "duration_frames": 355,
+      "method": "aligned",
+      "sentences": [
+        {
+          "sentence_id": "scene_007.n1.s1",
+          "scene_id": "scene_007",
+          "narration_index": 0,
+          "text": "In Searchbloom's comparison of nine companies, three publish a fee, two a minimum, and four a contract term.",
+          "char_start": 0,
+          "char_end": 108,
+          "claim_ids": [
+            "claim_018"
+          ],
+          "word_start": 321,
+          "word_end": 340,
+          "score": 1.0,
+          "transcript_text": "In Search Bloom's comparison of nine companies three publish a fee two a minimum and four a contract term",
+          "start": 123.94000244140625,
+          "end": 129.47999572753906,
+          "aligned_start": 123.94000244140625,
+          "aligned_end": 129.47999572753906,
+          "method": "aligned",
+          "zero_duration_word_indices": [
+            331,
+            334,
+            338
+          ],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_007.n2.s1",
+          "scene_id": "scene_007",
+          "narration_index": 1,
+          "text": "Before comparing agencies, get any unpublished fees, minimums, and contract lengths in writing.",
+          "char_start": 0,
+          "char_end": 95,
+          "claim_ids": [
+            "claim_019"
+          ],
+          "word_start": 340,
+          "word_end": 353,
+          "score": 1.0,
+          "transcript_text": "Before comparing agencies get any unpublished fees minimums and contract lengths in writing",
+          "start": 130.16000366210938,
+          "end": 135.3000030517578,
+          "aligned_start": 130.16000366210938,
+          "aligned_end": 135.3000030517578,
+          "method": "aligned",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
+        }
+      ],
+      "elements": [
+        {
+          "element_index": 0,
+          "claim_ids": [
+            "claim_019"
+          ],
+          "start": 130.16000366210938,
+          "end": 135.3000030517578,
+          "method": "claim_sentence"
+        }
+      ],
+      "word_cues": [
+        {
+          "kind": "quantity",
+          "value": "number:3",
+          "sentence_id": "scene_007.n1.s1",
+          "start": 123.94000244140625,
+          "end": 126.4800033569336,
+          "transcript_text": "In Search Bloom's comparison of nine companies three",
+          "word_start": 321,
+          "word_end": 329
+        },
+        {
+          "kind": "name",
+          "value": "Searchbloom",
+          "sentence_id": "scene_007.n1.s1",
+          "start": 124.08000183105469,
+          "end": 124.72000122070312,
+          "transcript_text": "Search Bloom's",
+          "word_start": 322,
+          "word_end": 324
+        },
+        {
+          "kind": "quantity",
+          "value": "number:2",
+          "sentence_id": "scene_007.n1.s1",
+          "start": 127.63999938964844,
+          "end": 127.69999694824219,
+          "transcript_text": "two",
+          "word_start": 332,
+          "word_end": 333
+        }
+      ]
+    }
+  ],
+  "schema_version": "1.0",
+  "stage": "timing",
+  "inputs": {
+    "script": "f66dcc89d2344962614f105b3610a28e6c7f1a742ec49a293f3f94e8e56ebf9c",
+    "script_approval": "40a1d8525bb649f39e843b91f9ddec43bda5cb2708b456c47438d9c5918712fa",
+    "narration_metadata": "168e8fa8f51fbc4924abc73de270f143481cbeb887b422f241333de9310a42fb",
+    "audio_sha256": "b5e388857e24349176d9eb85bea66119d129795c862d8d6f54a344bb309f19ae"
+  },
+  "alignment_version": "alignment.v2",
+  "config": {
+    "model": "whisper-1",
+    "language": "en",
+    "response_format": "verbose_json",
+    "timestamp_granularities": [
+      "word"
+    ],
+    "temperature": 0,
+    "timeout_seconds": 180.0,
+    "max_audio_bytes": 25000000,
+    "duration_tolerance_seconds": 0.35,
+    "fps": 30,
+    "tail_padding_frames": 6,
+    "min_sentence_score": 0.85,
+    "max_word_cues_per_scene": 3
+  },
+  "transcript_sha256": "cebd7bc1c0a2f1c4240314ae6a03313bfd7d52238503f9d4f4f499daaf8f1cad",
+  "transcription_cache_key": "1ddbbf6feeb0eaa9caf381ba79f6fc4376badc86cb00b7abc54116f6495c46e1",
+  "listening_review": "pending",
+  "cache_key": "f469c66c031fb30224249195558a5af4a5584622686a698ff77d39ac2d00799c"
+}

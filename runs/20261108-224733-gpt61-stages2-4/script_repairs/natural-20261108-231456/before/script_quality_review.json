@@ -1,0 +1,14 @@
+{
+  "version": "script-quality.v1",
+  "artifact_sha256": "549f239fcdcd9a63f0f1a5c023a3c5952fabc556be04f1ca2a0b9f0e35e2e99b",
+  "method": "deterministic",
+  "categories": [
+    "narration_naturalness",
+    "capitalization",
+    "repetition",
+    "scene_coherence",
+    "visual_suitability",
+    "on_screen_text"
+  ],
+  "flags": []
+}

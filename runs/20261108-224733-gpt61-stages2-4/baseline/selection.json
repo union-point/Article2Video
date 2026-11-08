@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0",
+  "stage": "selection",
+  "inputs": {
+    "article": "2288fad3b123b449e29c4c733f88f6aadcfbffb742875401d913f24d7a068b53",
+    "config": "d0617f1793ecab584cdeb0e201b46c5306e9d58b8248df1b20fbae7aa3993f81"
+  },
+  "run": {
+    "requested_model": "gpt-4.1-mini-2025-04-14",
+    "resolved_model": "gpt-4.1-mini-2025-04-14",
+    "prompt_version": "selection.v2",
+    "cache_key": "183ce0046618f06b95a4f5bb0d3ea3f88160d05044544bad9d80add92d38e23f",
+    "response_id": "resp_06bd3d8238efbc08016af08678635c87d2967055c02c345699",
+    "usage": {
+      "input_tokens": 73587,
+      "output_tokens": 635,
+      "total_tokens": 74222
+    }
+  },
+  "data": {
+    "angle": "An overview and detailed ranking of the top AI SEO companies in 2026, emphasizing key selection criteria, costs, and situational recommendations.",
+    "ranked_sections": [
+      {
+        "section_id": "block_0001",
+        "rank": 1,
+        "reason": "Introduces the topic, lists top companies, explains the importance of measuring AI visibility and includes publisher disclosure about researching costs and results."
+      },
+      {
+        "section_id": "block_0005",
+        "rank": 2,
+        "reason": "Provides a detailed AI SEO company comparison table with scores, specializations, and fee information, critical for understanding rankings and offerings."
+      },
+      {
+        "section_id": "block_0025",
+        "rank": 3,
+        "reason": "Offers detailed profiles of the top 9 AI SEO companies including summaries, scorecards, published results, fees, and considerations, which are central for decision-making."
+      },
+      {
+        "section_id": "block_0046",
+        "rank": 4,
+        "reason": "Recommends the best AI SEO companies by specific business situations and goals, helping readers match companies to their needs."
+      },
+      {
+        "section_id": "block_0009",
+        "rank": 5,
+        "reason": "Breaks down what each AI SEO company costs with insights on pricing structures and contract terms, important for budgeting and planning."
+      },
+      {
+        "section_id": "block_0013",
+        "rank": 6,
+        "reason": "Shows what information companies openly publish about pricing, results, and tracking, revealing transparency and trust factors."
+      },
+      {
+        "section_id": "block_0017",
+        "rank": 7,
+        "reason": "Explains the scoring criteria used for ranking, clarifying how assessments relate to real AI SEO effectiveness."
+      },
+      {
+        "section_id": "block_0064",
+        "rank": 8,
+        "reason": "Emphasizes the importance of measurement in AI SEO, a key new aspect distinguishing modern SEO practices."
+      },
+      {
+        "section_id": "block_0071",
+        "rank": 9,
+        "reason": "Details what AI SEO actually involves, covering foundational technical, content, and external outreach components."
+      },
+      {
+        "section_id": "block_0081",
+        "rank": 10,
+        "reason": "Clarifies what AI SEO companies can and cannot do, including agency responsibilities and client ownership areas, vital to set expectations."
+      },
+      {
+        "section_id": "block_0099",
+        "rank": 11,
+        "reason": "Sets realistic expectations about timing for seeing AI SEO results, cautioning against unrealistic promises."
+      },
+      {
+        "section_id": "block_0101",
+        "rank": 12,
+        "reason": "Guides on how to choose an AI SEO company, listing questions to ask and considerations before hiring, empowering informed decisions."
+      },
+      {
+        "section_id": "block_0115",
+        "rank": 13,
+        "reason": "Highlights recent changes in AI SEO during 2026 impacting company strategies and optimization techniques."
+      },
+      {
+        "section_id": "block_0121",
+        "rank": 14,
+        "reason": "Contains a Q&A section addressing common inquiries about AI SEO agencies, enhancing understanding for potential clients."
+      },
+      {
+        "section_id": "block_0144",
+        "rank": 15,
+        "reason": "Includes a note from the author detailing their experience, the methodology employed, and transparency about ranking biases, adding credibility."
+      }
+    ],
+    "selected_section_ids": [
+      "block_0001",
+      "block_0005",
+      "block_0025",
+      "block_0046",
+      "block_0009",
+      "block_0013",
+      "block_0017"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "Searchbloom's guidance assigns social media and community work, brand positioning, and the PR budget to the client's team."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "dec4f69730c9d6b8f6e9a00036e26f953b69e9194c26168a127bca065f99e9ee",
+    "response_id": "resp_088591fa020b643d016af0c6ff89c887d2b6189b658f4e6671",
+    "usage": {
+      "input_tokens": 749,
+      "output_tokens": 40,
+      "total_tokens": 789
+    }
+  }
+}

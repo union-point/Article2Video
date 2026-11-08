@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The approved claim and cited evidence support Searchbloom's advice to ask about the tool, prompts, AI platforms, and tracking frequency."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "b08d09af3f9e79428a523b033cd42d63d1fe1bb7498d763ed0b5b355c372ca5d",
+    "response_id": "resp_07c3140295df25ad016af0c93a498887d2bed90e6b9524cf2c",
+    "usage": {
+      "input_tokens": 588,
+      "output_tokens": 43,
+      "total_tokens": 631
+    }
+  }
+}

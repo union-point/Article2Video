@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The approved claim and cited evidence support requesting a dated AI search result with a company, figure, and period."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "b2323c79664262b159a93848b8333b99916f1fb7ae0367bfcb0d408bfad5e540",
+    "response_id": "resp_0b7d526bc3b4a1d0016af0ca3abdac87d2a5a57761efc680e9",
+    "usage": {
+      "input_tokens": 573,
+      "output_tokens": 38,
+      "total_tokens": 611
+    }
+  }
+}

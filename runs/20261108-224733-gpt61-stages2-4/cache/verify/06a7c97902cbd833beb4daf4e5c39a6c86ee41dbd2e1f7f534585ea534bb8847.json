@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited section and approved claim say the client's team must own retailer, marketplace, and partner listings, attributed to Searchbloom."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "06a7c97902cbd833beb4daf4e5c39a6c86ee41dbd2e1f7f534585ea534bb8847",
+    "response_id": "resp_0e946b70aabe0099016af0c94e45ec87d2903c686956dc98a7",
+    "usage": {
+      "input_tokens": 741,
+      "output_tokens": 42,
+      "total_tokens": 783
+    }
+  }
+}

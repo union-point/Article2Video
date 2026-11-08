@@ -1,0 +1,33 @@
+{
+  "version": "script-quality.v1",
+  "artifact_sha256": "f66dcc89d2344962614f105b3610a28e6c7f1a742ec49a293f3f94e8e56ebf9c",
+  "method": "deterministic",
+  "categories": [
+    "narration_naturalness",
+    "capitalization",
+    "repetition",
+    "scene_coherence",
+    "visual_suitability",
+    "on_screen_text"
+  ],
+  "flags": [
+    {
+      "id": "2d2691b75dc1d251",
+      "code": "QUALITY_SCENE_COHERENCE",
+      "target": "scene_001.title",
+      "message": "This label has no clear claim/topic overlap with the scene's narration; review its relevance."
+    },
+    {
+      "id": "a6d64c01f81700d4",
+      "code": "QUALITY_SCENE_COHERENCE",
+      "target": "scene_006.title",
+      "message": "This label has no clear claim/topic overlap with the scene's narration; review its relevance."
+    },
+    {
+      "id": "c362c73d0d5c7f5c",
+      "code": "QUALITY_SCENE_COHERENCE",
+      "target": "scene_007.title",
+      "message": "This label has no clear claim/topic overlap with the scene's narration; review its relevance."
+    }
+  ]
+}

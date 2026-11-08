@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The label neutrally summarizes the recommendation to obtain fees, minimums, and contract lengths in writing."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "a4f55a29849e30ebe92332152e6d17d81d834d15478acc550d6376eceee1cc51",
+    "response_id": "resp_0ff7b70d7a7f31fe016af0c703530487d29f6381d671f4eea7",
+    "usage": {
+      "input_tokens": 698,
+      "output_tokens": 53,
+      "total_tokens": 751
+    }
+  }
+}

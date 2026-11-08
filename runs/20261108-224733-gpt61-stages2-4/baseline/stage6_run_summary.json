@@ -1,0 +1,91 @@
+{
+  "stage": 6,
+  "status": "review_required",
+  "approved_inputs_preserved": true,
+  "protected_input_file_count": 23,
+  "protected_input_sha256": {
+    "output/generic_article.json": "47ad85ee4dd0762d5f1868853f6100b95d7f8a1a8fc809679babe506af570711",
+    "output/generic_review.md": "dc2afcd0b1cbf2f38918ece06e5841c52f10b37540ef73ea55ee22d3bb60c5ab",
+    "output/article.json": "b82c47ca30a55a81d6ed3268ee2ce5fea4c38f7198784190eb83ee513f009ecc",
+    "output/article_review.md": "b757d74d4cb9941a606add0eb9e1cc103e4e3dc234e4df0b0188f4dfa90b1dbd",
+    "output/selection.json": "f43ac1919be7826efbdbb3942141fe30eab3ee04233bbb441c40b0485ade5869",
+    "output/facts.json": "0b945f4e68f9f2f042f9b30ed017fd17f6620cd6f804fd3e68e0911ec91734b7",
+    "output/selection_review.json": "9884acf78c2ed56bf1d56c7f4ee5d9ddf9e08fd2db40f3e562d4169a221af357",
+    "output/selection_review.md": "0c9e747f64e3e831b183cb580f05235429f37c823fbaf1b0daa6e7d74dcd3d6f",
+    "output/facts_review.json": "958e2b31057ea31303aebd514a5554df83919410247b3e646bd31d99ceb4b63d",
+    "output/facts_review.md": "753f152e7314d5d3647950bafdecddf2d099394ae56371b68cf70d3509a75b3b",
+    "output/facts_review_summary.md": "3b59cf7236fa0618228f0be05b6d6086b939609ca0fcffb1c1a553b619a481f2",
+    "output/scenes.json": "55c9b62d538a72bc0e74829614de508493c0fa2a2c2a8b90ce9acd07500081ee",
+    "output/script.md": "7169e8b4e9a3963222a8d8212b3d64d2b55fa8947a1b7a49331903292ff9f3f3",
+    "output/script_review.json": "735f90ef088fce7c926f60012aad7aae5adc735cf68568419bad3bf957771690",
+    "output/script_review.md": "d262e9e2ab57c34ebee0f40208ceeb641050381e7b0565d8e31c576dde87cd27",
+    "output/script_quality_review.json": "6abcb07f1d14f1e72b686d44ea66eb6e976b3317005b6238f0b136ee73e1e698",
+    "output/script_quality_review.md": "d06f834c04a00982ca30753bc05c136ff5718c0a217fd4f957c8fe425b2c31d0",
+    "output/narration.wav": "e430df690e3efe560a675fdd848b1b9878178ebf55ac655dcb3abb2a0e072f2a",
+    "output/narration.txt": "06458141c43b702767d204f4269e5f44c2c46fa9d3fba0e39438b50492dcde22",
+    "output/narration.json": "55fc963356f6fa158b89af25266e705c8a696470fb800fa6866fabb915de2a0f",
+    "output/approvals/selection.json": "548ffc693212f8710b561092d062665cf755067b99ae4d684825937e3d054387",
+    "output/approvals/facts.json": "02efffbbd24250c817481aa1e98a51503952bed6ec331fad2461d8729c962aa8",
+    "output/approvals/script.json": "5b63b46273fe855a864c02291872f9b6b0a8d487bdfd304167d04a1086488a82"
+  },
+  "audio_duration_seconds": 155.15,
+  "fps": 30,
+  "duration_frames": 4661,
+  "sentence_count": 18,
+  "scene_count": 7,
+  "overall_normalized_similarity": 0.9878428046366977,
+  "issue_counts": {
+    "EMPTY_TRANSCRIPT_WORDS": 1,
+    "NAME_MISMATCH": 3,
+    "ZERO_DURATION_WORD": 11,
+    "QUANTITY_MISMATCH": 5,
+    "OVERLAPPING_WORDS": 1,
+    "SCENE_FALLBACK": 7
+  },
+  "fallback_scene_count": 7,
+  "word_cue_count": 0,
+  "whisper_requests": 2,
+  "reported_transcription_seconds": 312,
+  "api_notes": "Two HTTP 200 responses failed the initial strict schema because of empty word entries. The first response was not retained; the second was retained and reused locally after adapter correction. No further transcription calls or automatic retries. API outcomes in the ledger retain the local validation failures.",
+  "content_generation_or_verifier_requests": 0,
+  "tts_requests": 0,
+  "listening_review": "pending",
+  "known_text_discrepancies": [
+    "Tinuiti transcribed as Tenuity/tenuity",
+    "iPullRank transcribed as iPollRank/iPoll rank",
+    "Possible omissions of team and AEO; confirm by listening",
+    "Word entries drop numeric punctuation and units retained in full transcript text; quantity flags are conservative, not proof of spoken errors"
+  ],
+  "generated_files": [
+    "output/transcript.json",
+    "output/timings.json",
+    "output/timing_review.md",
+    "output/stage6_run_summary.json"
+  ],
+  "validation": "Full suite result is recorded in decision_log.md; timing structural validation and byte-for-byte upstream preservation passed.",
+  "transcript_word_count": 370,
+  "omitted_empty_word_count": 2,
+  "zero_duration_word_count": 17,
+  "transcription_requests": [
+    {
+      "request_id": "req_3a0faf69218547d7b64c04090c586e6a",
+      "http_status": 200,
+      "outcome": "failure",
+      "error_type": "ValidationError",
+      "usage": {
+        "type": "duration",
+        "seconds": 156
+      }
+    },
+    {
+      "request_id": "req_db1138675f004308a00b5a9b86493260",
+      "http_status": 200,
+      "outcome": "failure",
+      "error_type": "ValidationError",
+      "usage": {
+        "type": "duration",
+        "seconds": 156
+      }
+    }
+  ]
+}

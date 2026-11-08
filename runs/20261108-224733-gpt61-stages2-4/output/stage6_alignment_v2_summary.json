@@ -1,0 +1,42 @@
+{
+  "alignment_version": "alignment.v2",
+  "cli_exit_code": 2,
+  "status": "review_required",
+  "scene_methods": {
+    "scene_001": "aligned",
+    "scene_002": "aligned",
+    "scene_003": "aligned",
+    "scene_004": "aligned",
+    "scene_005": "aligned",
+    "scene_006": "aligned",
+    "scene_007": "aligned"
+  },
+  "sentence_count": 20,
+  "zero_duration_word_count": 31,
+  "affected_sentence_count": 16,
+  "boundary_review_sentence_count": 7,
+  "word_cue_count": 8,
+  "new_api_calls": 0,
+  "network_and_provider_guards_enabled": true,
+  "protected_files_unchanged": 140,
+  "transcript_bytes_unchanged": true,
+  "scene_time_and_frame_bounds_unchanged": true,
+  "new_usage_event_counts": {
+    "cache_hit": 58
+  },
+  "previous_outputs": "runs/20261108-224733-gpt61-stages2-4/checkpoints/before-alignment-v2",
+  "source_sha256": {
+    "article_video/alignment.py": "5f6e8d27d893281cbb123f311964c5b79cfe244b7313436c81bdfc814aba2519",
+    "article_video/timing.py": "b549c477952490250b5720de20ed95e1c7cd10fe669041b00261d4d587f396d3"
+  },
+  "timings_sha256": "e55222db98b40227f73225eb4425b148a99f1f1783b301de1684712af1c1065e",
+  "validation": {
+    "command": "uv run python -m pytest article_video/tests article_parser/tests -q",
+    "passed": 204,
+    "duration_seconds": 39.14,
+    "published_timing_validator": "passed",
+    "published_sentence_spans_equal_transcript_outer_bounds": true,
+    "all_emitted_word_cues_have_positive_constituent_word_spans": true,
+    "git_diff_check": "passed"
+  }
+}

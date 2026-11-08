@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "partial",
+    "reason": "The cited evidence conditions ownership of sponsorship and affiliate budgets on the most-retrieved category roundup being a paid placement; the claim omits that condition."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "04f85bd0515cdd550851d45c45c401c87f54ca3ced7e94971a0533844a04da08",
+    "response_id": "resp_06fea0fa465d1b63016af0c4c98a9087d2be3871a97df49806",
+    "usage": {
+      "input_tokens": 673,
+      "output_tokens": 86,
+      "total_tokens": 759
+    }
+  }
+}

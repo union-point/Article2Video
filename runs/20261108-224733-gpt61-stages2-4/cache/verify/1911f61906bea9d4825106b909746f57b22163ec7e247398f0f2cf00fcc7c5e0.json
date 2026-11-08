@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited evidence and approved claim support Searchbloom’s recommendation to track fixed buyer questions daily across relevant AI platforms and read the trend."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "1911f61906bea9d4825106b909746f57b22163ec7e247398f0f2cf00fcc7c5e0",
+    "response_id": "resp_0b78ce726482329a016af0c937598887d2b09a2aa5deb13788",
+    "usage": {
+      "input_tokens": 548,
+      "output_tokens": 43,
+      "total_tokens": 591
+    }
+  }
+}

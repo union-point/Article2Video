@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "partial",
+    "reason": "The recommendation concerns technical changes and recommendations; the candidate omits that limitation."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "75b242a4bcc7794946154cf67b00d95cd1aba132b2d1fea78e419e14133480a9",
+    "response_id": "resp_002b6d8ddd97c651016af0c946dad087d295d7f89f825f63dc",
+    "usage": {
+      "input_tokens": 584,
+      "output_tokens": 197,
+      "total_tokens": 781
+    }
+  }
+}

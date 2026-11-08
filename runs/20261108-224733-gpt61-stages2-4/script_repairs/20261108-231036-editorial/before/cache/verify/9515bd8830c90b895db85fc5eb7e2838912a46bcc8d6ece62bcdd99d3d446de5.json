@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited evidence and approved claim support separating branded and non-branded prompts by awareness, consideration, and purchase stage."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "9515bd8830c90b895db85fc5eb7e2838912a46bcc8d6ece62bcdd99d3d446de5",
+    "response_id": "resp_04825044fa78ed79016af0c6ddf2a887d29175539ff1a0d77e",
+    "usage": {
+      "input_tokens": 575,
+      "output_tokens": 66,
+      "total_tokens": 641
+    }
+  }
+}

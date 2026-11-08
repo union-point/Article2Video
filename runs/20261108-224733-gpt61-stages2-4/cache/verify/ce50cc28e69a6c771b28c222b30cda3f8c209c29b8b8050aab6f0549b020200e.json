@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited evidence and approved claim directly support the attributed nine-in-ten figure."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "ce50cc28e69a6c771b28c222b30cda3f8c209c29b8b8050aab6f0549b020200e",
+    "response_id": "resp_08a7af6d23abf512016af0ca45b7e887d290e3251286bca39d",
+    "usage": {
+      "input_tokens": 564,
+      "output_tokens": 31,
+      "total_tokens": 595
+    }
+  }
+}

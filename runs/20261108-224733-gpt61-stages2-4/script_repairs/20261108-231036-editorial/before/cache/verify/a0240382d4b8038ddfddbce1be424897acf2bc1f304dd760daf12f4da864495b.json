@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The label faithfully describes the publisher-related context of the approved claims."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "a0240382d4b8038ddfddbce1be424897acf2bc1f304dd760daf12f4da864495b",
+    "response_id": "resp_0baa4f8a12e3e109016af0c6c8319887d28ec0749457eecdc7",
+    "usage": {
+      "input_tokens": 723,
+      "output_tokens": 29,
+      "total_tokens": 752
+    }
+  }
+}

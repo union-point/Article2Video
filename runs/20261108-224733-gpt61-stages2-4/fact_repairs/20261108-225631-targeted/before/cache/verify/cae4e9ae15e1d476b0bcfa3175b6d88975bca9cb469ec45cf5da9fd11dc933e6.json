@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited evidence directly states that repeating the same question can produce different brands because AI answers are probabilistic."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "cae4e9ae15e1d476b0bcfa3175b6d88975bca9cb469ec45cf5da9fd11dc933e6",
+    "response_id": "resp_0bc1974c0390430c016af0c4b9996087d2bc4779e1c7559e4e",
+    "usage": {
+      "input_tokens": 483,
+      "output_tokens": 37,
+      "total_tokens": 520
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited evidence and approved claim support all three counts, and the candidate attributes the comparison to Searchbloom."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "c7cdbe1512adfc2f9bd6895738ebac443f4ed0c9ac891bb4a2f9558d5756390a",
+    "response_id": "resp_039e5e9b795a8018016af0ca5873e887d28311c9473a3abfa4",
+    "usage": {
+      "input_tokens": 544,
+      "output_tokens": 38,
+      "total_tokens": 582
+    }
+  }
+}

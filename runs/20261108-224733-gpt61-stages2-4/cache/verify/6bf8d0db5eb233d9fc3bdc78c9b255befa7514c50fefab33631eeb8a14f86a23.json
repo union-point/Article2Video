@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The neutral label accurately reflects the approved claims about questions and tracking."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "6bf8d0db5eb233d9fc3bdc78c9b255befa7514c50fefab33631eeb8a14f86a23",
+    "response_id": "resp_0cedc7ea25cd3d26016af0c935cec087d2b2d9ccb335b4bbe3",
+    "usage": {
+      "input_tokens": 949,
+      "output_tokens": 29,
+      "total_tokens": 978
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The candidate accurately attributes both red flags to Searchbloom and matches the approved claim and cited evidence."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "44f0162623b19580f511589893baa6deb4f07bc713772a134ddc210c866f3354",
+    "response_id": "resp_0b2d9712004cddc6016af0c932c21887d2a3992c2b79a1dd49",
+    "usage": {
+      "input_tokens": 615,
+      "output_tokens": 36,
+      "total_tokens": 651
+    }
+  }
+}

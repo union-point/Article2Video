@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited text identifies leads, sign-ups, or AI referral revenue as the desired outcome and treats citation counts and visibility scores as signals rather than results."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "f8d17d672556a309b7b583554d31bd9dad7e86a3238a797184785805f533f354",
+    "response_id": "resp_0dcba1f2e9bf4ab4016af0c4b60f6087d28662b63ffe842ce2",
+    "usage": {
+      "input_tokens": 579,
+      "output_tokens": 46,
+      "total_tokens": 625
+    }
+  }
+}

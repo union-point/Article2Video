@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The phrase faithfully summarizes the recommendation to obtain unpublished terms in writing."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "a7f05e00c9d096b31f82a5dd38d75245bbe09abd95b11fa3e980b460e43a301e",
+    "response_id": "resp_03e212146dc22895016af0ca5dc62487d2bfaf47c86c5e183f",
+    "usage": {
+      "input_tokens": 561,
+      "output_tokens": 58,
+      "total_tokens": 619
+    }
+  }
+}

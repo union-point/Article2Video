@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The neutral title reflects the approved claims about defining success and requesting evidence."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "4d80a503bc858b7aec0ab207f31055ad53361316435d9c8ff32978fa9616f69d",
+    "response_id": "resp_0c0d228b8f104496016af0c6cfb30087d2a925dff10b23679f",
+    "usage": {
+      "input_tokens": 953,
+      "output_tokens": 30,
+      "total_tokens": 983
+    }
+  }
+}

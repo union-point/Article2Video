@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The candidate accurately attributes the sourcing statement to Searchbloom and matches the approved claim and cited evidence."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "d5b2bc19ac6f0168f7ef023f0bc246096bc952775b4fbe7ac87cee861d8678b9",
+    "response_id": "resp_0adceb35c858154a016af0c6cb514487d2aff85bbe74707b77",
+    "usage": {
+      "input_tokens": 543,
+      "output_tokens": 36,
+      "total_tokens": 579
+    }
+  }
+}

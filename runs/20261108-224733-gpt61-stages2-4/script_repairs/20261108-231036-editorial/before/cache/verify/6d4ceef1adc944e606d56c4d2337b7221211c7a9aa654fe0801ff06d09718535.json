@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "Searchbloom states that it publishes the list and ranks itself first."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "6d4ceef1adc944e606d56c4d2337b7221211c7a9aa654fe0801ff06d09718535",
+    "response_id": "resp_06ab1015d10fd775016af0c6ccc1bc87d29477b475321e1a34",
+    "usage": {
+      "input_tokens": 586,
+      "output_tokens": 30,
+      "total_tokens": 616
+    }
+  }
+}

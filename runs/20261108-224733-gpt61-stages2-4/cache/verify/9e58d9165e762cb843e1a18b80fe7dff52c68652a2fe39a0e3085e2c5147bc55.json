@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The recommendation matches the cited evidence and approved claim, with attribution to Searchbloom."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "9e58d9165e762cb843e1a18b80fe7dff52c68652a2fe39a0e3085e2c5147bc55",
+    "response_id": "resp_06f51960244d1040016af0c6e7cd0c87d28ea38421dcdd98d0",
+    "usage": {
+      "input_tokens": 598,
+      "output_tokens": 65,
+      "total_tokens": 663
+    }
+  }
+}

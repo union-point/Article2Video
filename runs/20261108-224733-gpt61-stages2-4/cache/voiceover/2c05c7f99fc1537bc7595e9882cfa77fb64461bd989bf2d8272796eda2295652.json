@@ -1,0 +1,59 @@
+{
+  "cache_key": "2c05c7f99fc1537bc7595e9882cfa77fb64461bd989bf2d8272796eda2295652",
+  "audio_sha256": "b5e388857e24349176d9eb85bea66119d129795c862d8d6f54a344bb309f19ae",
+  "audio": {
+    "duration_seconds": 135.6,
+    "sample_rate": 48000,
+    "channels": 1,
+    "sample_width_bytes": 2,
+    "frames": 6508800
+  },
+  "normalization": {
+    "input": {
+      "input_i": "-19.40",
+      "input_tp": "-1.60",
+      "input_lra": "3.50",
+      "input_thresh": "-29.75",
+      "output_i": "-16.21",
+      "output_tp": "-1.50",
+      "output_lra": "3.30",
+      "output_thresh": "-26.59",
+      "normalization_type": "dynamic",
+      "target_offset": "0.21"
+    },
+    "output": {
+      "input_i": "-16.02",
+      "input_tp": "-1.50",
+      "input_lra": "3.20",
+      "input_thresh": "-26.41",
+      "output_i": "-16.01",
+      "output_tp": "-1.50",
+      "output_lra": "3.10",
+      "output_thresh": "-26.39",
+      "normalization_type": "dynamic",
+      "target_offset": "0.01"
+    }
+  },
+  "ffmpeg_version": "ffmpeg version 8.1.3 Copyright (c) 2000-2026 the FFmpeg developers",
+  "chunks": [
+    {
+      "cache_key": "c366ce6188df58f0df872a39462e9a415416bf6e874a88f242396cac4d670123",
+      "audio_sha256": "5a94d9b0fdc21300d6181eaaf5abdef0dd05195021973985b8b7144d77c9b8c0",
+      "run": {
+        "requested_model": "gpt-4o-mini-tts-2025-12-15",
+        "resolved_model": null,
+        "request_id": "req_0ce79d883907440abdf1abe722b5a89b",
+        "usage": null
+      },
+      "text_sha256": "fdc0fa65d3192cba414068344d412f46f43ebc0e34b79cd2ee56039d6fc532b4",
+      "input_characters": 2255,
+      "audio": {
+        "duration_seconds": 135.6,
+        "sample_rate": 24000,
+        "channels": 1,
+        "sample_width_bytes": 2,
+        "frames": 3254400
+      }
+    }
+  ]
+}

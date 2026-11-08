@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The neutral label accurately describes the cited publisher and sourcing context without adding a factual claim."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "d083a114414603afb428856e769699d64133b0a57f354ab9daa5805392753c44",
+    "response_id": "resp_0a7dccadf80dda23016af0ca313b7887d2b448652aa098392e",
+    "usage": {
+      "input_tokens": 721,
+      "output_tokens": 33,
+      "total_tokens": 754
+    }
+  }
+}

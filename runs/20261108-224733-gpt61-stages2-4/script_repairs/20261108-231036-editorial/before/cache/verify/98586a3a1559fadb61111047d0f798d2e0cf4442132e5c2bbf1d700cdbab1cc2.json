@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "A neutral label for the recommended repeated tracking of a fixed set of buyer questions."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "98586a3a1559fadb61111047d0f798d2e0cf4442132e5c2bbf1d700cdbab1cc2",
+    "response_id": "resp_00a43b393b9cb946016af0c6d7d06087d28a8c5af38eeaa084",
+    "usage": {
+      "input_tokens": 949,
+      "output_tokens": 32,
+      "total_tokens": 981
+    }
+  }
+}

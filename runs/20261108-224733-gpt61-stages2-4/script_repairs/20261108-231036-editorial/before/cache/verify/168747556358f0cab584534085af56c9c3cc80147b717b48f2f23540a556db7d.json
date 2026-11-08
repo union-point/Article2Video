@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "A neutral label for the cited opportunities to obtain placements on outside pages that AI answers cite."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "168747556358f0cab584534085af56c9c3cc80147b717b48f2f23540a556db7d",
+    "response_id": "resp_03c8cd3e40141c07016af0c6e556ac87d283ac346f7aee8783",
+    "usage": {
+      "input_tokens": 898,
+      "output_tokens": 34,
+      "total_tokens": 932
+    }
+  }
+}

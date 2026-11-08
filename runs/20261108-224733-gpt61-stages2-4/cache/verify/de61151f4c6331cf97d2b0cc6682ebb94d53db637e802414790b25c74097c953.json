@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The approved claim and cited heading and list explicitly say the client's team must own retailer, marketplace, and partner listings."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "de61151f4c6331cf97d2b0cc6682ebb94d53db637e802414790b25c74097c953",
+    "response_id": "resp_002e4e48942ab722016af0ca5466b487d29c29d90fdd0702e0",
+    "usage": {
+      "input_tokens": 733,
+      "output_tokens": 39,
+      "total_tokens": 772
+    }
+  }
+}

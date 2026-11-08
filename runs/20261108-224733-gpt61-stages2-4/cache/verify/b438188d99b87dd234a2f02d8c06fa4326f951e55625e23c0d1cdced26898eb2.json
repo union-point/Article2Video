@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The phrase is a faithful label for the advice to ask which outside URLs are retrieved and cited."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "b438188d99b87dd234a2f02d8c06fa4326f951e55625e23c0d1cdced26898eb2",
+    "response_id": "resp_03a1bd2783f6c673016af0ca4a90b087d2b60681e316f76e2a",
+    "usage": {
+      "input_tokens": 577,
+      "output_tokens": 72,
+      "total_tokens": 649
+    }
+  }
+}

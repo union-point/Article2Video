@@ -1,0 +1,10 @@
+{
+  "stage": "selection",
+  "artifact_sha256": "eca60dbad4269eaa13fe912e9dc9ebafd0b8b478ea7ab7b9592881732ca52d81",
+  "review_sha256": "920b19d275ebb47d39f43521e25837dec1669d7eda98e38b87863b46fb64074f",
+  "reviewer": "user",
+  "reviewed_at": "2026-11-08T14:50:31.045458+00:00",
+  "note": "Selection explicitly approved by the user in chat on 2026-11-08.",
+  "accepted_review_items": [],
+  "approved_claim_ids": []
+}

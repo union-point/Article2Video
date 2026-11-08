@@ -1,0 +1,138 @@
+{
+  "sentence_count": 20,
+  "scene_count": 7,
+  "issues": [
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_002.n1.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_002.n2.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_002.n3.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_003.n1.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_003.n2.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_003.n3.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_003.n4.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_004.n1.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_004.n2.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_004.n3.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_005.n1.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_005.n2.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_005.n3.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_006.n2.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_006.n3.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_007.n1.s1",
+      "message": "Whisper returned a word without a positive time span; use scene fallback"
+    },
+    {
+      "code": "SCENE_FALLBACK",
+      "target": "scene_002",
+      "message": "Sentence and element cues spread evenly over the estimated scene span; scene boundaries need review"
+    },
+    {
+      "code": "SCENE_FALLBACK",
+      "target": "scene_003",
+      "message": "Sentence and element cues spread evenly over the estimated scene span; scene boundaries need review"
+    },
+    {
+      "code": "SCENE_FALLBACK",
+      "target": "scene_004",
+      "message": "Sentence and element cues spread evenly over the estimated scene span; scene boundaries need review"
+    },
+    {
+      "code": "SCENE_FALLBACK",
+      "target": "scene_005",
+      "message": "Sentence and element cues spread evenly over the estimated scene span; scene boundaries need review"
+    },
+    {
+      "code": "SCENE_FALLBACK",
+      "target": "scene_006",
+      "message": "Sentence and element cues spread evenly over the estimated scene span; scene boundaries need review"
+    },
+    {
+      "code": "SCENE_FALLBACK",
+      "target": "scene_007",
+      "message": "Sentence and element cues spread evenly over the estimated scene span; scene boundaries need review"
+    }
+  ],
+  "api_attempts": [
+    {
+      "timestamp": "2026-11-08T19:20:35.979325+00:00",
+      "event": "api_attempt_finished",
+      "stage": "timing",
+      "operation": "transcription",
+      "model": "whisper-1",
+      "cache_key": "1ddbbf6feeb0eaa9caf381ba79f6fc4376badc86cb00b7abc54116f6495c46e1",
+      "call_id": "e35ba3c6a7a94878a0b4bed57e77d285",
+      "api_attempt": 1,
+      "outcome": "success",
+      "http_status": 200,
+      "request_id": "req_be35e336de974936830ff5c443001148",
+      "usage": {
+        "type": "duration",
+        "seconds": 136
+      },
+      "retrying": false
+    }
+  ],
+  "old_working_files_preserved": true,
+  "isolated_prior_files_preserved": true
+}

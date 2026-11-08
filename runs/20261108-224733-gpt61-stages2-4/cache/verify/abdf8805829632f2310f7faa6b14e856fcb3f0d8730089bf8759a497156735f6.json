@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The approved claim and cited evidence support the attributed recommendation to get unpublished terms in writing before comparing agencies."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "abdf8805829632f2310f7faa6b14e856fcb3f0d8730089bf8759a497156735f6",
+    "response_id": "resp_0c6d121982c44c85016af0c95299cc87d29ee33b9f90cb1d2d",
+    "usage": {
+      "input_tokens": 583,
+      "output_tokens": 36,
+      "total_tokens": 619
+    }
+  }
+}

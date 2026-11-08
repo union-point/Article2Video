@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited evidence and approved claim support Searchbloom’s recommendation to separate prompts by branding and segment them by stage."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "926a029cb5cfc0604a2920f85629bb035b0500129a1af91fca41bc3a94ef1c0e",
+    "response_id": "resp_0ea733e0e2a162b8016af0c939182c87d28e43f4184b765cac",
+    "usage": {
+      "input_tokens": 584,
+      "output_tokens": 39,
+      "total_tokens": 623
+    }
+  }
+}

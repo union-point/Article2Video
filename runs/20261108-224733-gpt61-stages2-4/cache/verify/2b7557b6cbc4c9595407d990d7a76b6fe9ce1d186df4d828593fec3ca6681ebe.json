@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited agency responsibilities explicitly include technical, content, and entity work on the site."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "2b7557b6cbc4c9595407d990d7a76b6fe9ce1d186df4d828593fec3ca6681ebe",
+    "response_id": "resp_0fa66163e9afde25016af0c4c70a3487d28918937565abd3a8",
+    "usage": {
+      "input_tokens": 527,
+      "output_tokens": 33,
+      "total_tokens": 560
+    }
+  }
+}

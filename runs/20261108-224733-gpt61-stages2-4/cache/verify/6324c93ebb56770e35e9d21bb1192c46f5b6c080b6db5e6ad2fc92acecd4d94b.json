@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "Searchbloom says the agency should run the technical, content, and entity work and review tracking with the client monthly."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "6324c93ebb56770e35e9d21bb1192c46f5b6c080b6db5e6ad2fc92acecd4d94b",
+    "response_id": "resp_060514a0dc2c7fb3016af0c9446e0087d2b7a410449b1274c9",
+    "usage": {
+      "input_tokens": 671,
+      "output_tokens": 109,
+      "total_tokens": 780
+    }
+  }
+}

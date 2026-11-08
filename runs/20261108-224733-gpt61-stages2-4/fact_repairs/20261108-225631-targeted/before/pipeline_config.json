@@ -1,0 +1,14 @@
+{
+  "generation_model": "gpt-6.1-sol",
+  "verifier_model": "gpt-6.1-terra",
+  "publisher": "Searchbloom",
+  "company_aliases": {
+    "Searchbloom": ["Search Bloom"],
+    "The SEO Works": ["SEO Works"],
+    "iPullRank": ["i Pull Rank"],
+    "OpenAI": ["Open AI"]
+  },
+  "min_narration_words": 350,
+  "max_narration_words": 450,
+  "max_output_tokens": 14000
+}

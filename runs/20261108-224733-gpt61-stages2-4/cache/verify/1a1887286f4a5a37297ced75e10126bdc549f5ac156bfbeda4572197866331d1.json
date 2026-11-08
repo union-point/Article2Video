@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited section assigns each listed responsibility to the client's team, including the condition on sponsorship and affiliate budgets."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "1a1887286f4a5a37297ced75e10126bdc549f5ac156bfbeda4572197866331d1",
+    "response_id": "resp_07c32abb2b32d890016af0c5e4182487d2ab71b4bee7fd3901",
+    "usage": {
+      "input_tokens": 700,
+      "output_tokens": 37,
+      "total_tokens": 737
+    }
+  }
+}

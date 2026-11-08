@@ -1,0 +1,14 @@
+{
+  "verified_at": "2026-11-08T23:03:12.940641+04:00",
+  "existing_file_count": 388,
+  "changed_or_missing": [],
+  "new_files_in_working_output_or_cache": [],
+  "all_preserved": true,
+  "isolated_stage3_existing_files_changed": [
+    "cache/usage.jsonl"
+  ],
+  "usage_log_append_only": true,
+  "isolated_facts_selection_approvals_and_existing_cache_entries_preserved": true,
+  "script_approval_created": false,
+  "tts_or_timings_generated": false
+}

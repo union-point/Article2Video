@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The claim matches both the approved claim and the cited evidence."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "8ca73dcba9c5e139c6fb2e4e7cef947222897858ddd9ac6421700659c55fa2e7",
+    "response_id": "resp_037cf43f2d31ae7f016af0c6d9028887d2ae5a5c883516d767",
+    "usage": {
+      "input_tokens": 518,
+      "output_tokens": 70,
+      "total_tokens": 588
+    }
+  }
+}

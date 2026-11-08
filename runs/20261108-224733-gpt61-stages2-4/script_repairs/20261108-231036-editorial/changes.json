@@ -1,0 +1,507 @@
+{
+  "method": "One deterministic local editorial repair requested by user; no generation call",
+  "original_artifact_sha256": "fe574b6b879329a4ce3d84dcde36c18cb0b3dacfe9b7b857724aa900dd2a1b4a",
+  "original_generation_run": {
+    "requested_model": "gpt-6.1-sol",
+    "resolved_model": "gpt-6.1-sol",
+    "prompt_version": "script.v2",
+    "cache_key": "2150dfc7adbb691b367e4d3a33420c3204eda821ef872edd79dbe95397ebff13",
+    "response_id": "resp_08ac312c88de1254016af0c6abcb4887d2ae24e270ce81b5f2",
+    "usage": {
+      "input_tokens": 2177,
+      "output_tokens": 2582,
+      "total_tokens": 4759
+    }
+  },
+  "changes": [
+    {
+      "target": "scene_001.title",
+      "before": {
+        "text": "The publisher’s role",
+        "claim_ids": [
+          "claim_001",
+          "claim_002"
+        ],
+        "company_names": []
+      },
+      "after": {
+        "text": "Ranking and reporting",
+        "claim_ids": [
+          "claim_001",
+          "claim_002"
+        ],
+        "company_names": []
+      }
+    },
+    {
+      "target": "scene_001.narration.1",
+      "before": {
+        "text": "Start with the source: Searchbloom discloses that it publishes this agency list and ranks itself first, making that position its own ranking rather than an independent verdict.",
+        "claim_ids": [
+          "claim_001"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "Searchbloom says it publishes this agency list and ranks itself first, making that position its own ranking rather than an independent verdict.",
+        "claim_ids": [
+          "claim_001"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_002.narration.2",
+      "before": {
+        "text": "For evidence, it recommends requesting a dated AI search result with a named or described company, a figure, and a period.",
+        "claim_ids": [
+          "claim_004"
+        ],
+        "company_names": []
+      },
+      "after": {
+        "text": "For evidence, Searchbloom's report recommends requesting a dated AI search result with a named or described company, a figure, and a period.",
+        "claim_ids": [
+          "claim_004"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_002.narration.3",
+      "before": {
+        "text": "Searchbloom also flags promises of AI citations in weeks, and reports that count citations without mentioning leads or revenue.",
+        "claim_ids": [
+          "claim_020"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "According to Searchbloom, promises of AI citations in weeks and reports counting citations without mentioning leads or revenue are red flags.",
+        "claim_ids": [
+          "claim_020"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_002.on_screen.1",
+      "before": {
+        "text": "Searchbloom recommends leads, sign-ups, or revenue",
+        "claim_ids": [
+          "claim_003"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "Searchbloom recommends tracking leads from AI referrals",
+        "claim_ids": [
+          "claim_003"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_003.title",
+      "before": {
+        "text": "Repeatable measurement",
+        "claim_ids": [
+          "claim_005",
+          "claim_006",
+          "claim_007",
+          "claim_009"
+        ],
+        "company_names": []
+      },
+      "after": {
+        "text": "Questions and tracking",
+        "claim_ids": [
+          "claim_005",
+          "claim_006",
+          "claim_007",
+          "claim_009"
+        ],
+        "company_names": []
+      }
+    },
+    {
+      "target": "scene_003.narration.2",
+      "before": {
+        "text": "Searchbloom recommends tracking fixed, real buyer questions daily across the platforms buyers use, then reading the trend.",
+        "claim_ids": [
+          "claim_006"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "Searchbloom's report calls for daily tracking of fixed, real buyer questions across the AI platforms buyers use, then reading the trend.",
+        "claim_ids": [
+          "claim_006"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_003.narration.3",
+      "before": {
+        "text": "It recommends separating branded and non-branded prompts, segmented by awareness, consideration, and purchase.",
+        "claim_ids": [
+          "claim_007"
+        ],
+        "company_names": []
+      },
+      "after": {
+        "text": "According to Searchbloom, branded and non-branded prompts should be separated and segmented by awareness, consideration, and purchase.",
+        "claim_ids": [
+          "claim_007"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_003.narration.4",
+      "before": {
+        "text": "Searchbloom recommends asking which tracking tool, prompts, platforms, and run frequency an agency uses.",
+        "claim_ids": [
+          "claim_009"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "For measurement details, Searchbloom says to ask which tracking tool, prompts, platforms, and run frequency an agency uses.",
+        "claim_ids": [
+          "claim_009"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_003.on_screen.2",
+      "before": {
+        "text": "Searchbloom recommends daily tracking of buyer questions",
+        "claim_ids": [
+          "claim_006"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "Searchbloom says to track buyer questions daily",
+        "claim_ids": [
+          "claim_006"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_004.narration.2",
+      "before": {
+        "text": "Searchbloom recommends requesting the outside URLs retrieved and cited for top buyer questions, including placements the agency can help secure.",
+        "claim_ids": [
+          "claim_011"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "To explore those pages, Searchbloom says to request the outside URLs retrieved and cited for top buyer questions, including placements the agency can help secure.",
+        "claim_ids": [
+          "claim_011"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_004.narration.3",
+      "before": {
+        "text": "When an answer omits a business, Searchbloom recommends inspecting its cited pages; often, the fix is a listing through outreach, a review, or sponsorship.",
+        "claim_ids": [
+          "claim_012"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "According to Searchbloom, when an answer omits a business, inspecting the cited pages often points to a listing through outreach, a review, or sponsorship.",
+        "claim_ids": [
+          "claim_012"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_004.on_screen.1",
+      "before": {
+        "text": "Searchbloom recommends requesting outside cited URLs",
+        "claim_ids": [
+          "claim_011"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "Searchbloom says to request outside cited URLs",
+        "claim_ids": [
+          "claim_011"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_005.title",
+      "before": {
+        "text": "Agency delivery",
+        "claim_ids": [
+          "claim_013",
+          "claim_014",
+          "claim_015",
+          "claim_017"
+        ],
+        "company_names": []
+      },
+      "after": {
+        "text": "Technical work and tracking",
+        "claim_ids": [
+          "claim_013",
+          "claim_014",
+          "claim_015",
+          "claim_017"
+        ],
+        "company_names": []
+      }
+    },
+    {
+      "target": "scene_005.narration.2",
+      "before": {
+        "text": "Searchbloom assigns technical, content, and entity work to the agency, alongside tracking reviewed monthly with the client.",
+        "claim_ids": [
+          "claim_014",
+          "claim_015"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "According to Searchbloom, technical, content, and entity work belongs with the agency, alongside tracking reviewed monthly with the client.",
+        "claim_ids": [
+          "claim_014",
+          "claim_015"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_005.narration.3",
+      "before": {
+        "text": "It recommends clarifying whether the agency builds changes or supplies recommendations, and pricing the developer time the client must provide.",
+        "claim_ids": [
+          "claim_017"
+        ],
+        "company_names": []
+      },
+      "after": {
+        "text": "Searchbloom's report recommends clarifying whether the agency builds changes or supplies recommendations, and pricing the developer time the client must provide.",
+        "claim_ids": [
+          "claim_017"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_005.on_screen.1",
+      "before": {
+        "text": "Searchbloom recommends clarifying builds versus recommendations",
+        "claim_ids": [
+          "claim_017"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "Searchbloom says to clarify builds versus recommendations",
+        "claim_ids": [
+          "claim_017"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_006.narration.1",
+      "before": {
+        "text": "Searchbloom assigns sponsorship and affiliate budgets to the client when the category’s most-retrieved roundup is a paid placement.",
+        "claim_ids": [
+          "claim_016"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "According to Searchbloom, the client must own sponsorship and affiliate budgets when the category's most-retrieved roundup is a paid placement.",
+        "claim_ids": [
+          "claim_016"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_006.narration.2",
+      "before": {
+        "text": "It also assigns retailer, marketplace, and partner listings to the client’s team.",
+        "claim_ids": [
+          "claim_016"
+        ],
+        "company_names": []
+      },
+      "after": {
+        "text": "Searchbloom says the client's team must also own retailer, marketplace, and partner listings.",
+        "claim_ids": [
+          "claim_016"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_006.narration.3",
+      "before": {
+        "text": "Under Searchbloom’s guidance, that team also owns social media and community work, plus brand positioning and the budget behind PR.",
+        "claim_ids": [
+          "claim_016"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "Searchbloom's report also places social media and community work, plus brand positioning and the budget behind PR, with the client's team.",
+        "claim_ids": [
+          "claim_016"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_006.on_screen.1",
+      "before": {
+        "text": "Searchbloom assigns PR budgets to clients",
+        "claim_ids": [
+          "claim_016"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "Searchbloom says clients own the PR budget",
+        "claim_ids": [
+          "claim_016"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_007.narration.2",
+      "before": {
+        "text": "Before comparing agencies, Searchbloom recommends obtaining any unpublished fees, minimums, and contract lengths in writing.",
+        "claim_ids": [
+          "claim_019"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "For unpublished fees, minimums, and contract lengths, Searchbloom's report recommends getting the terms in writing before comparing agencies.",
+        "claim_ids": [
+          "claim_019"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_007.on_screen.1",
+      "before": {
+        "text": "Searchbloom recommends unpublished terms in writing",
+        "claim_ids": [
+          "claim_019"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      "after": {
+        "text": "Searchbloom says to get unpublished terms in writing",
+        "claim_ids": [
+          "claim_019"
+        ],
+        "company_names": [
+          "Searchbloom"
+        ]
+      }
+    },
+    {
+      "target": "scene_005.visual_direction",
+      "before": "Use a site schematic above two delivery lanes representing implementation and recommendations; move an abstract task card between the lanes, then bring the cited takeaway forward.",
+      "after": "Arrange a site schematic showing technical work above two lanes for implementation and recommendations; reveal a developer task card in each lane as the narration explains delivery responsibilities."
+    }
+  ],
+  "scope": "Preserve seven scenes, scene order, every existing item and claim reference, approved facts and original buyer-vetting angle",
+  "verification_policy": "One review pass; reuse exact unchanged verdicts; fresh Terra verification for changed candidate payloads; no corrective loops",
+  "validation_rules_changed": false,
+  "script_approved": false,
+  "repaired_artifact_sha256": "549f239fcdcd9a63f0f1a5c023a3c5952fabc556be04f1ca2a0b9f0e35e2e99b"
+}

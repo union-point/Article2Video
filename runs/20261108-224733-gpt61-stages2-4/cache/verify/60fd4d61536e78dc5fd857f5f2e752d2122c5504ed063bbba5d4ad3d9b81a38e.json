@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The approved claim and cited evidence recommend tracking real buyer questions daily."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "60fd4d61536e78dc5fd857f5f2e752d2122c5504ed063bbba5d4ad3d9b81a38e",
+    "response_id": "resp_0b044d33670b3b29016af0ca4425bc87d2bf1ef1ea0ccb1ebd",
+    "usage": {
+      "input_tokens": 524,
+      "output_tokens": 55,
+      "total_tokens": 579
+    }
+  }
+}

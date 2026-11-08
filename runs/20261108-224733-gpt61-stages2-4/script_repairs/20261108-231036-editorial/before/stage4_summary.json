@@ -1,0 +1,58 @@
+{
+  "status": "awaiting_human_script_review",
+  "old_script": {
+    "scenes": 7,
+    "narration_words": 370,
+    "narration_items": 18,
+    "on_screen_items": 22,
+    "semantic_checks": 48,
+    "verdicts": {
+      "supported": 47,
+      "partial": 1
+    },
+    "structural_errors": 0,
+    "combined_review_flags": 9,
+    "quality_flags": 3,
+    "flag_codes": {
+      "MISSING_NAME": 3,
+      "MISSING_VALUE": 2,
+      "QUALITY_SCENE_COHERENCE": 3,
+      "SEMANTIC_REVIEW": 1
+    },
+    "generation_provenance": "local-targeted-edit"
+  },
+  "new_script": {
+    "scenes": 7,
+    "narration_words": 358,
+    "narration_items": 20,
+    "on_screen_items": 9,
+    "semantic_checks": 37,
+    "verdicts": {
+      "supported": 33,
+      "partial": 3,
+      "unsupported": 1
+    },
+    "structural_errors": 0,
+    "combined_review_flags": 38,
+    "quality_flags": 4,
+    "flag_codes": {
+      "MISSING_NAME": 26,
+      "RANKING_ATTRIBUTION": 4,
+      "QUALITY_SCENE_COHERENCE": 3,
+      "QUALITY_VISUAL_SUITABILITY": 1,
+      "SEMANTIC_REVIEW": 4
+    },
+    "generation_provenance": "gpt-6.1-sol"
+  },
+  "stage4_estimated_cost_usd": 0.0676065,
+  "cumulative_run_estimated_cost_usd": 0.229967,
+  "stage4_generation_requests": 1,
+  "stage4_verification_requests": 37,
+  "verification_models": [
+    "gpt-6.1-terra"
+  ],
+  "script_approved": false,
+  "tts_generated": false,
+  "timings_generated": false,
+  "preservation_verified": true
+}

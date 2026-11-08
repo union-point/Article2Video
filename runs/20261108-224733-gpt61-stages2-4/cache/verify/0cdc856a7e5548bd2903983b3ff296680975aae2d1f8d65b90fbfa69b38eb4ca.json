@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited evidence and approved claim support the attributed recommendation and the suggested routes to a listing."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "0cdc856a7e5548bd2903983b3ff296680975aae2d1f8d65b90fbfa69b38eb4ca",
+    "response_id": "resp_0245af594755de51016af0c6e9efc087d2b3725f475e79e574",
+    "usage": {
+      "input_tokens": 612,
+      "output_tokens": 34,
+      "total_tokens": 646
+    }
+  }
+}

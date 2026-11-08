@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The statement accurately attributes Searchbloom’s recommendation to ask which outside URLs are retrieved and cited and which placements the agency can help secure."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "03d0d53a2241ea12f14b50501758bfc6eece45fecc9f8abcfbbd564dfac495f8",
+    "response_id": "resp_0a7b76d91089782b016af0c93de93887d29755be1e171ba1b4",
+    "usage": {
+      "input_tokens": 604,
+      "output_tokens": 43,
+      "total_tokens": 647
+    }
+  }
+}

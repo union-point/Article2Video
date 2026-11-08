@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited text directly recommends tracking fixed buyer questions daily across relevant AI platforms and reading the trend."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "62be445f7ba8e5fe9b2564734cf09b45593dfd64391cfc607b570a392a424636",
+    "response_id": "resp_0f113bb5f8b49cd0016af0c4bad3b487d2b2d3bc6105dcdf7b",
+    "usage": {
+      "input_tokens": 498,
+      "output_tokens": 35,
+      "total_tokens": 533
+    }
+  }
+}

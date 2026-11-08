@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "partial",
+    "reason": "The recommendation is not attributed to Searchbloom, and the tracking is not identified as AI visibility tracking."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "1aa3898fc6f5eba2bde3a35d29a554456e9e7f5d848acec3fe029d38674cb31d",
+    "response_id": "resp_09d7348464c29ec9016af0ca4c24c887d2a23a26e9276ad674",
+    "usage": {
+      "input_tokens": 662,
+      "output_tokens": 111,
+      "total_tokens": 773
+    }
+  }
+}

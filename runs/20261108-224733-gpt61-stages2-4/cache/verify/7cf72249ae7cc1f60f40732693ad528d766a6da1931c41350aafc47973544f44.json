@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The neutral label fits the approved claims about agency responsibilities and implementation."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "7cf72249ae7cc1f60f40732693ad528d766a6da1931c41350aafc47973544f44",
+    "response_id": "resp_08dcba33d24d57f0016af0c6ecda9087d2be6d99ac91f7e471",
+    "usage": {
+      "input_tokens": 976,
+      "output_tokens": 29,
+      "total_tokens": 1005
+    }
+  }
+}

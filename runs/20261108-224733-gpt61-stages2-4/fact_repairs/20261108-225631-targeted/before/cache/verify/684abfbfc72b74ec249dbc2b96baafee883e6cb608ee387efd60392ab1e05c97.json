@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The cited evidence directly states that crawler access, correct structured data, and clean architecture make a site legible."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "684abfbfc72b74ec249dbc2b96baafee883e6cb608ee387efd60392ab1e05c97",
+    "response_id": "resp_00456983aac68c7d016af0c4c5ab3c87d2bf0fdd4a20665463",
+    "usage": {
+      "input_tokens": 509,
+      "output_tokens": 38,
+      "total_tokens": 547
+    }
+  }
+}

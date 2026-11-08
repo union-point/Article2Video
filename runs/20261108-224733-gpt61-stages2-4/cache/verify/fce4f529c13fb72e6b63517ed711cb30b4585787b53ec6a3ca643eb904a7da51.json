@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The approved claim and evidence support asking for the outside URLs cited in answers."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "fce4f529c13fb72e6b63517ed711cb30b4585787b53ec6a3ca643eb904a7da51",
+    "response_id": "resp_0db56646ccbcb52c016af0c941220c87d2b76e81a884c55c8f",
+    "usage": {
+      "input_tokens": 584,
+      "output_tokens": 60,
+      "total_tokens": 644
+    }
+  }
+}

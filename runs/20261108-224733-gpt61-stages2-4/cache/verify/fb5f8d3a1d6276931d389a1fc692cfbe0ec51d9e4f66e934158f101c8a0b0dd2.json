@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The author identifies themselves as Searchbloom’s founder and says they publish the list and rank first on it."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "fb5f8d3a1d6276931d389a1fc692cfbe0ec51d9e4f66e934158f101c8a0b0dd2",
+    "response_id": "resp_074e5d499a03bcd9016af0c5e0986887d29fab63f45fcfc425",
+    "usage": {
+      "input_tokens": 555,
+      "output_tokens": 38,
+      "total_tokens": 593
+    }
+  }
+}

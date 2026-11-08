@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The approved claim and cited evidence support Searchbloom’s recommendation to track buyer questions daily."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "1b485884df914681f4f723f1e9ddcdc70fc8bfb30e4a2a8f7acc4025f2896d91",
+    "response_id": "resp_087b388e1d581622016af0c6e37d5087d28846c59daaf469e2",
+    "usage": {
+      "input_tokens": 531,
+      "output_tokens": 74,
+      "total_tokens": 605
+    }
+  }
+}

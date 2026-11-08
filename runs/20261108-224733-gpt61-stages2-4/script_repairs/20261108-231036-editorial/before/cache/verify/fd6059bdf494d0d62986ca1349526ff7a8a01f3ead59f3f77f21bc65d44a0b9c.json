@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The approved claim and evidence support clarifying whether an agency builds technical changes or provides recommendations."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "fd6059bdf494d0d62986ca1349526ff7a8a01f3ead59f3f77f21bc65d44a0b9c",
+    "response_id": "resp_0d09a2c38778db76016af0c6f5e74487d2a9d5d17e8337be3e",
+    "usage": {
+      "input_tokens": 567,
+      "output_tokens": 78,
+      "total_tokens": 645
+    }
+  }
+}

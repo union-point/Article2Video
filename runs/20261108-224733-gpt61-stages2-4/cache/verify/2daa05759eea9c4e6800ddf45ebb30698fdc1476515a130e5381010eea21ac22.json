@@ -1,0 +1,18 @@
+{
+  "data": {
+    "status": "supported",
+    "reason": "The attributed statement faithfully reflects the approved claim and cited evidence."
+  },
+  "run": {
+    "requested_model": "gpt-6.1-terra",
+    "resolved_model": "gpt-6.1-terra",
+    "prompt_version": "verify.v1",
+    "cache_key": "2daa05759eea9c4e6800ddf45ebb30698fdc1476515a130e5381010eea21ac22",
+    "response_id": "resp_04e66d2ac0a269a6016af0c93fa4c487d2af29d47187e6a106",
+    "usage": {
+      "input_tokens": 611,
+      "output_tokens": 28,
+      "total_tokens": 639
+    }
+  }
+}

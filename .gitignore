@@ -241,3 +241,8 @@ TASK.md
 # Local script experiments duplicate the active reviewed artifacts
 /output/script_comparisons/
 /output/script_repairs/
+
+# Isolated run archives retain JSON provenance and caches, not generated media
+/runs/**/*.wav
+/runs/**/*.mp4
+/runs/**/*.mp3

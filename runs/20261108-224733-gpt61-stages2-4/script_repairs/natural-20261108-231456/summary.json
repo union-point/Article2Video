@@ -1,0 +1,300 @@
+{
+  "words": 346,
+  "verdicts": {
+    "supported": 33,
+    "partial": 4
+  },
+  "remaining_flags": [
+    {
+      "id": "163297c9354acf99",
+      "code": "MISSING_NAME",
+      "target": "title",
+      "message": "approved claims: Vetting is absent from cited text"
+    },
+    {
+      "id": "72a49ab1e1ec3a45",
+      "code": "MISSING_NAME",
+      "target": "title",
+      "message": "source sentences: Vetting is absent from cited text"
+    },
+    {
+      "id": "4236018b46cab0f9",
+      "code": "MISSING_NAME",
+      "target": "scene_001.title",
+      "message": "source sentences: Publisher is absent from cited text"
+    },
+    {
+      "id": "f78d327a75d17e25",
+      "code": "RANKING_ATTRIBUTION",
+      "target": "scene_001.narration.1",
+      "message": "Ranking/opinion language needs explicit attribution to Searchbloom"
+    },
+    {
+      "id": "c53808223231ab10",
+      "code": "MISSING_NAME",
+      "target": "scene_001.narration.2",
+      "message": "approved claims: Searchbloom is absent from cited text"
+    },
+    {
+      "id": "e26a537ef125c83d",
+      "code": "MISSING_NAME",
+      "target": "scene_001.narration.2",
+      "message": "approved claims: Throughout is absent from cited text"
+    },
+    {
+      "id": "6f570a890790efc3",
+      "code": "MISSING_NAME",
+      "target": "scene_001.narration.2",
+      "message": "source sentences: Searchbloom is absent from cited text"
+    },
+    {
+      "id": "1126d08cb0b73616",
+      "code": "MISSING_NAME",
+      "target": "scene_001.narration.2",
+      "message": "source sentences: Throughout is absent from cited text"
+    },
+    {
+      "id": "178d9a54bc0280e3",
+      "code": "MISSING_NAME",
+      "target": "scene_001.on_screen.2",
+      "message": "approved claims: Company-reported is absent from cited text"
+    },
+    {
+      "id": "ed2d5c764ac7fef4",
+      "code": "MISSING_NAME",
+      "target": "scene_001.on_screen.2",
+      "message": "source sentences: Company-reported is absent from cited text"
+    },
+    {
+      "id": "e254b7cc70c942d9",
+      "code": "MISSING_NAME",
+      "target": "scene_002.title",
+      "message": "source sentences: Success is absent from cited text"
+    },
+    {
+      "id": "281598ade229ac46",
+      "code": "RANKING_ATTRIBUTION",
+      "target": "scene_002.narration.1",
+      "message": "Ranking/opinion language needs explicit attribution to Searchbloom"
+    },
+    {
+      "id": "a9fe2af557e62305",
+      "code": "MISSING_NAME",
+      "target": "scene_002.narration.2",
+      "message": "approved claims: Then is absent from cited text"
+    },
+    {
+      "id": "5a90c55f7aa3ba28",
+      "code": "MISSING_NAME",
+      "target": "scene_002.narration.2",
+      "message": "source sentences: Then is absent from cited text"
+    },
+    {
+      "id": "d2402c7232f127f5",
+      "code": "MISSING_NAME",
+      "target": "scene_002.narration.3",
+      "message": "approved claims: Watch is absent from cited text"
+    },
+    {
+      "id": "37d759e28b79cacd",
+      "code": "MISSING_NAME",
+      "target": "scene_002.narration.3",
+      "message": "source sentences: Watch is absent from cited text"
+    },
+    {
+      "id": "32976a9cdd009b51",
+      "code": "MISSING_NAME",
+      "target": "scene_003.narration.2",
+      "message": "approved claims: Track is absent from cited text"
+    },
+    {
+      "id": "0ec3e5225e0ee98b",
+      "code": "MISSING_NAME",
+      "target": "scene_003.narration.3",
+      "message": "approved claims: Separate is absent from cited text"
+    },
+    {
+      "id": "dc15cbb85c73657a",
+      "code": "MISSING_NAME",
+      "target": "scene_003.narration.3",
+      "message": "source sentences: Separate is absent from cited text"
+    },
+    {
+      "id": "1975521d88d2ee0e",
+      "code": "RANKING_ATTRIBUTION",
+      "target": "scene_004.narration.2",
+      "message": "Ranking/opinion language needs explicit attribution to Searchbloom"
+    },
+    {
+      "id": "e86ada62e36ca345",
+      "code": "MISSING_NAME",
+      "target": "scene_005.narration.3",
+      "message": "source sentences: Clarify is absent from cited text"
+    },
+    {
+      "id": "642e286e233e938b",
+      "code": "MISSING_NAME",
+      "target": "scene_006.title",
+      "message": "source sentences: Client is absent from cited text"
+    },
+    {
+      "id": "239cbcdaa14b0479",
+      "code": "MISSING_NAME",
+      "target": "scene_006.on_screen.1",
+      "message": "approved claims: Clients is absent from cited text"
+    },
+    {
+      "id": "8d3d1f578627de0c",
+      "code": "MISSING_NAME",
+      "target": "scene_006.on_screen.1",
+      "message": "source sentences: Clients is absent from cited text"
+    },
+    {
+      "id": "2452276f249166bb",
+      "code": "MISSING_NAME",
+      "target": "scene_007.title",
+      "message": "approved claims: Written is absent from cited text"
+    },
+    {
+      "id": "74898297fdbd9c56",
+      "code": "MISSING_NAME",
+      "target": "scene_007.title",
+      "message": "source sentences: Written is absent from cited text"
+    },
+    {
+      "id": "eeca8b1e1cfd9406",
+      "code": "NARRATION_LENGTH",
+      "target": "script",
+      "message": "Narration has 346 words; target is 350\u2013450"
+    },
+    {
+      "id": "2d2691b75dc1d251",
+      "code": "QUALITY_SCENE_COHERENCE",
+      "target": "scene_001.title",
+      "message": "This label has no clear claim/topic overlap with the scene's narration; review its relevance."
+    },
+    {
+      "id": "a6d64c01f81700d4",
+      "code": "QUALITY_SCENE_COHERENCE",
+      "target": "scene_006.title",
+      "message": "This label has no clear claim/topic overlap with the scene's narration; review its relevance."
+    },
+    {
+      "id": "c362c73d0d5c7f5c",
+      "code": "QUALITY_SCENE_COHERENCE",
+      "target": "scene_007.title",
+      "message": "This label has no clear claim/topic overlap with the scene's narration; review its relevance."
+    },
+    {
+      "id": "5238378d0c1b2102",
+      "code": "SEMANTIC_REVIEW",
+      "target": "scene_002.narration.1",
+      "message": "partial: The recommendation is supported, but the candidate does not attribute this view to Searchbloom."
+    },
+    {
+      "id": "411e2479220f6712",
+      "code": "SEMANTIC_REVIEW",
+      "target": "scene_002.narration.3",
+      "message": "partial: The warnings are supported, but the candidate does not attribute them to Searchbloom."
+    },
+    {
+      "id": "33818973ee455eed",
+      "code": "SEMANTIC_REVIEW",
+      "target": "scene_005.narration.2",
+      "message": "partial: The recommendation is not attributed to Searchbloom, and the tracking is not identified as AI visibility tracking."
+    },
+    {
+      "id": "7cfe039b4a68131d",
+      "code": "SEMANTIC_REVIEW",
+      "target": "scene_006.narration.1",
+      "message": "partial: The recommendation matches the evidence, but the candidate presents Searchbloom\u2019s view without attributing it."
+    }
+  ],
+  "semantic_findings": [
+    {
+      "target": "scene_002.narration.1",
+      "text_sha256": "495c5788180fd71e458336dcc40e16a585e3b1553f741a95f33484df3e6bb219",
+      "verdict": {
+        "status": "partial",
+        "reason": "The recommendation is supported, but the candidate does not attribute this view to Searchbloom."
+      },
+      "run": {
+        "requested_model": "gpt-6.1-terra",
+        "resolved_model": "gpt-6.1-terra",
+        "prompt_version": "verify.v1",
+        "cache_key": "f48d620ed124c788aa9e69eb5d11fef9a6478e797c66749db8922351cf1d7c82",
+        "response_id": "resp_0d3a9b798bbd5541016af0ca37636887d287e18a76bfd8900c",
+        "usage": {
+          "input_tokens": 623,
+          "output_tokens": 200,
+          "total_tokens": 823
+        }
+      }
+    },
+    {
+      "target": "scene_002.narration.3",
+      "text_sha256": "d227ee7a750015777c94c07bdd90d46a460c9cceff6d108270197ad0a98dd1b9",
+      "verdict": {
+        "status": "partial",
+        "reason": "The warnings are supported, but the candidate does not attribute them to Searchbloom."
+      },
+      "run": {
+        "requested_model": "gpt-6.1-terra",
+        "resolved_model": "gpt-6.1-terra",
+        "prompt_version": "verify.v1",
+        "cache_key": "e6a1859bf6d3e2f1cc92760aabba2f78748c1c7e2e36e6a55e557c807cbf12a3",
+        "response_id": "resp_009f89a5daa15151016af0ca3c2b4087d2a9dccd15443d621d",
+        "usage": {
+          "input_tokens": 607,
+          "output_tokens": 125,
+          "total_tokens": 732
+        }
+      }
+    },
+    {
+      "target": "scene_005.narration.2",
+      "text_sha256": "0d012ebc0518b845f45685e7431ddd1ecb4e71b7724810457e375d09bee5633d",
+      "verdict": {
+        "status": "partial",
+        "reason": "The recommendation is not attributed to Searchbloom, and the tracking is not identified as AI visibility tracking."
+      },
+      "run": {
+        "requested_model": "gpt-6.1-terra",
+        "resolved_model": "gpt-6.1-terra",
+        "prompt_version": "verify.v1",
+        "cache_key": "1aa3898fc6f5eba2bde3a35d29a554456e9e7f5d848acec3fe029d38674cb31d",
+        "response_id": "resp_09d7348464c29ec9016af0ca4c24c887d2a23a26e9276ad674",
+        "usage": {
+          "input_tokens": 662,
+          "output_tokens": 111,
+          "total_tokens": 773
+        }
+      }
+    },
+    {
+      "target": "scene_006.narration.1",
+      "text_sha256": "cfd27e0c7a5c57fc984b89af0407e742a8281e7e9643689ea9f37e8747968ffc",
+      "verdict": {
+        "status": "partial",
+        "reason": "The recommendation matches the evidence, but the candidate presents Searchbloom\u2019s view without attributing it."
+      },
+      "run": {
+        "requested_model": "gpt-6.1-terra",
+        "resolved_model": "gpt-6.1-terra",
+        "prompt_version": "verify.v1",
+        "cache_key": "744aa799e2bb5827755f96c1b5ebb8247f4a686bcdaa0439b2849981edd22555",
+        "response_id": "resp_022ca00541219b90016af0ca522e0087d29f1816096aa7dffb",
+        "usage": {
+          "input_tokens": 743,
+          "output_tokens": 90,
+          "total_tokens": 833
+        }
+      }
+    }
+  ],
+  "fresh_api_requests": 24,
+  "input_tokens": 14656,
+  "output_tokens": 1892,
+  "old_working_files_unchanged": true,
+  "script_approved": false
+}
