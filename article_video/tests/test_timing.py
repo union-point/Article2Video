@@ -45,7 +45,7 @@ class FakeTranscription:
 def timing_setup(setup_pipeline):
     p, provider = setup_pipeline
     p.run(auto_approve=True)
-    config = VoiceoverConfig.model_validate(read_json(Path(__file__).resolve().parents[2] / 'voiceover_config.json'))
+    config = VoiceoverConfig.model_validate(read_json(Path(__file__).resolve().parents[2] / 'configs' / 'voiceover_config.json'))
     VoiceoverGenerator(p, config, FakeSpeech(), FakeNormalizer()).generate()
     artifact, _ = p.approved_script()
     transcriber = FakeTranscription(transcript_for(artifact.data))
@@ -106,7 +106,7 @@ def test_force_failure_and_concurrent_edit_preserve_previous_results(timing_setu
     gen = TimingGenerator(p, config, provider)
     gen.generate()
     outputs = {p.output_dir / name: (p.output_dir / name).read_bytes()
-               for name in ['transcript.json', 'timings.json', 'timing_review.md']}
+               for name in ['transcript.json', 'timings.json']}
     provider.fail = True
     with pytest.raises(ValueError):
         gen.generate(force=True)
@@ -238,7 +238,8 @@ def test_timing_cli_preflight_and_generation(timing_setup, tmp_path, monkeypatch
     provider.transcript.text = ' '.join(w.word for w in provider.transcript.words)
     config.min_sentence_score = 1
     write_json(config_path, config)
-    assert main([*args, '--force']) == 2
+    assert main([*args, '--force']) == 0
+    assert main(['--mode', 'review', *args, '--force']) == 2
 
 
 @pytest.mark.parametrize('position', ['first', 'internal', 'last', 'multiple'])
@@ -383,3 +384,26 @@ def test_overlap_at_scene_cut_falls_back_on_both_sides(timing_setup):
     provider.transcript.words[cut].start = previous.end - .001
     result = TimingGenerator(p, config, provider).generate()
     assert [s['method'] for s in result['scenes'][:2]] == ['even_fallback', 'even_fallback']
+
+
+@pytest.mark.parametrize('case', ['too_few_words', 'collapsed_boundaries', 'unrelated'])
+def test_unusable_alignment_uses_deterministic_audio_clock(timing_setup, case):
+    p, config, provider, semantic = timing_setup
+    script = p.approved_script()[0].data
+    transcript = provider.transcript
+    if case == 'too_few_words':
+        transcript.words = transcript.words[:1]
+        transcript.text = transcript.words[0].word
+    elif case == 'collapsed_boundaries':
+        for word in transcript.words:
+            word.start = word.end = 0
+    else:
+        for word in transcript.words:
+            word.word = 'unrelated'
+        transcript.text = ' '.join(w.word for w in transcript.words)
+    before = transcript.model_dump()
+    result = align_script(script, transcript, 2, config, p.config.company_aliases)
+    validate_timings(result, script, 2, config)
+    assert result == align_script(script, transcript, 2, config, p.config.company_aliases)
+    assert all(s['method'] == 'even_fallback' and not s['word_cues'] for s in result['scenes'])
+    assert result['duration_frames'] == 66 and transcript.model_dump() == before

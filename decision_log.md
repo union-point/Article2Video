@@ -125,7 +125,7 @@
 - Stage 5 is implemented as the explicit `voiceover` command. The existing `run`
   behavior stops at Stage 4. It checks current script/upstream approvals without
   rewriting their artifacts and uses only approved narration text.
-- The final voice settings in `voiceover_config.json` use **Alloy**, speed **1.0**,
+- The final voice settings in `configs/voiceover_config.json` use **Alloy**, speed **1.0**,
   model `gpt-4o-mini-tts-2025-12-15`, and the user's English narrator instructions
   verbatim. No prompt experiment or A/B comparison was generated or selected.
 - Speech API input was checked against official documentation: maximum 4,096
@@ -273,3 +273,44 @@ facts, scripts, approvals, WAV and timing were hash-checked as unchanged.
 Independent review found height overflow in dense layouts; explicit height
 budgets and multi-column dense lists resolve it. Human visual semantics and
 listening approval remain pending, including existing timing uncertainty.
+
+## Stage 8 — local narrated MP4 export
+
+Implemented the explicit `render` command with offline `--check-inputs`, a
+separate 540p `--preview`, and 1080p H.264/yuv420p/AAC export at 30 fps. It uses
+the current GPT‑6.1 isolated run and its editorial storyboard v2, preserving
+the approved script, original evidence, WAV and reproducible Stage 6 timing.
+Preflight recompiles every screen item, diagram excerpt, citation and cue;
+schema validity alone cannot authorize an edited storyboard. All upstream
+semantic checks are cache-only, with no new model, TTS or transcription calls.
+
+The worker passes identical manifest/audio props to Remotion metadata selection
+and rendering, with the normalized WAV starting at frame zero. Sources and inputs
+are hashed, media is staged in a temporary directory, and ffprobe checks codec,
+pixel format, dimensions, frame count/rate and audio/video durations before the
+MP4 is atomically replaced. A JSON receipt retains hashes, settings, probe results
+and timing findings. Only matching hash-verified exports are reused; replacement
+requires `--force` and a successful new render. Individual MP4/JSON writes are
+atomic, with no multi-file transaction. Preview/final bundling is sequential
+because Rspack's persistent cache rejects concurrent transactions.
+
+Actual export checks found that Remotion duplicates mono narration into stereo,
+adding approximately 3 LU. Equal-power gain (`1 / sqrt(2)`) for mono sources
+preserves the upstream normalized integrated loudness; stereo sources retain
+unity gain. No background music or timing changes were added. Representative
+preview frames show all seven scenes; an awkward opening publisher-name wrap
+and the existing approximate timing remain Stage 9 review items. Rendering does
+not grant visual or final approval.
+
+Implementation references: official Remotion server rendering, input props and
+bundle publicDir documentation retrieved through Context7. Dependencies remain
+pinned to Remotion 4.0.541. Verification includes failure-safe publication and
+stale-input tests, the full parser/video regression suite, Node schema tests,
+TypeScript/ESLint, bundling, real MP4 probes and decoded loudness measurement.
+
+The corrected 1080p export contains 4,074 frames (135.8 s). Decoded audio
+measures −16.04 LUFS with a −4.46 dBTP peak. All 29 recorded input/source
+hashes match after export. The full 227-test regression suite passed; the 13
+render tests were rerun successfully after the mono gain correction. Node tests,
+TypeScript/ESLint and production bundling passed. The real matching export was
+reused successfully without rendering additional frames.

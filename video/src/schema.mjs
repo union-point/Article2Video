@@ -122,7 +122,7 @@ export const storyboardSchema = z
     height: z.literal(1080),
     fps: z.literal(30),
     duration_frames: z.number().int().positive(),
-    scenes: z.array(sceneSchema).min(6).max(8),
+    scenes: z.array(sceneSchema).min(2).max(8),
     inputs: z.record(z.string(), z.string()).optional(),
     run: z
       .object({

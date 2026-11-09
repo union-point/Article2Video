@@ -27,31 +27,14 @@ def test_auto_run_records_machine_approvals_and_resumes_idempotently(setup_pipel
 
 
 @pytest.mark.parametrize("verdict", ["partial", "unsupported"])
-def test_auto_run_pauses_on_semantic_flags_without_approving_or_writing_script(setup_pipeline, verdict):
+def test_auto_run_fails_when_no_supported_claims_remain(setup_pipeline, verdict):
     pipeline, provider = setup_pipeline
     provider.verdict = verdict
-    with pytest.raises(ReviewRequired, match="clean review"):
+    with pytest.raises(ValueError, match="No fully supported claims"):
         pipeline.run(auto_approve=True)
     assert pipeline.path("facts").exists()
     assert not (pipeline.output_dir / "approvals/facts.json").exists()
     assert "Script" not in [c[0] for c in provider.calls]
-
-
-def test_auto_approval_refuses_python_flags_even_when_verifier_supports_text(setup_pipeline):
-    pipeline, provider = setup_pipeline
-
-    def add_value(data):
-        if isinstance(data, Facts):
-            data.claims[0].text = "Acme reports a value of 999."
-        return data
-
-    provider.transform = add_value
-    with pytest.raises(ReviewRequired):
-        pipeline.run(auto_approve=True)
-    report = read_json(pipeline.output_dir / "facts_review.json")
-    assert any(f["code"] == "MISSING_VALUE" for f in report["flags"])
-    assert all(c["verdict"]["status"] == "supported" for c in report["checks"])
-    assert not (pipeline.output_dir / "approvals/facts.json").exists()
 
 
 def test_auto_approval_never_waives_invalid_evidence(setup_pipeline):
@@ -61,7 +44,7 @@ def test_auto_approval_never_waives_invalid_evidence(setup_pipeline):
     payload["data"]["claims"][0]["source_ids"] = ["nonexistent"]
     write_json(pipeline.path("facts"), payload)
     previous = (pipeline.output_dir / "approvals/facts.json").read_bytes()
-    with pytest.raises(ValueError, match="Cannot approve structural"):
+    with pytest.raises(ValueError, match="Cannot use structural"):
         pipeline.auto_approve("facts")
     assert (pipeline.output_dir / "approvals/facts.json").read_bytes() == previous
 
@@ -81,7 +64,7 @@ def test_auto_run_preserves_human_approval_and_explicit_claim_subset(setup_pipel
     assert [c["claim_id"] for c in sent["approved_claims"]] == ["claim_001"]
 
 
-def test_auto_run_honors_explicit_human_review_of_flags(setup_pipeline):
+def test_auto_run_does_not_waive_unsupported_claims_from_human_receipts(setup_pipeline):
     pipeline, provider = setup_pipeline
     pipeline.select()
     pipeline.approve("selection", "Human reviewer")
@@ -90,10 +73,11 @@ def test_auto_run_honors_explicit_human_review_of_flags(setup_pipeline):
     _, report = pipeline.review("facts")
     pipeline.approve("facts", "Human reviewer", note="Reviewed the qualifications.", accepted=[f.id for f in report.flags])
     provider.verdict = "supported"
-    pipeline.run(auto_approve=True)
-    receipt = read_json(pipeline.output_dir / "approvals/facts.json")
-    assert receipt["reviewer"] == "Human reviewer"
-    assert receipt["accepted_review_items"]
+    before = (pipeline.output_dir / "approvals/facts.json").read_bytes()
+    with pytest.raises(ValueError, match="No fully supported claims"):
+        pipeline.run()
+    assert (pipeline.output_dir / "approvals/facts.json").read_bytes() == before
+    assert not pipeline.path("script").exists()
 
 
 def test_auto_run_rebuilds_downstream_after_upstream_content_changes(setup_pipeline):
@@ -123,14 +107,14 @@ def test_legacy_human_receipt_hash_is_preserved(setup_pipeline):
     assert digest(receipt) == digest(raw)
 
 
-def test_cli_auto_mode_is_opt_in_and_stops_on_flags(setup_pipeline, article_path, tmp_path, monkeypatch):
+def test_cli_review_mode_is_opt_in_and_auto_fails_when_nothing_is_supported(setup_pipeline, article_path, tmp_path, monkeypatch):
     pipeline, provider = setup_pipeline
     monkeypatch.setattr("article_video.llm.OpenAIProvider", lambda: provider)
     args = arguments(pipeline, article_path, tmp_path)
-    assert main([*args, "run"]) == 2
+    assert main([*args, "run", "--mode", "review"]) == 2
     assert not (pipeline.output_dir / "approvals/selection.json").exists()
-    assert main([*args, "select", "--auto-approve"]) == 0
+    assert main([*args, "select"]) == 0
     assert read_json(pipeline.output_dir / "approvals/selection.json")["mode"] == "automatic"
     provider.verdict = "partial"
-    assert main([*args, "facts", "--auto-approve"]) == 2
+    assert main([*args, "facts"]) == 1
     assert not (pipeline.output_dir / "approvals/facts.json").exists()

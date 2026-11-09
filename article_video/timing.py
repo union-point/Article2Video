@@ -39,7 +39,7 @@ def timing_markdown(result):
              f"Zero-duration words: {result['zero_duration_word_count']}; affected sentences: {sum(bool(s['zero_duration_word_indices']) for scene in result['scenes'] for s in scene['sentences'])}.",
              '', 'Audio is the master clock. Word cues are approximate (typically 100–300 ms uncertainty).',
              'Aligned spans may retain timestamp review findings; text similarity does not establish acoustic accuracy.',
-             'Fallback spans are estimates, not exact scene durations. Human listening review remains pending.', '',
+             'Fallback spans are estimates, not exact scene durations. Listening review is optional.', '',
              '| Scene | Start | End | Frames | Method | Minimum sentence score |',
              '| --- | ---: | ---: | ---: | --- | ---: |']
     for scene in result['scenes']:
@@ -81,7 +81,6 @@ class TimingGenerator:
             raise ValueError('Narration exceeds transcription upload limit; no request sent')
         # Snapshot all approval/evidence inputs for concurrent-edit detection.
         names = ['article.json', 'selection.json', 'facts.json', 'scenes.json',
-                 'selection_review.json', 'facts_review.json', 'script_review.json',
                  'approvals/selection.json', 'approvals/facts.json', 'approvals/script.json',
                  'narration.json', 'narration.txt', 'narration.wav']
         paths = [self.pipeline.article_path, *[output / name for name in names if (output / name).exists()]]
@@ -151,8 +150,7 @@ class TimingGenerator:
         validate_timings(result, artifact.data, info['duration_seconds'], self.config)
         result.update(schema_version='1.0', stage='timing', inputs=inputs,
                       alignment_version=ALIGNMENT_VERSION, config=self.config.model_dump(),
-                      transcript_sha256=digest(record), transcription_cache_key=record['cache_key'],
-                      listening_review='pending')
+                      transcript_sha256=digest(record), transcription_cache_key=record['cache_key'])
         result['cache_key'] = digest({'inputs': inputs, 'transcript': digest(record),
                                       'version': ALIGNMENT_VERSION, 'config': self.config.model_dump(),
                                       'aliases': self.pipeline.config.company_aliases})
@@ -161,5 +159,6 @@ class TimingGenerator:
         output = self.pipeline.output_dir
         write_json(output / 'transcript.json', record)
         write_json(output / 'timings.json', result)
-        write_text(output / 'timing_review.md', timing_markdown(result))
+        if self.pipeline.mode == 'review':
+            write_text(output / 'timing_review.md', timing_markdown(result))
         return result

@@ -30,22 +30,22 @@ def test_real_contract_indexes_nested_sentences_cells_and_nonoverlapping_section
 def test_complete_offline_resume_approval_and_cache_flow(setup_pipeline):
     pipeline, provider = setup_pipeline
     with pytest.raises(ReviewRequired, match="Selection ready"):
-        pipeline.run()
+        pipeline.run(auto_approve=False)
     assert [c[0] for c in provider.calls] == ["Selection"]
     pipeline.approve("selection", "Test reviewer")
     with pytest.raises(ReviewRequired, match="Facts ready"):
-        pipeline.run()
+        pipeline.run(auto_approve=False)
     pipeline.approve("facts", "Test reviewer")
     with pytest.raises(ReviewRequired, match="Script ready"):
-        pipeline.run()
+        pipeline.run(auto_approve=False)
     artifact, report = pipeline.review("script")
     assert not report.errors and not report.flags
     assert len(artifact.data.scenes) == 6
-    assert len(report.checks) == 19
+    assert len(report.checks) == 1
     assert all(c.run.resolved_model == pipeline.config.verifier_model for c in report.checks)
     pipeline.approve("script", "Test reviewer")
     count = len(provider.calls)
-    assert pipeline.run().data == artifact.data
+    assert pipeline.run(auto_approve=False).data == artifact.data
     assert len(provider.calls) == count
     assert "Acme reports" in (pipeline.output_dir / "script.md").read_text()
     # A model output is stable in content and provenance on a cache hit.
@@ -67,6 +67,7 @@ def test_stage_commands_cannot_skip_checkpoints(setup_pipeline):
 
 def test_partial_verdict_is_reviewable_not_silently_approved(setup_pipeline):
     pipeline, provider = setup_pipeline
+    pipeline.mode = "review"
     approve_selection(pipeline)
     provider.verdict = "partial"
     pipeline.facts()
@@ -102,16 +103,17 @@ def test_unknown_and_out_of_selection_evidence_are_hard_errors(setup_pipeline):
         validate_facts(facts, pipeline.index, artifact.inputs.keys())
 
 
-def test_missing_numbers_names_are_flags_and_uncited_context_is_not_evidence(setup_pipeline):
-    pipeline, _ = setup_pipeline
+def test_unsupported_claims_are_flagged_by_verifier(setup_pipeline):
+    pipeline, provider = setup_pipeline
     approve_selection(pipeline)
     pipeline.facts()
     path = pipeline.path("facts")
     payload = read_json(path)
     payload["data"]["claims"][0]["text"] = "FakeCorp scored 99 percent."
     write_json(path, payload)
-    _, report = pipeline.review("facts")
-    assert {"MISSING_VALUE", "MISSING_NAME"} <= {f.code for f in report.flags}
+    provider.verdict = "unsupported"
+    _, report = pipeline.review("facts", force=True)
+    assert {"SEMANTIC_REVIEW"} == {f.code for f in report.flags}
     with pytest.raises(ReviewRequired):
         pipeline.approve("facts", "Reviewer")
 

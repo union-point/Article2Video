@@ -1,6 +1,5 @@
 from pathlib import Path
 
-from article_video import prompts
 from article_video.__main__ import main
 from article_video.schemas import PipelineConfig
 from article_video.storage import read_json, write_json
@@ -16,7 +15,7 @@ def arguments(pipeline, article_path, tmp_path):
 def test_cli_runs_stages_stops_and_reports_exit_codes(setup_pipeline, article_path, tmp_path, monkeypatch, capsys):
     pipeline, provider = setup_pipeline
     monkeypatch.setattr("article_video.llm.OpenAIProvider", lambda: provider)
-    args = arguments(pipeline, article_path, tmp_path)
+    args = [*arguments(pipeline, article_path, tmp_path), "--mode", "review"]
     assert main([*args, "run"]) == 2
     assert "REVIEW REQUIRED" in capsys.readouterr().out
     assert main([*args, "review", "selection"]) == 0
@@ -25,7 +24,7 @@ def test_cli_runs_stages_stops_and_reports_exit_codes(setup_pipeline, article_pa
     assert main([*args, "approve", "facts", "--reviewer", "Reviewer"]) == 0
     assert main([*args, "script"]) == 0
     assert main([*args, "approve", "script", "--reviewer", "Reviewer"]) == 0
-    assert main([*args, "run"]) == 0
+    assert main([*args, "review", "script"]) == 0
 
 
 def test_cli_missing_key_and_malformed_config_fail_clearly(setup_pipeline, article_path, tmp_path, monkeypatch, capsys):
@@ -40,12 +39,9 @@ def test_cli_missing_key_and_malformed_config_fail_clearly(setup_pipeline, artic
     assert "unknown_field" in capsys.readouterr().err
 
 
-def test_exported_model_and_prompt_config_matches_implementation():
+def test_exported_model_config_matches_implementation():
     root = Path(__file__).resolve().parents[2]
-    config = PipelineConfig.model_validate(read_json(root / "pipeline_config.json"))
-    workflow = read_json(root / "workflow.json")
+    config = PipelineConfig.model_validate(read_json(root / "configs" / "pipeline_config.json"))
     defaults = PipelineConfig()
     assert config.generation_model == defaults.generation_model
     assert config.verifier_model == defaults.verifier_model
-    assert workflow["models"] == {"generation": config.generation_model, "verification": config.verifier_model}
-    assert workflow["prompt_versions"] == prompts.VERSIONS

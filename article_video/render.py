@@ -8,9 +8,7 @@ def plain_heading(text):
 
 def script_markdown(artifact):
     script = artifact.data
-    lines = [f"# {plain_heading(script.title.text)}", "",
-             "> Draft until a matching script approval receipt exists.", "",
-             "Edit scenes.json, then run review script to regenerate this document.", ""]
+    lines = [f"# {plain_heading(script.title.text)}", ""]
     for n, scene in enumerate(script.scenes, 1):
         lines += [f"## {n}. {plain_heading(scene.title.text)}", "",
                   " ".join(item.text for item in scene.narration), "",
@@ -31,10 +29,6 @@ def review_markdown(report, artifact=None, index=None):
         lines.append(f"- `{issue.id}` **{issue.code}** — {issue.target}: {issue.message}")
     for check in report.checks:
         lines.append(f"- {check.target}: **{check.verdict.status}** — {check.verdict.reason}")
-    if report.quality is not None:
-        lines += ["", "## Script quality (separate from factual verification)", "",
-                  "Offline heuristic findings; see script_quality_review.md for scope and limitations.", ""]
-        lines += [f"- `{f.id}` **{f.code}** — {f.target}: {f.message}" for f in report.quality.flags]
     if artifact is not None and artifact.stage == "selection":
         lines += ["", "## Proposed angle", "", artifact.data.angle, "", "## Full section ranking", ""]
         for section in sorted(artifact.data.ranked_sections, key=lambda s: s.rank):

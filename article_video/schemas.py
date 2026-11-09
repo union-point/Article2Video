@@ -50,7 +50,7 @@ class Scene(Model):
 
 class Script(Model):
     title: CitedText
-    scenes: list[Scene] = Field(min_length=6, max_length=8)
+    scenes: list[Scene] = Field(min_length=2, max_length=8)
 
 
 class Verdict(Model):

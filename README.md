@@ -1,226 +1,103 @@
 # Article2Video
 
-Article2Video — AI-Powered Article-to-Video Automation
-
-Stages 1–7 are implemented: extraction, selection, verified facts, a cited
-script/scene outline, voiceover generation, transcription/timing, and cited storyboard templates. Stages 2–4 use the frozen `article.json`, with explicit human
-approvals before downstream work, with an optional mode to approve clean reviews
-automatically. Stages 5–7 are explicit commands; video rendering is not implemented.
-
-The extraction layer converts an article into normalized JSON with stable sentence
-IDs, source hashes, structural locators, and validation results. It makes no OpenAI
-calls. The Searchbloom parser is verified against the saved HTML in
-`article_parser/tests/fixtures/searchbloom_article.html`.
-
-`output/article.json` is the frozen extraction of that snapshot: **valid**, no
-fallback, 146 blocks, 381 sentences, 51 headings, nine ranked entries, three tables,
-and three images. See `output/article_review.md` for the template inspection,
-coverage check, and ten shortest/longest sentences. The initial live HTTP request
-returned 403; this artifact was generated offline from the user-provided snapshot.
-
-## Setup and tests
-
-Use Python 3.13+ and uv:
+Turn an article URL into a narrated 1920×1080 H.264/AAC MP4 and a cited fact sheet:
 
 ```sh
 uv sync
-uv run python -m pytest article_parser/tests article_video/tests
+npm --prefix video ci
+# Install FFmpeg/ffprobe and put OPENAI_API_KEY in the ignored .env file.
+uv run --env-file .env main.py run --url 'https://example.org/article'
 ```
 
-Dependencies are pinned in `pyproject.toml` and locked in `uv.lock`; update both
-together. Tests include the real Searchbloom fixture, unrelated fictional articles,
-and offline Stages 2–7 tests. `main.py` runs the Stages 2–7 CLI;
-use the parser module CLI for extraction.
+The default is unattended. The final line names `output/video.mp4` and
+`output/fact_sheet.csv`; any warnings print alongside it. No human approval or
+review report is needed to finish. The existing Remotion templates, source IDs,
+JSON schemas and content-addressed caches remain in use.
 
-Keep `OPENAI_API_KEY` in the ignored `.env` for uncached Stages 2–6 requests. Extraction
-requires no credentials or environment variables.
+Set the publisher/company aliases and model IDs in `configs/pipeline_config.json` for your
+source. `configs/voiceover_config.json` controls voice and loudness; `configs/timing_config.json`
+controls transcription/alignment. Existing model IDs are retained; availability
+still depends on your account. This change doesn't install or introduce frameworks.
 
-## Selection, facts, and script (Stages 2–4)
-
-Configure the publisher, company aliases, exact generation/verifier model IDs,
-and word limits in `pipeline_config.json`. Selection, fact extraction, script
-generation, and targeted fact repairs use `gpt-6.1-sol`; independent semantic
-verification uses `gpt-6.1-terra`. These are the user-selected model IDs; account
-availability and structured-output compatibility have not been tested with live
-requests. Each result records the requested and returned model IDs.
-For a different publisher, change `publisher` and review the aliases.
-
-Historical artifacts, approvals, cached responses, usage records, and archived
-configurations retain their original model provenance, including GPT-4.1 runs.
-Changing the active model configuration changes input hashes and cache keys;
-existing artifacts become stale under that configuration and require explicit
-regeneration, review, and approval before a future pipeline run can use them.
-The configuration update itself does not regenerate artifacts or make API calls.
-
-Run from the repository root. Common options go **before** the command:
+For the saved Searchbloom source, run the same pipeline without fetching:
 
 ```sh
-uv run --env-file .env main.py select
-# Read output/selection.json and output/selection_review.md. Edit data if needed.
+uv run --env-file .env main.py run \
+  --url 'https://www.searchbloom.com/strategy/best-ai-seo-agency-companies-services-usa' \
+  --html-file article_parser/tests/fixtures/searchbloom_article.html
+```
+
+For an existing extraction, use `main.py --article PATH run`. Common path/config
+options go before the command; `run --url URL` writes `article.json` under the
+chosen `--output-dir`. The same URL reuses that frozen extraction. To fetch a new
+copy, remove its local `article.json` first or choose another output directory.
+Use separate output directories to retain complete videos for different articles.
+
+## What the demo does
+
+1. Extract the article and rank/select its relevant sections.
+2. Extract cited facts. Keep only claims supported by the independent verifier and
+   structural and citation checks. Rejected claims remain in the original
+   facts artifact but are excluded from the subset passed to the script.
+3. Write a cited script with short display text and 2–8 scenes, sized to the evidence. Check structure and grounding
+   once for the whole script. Unsupported scripts fail clearly; there are no
+   automatic editorial rewrites or repair loops.
+4. Generate and normalize narration, then transcribe and align it locally.
+   Uncertain matches use deterministic scene timing with word cues disabled.
+5. Let the existing LLM planner choose the existing visual templates and diagrams.
+   Omit overlong optional labels, retain short complete strings, and use a neutral
+   heading when a title is too long. Text fitting remains in the templates.
+6. Render locally, check MP4 codecs/tracks/dimensions/duration, and export a CSV
+   with just `video_statement` and `article_sentence`. Each narration statement
+   appears beside its exact supporting article sentence(s), one row per unique
+   statement/sentence pair. On-screen text is excluded.
+
+Timing estimates, transitions and visual polish are acceptable demo limitations.
+The pipeline retains source hashes, citations, model/prompt provenance, schema
+validation, normalized audio and atomic rendering. It no longer runs editorial
+quality heuristics, generates automatic review reports, or offers a draft-repair
+workflow. Prompts carry the writing and visual-quality guidance.
+
+## Resume and optional review
+
+Rerun the same command to resume. Valid artifacts/checkpoints and model, speech,
+transcription and rendering caches are reused. A timing-only change reuses the
+script and speech. Individual `select`, `facts`, `script`, `voiceover`, `timing`,
+`storyboard` and `render` commands remain available. `--force` bypasses that
+command's cache; on `run` it restarts selection and rebuilds stale descendants.
+A stale MP4 is replaced only after the new render passes its media check.
+Intermediate JSON/audio remain available in the output directory and caches.
+
+For the existing manual inspection workflow, explicitly choose review mode:
+
+```sh
+uv run --env-file .env main.py run --mode review
 uv run --env-file .env main.py approve selection --reviewer 'Your name'
-
-uv run --env-file .env main.py facts
-# Review claims, exact citations, token flags, and independent verifier results.
-uv run --env-file .env main.py approve facts --reviewer 'Your name'
-
-uv run --env-file .env main.py script
-# Read output/script.md, output/scenes.json, and output/script_review.md.
-uv run --env-file .env main.py approve script --reviewer 'Your name'
+# Rerun review mode and inspect/approve facts, then script, if desired.
 ```
 
-`uv run --env-file .env main.py run` resumes the flow, stopping at the next
-approval. It does not grant approvals or enter Stage 5. Exit codes are `0` for
-completed commands, `1` for errors, and `2` for a required human review. Explicit
-`select`, `facts`, and `script` commands save drafts and exit `0` when generation
-and checks complete; their artifacts still require approval. `review` exits `2`
-when it finds review flags. Human review is the default.
+`review selection|facts|script` writes a report only when explicitly requested.
+Existing human and automatic receipts remain supported as content-bound cache
+checkpoints. Auto mode never treats a human exception as support for an
+unsupported claim. Detailed review findings and manual acknowledgements belong
+to this optional workflow, not the URL-to-MP4 path.
 
-To opt in to automatic approval for a complete run:
+Exit codes: `0` completed, `1` failure, `2` a requested review checkpoint.
+
+## Tests
 
 ```sh
-uv run --env-file .env main.py run --auto-approve
+uv run python -m pytest article_parser/tests article_video/tests
+npm --prefix video test
+npm --prefix video run typecheck
 ```
 
-This advances through Stages 2–4 only when each review has **zero errors and zero
-flags**, including supported results for every required semantic check. It pauses
-on missing values/names, partial or unsupported claims, attribution findings, and
-script length flags. It never accepts findings or drops claims automatically.
-Existing valid human approvals are preserved, including explicit claim subsets
-and individually accepted review findings. Approval receipts created by this mode
-have `mode: "automatic"` and reviewer `article_video:auto-approve`; they are not
-recorded as human reviews. If inputs change, stale downstream artifacts are rebuilt
-and checked again. Repeated runs preserve valid receipts and reuse caches.
+Tests use frozen articles and mocked paid providers, including a complete CLI run,
+source-backed CSV output, exclusion of unsupported facts, timing fallbacks,
+failed-render preservation, and resume without new generation. No live API run is
+required to test the pipeline.
 
-`select --auto-approve`, `facts --auto-approve`, and `script --auto-approve` approve
-only that command's result; their upstream approvals must already exist. Omitting
-the option keeps the manual workflow. `run --force --auto-approve` regenerates
-selection, rebuilds any stale downstream artifacts, and applies the same review
-rules throughout. No automatic mode enters Stage 5 or produces audio/video.
-
-The same CLI is available as `uv run python -m article_video`. To keep multiple
-articles separate:
-
-```sh
-uv run --env-file .env main.py \
-  --article output/another_article.json --output-dir output/another \
-  --cache-dir cache --config pipeline_config.json select
-```
-
-Each JSON artifact is an envelope with `stage`, input hashes, model/prompt/cache
-provenance in `run`, and editable generated content in `data`. Do not edit the
-provenance or input hashes. Selection uses stable section IDs from the article's
-shallowest body headings, grouping deeper headings into their parent. It ranks
-every section, then chooses 5–7 (all if fewer than five exist).
-
-Representative fact content inside `facts.json` (illustrative, **not approved**):
-
-```json
-{
-  "claim_id": "claim_001",
-  "text": "Searchbloom's published total is 48 out of 50.",
-  "source_ids": ["block_0027", "block_0028.f3.s2"],
-  "attribution": "Searchbloom",
-  "company_names": ["Searchbloom"]
-}
-```
-
-Every fact must cite real IDs from selected sections. Whole prose/ranked blocks
-are not evidence IDs; use their sentence IDs. Cite all required table cells,
-including the company cell and score cell. A table row supplied as verifier
-context does not count as a citation. Unknown and unselected citations are errors.
-
-The Python recall filter normalizes English number words, percentages, currency,
-ratios (`48/50` / `48 out of fifty`), ranges, and company aliases/possessives. It
-flags missing quantities and names without crashing or silently accepting them.
-Company detection is heuristic, not a complete named-entity recognizer. The
-separate verifier checks each claim against only its citations and structural
-context, covering swapped numbers/entities, ranks, attribution, hedges, and
-overgeneralization. Every `partial` or `unsupported` verdict needs human review.
-
-To approve only a subset of facts, repeat `--claim-id`; omitted claims are excluded
-from script generation. To accept a review flag after inspecting its evidence,
-supply its exact ID and explain the decision:
-
-```sh
-uv run --env-file .env main.py approve facts --reviewer 'Your name' \
-  --claim-id claim_001 --claim-id claim_002 \
-  --accept-review-item 'ID_FROM_FACTS_REVIEW' \
-  --note 'Reason for accepting this specific finding after source review.'
-```
-
-Structural/citation errors cannot be accepted. Edit the `data` section and rerun
-`review facts` instead. Missing-value/name flags, narrative length flags, and
-semantic findings are explicit review decisions, never silent passes.
-
-`scenes.json` contains 6–8 scenes with sentence-level narration, short on-screen
-items, cited titles, and visual directions. Scene `claim_ids` must equal the union
-of its text items' references. Python checks run on both links from each script
-item to approved claims and to original source sentences. A semantic pass also
-rejects new conclusions unsupported by the approved claims. Rankings/opinions
-must retain publisher attribution; the Searchbloom self-ranking caveat matters.
-The target is 350–450 narration words, with outliers flagged for review.
-
-Script generation uses `script.v2`: claims are evidence units, not narration
-templates. The writer varies explicit ranking attribution, preserves brand and
-acronym casing, uses short topic labels and distinct screen takeaways, and gives
-each scene a specific visual subject, layout, and action. A publisher used solely
-as an attribution can be established by approved claim attribution metadata;
-publisher-as-company facts still require citations. This avoids adding unrelated
-self-ranking claims just to establish the reporting source's name.
-
-Editorial quality is checked separately from factual verification. Every script
-review writes `script_quality_review.json` and `.md`, and includes that report in
-the approval-bound combined review. Offline heuristics flag dense narration,
-capitalization, repetition, scene/label alignment, weak screen copy, and generic
-or potentially misleading visuals. These checks cannot establish full semantic
-coherence or production readiness; human editorial judgment is still needed.
-Quality flags stop automatic approval and require the same explicit item IDs and
-human note as other review findings. Existing script receipts become stale when
-their report no longer matches; upstream facts/selection approvals are preserved.
-
-To inspect a script draft without model calls or upstream approvals:
-
-```sh
-uv run main.py review-quality
-```
-
-This command writes only the separate quality reports, returns `2` on findings,
-and does not grant approval or refresh factual verification. Normal `review script`
-runs both checks, reusing exact factual caches. Quality checks make no LLM calls,
-rewrite no content, and trigger no regeneration retries. See
-[the current artifact investigation](docs/script_quality_investigation.md) for
-the traced causes and limitations.
-
-Edit script content in `scenes.json`, then regenerate the readable markdown:
-
-```sh
-uv run --env-file .env main.py review script
-```
-
-Editing `script.md` does not change the script artifact. Each human approval under
-`output/approvals/` binds the current artifact and review report hashes. Automatic
-receipts bind the same hashes; legacy receipts without `mode` remain human
-approvals. Changing
-content, configuration, or upstream approvals invalidates downstream approvals.
-Regenerate stale stages with their explicit commands, review, and approve again.
-Retain reviewed JSON, markdown, and receipts in version control; the pipeline
-does not create commits on your behalf.
-
-LLM results are cached in `cache/<stage>/<sha256>.json`, keyed by inputs, model,
-prompt text/version, schema, and generation settings. Deterministic validators
-always rerun; cached verifier decisions remain tied to their exact candidate and
-cited evidence. Edited text triggers new verification. Use `select --force`,
-`facts --force`, `script --force`, or `review facts --force` to bypass the relevant
-model cache. `run --force` restarts at selection and its approval checkpoint.
-Deleting cache does not delete artifacts, but review may make new API calls and
-require renewed approval when the verifier report changes. Failures do not replace
-existing stage outputs. Writes are atomic per file; related output files are not
-one filesystem transaction.
-
-See `workflow.json` for stage commands and [decision_log.md](decision_log.md) for
-model IDs and historical snapshots, prompt versions, source caveats, and limits.
-The structured API
-integration follows the [official OpenAI documentation](https://developers.openai.com/api/docs/guides/structured-outputs?api-mode=responses).
+The simplification plan is in `docs/automation_plan.md`. Parser details follow.
 
 ## Usage
 
@@ -364,320 +241,9 @@ independently measured cleaned-container text and heading count, and use correct
 provenance with snapshot locators. Add fixture tests for the template and failure
 modes. Change parser/splitter versions when extraction or segmentation changes.
 
-## Targeted repairs and API usage
-
-`uv run --env-file .env main.py repair-facts` repairs only claims with current
-review flags, one independent claim per request. Use repeated `--claim-id` options
-to choose a flagged subset. Requests include that claim, its findings, cited
-prose/profile or table rows and headers, and nearby headings. Additional relevant
-selected evidence can be supplied with repeated `--source-id` options. Unknown or
-unselected IDs are rejected. This command never drops claims or regenerates clean
-claims. It performs one repair pass, then reruns the full fact checks and semantic
-verification (unchanged candidates may reuse exact cached verdicts).
-
-Results go to `facts_repaired.json` and `facts_repaired_review.json` / `.md`.
-Per-claim generation provenance is saved under `output/repairs/`. Original facts,
-scripts, reports, and approvals are not replaced. A clean input is a no-op. Inspect
-the separate draft before explicitly applying its changed claims to `facts.json`
-and renewing review/approval; the command does not promote or auto-approve drafts.
-Remaining findings remain review flags.
-
-API payloads use lossless shared references for repeated evidence headings and
-context, including complete table rows and headers. IDs and exact evidence text
-are retained. This affects wire serialization only: artifact schemas, existing
-cache keys, cached verdicts, and approval hashes remain compatible.
-
-`cache/usage.jsonl` is an append-only local usage ledger. Events identify stage,
-operation, model, cache key, call ID, generation attempt, and API attempt. They
-record cache hits/misses/bypasses/invalid entries, validation corrections, each
-transport success/failure and retry, and response IDs and token usage when returned.
-Verification events are attributed to the owning facts/script stage. SDK retries
-are disabled and the same allowance of two transient retries is handled explicitly
-so each attempt is visible. Injected test providers produce provider events rather
-than claiming to be API calls.
-
-For totals, sum `usage` only on `api_attempt_finished` events; `generation_failed`
-is a summary event, not an additional request. Cache hits have empty usage and do
-not re-count historical tokens. `usage: null` means the API did not provide usage
-(e.g. a connection failure); it does **not** assert zero billed tokens. An interrupted
-process can leave an attempt-start event without a finish. Past attempts cannot
-be reconstructed retroactively. The ledger excludes credentials, prompts, source
-text, response bodies, and raw exception messages. Keep the ledger when clearing
-response caches if you want to retain usage history.
-
-
-## Voiceover (Stage 5)
-
-Install FFmpeg (including its `loudnorm` filter) on your system, then use the
-approved script to generate narration explicitly:
-
-```sh
-uv run --env-file .env main.py voiceover
-# Alternate settings file:
-uv run --env-file .env main.py voiceover --voiceover-config voiceover_config.json
-# Intentionally regenerate paid speech, bypassing both audio caches:
-uv run --env-file .env main.py voiceover --force
-```
-
-The existing `run` and `run --auto-approve` commands still stop after Stage 4.
-Voiceover checks the entire evidence chain and current script approval before
-speech generation. It reuses exact cached semantic verdicts and always reruns
-Python checks. It reads narration from `scenes.json`, in scene/sentence order;
-headings, on-screen text, and production notes are excluded. It does not edit or
-approve the script. Modified or unapproved scripts must be reviewed first.
-
-`voiceover_config.json` contains the final user-supplied instructions verbatim,
-Alloy voice, speed `1.0`, and the pinned `gpt-4o-mini-tts-2025-12-15` model. Model,
-voice, instructions, speed, API limits, tokenizer, retry/timeout settings, FFmpeg
-executable, output sample rate/channels, and loudness settings are configurable.
-There is no automatic voice/speed tuning or A/B selection.
-
-The full narration uses one continuous speech request when it fits both the
-4,096-character Speech API limit and configured 2,000-token model limit. Local
-`o200k_base` token counting includes instructions plus a configurable overhead
-allowance; it is preflight validation, not billed usage. `tiktoken` may download
-its encoding data once on first use, then reuses its disk cache. If needed,
-requests are split only at scene boundaries with identical settings and joined
-without trimming pauses. A single oversized scene fails before speech is sent;
-edit and reapprove it instead of silently altering narration.
-
-Outputs are `narration.wav`, `narration.txt` (the exact speech input plus a final
-newline), and `narration.json`. WAV output defaults to mono, 48 kHz, 16-bit PCM,
-normalized in two FFmpeg passes to -16 LUFS with a -1.5 dBTP ceiling; a final
-measurement checks the result. Metadata records the script and approval hashes,
-full settings/instructions, audio hash, segment cache provenance, measurements,
-and AI-generated disclosure. A human listening review is still pending; Stage 6
-transcription/alignment checks spoken-text similarity and timing. Automated
-WAV/loudness checks do not establish pronunciation or verbatim speech fidelity.
-
-Raw speech lives in `cache/voiceover/raw/<hash>.wav` with a JSON manifest. Its key
-includes the exact input, model, voice, speed, response format, instructions, and
-TTS version. Normalized audio is cached separately under `cache/voiceover/`, keyed
-by raw segment keys, output/loudness settings, FFmpeg version and processing
-version. Changing only loudness reuses paid speech. A valid normalized cache hit
-needs no raw-cache files or new speech requests. Every hit verifies the stored
-WAV and hash. Failed requests, malformed audio, or failed normalization never
-replace existing output; valid raw speech survives local normalization failures.
-Writes are atomic per file, rather than one transaction across all output files.
-
-Stage 5 appends to the existing `cache/usage.jsonl` ledger with stage `voiceover`:
-API attempt start/finish, failures/retries, request IDs, character counts, audio
-bytes and cache/local-processing events. Binary WAV responses expose no token
-usage, so the ledger records `usage: null`, never an invented token total. Mock
-providers use provider events. Cached results use empty usage and incur no new
-speech charge. Prompts, narration text and credentials are excluded from the log.
-
-The existing Speech API is currently supported but its TTS models are scheduled
-to shut down on **January 6, 2027**. This implementation follows the plan's Speech
-API workflow; migrating to the recommended Realtime API requires a separate
-workflow change, not merely a different model ID. See the [official speech API
-reference](https://developers.openai.com/api/reference/python/resources/audio/subresources/speech/methods/create)
-and [model limits](https://developers.openai.com/api/docs/models/gpt-4o-mini-tts).
-
-Stage 5 was tested using mocked HTTP/speech responses and synthetic audio. The current approved narration was subsequently generated and its provenance is
-recorded in `output/narration.json`; the regenerable WAV is ignored by git.
-
-
-## Timing (Stage 6)
-
-Use the existing approved script and Stage 5 narration:
-
-```sh
-# Offline approval, text, audio hash/format, and upload-size preflight:
-uv run main.py timing --check-inputs
-# One Whisper request on a cache miss, followed by local alignment:
-uv run --env-file .env main.py timing
-# Explicitly bypass only the paid transcription cache:
-uv run --env-file .env main.py timing --force
-```
-
-`timing_config.json` selects `whisper-1`, English, `verbose_json`, word timestamps,
-and temperature zero. The command checks all upstream approvals, reruns Python
-validators, and reuses exact factual-verification caches. A missing semantic
-cache stops the command without a verifier request. It never regenerates or
-edits facts, script, approvals, narration, or upstream reviews. Human listening
-review is pending and does not block automated timing; accepted upstream review
-findings remain explicit exceptions.
-
-Outputs are `transcript.json` (word timestamps and request/cache provenance),
-`timings.json` (sentence, scene, element and sparse word cues), and
-`timing_review.md` (scores, findings and every approved/transcribed sentence pair).
-Sentence IDs derive from scene ID, narration-item index and sentence index, with
-character offsets within that item's normalized text and approved claim IDs.
-Multi-sentence narration items are split locally without changing the script.
-
-A bounded monotonic search partitions transcript words in order, consuming each
-word exactly once. Number and company normalization is shared with fact checks;
-fuzzy comparison ignores spaces to accommodate split brand names. The default
-minimum sentence similarity is 0.85; quantity differences and unrecognized named
-companies are flagged even when the overall fuzzy score is high. These checks
-cannot prove pronunciation, entailment or verbatim audio fidelity. Word cues are
-limited to three names/quantities per scene and are approximate (100–300 ms).
-
-WAV duration is the master clock. Scene cuts use the first timestamped word of
-the next scene, preserving inter-scene pauses. Cumulative frame boundaries use
-`ceil(time * fps)` at 30 fps to avoid accumulated rounding drift, with six padding
-frames only at the end. Padding changes video duration, never audio timestamps.
-Sentence and element times are seconds; frame ranges are half-open.
-
-Unreliable sentence matches trigger even timing within that scene's estimated
-span, suppress its word cues, save findings, and return exit `2`. The estimated
-scene boundaries still require inspection. No fallback is represented as exact
-per-scene audio. The plan's per-scene TTS fallback is a separate deliberate
-voiceover operation, never a timing-stage repair loop. Malformed or severely disordered
-word timestamps, incompatible durations, missing approvals, oversized uploads,
-or changed inputs fail before replacing timing outputs. The 25 MB upload limit
-is checked locally; oversized audio is not silently compressed or split.
-
-Whisper sometimes emits empty word entries, zero-duration words, or slight
-timestamp overlaps. Empty entries are counted and omitted from speech-word
-alignment; the original response is retained. Zero spans remain explicit review findings, with word counts, transcript word indices,
-and flags for affected sentence boundaries. Alignment v2 preserves usable positive,
-ordered sentence bounds and claim-linked elements; sparse cues containing any
-zero-duration word are suppressed. Original aligned bounds are retained alongside
-any fallback bounds. Overlaps/reversals within 300 ms, unusable sentence bounds,
-and text mismatches still trigger scene fallback without changing raw times.
-Larger ordering errors or unusable scene cuts fail validation. Clean output always has monotonic,
-positive sentence/scene/element times.
-
-Successful validated transcripts are cached in `cache/timing/<hash>.json`, keyed
-by WAV SHA-256, request settings and transcription version. Alignment/settings
-changes reuse that transcript without paid calls. Every hit checks its hash and
-timestamp contract, then recomputes local alignment. Transcript cache survives
-local alignment/publication failure. HTTP 200 response receipts are retained
-separately in `cache/timing/responses/`, before schema validation, with audio and
-settings hashes. They are diagnostics, not successful caches; a later local run
-can revalidate a retained response without another paid call. Invalid retained
-responses stop the command rather than triggering automatic regeneration. `cache/usage.jsonl` records stage `timing`
-requests, cache hits and failures without audio, narration or credentials. SDK
-retries are disabled; a request failure stops after one attempt. API usage is
-recorded exactly when returned, otherwise `null`. Outputs use per-file atomic
-writes, not a multi-file transaction.
-
-The [official transcription documentation](https://developers.openai.com/api/docs/guides/speech-to-text)
-still supports the plan's Whisper word-timestamp workflow, but schedules
-`whisper-1` shutdown for **February 26, 2027**. Model migration needs a separately
-verified timing contract; the command does not silently substitute a model.
-
-
-The current Stage 6 run produced all 18 sentence timings and seven scene spans
-for the 155.15-second narration (4,661 frames with tail padding). Its normalized
-similarity is 0.9878, but **review is required**: all seven scenes use estimated
-even timing, with no precise word cues. See `output/timing_review.md` and
-`output/stage6_run_summary.json` for timestamp anomalies, conservative quantity
-flags, name transcription differences, and possible omitted words. Two Whisper
-requests were made while correcting the adapter's handling of empty word entries;
-the second response was reused locally. No facts, script, approval, or narration
-files were modified, and no generation, verifier, or speech requests were made.
-
-## Storyboard and smart templates (Stage 7)
-
-Stage 7 uses a model only to select a template and named layout/motion/theme for
-each scene. Exact approved titles and screen items fill the fields locally;
-new wording, React code, raw colors and chart values cannot enter the model output.
-The six templates are title, methodology, ranking list, statistic spotlight,
-comparison cards, and conclusion. Ranking uses text rows without invented bars
-or ordinal markers; statistic requires a source-backed quantity already on screen.
-The first/last templates are title/conclusion, and adjacent templates must differ.
-
-Install the pinned Node dependencies once (Node 22.13+ recommended):
-
-```sh
-npm --prefix video ci
-uv run main.py storyboard --check-inputs
-uv run --env-file .env main.py storyboard
-```
-
-Generation writes `output/storyboard.json` and `output/storyboard_review.md`, and
-returns **2** because visual/listening review remains pending. `--check-inputs`
-checks upstream approval/audio/timing provenance offline, without writes or model
-calls; it does not validate a draft storyboard or test the Node installation.
-Stage 7 never regenerates upstream artifacts or grants approvals. A stale upstream
-artifact stops the command. The legacy default `output/` has stale selection hashes under the active
-configuration. The current GPT‑6.1 artifacts live in the isolated run below; use
-its matching inputs, outputs, configuration and semantic caches:
-
-```sh
-uv run --env-file .env main.py \
-  --article runs/20261108-224733-gpt61-stages2-4/input/article.json \
-  --output-dir runs/20261108-224733-gpt61-stages2-4/output \
-  --cache-dir runs/20261108-224733-gpt61-stages2-4/cache \
-  --config runs/20261108-224733-gpt61-stages2-4/pipeline_config.json storyboard
-```
-
-That run now contains the seven-scene `storyboard.json` and review, generated by
-`gpt-6.1-sol` from the GPT‑6.1 script, approvals, narration and timing. Stage 7
-made one planner request (2,173 input / 544 output tokens); local retry after a
-review-envelope fix reused that validated cached plan.
-
-Each manifest element carries `claim_ids`, original `source_ids` and absolute,
-half-open frame bounds. Quantities and declared/known company names are checked
-against the cited sentences/cells. This recall check does not prove entailment;
-exact script approval supplies semantic verification. Publisher attribution established by approved claim metadata is grounded by
-adding an identity citation from another approved fact that explicitly names the
-publisher. Both its claim ID and source IDs are retained on the element. Other
-unsupported names or quantities require an upstream citation/copy correction. Accepted upstream findings are preserved;
-they cannot bypass the Stage 7 screen quantity/name checks.
-
-Stage 6 is re-aligned locally against the saved transcript and checked against
-the current approved script, narration hashes, and 30 fps master clock. Estimated
-timing and its issues are retained in the review. Card templates preserve cue
-onsets and accumulate items through scene end; spotlight templates show one active
-item at a time when claim-linked intervals overlap. No time is added to audio.
-
-Both Python generation and Studio use `video/src/schema.mjs` (Zod). The Python
-planner schema restricts model output first; invalid template/schema results get
-one correction attempt via the existing runner. Unfixable screen copy/length errors
-stop before generation. Valid plans are cached with model, prompt, input, and
-schema provenance. Failed validation or concurrent input changes preserve the
-previous storyboard. Output files are atomic individually, not as a transaction.
-Titles are limited to 80 characters, body copy to 120, and each scene to six body
-items. Ranking lists support four. Text fits width and line/height budgets; text
-below the 36px readability target is marked with a red outline and
-`data-fit-warning="minimum-size"` for visual QA.
-
-Preview after generation:
-
-```sh
-npm --prefix video run prepare-storyboard -- ../runs/20261108-224733-gpt61-stages2-4/output/storyboard.json
-npm --prefix video run dev -- --no-open
-```
-
-Open the printed Studio URL and select `Storyboard`. `prepare-storyboard` copies
-only a Zod-valid manifest into the preview; it does not recheck source evidence or
-approvals, so use output from the Python command. The checked-in preview uses the current GPT‑6.1 run. Synthetic six-template
-fixtures with `demo` citations live under `video/tests/fixtures/` and are not
-article evidence. Stage 8 will add narration and MP4 export.
-
-Frontend validation (Python tests require the Node/Zod installation too):
-
-```sh
-npm --prefix video test
-npm --prefix video run lint
-npm --prefix video run build
-uv run python -m pytest article_parser/tests article_video/tests
-```
-
-### Editorial storyboard revision (v2)
-
-The v2 planner also selects a composition (`dossier`, `pipeline`, `network`,
-`orbit`, `ledger`, `magnitude`, `dual`, `checklist`), a primary visual node and
-`draw`/`focus`/`cascade` reveal behavior. Template/composition compatibility is
-validated. Short visual labels must be exact contiguous excerpts from an approved
-narration item. The compiler binds them to that item's matching Stage6 sentence,
-preserving claims and source IDs. This is sentence-level synchronization, not a
-new word-alignment pass. Existing timing uncertainty is preserved.
-
-The new GPT‑6.1 run has been regenerated and then locally refined to cover early
-technical narration before the later delivery comparison. Its editable plan is
-`runs/20261108-224733-gpt61-stages2-4/output/storyboard_plan.json`. Add
-`--plan-file PATH` to the storyboard command to validate/build that plan offline.
-This performs the same upstream, excerpt and Zod checks, makes no planner calls,
-and records `local-editorial` provenance with the plan hash. The original model
-plans remain in the run cache. Only Stage7 artifacts are replaced.
-
-The original approved screen copy stays in `elements`; diagram excerpts live in
-`visual_nodes`. Both are included in the storyboard evidence review. Font fitting
-uses a height budget as well as a line/width budget. Review Studio motion and
-composition in addition to automatic fit checks; exact excerpts alone cannot
-prove that juxtaposition or an association line communicates the right meaning.
+The subject-loss investigation and prompt changes are documented in
+[article_subject_investigation.md](docs/article_subject_investigation.md).
+Selection preserves the article's main purpose and can choose 1–7 sections;
+long sections supply representative facts. Prompts receive the article title,
+and sparse evidence produces shorter scripts rather than repeated scenes.
+Changed prompt versions refresh stale Stages 2–4 on the next run.

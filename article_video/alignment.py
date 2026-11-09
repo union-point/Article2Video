@@ -7,7 +7,7 @@ from article_parser.sentences import normalize, split_sentences
 
 from .normalization import normalize_name, normalize_number_words, quantities
 
-ALIGNMENT_VERSION = 'alignment.v2'
+ALIGNMENT_VERSION = 'alignment.v3'
 
 
 def alignment_text(text, aliases):
@@ -121,9 +121,50 @@ def sparse_cues(scene, sentences, words, aliases, max_cues):
     return sorted(cues, key=lambda cue: cue['start'])
 
 
+def clock_fallback(script, transcript, duration, config, reason):
+    """Allocate the existing audio clock by spoken word count; never synthesize again."""
+    sentences = script_sentences(script)
+    total = sum(max(1, len(s['text'].split())) for s in sentences)
+    if not math.isfinite(duration) or duration * config.fps < len(sentences):
+        raise ValueError('Audio is too short for positive scene/sentence fallback spans')
+    elapsed, frame, scenes = 0, 0, []
+    for scene in script.scenes:
+        group = [s for s in sentences if s['scene_id'] == scene.scene_id]
+        start = duration * elapsed / total
+        for sentence in group:
+            begin = duration * elapsed / total
+            elapsed += max(1, len(sentence['text'].split()))
+            end = duration if elapsed == total else duration * elapsed / total
+            sentence.update(start=begin, end=end, aligned_start=None, aligned_end=None,
+                            word_start=0, word_end=0, transcript_text='', score=0.,
+                            zero_duration_word_indices=[], boundary_timestamp_review=False,
+                            method='even_fallback')
+        end = group[-1]['end']
+        end_frame = math.ceil(end * config.fps) + (config.tail_padding_frames if elapsed == total else 0)
+        elements = [{'element_index': n, 'claim_ids': item.claim_ids,
+                     'start': start + (end - start) * n / len(scene.on_screen),
+                     'end': end if n + 1 == len(scene.on_screen) else start + (end - start) * (n + 1) / len(scene.on_screen),
+                     'method': 'even_fallback'} for n, item in enumerate(scene.on_screen)]
+        scenes.append({'scene_id': scene.scene_id, 'start': start, 'end': end,
+                       'start_frame': frame, 'duration_frames': end_frame - frame,
+                       'method': 'even_fallback', 'sentences': group, 'elements': elements, 'word_cues': []})
+        frame = end_frame
+    return {'audio_duration_seconds': duration, 'fps': config.fps, 'duration_frames': frame,
+            'tail_padding_frames': config.tail_padding_frames, 'sentence_count': len(sentences),
+            'overall_score': 0., 'transcript_text_score': 0.,
+            'zero_duration_word_count': sum(w.start == w.end for w in transcript.words),
+            'status': 'review_required', 'scenes': scenes,
+            'issues': [{'code': 'SCENE_FALLBACK', 'target': s.scene_id,
+                        'message': f'Narration-length allocation of the audio clock; word cues disabled. {reason}'}
+                       for s in script.scenes]}
+
+
 def align_script(script, transcript, duration, config, aliases):
     sentences = script_sentences(script)
-    partitions = partition_sentences(sentences, transcript.words, aliases)
+    try:
+        partitions = partition_sentences(sentences, transcript.words, aliases)
+    except ValueError as exc:
+        return clock_fallback(script, transcript, duration, config, str(exc))
     issues = []
     if transcript.omitted_empty_word_count:
         issues.append({'code': 'EMPTY_TRANSCRIPT_WORDS', 'target': 'transcript',
@@ -169,13 +210,18 @@ def align_script(script, transcript, duration, config, aliases):
     overall = SequenceMatcher(None, whole_script, whole_words, autojunk=False).ratio()
     text_score = SequenceMatcher(None, alignment_text(transcript.text, aliases), whole_words, autojunk=False).ratio()
     if min(overall, text_score) < config.min_sentence_score:
-        issues.append({'code': 'TRANSCRIPT_MISMATCH', 'target': 'timing',
-                       'message': f'Whole-script score {overall:.3f}; transcript text/words score {text_score:.3f}'})
+        result = clock_fallback(script, transcript, duration, config, 'Whole-transcript confidence is low.')
+        result['issues'] = [*issues, {'code': 'TRANSCRIPT_MISMATCH', 'target': 'timing',
+                                    'message': f'Whole-script score {overall:.3f}; transcript text/words score {text_score:.3f}'},
+                            *result['issues']]
+        result.update(overall_score=overall, transcript_text_score=text_score)
+        return result
     groups = [[s for s in sentences if s['scene_id'] == scene.scene_id] for scene in script.scenes]
     # Each scene owns the pause before its next scene; the first starts at zero.
     boundaries = [0.] + [group[0]['start'] for group in groups[1:]] + [duration]
-    if any(not a < b for a, b in zip(boundaries, boundaries[1:])):
-        raise ValueError('Transcript cannot provide positive, ordered scene boundaries')
+    if any(not a < b or math.ceil(b * config.fps) <= math.ceil(a * config.fps)
+           for a, b in zip(boundaries, boundaries[1:])):
+        return clock_fallback(script, transcript, duration, config, 'Transcript scene boundaries are unusable.')
     frames = [math.ceil(t * config.fps) for t in boundaries]
     frames[-1] += config.tail_padding_frames
     scenes = []
@@ -193,7 +239,7 @@ def align_script(script, transcript, duration, config, aliases):
         fallback = any(s['sentence_id'] in bad_ids for s in group) or 'timing' in bad_ids
         if fallback:
             issues.append({'code': 'SCENE_FALLBACK', 'target': scene.scene_id,
-                           'message': 'Sentence and element cues spread evenly over the estimated scene span; scene boundaries need review'})
+                           'message': 'Sentence and element cues spread evenly over the estimated scene span; uncertain word cues disabled'})
             for n, sentence in enumerate(group):
                 sentence.update(start=start + (end - start) * n / len(group),
                                 end=end if n + 1 == len(group) else start + (end - start) * (n + 1) / len(group),

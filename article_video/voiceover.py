@@ -167,7 +167,7 @@ class VoiceoverGenerator:
                     'inputs': {'script': digest(artifact), 'script_approval': digest(approval)},
                     'text_sha256': digest('\n\n'.join(chunks)), 'config': self.config.model_dump(),
                     'chunks': record['chunks'],
-                    'disclosure': 'AI-generated narration.', 'listening_review': 'pending'}
+                    'disclosure': 'AI-generated narration.'}
         output = self.pipeline.output_dir
         write_bytes(output / 'narration.wav', data)
         write_text(output / 'narration.txt', '\n\n'.join(chunks) + '\n')

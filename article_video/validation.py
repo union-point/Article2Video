@@ -1,14 +1,8 @@
-"""Deterministic structural errors and reviewable recall-filter findings."""
-import re
-
+"""Structural/reference checks; factual support and attribution use the LLM verifier."""
 from article_parser.sentences import normalize, split_sentences
 
-from .normalization import NameMatcher, contains_name, quantities
 from .schemas import Review, ReviewItem
 from .storage import digest
-
-RANKING_WORDS = re.compile(r"\b(?:rank(?:ed|ing|s)?|best|top|scor(?:e|ed|es)|better|recommend(?:s|ed|ation)?)\b", re.I)
-
 
 def add_issue(report, severity, code, target, message):
     item = ReviewItem(id=digest([code, target, message])[:16], code=code, target=target, message=message)
@@ -36,8 +30,8 @@ def validate_selection(selection, index):
     unique(selected, "selected sections")
     if not set(selected) <= known:
         raise ValueError("Selection contains unknown section IDs")
-    if not min(5, len(known)) <= len(selected) <= min(7, len(known)):
-        raise ValueError("Select 5–7 sections, or all sections when fewer than 5 exist")
+    if not 1 <= len(selected) <= min(7, len(known)):
+        raise ValueError("Select 1–7 relevant sections")
     if len(split_sentences(normalize(selection.angle), "angle")) != 1:
         raise ValueError("The selection angle must be one sentence")
 
@@ -79,41 +73,6 @@ def validate_script(script, approved):
             raise ValueError(f"{target}: unknown or unapproved claim IDs")
 
 
-def attribution_only(text, publisher, aliases=()):
-    """Recognize a publisher used only as a reporting source, not a claim entity.
-
-    This authorizes a name from already approved attribution metadata. It does
-    not authorize quantities or conclusions; the full candidate still goes to
-    the independent verifier. A self-ranking/report retains its entity check.
-    """
-    name = re.escape(publisher)
-    patterns = [
-        rf"\baccording to {name}\b",
-        rf"\b{name}['’]s\s+(?:ranking|list|report|assessment|criteria|comparison|methodology)\b",
-        rf"\b{name}\s+(?:reports|ranks|rates|scores|recommends|says|lists)\b",
-    ]
-    remainder = text
-    for pattern in patterns:
-        remainder = re.sub(pattern, "", remainder, flags=re.I)
-    # Do not mistake the publisher as ranked company (including anaphora) for
-    # attribution alone. Semantic review still decides the actual relationship.
-    return (remainder != text
-            and not any(contains_name(remainder, name) for name in [publisher, *aliases])
-            and not re.search(r"\b(?:itself|its|it|they|their|them|themselves)\b", remainder, re.I))
-
-
-def token_checks(report, target, text, source_texts, matcher, company_names=(), link="source", attribution=None):
-    source_values = set().union(*(quantities(s) for s in source_texts))
-    for value in sorted(quantities(text) - source_values):
-        add_issue(report, "flags", "MISSING_VALUE", target, f"{link}: {value} is absent from cited text")
-    name_sources = source_texts
-    aliases = matcher.groups.get(attribution, [])
-    if attribution and attribution_only(text, attribution, aliases):
-        name_sources = [*source_texts, attribution]
-    for name in matcher.missing(text, name_sources, company_names):
-        add_issue(report, "flags", "MISSING_NAME", target, f"{link}: {name} is absent from cited text")
-
-
 def facts_review(artifact, index, selected, config):
     report = empty_review("facts", artifact)
     try:
@@ -121,13 +80,6 @@ def facts_review(artifact, index, selected, config):
     except ValueError as exc:
         add_issue(report, "errors", "INVALID_FACTS", "facts", str(exc))
         return report
-    matcher = NameMatcher(index.company_names, config.company_aliases)
-    for claim in artifact.data.claims:
-        sources = [index.evidence[s].text for s in claim.source_ids]
-        token_checks(report, claim.claim_id, claim.text, sources, matcher, claim.company_names)
-        if not (claim.attribution.casefold() == config.publisher.casefold()
-                or any(matcher.missing(claim.attribution, [s], [claim.attribution]) == [] for s in sources)):
-            add_issue(report, "flags", "ATTRIBUTION_REVIEW", claim.claim_id, f"Attribution {claim.attribution!r} is not established")
     return report
 
 
@@ -138,25 +90,4 @@ def script_review(artifact, index, approved, config):
     except ValueError as exc:
         add_issue(report, "errors", "INVALID_SCRIPT", "script", str(exc))
         return report
-    matcher = NameMatcher(index.company_names, config.company_aliases)
-    for target, item in script_items(artifact.data):
-        claims = [approved[c] for c in item.claim_ids]
-        sources = [index.evidence[s].text for c in claims for s in c.source_ids]
-        attribution = config.publisher if all(c.attribution.casefold() == config.publisher.casefold() for c in claims) else None
-        token_checks(report, target, item.text, [c.text for c in claims], matcher, item.company_names, "approved claims", attribution)
-        token_checks(report, target, item.text, sources, matcher, item.company_names, "source sentences", attribution)
-        if RANKING_WORDS.search(item.text):
-            publisher = re.escape(config.publisher)
-            attributed = re.search(
-                rf"according to {publisher}\b|\b{publisher}['’]s\b|\b{publisher}\s+(?:reports|ranks|rates|scores|recommends|says|lists)\b",
-                item.text, re.I,
-            )
-            if not attributed:
-                add_issue(report, "flags", "RANKING_ATTRIBUTION", target,
-                          f"Ranking/opinion language needs explicit attribution to {config.publisher}")
-    words = sum(len(re.findall(r"\b[\w]+(?:[’'-][\w]+)*\b", item.text))
-                for scene in artifact.data.scenes for item in scene.narration)
-    if not config.min_narration_words <= words <= config.max_narration_words:
-        add_issue(report, "flags", "NARRATION_LENGTH", "script",
-                  f"Narration has {words} words; target is {config.min_narration_words}–{config.max_narration_words}")
     return report

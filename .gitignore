@@ -224,6 +224,11 @@ __marimo__/
 *[Ss][Pp][Ee][Cc]*.[Mm][Dd]
 TASK.md
 
+# Root-level Markdown, except project instructions and README
+/*.[Mm][Dd]
+!/README.md
+!/AGENTS.md
+
 # Browser Save Page assets are not needed by the offline parser
 /article_parser/tests/fixtures/*_files/
 
@@ -247,7 +252,24 @@ TASK.md
 /runs/**/*.mp4
 /runs/**/*.mp3
 
+# Temporary render jobs and regenerable exported-frame checks
+/output/.video*/
+/runs/**/output/.video*/
+/output/render_frames/
+/runs/**/output/render_frames/
+
 # Remotion dependencies and regenerable bundles
 /video/node_modules/
 /video/build/
 /video/out/
+
+# Keep the concise implementation plan with the demo documentation
+!/docs/automation_plan.md
+
+# Keep fact sheets from generated output and run archives
+/output/**/*
+!/output/**/
+!/output/fact_sheet.csv
+/runs/**/*
+!/runs/**/
+!/runs/fact_sheet.csv

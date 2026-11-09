@@ -60,7 +60,7 @@ class FakeNormalizer:
 def setup_voiceover(setup_pipeline):
     p, _ = setup_pipeline
     p.run(auto_approve=True)
-    config = VoiceoverConfig.model_validate(read_json(Path(__file__).resolve().parents[2] / 'voiceover_config.json'))
+    config = VoiceoverConfig.model_validate(read_json(Path(__file__).resolve().parents[2] / 'configs' / 'voiceover_config.json'))
     speech, normalizer = FakeSpeech(), FakeNormalizer()
     return p, config, speech, normalizer
 
@@ -78,7 +78,7 @@ def test_continuous_approved_narration_settings_and_preservation(setup_voiceover
     assert result['audio']['sample_rate'] == 48000
     assert all(f.read_bytes() == content for f, content in before.items())
     assert result['inputs']['script'] == digest(read_json(p.path('script')))
-    assert result['listening_review'] == 'pending'
+    assert 'listening_review' not in result
 
 
 def test_final_cache_hit_needs_no_raw_cache_or_speech_request(setup_voiceover):
@@ -172,16 +172,15 @@ def test_token_limit_includes_instructions(setup_voiceover):
         narration_chunks(p.approved_script()[0].data, config)
 
 
-def test_repeated_scene_reuses_paid_speech_after_explicit_editorial_review(setup_voiceover):
+def test_repeated_scene_reuses_paid_speech_without_editorial_gate(setup_voiceover):
     p, config, speech, normalizer = setup_voiceover
     data = read_json(p.path('script'))
     scenes = data['data']['scenes']
     scenes[1]['narration'][0]['text'] = scenes[0]['narration'][0]['text']
     write_json(p.path('script'), data)
     _, report = p.review('script')
-    assert any(f.code == 'QUALITY_REPETITION' for f in report.flags)
-    p.approve('script', 'Reviewer', note='Inspected and explicitly accepted this repeated scene.',
-              accepted=[f.id for f in report.flags])
+    assert not report.flags
+    p.auto_approve('script')
     config.max_input_characters = max(len(s['narration'][0]['text']) for s in scenes)
     result = VoiceoverGenerator(p, config, speech, normalizer).generate()
     assert len(result['chunks']) == 6
@@ -215,7 +214,7 @@ def test_concurrent_script_edit_prevents_publish(setup_voiceover):
 def test_ffmpeg_normalization_on_synthetic_audio(tmp_path):
     if not shutil.which('ffmpeg'):
         pytest.skip('FFmpeg not installed')
-    config = VoiceoverConfig.model_validate(read_json(Path(__file__).resolve().parents[2] / 'voiceover_config.json'))
+    config = VoiceoverConfig.model_validate(read_json(Path(__file__).resolve().parents[2] / 'configs' / 'voiceover_config.json'))
     source, target = tmp_path / 'raw.wav', tmp_path / 'normal.wav'
     source.write_bytes(tone(seconds=4))
     measurements = FFmpegNormalizer().normalize(source, target, config)
@@ -230,7 +229,7 @@ def test_speech_sdk_wire_format_and_unknown_usage(tmp_path):
         requests.append(json.loads(request.content))
         return httpx.Response(200, content=tone(), headers={'content-type': 'audio/wav', 'x-request-id': 'mock-request'})
     client = OpenAI(api_key='mock-test-key', http_client=httpx.Client(transport=httpx.MockTransport(handler)))
-    config = VoiceoverConfig.model_validate(read_json(Path(__file__).resolve().parents[2] / 'voiceover_config.json'))
+    config = VoiceoverConfig.model_validate(read_json(Path(__file__).resolve().parents[2] / 'configs' / 'voiceover_config.json'))
     events = []
     data, info = OpenAISpeechProvider(client).synthesize('An approved excerpt.', config, lambda event, **fields: events.append((event, fields)))
     assert wav_info(data)['duration_seconds'] == 2
@@ -248,7 +247,7 @@ def test_speech_retries_and_failures_logged_without_secrets(monkeypatch):
         return httpx.Response(429, json={'error': {'message': 'secret body'}})
     monkeypatch.setattr('article_video.speech.time.sleep', lambda seconds: None)
     client = OpenAI(api_key='secret-key', http_client=httpx.Client(transport=httpx.MockTransport(handler)))
-    config = VoiceoverConfig.model_validate(read_json(Path(__file__).resolve().parents[2] / 'voiceover_config.json'))
+    config = VoiceoverConfig.model_validate(read_json(Path(__file__).resolve().parents[2] / 'configs' / 'voiceover_config.json'))
     with pytest.raises(ValueError):
         OpenAISpeechProvider(client).synthesize('Private script', config, lambda event, **fields: events.append((event, fields)))
     assert len(calls) == 3
@@ -294,7 +293,7 @@ def test_malformed_api_audio_is_logged_and_not_cached():
         calls.append(request)
         return httpx.Response(200, content=b'not WAV', headers={'x-request-id': 'bad-audio'})
     client = OpenAI(api_key='mock', http_client=httpx.Client(transport=httpx.MockTransport(handler)))
-    config = VoiceoverConfig.model_validate(read_json(Path(__file__).resolve().parents[2] / 'voiceover_config.json'))
+    config = VoiceoverConfig.model_validate(read_json(Path(__file__).resolve().parents[2] / 'configs' / 'voiceover_config.json'))
     with pytest.raises(ValueError, match='Speech generation failed'):
         OpenAISpeechProvider(client).synthesize('Test', config, lambda event, **fields: events.append((event, fields)))
     assert len(calls) == 1
@@ -312,6 +311,6 @@ def test_voiceover_cli_with_mocked_speech(setup_voiceover, tmp_path, monkeypatch
     write_json(config_path, config)
     args = arguments(p, tmp_path / 'article.json', tmp_path)
     assert main([*args, 'voiceover', '--voiceover-config', str(config_path)]) == 0
-    assert 'human listening review is pending' in capsys.readouterr().out
+    assert 'listening review is optional' in capsys.readouterr().out
     assert (p.output_dir / 'narration.wav').exists()
     assert len(speech.calls) == 1
