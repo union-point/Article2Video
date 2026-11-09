@@ -1,5 +1,6 @@
 """URL-to-MP4 CLI. Auto is default; review mode opts into human checkpoints."""
 import argparse
+from contextlib import ExitStack
 from pathlib import Path
 import sys
 
@@ -15,6 +16,7 @@ def main(argv=None):
     parser.add_argument("--cache-dir", type=Path, default=Path("cache"))
     parser.add_argument("--config", type=Path, default=Path("configs/pipeline_config.json"))
     parser.add_argument("--mode", choices=("auto", "review"), default="auto")
+    parser.add_argument("--verbose", action="store_true", help="Show stage diagnostics (detailed usage remains in cache/usage.jsonl)")
     commands = parser.add_subparsers(dest="command", required=True)
     for name in ("select", "facts", "script", "run"):
         command = commands.add_parser(name)
@@ -52,10 +54,20 @@ def main(argv=None):
     approve.add_argument("--note", default="")
     approve.add_argument("--accept-review-item", action="append", default=[], metavar="ID")
     approve.add_argument("--claim-id", action="append", default=[], help="Approve only these facts (repeatable; default all)")
+    # Accept diagnostics before or after the subcommand.
+    for command in commands.choices.values():
+        command.add_argument('--verbose', action='store_true', default=argparse.SUPPRESS,
+                             help='Show stage diagnostics and the usage log path')
     args = parser.parse_args(argv)
+    display_stack = ExitStack()
     try:
         if args.command in {'approve', 'review'}:
             args.mode = 'review'
+        from .console import PipelineDisplay, STAGES
+        display = None
+        if args.command == 'run' or (args.command == 'render' and not args.check_inputs):
+            display = display_stack.enter_context(PipelineDisplay(
+                STAGES if args.command == 'run' else ('Render',), verbose=args.verbose))
         config = PipelineConfig.model_validate(read_json(args.config))
         if args.command == 'run' and args.url:
             from .automation import prepare_article, stage_progress
@@ -68,6 +80,8 @@ def main(argv=None):
         from .automation import stage_progress
         with stage_progress('Extraction', artifact_path=args.article) if args.command == 'run' and not args.url else nullcontext():
             pipeline = Pipeline(args.article, args.output_dir, args.cache_dir, config, mode=args.mode)
+        if args.verbose:
+            print(f"Diagnostic usage log: {pipeline.runner.usage_log.path}", flush=True)
         if args.command == 'run':
             from .automation import run_all
             from .timing import TimingConfig
@@ -75,10 +89,8 @@ def main(argv=None):
             result = run_all(pipeline, VoiceoverConfig.model_validate(read_json(args.voiceover_config)),
                              TimingConfig.model_validate(read_json(args.timing_config)),
                              force=args.force, concurrency=args.concurrency)
-            print(f"Completed: {result['video']} | {result['fact_sheet']}", flush=True)
-            for warning in result['warnings']:
-                print(f'WARNING: {warning}', flush=True)
-            print("AI-generated narration.", flush=True)
+            display_stack.close()
+            display.summary(result)
             return 0
         if args.command == "render":
             from .renderer import VideoRenderer
@@ -87,7 +99,9 @@ def main(argv=None):
                 renderer.preflight()
                 print("Render inputs valid. No model requests, media rendering or output writes.")
                 return 0
-            result = renderer.render(preview=args.preview, force=args.force, concurrency=args.concurrency)
+            with stage_progress('Render', artifact_path=args.output_dir / ('video_preview_render.json' if args.preview else 'video_render.json')):
+                result = renderer.render(preview=args.preview, force=args.force, concurrency=args.concurrency)
+            display_stack.close()
             print(f"Video: {args.output_dir / result['video_file']} ({result['duration_frames'] / result['fps']:.1f}s)")
             print("Export verified. Listening and visual review are optional.")
             return 0
@@ -138,14 +152,19 @@ def main(argv=None):
             print(f"Review {artifact.stage}_review.md, then approve {artifact.stage} to continue.")
         return 0
     except ReviewRequired as exc:
+        display_stack.close()
         if args.mode == 'review':
             print(f"REVIEW REQUIRED: {exc}")
             return 2
         print(f"ERROR: {exc}", file=sys.stderr, flush=True)
         return 1
     except (ValueError, OSError) as exc:
+        display_stack.close()
         print(f"ERROR: {exc}", file=sys.stderr, flush=True)
         return 1
+
+    finally:
+        display_stack.close()
 
 
 if __name__ == "__main__":

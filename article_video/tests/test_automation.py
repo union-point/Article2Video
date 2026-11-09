@@ -56,8 +56,7 @@ def test_default_cli_completes_and_resumes_without_paid_or_render_calls(automati
     first_output = capsys.readouterr().out
     assert 'Completed:' in first_output
     for stage in ('Extraction', 'Selection', 'Facts', 'Script', 'Voiceover', 'Timing', 'Storyboard', 'Render', 'Fact sheet'):
-        assert f'{stage}: starting' in first_output
-        assert f'{stage}: finished' in first_output
+        assert f'{stage}: Completed' in first_output or f'{stage}: Cached' in first_output
     assert len(renders) == transcriber.calls == len(speech.calls) == 1
     assert not list(p.output_dir.glob('*review*'))
     assert not (p.output_dir / 'history').exists()
@@ -67,7 +66,7 @@ def test_default_cli_completes_and_resumes_without_paid_or_render_calls(automati
     assert counts == (len(provider.calls), len(speech.calls), transcriber.calls, len(renders), planner.calls)
     resumed_output = capsys.readouterr().out
     for stage in ('Selection', 'Facts', 'Script', 'Voiceover', 'Timing', 'Storyboard', 'Render'):
-        assert f'{stage}: finished (cached results reused)' in resumed_output
+        assert f'{stage}: Cached' in resumed_output
     assert all(path.read_bytes() == data for path, data in files.items())
     with (p.output_dir / 'fact_sheet.csv').open(newline='') as stream:
         reader = csv.DictReader(stream)
@@ -206,11 +205,8 @@ def test_script_has_one_grounding_pass_and_no_repair_loop(setup_pipeline):
     assert not list(p.output_dir.glob('*candidate*'))
 
 
-def test_stage_progress_flushes_and_identifies_failure(monkeypatch):
-    messages = []
-    monkeypatch.setattr('builtins.print', lambda *args, **kwargs: messages.append((args, kwargs)))
+def test_stage_progress_identifies_failure(capsys):
     with pytest.raises(ValueError, match='provider unavailable'):
         with automation.stage_progress('Voiceover'):
-            assert messages[-1] == (('Voiceover: starting',), {'flush': True})
             raise ValueError('provider unavailable')
-    assert messages[-1] == (('Voiceover: failed — provider unavailable',), {'flush': True})
+    assert 'Voiceover: Failed' in capsys.readouterr().out

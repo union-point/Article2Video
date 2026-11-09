@@ -11,6 +11,7 @@ from article_parser.fetcher import fetch_html, load_html
 from article_parser.registry import extract_article
 from article_parser.schemas import ArticleDocument
 
+from .console import ACTIVE_DISPLAY, PipelineDisplay
 from .renderer import VideoRenderer
 from .storage import read_json, write_json, write_text
 from .storyboard import StoryboardGenerator
@@ -20,14 +21,20 @@ from .voiceover import VoiceoverGenerator
 
 @contextmanager
 def stage_progress(name, usage_path=None, artifact_path=None):
-    """Print progress using existing usage events and small artifact receipts."""
+    """Report actual execution using existing usage events and artifact receipts."""
+    if ACTIVE_DISPLAY.get() is None:
+        with PipelineDisplay((name,)):
+            with stage_progress(name, usage_path, artifact_path):
+                yield
+        return
+    display = ACTIVE_DISPLAY.get()
     offset = usage_path.stat().st_size if usage_path and usage_path.exists() else 0
     before = artifact_path.read_bytes() if artifact_path and artifact_path.exists() else None
-    print(f"{name}: starting", flush=True)
+    display.update(name, 'Running')
     try:
         yield
     except Exception as exc:
-        print(f"{name}: failed — {exc}", flush=True)
+        display.update(name, 'Failed', str(exc))
         raise
     else:
         events = []
@@ -36,12 +43,12 @@ def stage_progress(name, usage_path=None, artifact_path=None):
                 handle.seek(offset)
                 events = [json.loads(line)['event'] for line in handle if line.strip()]
         reused = 'cache_hit' in events or 'response_reused' in events
-        generated = any(e in events for e in ('api_attempt_started', 'provider_attempt_started'))
+        generated = any(e in events for e in ('api_attempt_started', 'provider_attempt_started', 'normalization_finished'))
         if artifact_path:
             reused = reused or (not generated and before is not None and artifact_path.exists()
                                 and before == artifact_path.read_bytes())
         detail = 'cache reused; new results generated' if reused and generated else 'cached results reused' if reused else 'new results generated'
-        print(f"{name}: finished ({detail})", flush=True)
+        display.update(name, 'Cached' if reused and not generated else 'Completed', detail)
 
 
 def prepare_article(url, path, html_file=None, snapshot_dir=Path('snapshots')):

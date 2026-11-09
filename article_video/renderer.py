@@ -9,6 +9,7 @@ import shutil
 import subprocess
 import tempfile
 
+from .console import render_output
 from .storage import digest, read_json, write_json
 from .storyboard import (VERSION, VIDEO_ROOT, StoryboardGenerator, StoryboardPlan,
                          TemplateChoice, VisualNode, build_manifest, validate_zod)
@@ -144,8 +145,9 @@ class VideoRenderer:
             write_json(job, {'manifest': manifest, 'timings': timings, 'public_dir': str(public), 'output': str(rendered),
                              'scale': scale, 'concurrency': concurrency, 'narration_volume': narration_volume})
             try:
-                subprocess.run(['node', 'scripts/render.mjs', str(job)], cwd=VIDEO_ROOT,
-                               check=True, timeout=3600)
+                with render_output() as output_options:
+                    subprocess.run(['node', 'scripts/render.mjs', str(job)], cwd=VIDEO_ROOT,
+                                   check=True, timeout=3600, **output_options)
             except (OSError, subprocess.SubprocessError) as exc:
                 raise ValueError('Remotion render failed; previous export preserved. Run npm ci in video/ and inspect worker output') from exc
             probe = probe_video(rendered, manifest, scale)
