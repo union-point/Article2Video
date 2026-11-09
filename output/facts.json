@@ -3,46 +3,30 @@
   "stage": "facts",
   "inputs": {
     "article": "2288fad3b123b449e29c4c733f88f6aadcfbffb742875401d913f24d7a068b53",
-    "config": "d0617f1793ecab584cdeb0e201b46c5306e9d58b8248df1b20fbae7aa3993f81",
-    "selection": "eca60dbad4269eaa13fe912e9dc9ebafd0b8b478ea7ab7b9592881732ca52d81",
-    "selection_approval": "d6dd7776e357fcd9795cf678c6db3febbb53426565263c7ccf8a786d4979ac0e"
+    "config": "9ab2305817d6a3817161e6b5432e5e669059e06ea2860c25bce11453aef24e87",
+    "selection": "9157745eba07e9ab4da333b894399f4ecc554f5bf0b8dbd64533dda184b0fe47",
+    "selection_approval": "5d2bcdb85acb784ebe69c459baacb0a188a9c0c0617ba376518e5950465bb4ff"
   },
   "run": {
-    "requested_model": "gpt-4.1-2025-04-14",
-    "resolved_model": "gpt-4.1-2025-04-14",
-    "prompt_version": "repair.v1",
-    "cache_key": "d0b38ae0a16c3b020f988e4b5a9f8e4fe1c9c4b3a5d79e6ce4b240023a1be086",
-    "response_id": "resp_0bc05347ab41671f016af09a3bc4cc87d2ac165c2e07609a85",
+    "requested_model": "gpt-6.1-sol",
+    "resolved_model": "gpt-6.1-sol",
+    "prompt_version": "facts.v2",
+    "cache_key": "70fb5c4144517e6bb1734e525e0008c983e0d773c2f101baa43f453f980d2167",
+    "response_id": "resp_056456e285f73ca8016af10087df6487d2b243b8a583daf9dd",
     "usage": {
-      "input_tokens": 67045,
-      "output_tokens": 1715,
-      "total_tokens": 68760
+      "input_tokens": 24443,
+      "output_tokens": 5141,
+      "total_tokens": 29584
     }
   },
   "data": {
     "claims": [
       {
         "claim_id": "claim_001",
-        "text": "The best AI SEO companies in 2026 are Searchbloom, The SEO Works, Tinuiti, Graphite, and iPullRank.",
+        "text": "Searchbloom publishes the guide, is one of the nine companies ranked, and ranks itself first.",
         "source_ids": [
-          "block_0002.s1"
-        ],
-        "attribution": "Searchbloom",
-        "company_names": [
-          "Searchbloom",
-          "The SEO Works",
-          "Tinuiti",
-          "Graphite",
-          "iPullRank"
-        ]
-      },
-      {
-        "claim_id": "claim_072",
-        "text": "Searchbloom ranks itself as the best overall AI SEO company in 2026 based on its published method and results.",
-        "source_ids": [
-          "block_0007.r2c2",
-          "block_0004.s2",
-          "block_0028.f1.s1"
+          "block_0004.s1",
+          "block_0004.s2"
         ],
         "attribution": "Searchbloom",
         "company_names": [
@@ -51,86 +35,42 @@
       },
       {
         "claim_id": "claim_002",
-        "text": "The top scoring criteria for AI SEO companies include measuring AI visibility, earning brand presence on other people's pages AI reads, technical and structured-data foundation, content and entity authority, and documented results.",
+        "text": "The ranking weights AI visibility measurement, earned media guidance, technical and structured-data foundation, content and entity authority, and documented results equally, at 10 points each for a 50-point total.",
         "source_ids": [
-          "block_0002.s2"
+          "block_0018.s4",
+          "block_0019.s1",
+          "block_0020.s1",
+          "block_0021.s1",
+          "block_0022.s1",
+          "block_0023.s1"
         ],
         "attribution": "Searchbloom",
         "company_names": []
+      },
+      {
+        "claim_id": "claim_003",
+        "text": "Searchbloom ranks first with 48/50.",
+        "source_ids": [
+          "block_0007.r1c1",
+          "block_0007.r1c3",
+          "block_0007.r2c1",
+          "block_0007.r2c2",
+          "block_0007.r2c3"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Searchbloom"
+        ]
       },
       {
         "claim_id": "claim_004",
-        "text": "AI SEO includes mostly traditional SEO work, with the new aspect being measurement of AI visibility and external page citations.",
+        "text": "The SEO Works ranks second with 44/50.",
         "source_ids": [
-          "block_0003.s1",
-          "block_0003.s2"
-        ],
-        "attribution": "Searchbloom",
-        "company_names": [
-          "Searchbloom"
-        ]
-      },
-      {
-        "claim_id": "claim_005",
-        "text": "Searchbloom measured 68,631 AI answers in its category where its own website was cited 8.9% of the time, highlighting that most AI citations come from external pages.",
-        "source_ids": [
-          "block_0003.s2"
-        ],
-        "attribution": "Searchbloom",
-        "company_names": [
-          "Searchbloom"
-        ]
-      },
-      {
-        "claim_id": "claim_006",
-        "text": "The best AI SEO company manages SEO work, measures AI visibility daily, and provides a list of outside pages worth earning, leaving PR, social, sponsorships, and partner listings to the client's own team.",
-        "source_ids": [
-          "block_0003.s3",
-          "block_0003.s4"
-        ],
-        "attribution": "Searchbloom",
-        "company_names": []
-      },
-      {
-        "claim_id": "claim_007",
-        "text": "Searchbloom ranks itself first on a published result: a custom closet company whose search leads rose 122% in a year, with 20 of its 51 September 2026 leads recorded in its CRM as coming from AI search.",
-        "source_ids": [
-          "block_0004.s2",
-          "block_0028.f7.s1",
-          "block_0028.f7.s2",
-          "block_0027"
-        ],
-        "attribution": "Searchbloom",
-        "company_names": [
-          "Searchbloom"
-        ]
-      },
-      {
-        "claim_id": "claim_010",
-        "text": "Searchbloom ranked first with a score of 48 out of 50, noted for AI search tied to leads and revenue, using a published methodology, and SEO starting at $3,000 a month.",
-        "source_ids": [
-          "block_0007.r2c1",
-          "block_0007.r2c2",
-          "block_0007.r2c3",
-          "block_0007.r2c4",
-          "block_0007.r2c5",
-          "block_0028.f3.s2"
-        ],
-        "attribution": "Searchbloom",
-        "company_names": [
-          "Searchbloom"
-        ]
-      },
-      {
-        "claim_id": "claim_011",
-        "text": "The SEO Works ranked second with 44 out of 50, best for specialist SEO and AI SEO partnership with published price tiers, starting from GBP 1,500 a month.",
-        "source_ids": [
+          "block_0007.r1c1",
+          "block_0007.r1c3",
           "block_0007.r3c1",
           "block_0007.r3c2",
-          "block_0007.r3c3",
-          "block_0007.r3c4",
-          "block_0007.r3c5",
-          "block_0031.f3.s2"
+          "block_0007.r3c3"
         ],
         "attribution": "Searchbloom",
         "company_names": [
@@ -138,15 +78,14 @@
         ]
       },
       {
-        "claim_id": "claim_012",
-        "text": "Tinuiti ranked third with 44 out of 50, best for AI search inside a full-funnel media engagement; fees are not published.",
+        "claim_id": "claim_005",
+        "text": "Tinuiti ranks third with 44/50.",
         "source_ids": [
+          "block_0007.r1c1",
+          "block_0007.r1c3",
           "block_0007.r4c1",
           "block_0007.r4c2",
-          "block_0007.r4c3",
-          "block_0007.r4c4",
-          "block_0007.r4c5",
-          "block_0033.f3.s2"
+          "block_0007.r4c3"
         ],
         "attribution": "Searchbloom",
         "company_names": [
@@ -154,15 +93,14 @@
         ]
       },
       {
-        "claim_id": "claim_013",
-        "text": "Graphite ranked fourth with 42 out of 50, best for AEO and SEO grounded in original research; fees and minimums not published; SEO engagements have a 12-month minimum term.",
+        "claim_id": "claim_006",
+        "text": "Graphite ranks fourth with 42/50.",
         "source_ids": [
+          "block_0007.r1c1",
+          "block_0007.r1c3",
           "block_0007.r5c1",
           "block_0007.r5c2",
-          "block_0007.r5c3",
-          "block_0007.r5c4",
-          "block_0011.r5c4",
-          "block_0035.f3.s2"
+          "block_0007.r5c3"
         ],
         "attribution": "Searchbloom",
         "company_names": [
@@ -170,15 +108,14 @@
         ]
       },
       {
-        "claim_id": "claim_014",
-        "text": "iPullRank ranked fifth with 41 out of 50, best for relevance engineering and technical work for AI search; fees, minimums, and terms are not published.",
+        "claim_id": "claim_007",
+        "text": "iPullRank ranks fifth with 41/50.",
         "source_ids": [
+          "block_0007.r1c1",
+          "block_0007.r1c3",
           "block_0007.r6c1",
           "block_0007.r6c2",
-          "block_0007.r6c3",
-          "block_0007.r6c4",
-          "block_0011.r6c2",
-          "block_0037.f3.s2"
+          "block_0007.r6c3"
         ],
         "attribution": "Searchbloom",
         "company_names": [
@@ -186,78 +123,545 @@
         ]
       },
       {
-        "claim_id": "claim_003",
-        "text": "Only three companies publish prices: Searchbloom starts SEO at $3,000 a month with no lengthy contracts, The SEO Works from GBP 1,500 a month, and Siege Media from $8,000 a month.",
-        "source_ids": [
-          "block_0002.s3"
-        ],
-        "attribution": "Searchbloom",
-        "company_names": [
-          "Searchbloom",
-          "The SEO Works",
-          "Siege Media"
-        ]
-      },
-      {
-        "claim_id": "claim_069",
-        "text": "AI SEO is priced like traditional SEO because it involves technical foundation, content, and authority; beware AI SEO offered for a few hundred dollars a month as it likely produces automated content flagged by Google's spam policies.",
-        "source_ids": [
-          "block_0012.s1",
-          "block_0012.s5"
-        ],
-        "attribution": "Searchbloom",
-        "company_names": [
-          "Google"
-        ]
-      },
-      {
-        "claim_id": "claim_070",
-        "text": "The SEO Works and Siege Media publish all six key transparency items: fee, minimum, term, dated AI search result, AI visibility tracking, and free audit or plan; Searchbloom publishes five of those but no minimum beyond starting fee.",
-        "source_ids": [
-          "block_0014.s3",
-          "block_0014.s4",
-          "block_0014.s5",
-          "block_0015.r2c1",
-          "block_0015.r2c2",
-          "block_0015.r2c4",
-          "block_0015.r2c5",
-          "block_0015.r2c6",
-          "block_0015.r2c7",
-          "block_0015.r3c1",
-          "block_0015.r3c2",
-          "block_0015.r3c4",
-          "block_0015.r3c5",
-          "block_0015.r3c6",
-          "block_0015.r3c7",
-          "block_0015.r8c1",
-          "block_0015.r8c2",
-          "block_0015.r8c4",
-          "block_0015.r8c5",
-          "block_0015.r8c6",
-          "block_0015.r8c7"
-        ],
-        "attribution": "Searchbloom",
-        "company_names": [
-          "Searchbloom",
-          "The SEO Works",
-          "Siege Media"
-        ]
-      },
-      {
         "claim_id": "claim_008",
-        "text": "Eight of the nine companies publish a dated AI search result linked in their profiles; all fees, minimums, terms, and results were checked on companies' websites on October 29, 2026.",
+        "text": "Single Grain ranks sixth with 39/50.",
         "source_ids": [
-          "block_0004.s3",
+          "block_0007.r1c1",
+          "block_0007.r1c3",
+          "block_0007.r7c1",
+          "block_0007.r7c2",
+          "block_0007.r7c3"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Single Grain"
+        ]
+      },
+      {
+        "claim_id": "claim_009",
+        "text": "Siege Media ranks seventh with 39/50.",
+        "source_ids": [
+          "block_0007.r1c1",
+          "block_0007.r1c3",
+          "block_0007.r8c1",
+          "block_0007.r8c2",
+          "block_0007.r8c3"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Siege Media"
+        ]
+      },
+      {
+        "claim_id": "claim_010",
+        "text": "Seer Interactive ranks eighth with 37/50.",
+        "source_ids": [
+          "block_0007.r1c1",
+          "block_0007.r1c3",
+          "block_0007.r9c1",
+          "block_0007.r9c2",
+          "block_0007.r9c3"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Seer Interactive"
+        ]
+      },
+      {
+        "claim_id": "claim_011",
+        "text": "Amsive ranks ninth with 35/50.",
+        "source_ids": [
+          "block_0007.r1c1",
+          "block_0007.r1c3",
+          "block_0007.r10c1",
+          "block_0007.r10c2",
+          "block_0007.r10c3"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Amsive"
+        ]
+      },
+      {
+        "claim_id": "claim_012",
+        "text": "Searchbloom runs SEO, PPC, and CRO together and builds AI search visibility with MERIT, a methodology it wrote and published.",
+        "source_ids": [
+          "block_0028.f1.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      {
+        "claim_id": "claim_013",
+        "text": "The SEO Works is positioned as a specialist AI SEO partner, particularly for regulated or service-driven industries.",
+        "source_ids": [
+          "block_0031.f1.s1",
+          "block_0031.f4.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "The SEO Works"
+        ]
+      },
+      {
+        "claim_id": "claim_014",
+        "text": "Tinuiti is positioned for enterprise brands that want AI search measured within the same team that runs their paid media.",
+        "source_ids": [
+          "block_0033.f1.s1",
+          "block_0033.f4.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Tinuiti"
+        ]
+      },
+      {
+        "claim_id": "claim_015",
+        "text": "Graphite runs AEO, SEO, and content based on original research into how AI search works.",
+        "source_ids": [
+          "block_0035.f1.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Graphite"
+        ]
+      },
+      {
+        "claim_id": "claim_016",
+        "text": "iPullRank is positioned for enterprise teams with technically complex sites that need deep entity and relevance work for AI search.",
+        "source_ids": [
+          "block_0037.f1.s1",
+          "block_0037.f4.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "iPullRank"
+        ]
+      },
+      {
+        "claim_id": "claim_017",
+        "text": "Single Grain runs AEO, SEO, paid media, and content within one multi-channel team.",
+        "source_ids": [
+          "block_0039.f1.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Single Grain"
+        ]
+      },
+      {
+        "claim_id": "claim_018",
+        "text": "Siege Media is positioned for brands whose AI search gap is content and authority rather than technical work.",
+        "source_ids": [
+          "block_0041.f1.s1",
+          "block_0041.f4.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Siege Media"
+        ]
+      },
+      {
+        "claim_id": "claim_019",
+        "text": "Seer Interactive is positioned for data-mature enterprise brands that want analytics-driven AI Overview and LLM visibility work.",
+        "source_ids": [
+          "block_0043.f1.s1",
+          "block_0043.f4.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Seer Interactive"
+        ]
+      },
+      {
+        "claim_id": "claim_020",
+        "text": "Amsive adds answer engine optimization and LLM tracking to an enterprise SEO practice serving large, complex sites.",
+        "source_ids": [
+          "block_0045.f1.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Amsive"
+        ]
+      },
+      {
+        "claim_id": "claim_021",
+        "text": "Searchbloom reports that a custom closet company's search generated 51 leads in September 2026, four months into the engagement, up 122% from 23 in September 2025.",
+        "source_ids": [
+          "block_0004.s2",
+          "block_0028.f7.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      {
+        "claim_id": "claim_022",
+        "text": "For Searchbloom's custom closet company case, 20 of the 51 September 2026 leads were recorded in the partner's CRM as coming from AI search, and 18 of those 20 became contacts.",
+        "source_ids": [
+          "block_0004.s2",
+          "block_0028.f7.s2"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      {
+        "claim_id": "claim_023",
+        "text": "The SEO Works' DHL case reports AI Overview citations up 287% and ChatGPT referral traffic up 121%, both quarter on quarter, with organic revenue up 62%; the case study was published in February 2026.",
+        "source_ids": [
+          "block_0053.s2",
+          "block_0031.f8.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "The SEO Works",
+          "DHL"
+        ]
+      },
+      {
+        "claim_id": "claim_024",
+        "text": "Tinuiti's Rough Country case reports AI referral traffic up 71% against the previous 90 days and a 22% visibility score across more than 180 prompts on seven AI models; the case study was published in December 2025.",
+        "source_ids": [
+          "block_0033.f1.s1",
+          "block_0033.f8.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Tinuiti",
+          "Rough Country"
+        ]
+      },
+      {
+        "claim_id": "claim_025",
+        "text": "Tinuiti reported a 2.6x increase in AI Overview inclusion and 38% more Google Search impressions year over year for OUTFRONT Media in its December 2025 year in review.",
+        "source_ids": [
+          "block_0033.f9.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Tinuiti",
+          "Google",
+          "OUTFRONT Media"
+        ]
+      },
+      {
+        "claim_id": "claim_026",
+        "text": "Graphite's Webflow results show the share of sign-ups coming from LLMs doubling from 4% to 8%, while LLM share of voice grew 94%, from 33% to 64%; results were dated January 2026, with work begun in the first quarter of 2025.",
+        "source_ids": [
+          "block_0051.s2",
+          "block_0035.f8.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Graphite",
+          "Webflow"
+        ]
+      },
+      {
+        "claim_id": "claim_027",
+        "text": "iPullRank's national self-storage brand case reports AI Overview visibility up 278%, AI search visibility up 34%, and AI-referred revenue up 21% in a three-month pilot; the case study was published in May 2026.",
+        "source_ids": [
+          "block_0037.f1.s1",
+          "block_0037.f8.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "iPullRank"
+        ]
+      },
+      {
+        "claim_id": "claim_028",
+        "text": "Single Grain's LS Building Products case reports more than 400 additional AI citations after 12 months, including 174 additional AI Overview mentions and 113 in ChatGPT; the case study was published in January 2026.",
+        "source_ids": [
+          "block_0039.f1.s1",
+          "block_0039.f7.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Single Grain",
+          "LS Building Products"
+        ]
+      },
+      {
+        "claim_id": "claim_029",
+        "text": "Siege Media's Grow Therapy case reports LLM visibility increasing from 11% to 43% over the engagement, measured in Peec AI; work began in fall 2025 and the case study was published in June 2026.",
+        "source_ids": [
+          "block_0041.f1.s1",
+          "block_0041.f7.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Siege Media",
+          "Grow Therapy",
+          "Peec AI"
+        ]
+      },
+      {
+        "claim_id": "claim_030",
+        "text": "Seer Interactive's Trex case reports AI Overview references owned by Trex increasing from 71 keywords to 199 year over year, a 2.8x increase across optimized pages; the case study was published in August 2026.",
+        "source_ids": [
+          "block_0053.s1",
+          "block_0053.s2",
+          "block_0043.f8.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Seer Interactive",
+          "Trex"
+        ]
+      },
+      {
+        "claim_id": "claim_031",
+        "text": "Amsive's OppLoans SEO case reports blog sessions up 263% year over year and page-one keywords on core pages up 88%; the case study was published in November 2025, with the comparison period not stated.",
+        "source_ids": [
+          "block_0045.f1.s1",
+          "block_0045.f7.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Amsive",
+          "OppLoans"
+        ]
+      },
+      {
+        "claim_id": "claim_032",
+        "text": "Amsive had not published an AI search result on the October 29, 2026 check date.",
+        "source_ids": [
+          "block_0045.f7.s2",
           "block_0004.s4"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Amsive"
+        ]
+      },
+      {
+        "claim_id": "claim_033",
+        "text": "Only three companies in the ranking publish a price: Searchbloom, The SEO Works, and Siege Media.",
+        "source_ids": [
+          "block_0059.s2"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Searchbloom",
+          "The SEO Works",
+          "Siege Media"
+        ]
+      },
+      {
+        "claim_id": "claim_034",
+        "text": "Searchbloom's SEO engagements start at $3,000 a month and increase with market and industry competitiveness, locations targeted, and scope of work.",
+        "source_ids": [
+          "block_0012.s2"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      {
+        "claim_id": "claim_035",
+        "text": "Searchbloom publishes no minimum beyond its starting fee and specifies no lengthy contracts.",
+        "source_ids": [
+          "block_0011.r1c3",
+          "block_0011.r1c4",
+          "block_0011.r2c1",
+          "block_0011.r2c3",
+          "block_0011.r2c4"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Searchbloom"
+        ]
+      },
+      {
+        "claim_id": "claim_036",
+        "text": "The SEO Works publishes four monthly price tiers starting at GBP 1,500 and extending to GBP 6,000 or more.",
+        "source_ids": [
+          "block_0011.r1c2",
+          "block_0011.r3c1",
+          "block_0011.r3c2"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "The SEO Works"
+        ]
+      },
+      {
+        "claim_id": "claim_037",
+        "text": "The SEO Works specifies a standard 12-month campaign.",
+        "source_ids": [
+          "block_0011.r1c4",
+          "block_0011.r3c1",
+          "block_0011.r3c4"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "The SEO Works"
+        ]
+      },
+      {
+        "claim_id": "claim_038",
+        "text": "Tinuiti's fee, minimum, and contract terms were not published on the check date; its forms ask for annual ad spend from under $1 million, which is not a published minimum.",
+        "source_ids": [
+          "block_0033.f1.s1",
+          "block_0033.f10.s1",
+          "block_0033.f10.s2",
+          "block_0033.f10.s3",
+          "block_0010.s2"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Tinuiti"
+        ]
+      },
+      {
+        "claim_id": "claim_039",
+        "text": "Graphite's fee and minimum were not published on the check date, but SEO engagements have a twelve-month minimum term.",
+        "source_ids": [
+          "block_0035.f1.s1",
+          "block_0035.f9.s1",
+          "block_0035.f9.s2",
+          "block_0035.f9.s3",
+          "block_0010.s2"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Graphite"
+        ]
+      },
+      {
+        "claim_id": "claim_040",
+        "text": "iPullRank's fee, minimum, and contract terms were not published on the check date.",
+        "source_ids": [
+          "block_0037.f1.s1",
+          "block_0037.f9.s1",
+          "block_0037.f9.s2",
+          "block_0037.f9.s3",
+          "block_0010.s2"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "iPullRank"
+        ]
+      },
+      {
+        "claim_id": "claim_041",
+        "text": "Single Grain's fee, minimum, and contract terms were not published on the check date.",
+        "source_ids": [
+          "block_0039.f1.s1",
+          "block_0039.f8.s1",
+          "block_0039.f8.s2",
+          "block_0039.f8.s3",
+          "block_0010.s2"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Single Grain"
+        ]
+      },
+      {
+        "claim_id": "claim_042",
+        "text": "Siege Media publishes content marketing pricing from $8,000 a month and digital PR pricing from about $12,000 to $15,000 a month.",
+        "source_ids": [
+          "block_0011.r1c2",
+          "block_0011.r8c1",
+          "block_0011.r8c2"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Siege Media"
+        ]
+      },
+      {
+        "claim_id": "claim_043",
+        "text": "Siege Media specifies an $8,000 monthly minimum and a 12-month contract with a 30-day out clause.",
+        "source_ids": [
+          "block_0011.r1c3",
+          "block_0011.r1c4",
+          "block_0011.r8c1",
+          "block_0011.r8c3",
+          "block_0011.r8c4"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Siege Media"
+        ]
+      },
+      {
+        "claim_id": "claim_044",
+        "text": "Seer Interactive's fee and minimum were not published on the check date; no 12-month commitment is required, and many engagements start with a diagnostic phase.",
+        "source_ids": [
+          "block_0043.f1.s1",
+          "block_0043.f9.s1",
+          "block_0043.f9.s2",
+          "block_0043.f9.s3",
+          "block_0010.s2"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Seer Interactive"
+        ]
+      },
+      {
+        "claim_id": "claim_045",
+        "text": "Amsive's fee, minimum, and contract terms were not published on the check date.",
+        "source_ids": [
+          "block_0045.f1.s1",
+          "block_0045.f8.s1",
+          "block_0045.f8.s2",
+          "block_0045.f8.s3",
+          "block_0010.s2"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Amsive"
+        ]
+      },
+      {
+        "claim_id": "claim_046",
+        "text": "Graphite delivers technical SEO as recommendations for the client's own engineering team to implement.",
+        "source_ids": [
+          "block_0035.f1.s1",
+          "block_0035.f5.s4"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Graphite"
+        ]
+      },
+      {
+        "claim_id": "claim_047",
+        "text": "Seer Interactive does not sell digital PR or link building, leaving that work to another firm or the client's own team.",
+        "source_ids": [
+          "block_0043.f1.s1",
+          "block_0043.f10.s1"
+        ],
+        "attribution": "Searchbloom",
+        "company_names": [
+          "Seer Interactive"
+        ]
+      },
+      {
+        "claim_id": "claim_048",
+        "text": "Every fee, minimum, term, and result in the guide was checked on the companies' own websites on October 29, 2026; case study figures are each company's own reporting.",
+        "source_ids": [
+          "block_0004.s4",
+          "block_0024.s2"
         ],
         "attribution": "Searchbloom",
         "company_names": []
       },
       {
-        "claim_id": "claim_008a",
-        "text": "Eight of the nine companies publish a dated AI search result and all nine say how they track AI visibility.",
+        "claim_id": "claim_049",
+        "text": "No company paid for placement in the ranking.",
         "source_ids": [
-          "block_0014.s3"
+          "block_0024.s4"
         ],
         "attribution": "Searchbloom",
         "company_names": []

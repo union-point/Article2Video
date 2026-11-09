@@ -1,198 +1,251 @@
 {
-  "audio_duration_seconds": 155.15,
+  "audio_duration_seconds": 167.7,
   "fps": 30,
-  "duration_frames": 4661,
+  "duration_frames": 5037,
   "tail_padding_frames": 6,
-  "sentence_count": 18,
-  "overall_score": 0.9878428046366977,
-  "transcript_text_score": 0.992638731596829,
+  "sentence_count": 25,
+  "overall_score": 0.9745112595892106,
+  "zero_duration_word_count": 3,
+  "transcript_text_score": 0.9828741623231572,
   "status": "review_required",
   "issues": [
     {
       "code": "EMPTY_TRANSCRIPT_WORDS",
       "target": "transcript",
-      "message": "2 empty word entries omitted; full API response retained in the diagnostic receipt"
+      "message": "8 empty word entries omitted; full API response retained in the diagnostic receipt"
     },
     {
-      "code": "NAME_MISMATCH",
+      "code": "QUANTITY_MISMATCH",
       "target": "scene_001.n1.s1",
-      "message": "Company names not recognized exactly after normalization: ['Tinuiti', 'iPullRank']"
+      "message": "Missing quantities: ['unparsed:9-company']; extra: []"
     },
     {
       "code": "ZERO_DURATION_WORD",
-      "target": "scene_002.n1.s1",
-      "message": "Whisper returned a word without a positive time span; use scene fallback"
-    },
-    {
-      "code": "ZERO_DURATION_WORD",
-      "target": "scene_003.n1.s1",
-      "message": "Whisper returned a word without a positive time span; use scene fallback"
+      "target": "scene_001.n2.s1",
+      "word_indices": [
+        13
+      ],
+      "word_count": 1,
+      "boundary_affected": false,
+      "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
     },
     {
       "code": "QUANTITY_MISMATCH",
-      "target": "scene_003.n1.s1",
-      "message": "Missing quantities: ['number:68631', 'percent:8.9']; extra: ['number:631', 'number:68', 'number:8', 'number:9']"
-    },
-    {
-      "code": "ZERO_DURATION_WORD",
-      "target": "scene_003.n2.s1",
-      "message": "Whisper returned a word without a positive time span; use scene fallback"
-    },
-    {
-      "code": "ZERO_DURATION_WORD",
-      "target": "scene_003.n3.s1",
-      "message": "Whisper returned a word without a positive time span; use scene fallback"
-    },
-    {
-      "code": "ZERO_DURATION_WORD",
-      "target": "scene_004.n2.s1",
-      "message": "Whisper returned a word without a positive time span; use scene fallback"
+      "target": "scene_001.n2.s1",
+      "message": "Missing quantities: ['unparsed:50-point']; extra: []"
     },
     {
       "code": "QUANTITY_MISMATCH",
-      "target": "scene_004.n2.s1",
+      "target": "scene_002.n2.s1",
       "message": "Missing quantities: ['percent:122']; extra: ['number:122']"
     },
     {
-      "code": "ZERO_DURATION_WORD",
-      "target": "scene_004.n4.s1",
-      "message": "Whisper returned a word without a positive time span; use scene fallback"
-    },
-    {
-      "code": "ZERO_DURATION_WORD",
-      "target": "scene_005.n1.s1",
-      "message": "Whisper returned a word without a positive time span; use scene fallback"
-    },
-    {
       "code": "QUANTITY_MISMATCH",
-      "target": "scene_005.n1.s1",
-      "message": "Missing quantities: ['gbp:1500']; extra: ['gbp:1', 'number:500']"
-    },
-    {
-      "code": "ZERO_DURATION_WORD",
-      "target": "scene_005.n2.s1",
-      "message": "Whisper returned a word without a positive time span; use scene fallback"
+      "target": "scene_003.n2.s1",
+      "message": "Missing quantities: ['percent:287']; extra: ['number:287']"
     },
     {
       "code": "NAME_MISMATCH",
-      "target": "scene_005.n2.s1",
+      "target": "scene_003.n3.s1",
       "message": "Company names not recognized exactly after normalization: ['Tinuiti']"
     },
     {
       "code": "QUANTITY_MISMATCH",
-      "target": "scene_006.n1.s1",
-      "message": "Missing quantities: ['unparsed:12-month']; extra: []"
-    },
-    {
-      "code": "ZERO_DURATION_WORD",
-      "target": "scene_006.n2.s1",
-      "message": "Whisper returned a word without a positive time span; use scene fallback"
+      "target": "scene_003.n4.s1",
+      "message": "Missing quantities: ['percent:71']; extra: ['number:71']"
     },
     {
       "code": "NAME_MISMATCH",
-      "target": "scene_006.n2.s1",
-      "message": "Company names not recognized exactly after normalization: ['iPullRank']"
-    },
-    {
-      "code": "ZERO_DURATION_WORD",
-      "target": "scene_007.n1.s1",
-      "message": "Whisper returned a word without a positive time span; use scene fallback"
+      "target": "scene_003.n4.s1",
+      "message": "Company names not recognized exactly after normalization: ['Tinuiti']"
     },
     {
       "code": "QUANTITY_MISMATCH",
-      "target": "scene_007.n1.s1",
-      "message": "Missing quantities: ['gbp:1500', 'usd:3000', 'usd:8000']; extra: ['gbp:1', 'number:0', 'number:500', 'number:8']"
+      "target": "scene_004.n2.s1",
+      "message": "Missing quantities: ['percent:4', 'percent:8', 'range:percent:4:8']; extra: ['number:4', 'number:8', 'range:number:4:8']"
+    },
+    {
+      "code": "NAME_MISMATCH",
+      "target": "scene_004.n3.s1",
+      "message": "Company names not recognized exactly after normalization: ['iPullRank']"
+    },
+    {
+      "code": "QUANTITY_MISMATCH",
+      "target": "scene_004.n4.s1",
+      "message": "Missing quantities: ['percent:21', 'unparsed:3-month']; extra: ['number:21']"
+    },
+    {
+      "code": "NAME_MISMATCH",
+      "target": "scene_005.n1.s1",
+      "message": "Company names not recognized exactly after normalization: ['Single Grain']"
     },
     {
       "code": "ZERO_DURATION_WORD",
-      "target": "scene_007.n2.s1",
-      "message": "Whisper returned a word without a positive time span; use scene fallback"
+      "target": "scene_005.n4.s1",
+      "word_indices": [
+        253
+      ],
+      "word_count": 1,
+      "boundary_affected": false,
+      "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
     },
     {
-      "code": "OVERLAPPING_WORDS",
+      "code": "QUANTITY_MISMATCH",
+      "target": "scene_005.n4.s1",
+      "message": "Missing quantities: ['percent:11', 'percent:43', 'range:percent:11:43']; extra: ['number:11', 'number:43', 'range:number:11:43']"
+    },
+    {
+      "code": "NAME_MISMATCH",
+      "target": "scene_005.n4.s1",
+      "message": "Company names not recognized exactly after normalization: ['Peec AI']"
+    },
+    {
+      "code": "NAME_MISMATCH",
+      "target": "scene_006.n1.s1",
+      "message": "Company names not recognized exactly after normalization: ['Seer Interactive']"
+    },
+    {
+      "code": "NAME_MISMATCH",
+      "target": "scene_006.n3.s1",
+      "message": "Company names not recognized exactly after normalization: ['Amsive']"
+    },
+    {
+      "code": "QUANTITY_MISMATCH",
+      "target": "scene_006.n4.s1",
+      "message": "Missing quantities: ['percent:263']; extra: ['number:263']"
+    },
+    {
+      "code": "NAME_MISMATCH",
+      "target": "scene_006.n4.s1",
+      "message": "Company names not recognized exactly after normalization: ['Amsive', 'OppLoans']"
+    },
+    {
+      "code": "QUANTITY_MISMATCH",
       "target": "scene_007.n2.s1",
-      "message": "Whisper word intervals overlap; use scene fallback"
+      "message": "Missing quantities: ['gbp:1500', 'gbp:6000', 'range:gbp:1500:6000', 'usd:3000']; extra: ['gbp:1', 'gbp:500', 'gbp:6', 'number:0', 'number:3', 'range:gbp:500:6']"
+    },
+    {
+      "code": "ZERO_DURATION_WORD",
+      "target": "scene_007.n3.s1",
+      "word_indices": [
+        366
+      ],
+      "word_count": 1,
+      "boundary_affected": false,
+      "message": "1 words have zero duration; retain usable sentence bounds, suppress cues using these words, and review timestamps"
     },
     {
       "code": "SCENE_FALLBACK",
       "target": "scene_001",
-      "message": "Sentence and element cues spread evenly over the estimated scene span; scene boundaries need review"
+      "message": "Sentence and element cues spread evenly over the estimated scene span; uncertain word cues disabled"
     },
     {
       "code": "SCENE_FALLBACK",
       "target": "scene_002",
-      "message": "Sentence and element cues spread evenly over the estimated scene span; scene boundaries need review"
+      "message": "Sentence and element cues spread evenly over the estimated scene span; uncertain word cues disabled"
     },
     {
       "code": "SCENE_FALLBACK",
       "target": "scene_003",
-      "message": "Sentence and element cues spread evenly over the estimated scene span; scene boundaries need review"
+      "message": "Sentence and element cues spread evenly over the estimated scene span; uncertain word cues disabled"
     },
     {
       "code": "SCENE_FALLBACK",
       "target": "scene_004",
-      "message": "Sentence and element cues spread evenly over the estimated scene span; scene boundaries need review"
+      "message": "Sentence and element cues spread evenly over the estimated scene span; uncertain word cues disabled"
     },
     {
       "code": "SCENE_FALLBACK",
       "target": "scene_005",
-      "message": "Sentence and element cues spread evenly over the estimated scene span; scene boundaries need review"
+      "message": "Sentence and element cues spread evenly over the estimated scene span; uncertain word cues disabled"
     },
     {
       "code": "SCENE_FALLBACK",
       "target": "scene_006",
-      "message": "Sentence and element cues spread evenly over the estimated scene span; scene boundaries need review"
+      "message": "Sentence and element cues spread evenly over the estimated scene span; uncertain word cues disabled"
     },
     {
       "code": "SCENE_FALLBACK",
       "target": "scene_007",
-      "message": "Sentence and element cues spread evenly over the estimated scene span; scene boundaries need review"
+      "message": "Sentence and element cues spread evenly over the estimated scene span; uncertain word cues disabled"
     }
   ],
   "scenes": [
     {
       "scene_id": "scene_001",
       "start": 0.0,
-      "end": 17.799999237060547,
+      "end": 17.15999984741211,
       "start_frame": 0,
-      "duration_frames": 534,
+      "duration_frames": 515,
       "method": "even_fallback",
       "sentences": [
         {
           "sentence_id": "scene_001.n1.s1",
           "scene_id": "scene_001",
           "narration_index": 0,
-          "text": "Searchbloom lists Searchbloom, The SEO Works, Tinuiti, Graphite, and iPullRank as the best AI SEO companies in 2026.",
+          "text": "Searchbloom’s nine-company ranking includes Searchbloom itself in first place.",
           "char_start": 0,
-          "char_end": 116,
+          "char_end": 78,
           "claim_ids": [
             "claim_001"
           ],
           "word_start": 0,
-          "word_end": 17,
-          "score": 0.9680851063829787,
-          "transcript_text": "SearchBloom lists SearchBloom the SEOWorks Tenuity Graphite and iPollRank as the best AI SEO companies in 2026",
+          "word_end": 10,
+          "score": 1.0,
+          "transcript_text": "SearchBloom's nine company ranking includes SearchBloom itself in first place",
           "start": 0.0,
-          "end": 8.899999618530273,
-          "method": "even_fallback"
+          "end": 5.71999994913737,
+          "aligned_start": 0.0,
+          "aligned_end": 4.760000228881836,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         },
         {
           "sentence_id": "scene_001.n2.s1",
           "scene_id": "scene_001",
           "narration_index": 1,
-          "text": "AI SEO mostly involves traditional SEO work, but now adds measuring AI visibility and citations from external pages.",
+          "text": "Five equally weighted categories produce a 50-point score.",
           "char_start": 0,
-          "char_end": 116,
+          "char_end": 58,
           "claim_ids": [
-            "claim_004"
+            "claim_002"
           ],
-          "word_start": 17,
-          "word_end": 35,
+          "word_start": 10,
+          "word_end": 19,
           "score": 1.0,
-          "transcript_text": "AI SEO mostly involves traditional SEO work but now adds measuring AI visibility and citations from external pages",
-          "start": 8.899999618530273,
-          "end": 17.799999237060547,
-          "method": "even_fallback"
+          "transcript_text": "Five equally weighted categories produce a 50 point score",
+          "start": 5.71999994913737,
+          "end": 11.43999989827474,
+          "aligned_start": 5.659999847412109,
+          "aligned_end": 8.520000457763672,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [
+            13
+          ],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_001.n3.s1",
+          "scene_id": "scene_001",
+          "narration_index": 2,
+          "text": "The guide checked company websites on October 29, 2026, and case-study figures are each company’s own reporting.",
+          "char_start": 0,
+          "char_end": 112,
+          "claim_ids": [
+            "claim_048"
+          ],
+          "word_start": 19,
+          "word_end": 37,
+          "score": 1.0,
+          "transcript_text": "The guide checked company websites on October 29 2026 and case study figures are each company's own reporting",
+          "start": 11.43999989827474,
+          "end": 17.15999984741211,
+          "aligned_start": 9.34000015258789,
+          "aligned_end": 16.219999313354492,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         }
       ],
       "elements": [
@@ -202,16 +255,16 @@
             "claim_001"
           ],
           "start": 0.0,
-          "end": 8.899999618530273,
+          "end": 8.579999923706055,
           "method": "even_fallback"
         },
         {
           "element_index": 1,
           "claim_ids": [
-            "claim_004"
+            "claim_048"
           ],
-          "start": 8.899999618530273,
-          "end": 17.799999237060547,
+          "start": 8.579999923706055,
+          "end": 17.15999984741211,
           "method": "even_fallback"
         }
       ],
@@ -219,48 +272,96 @@
     },
     {
       "scene_id": "scene_002",
-      "start": 17.799999237060547,
-      "end": 29.3799991607666,
-      "start_frame": 534,
-      "duration_frames": 348,
+      "start": 17.15999984741211,
+      "end": 39.0,
+      "start_frame": 515,
+      "duration_frames": 655,
       "method": "even_fallback",
       "sentences": [
         {
           "sentence_id": "scene_002.n1.s1",
           "scene_id": "scene_002",
           "narration_index": 0,
-          "text": "Searchbloom lists AI visibility, brand presence on external pages, technical and structured-data foundations, content and entity authority, and documented results as scoring criteria.",
+          "text": "Searchbloom combines SEO, PPC, and CRO with its published MERIT methodology for AI visibility.",
           "char_start": 0,
-          "char_end": 183,
+          "char_end": 94,
           "claim_ids": [
-            "claim_002"
+            "claim_012"
           ],
-          "word_start": 35,
-          "word_end": 59,
+          "word_start": 37,
+          "word_end": 51,
           "score": 1.0,
-          "transcript_text": "SearchBloom lists AI visibility brand presence on external pages technical and structured data foundations content and entity authority and documented results as scoring criteria",
-          "start": 17.799999237060547,
-          "end": 29.3799991607666,
-          "method": "even_fallback"
+          "transcript_text": "SearchBloom combines SEO PPC and CRO with its published merit methodology for AI visibility",
+          "start": 17.15999984741211,
+          "end": 24.43999989827474,
+          "aligned_start": 17.15999984741211,
+          "aligned_end": 23.81999969482422,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_002.n2.s1",
+          "scene_id": "scene_002",
+          "narration_index": 1,
+          "text": "Its custom closet case reports 51 search leads in September 2026, four months into the engagement, up 122% year over year.",
+          "char_start": 0,
+          "char_end": 122,
+          "claim_ids": [
+            "claim_021"
+          ],
+          "word_start": 51,
+          "word_end": 72,
+          "score": 0.9644670050761421,
+          "transcript_text": "Its Custom Closet case reports 51 search leads in September 2026 four months into the engagement up 122 year over year",
+          "start": 24.43999989827474,
+          "end": 31.719999949137367,
+          "aligned_start": 24.31999969482422,
+          "aligned_end": 34.08000183105469,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_002.n3.s1",
+          "scene_id": "scene_002",
+          "narration_index": 2,
+          "text": "The partner’s CRM recorded 20 of those leads as coming from AI search.",
+          "char_start": 0,
+          "char_end": 70,
+          "claim_ids": [
+            "claim_022"
+          ],
+          "word_start": 72,
+          "word_end": 85,
+          "score": 1.0,
+          "transcript_text": "The partner's CRM recorded 20 of those leads as coming from AI search",
+          "start": 31.719999949137367,
+          "end": 39.0,
+          "aligned_start": 34.560001373291016,
+          "aligned_end": 38.02000045776367,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         }
       ],
       "elements": [
         {
           "element_index": 0,
           "claim_ids": [
-            "claim_002"
+            "claim_003"
           ],
-          "start": 17.799999237060547,
-          "end": 23.589999198913574,
+          "start": 17.15999984741211,
+          "end": 28.079999923706055,
           "method": "even_fallback"
         },
         {
           "element_index": 1,
           "claim_ids": [
-            "claim_002"
+            "claim_022"
           ],
-          "start": 23.589999198913574,
-          "end": 29.3799991607666,
+          "start": 28.079999923706055,
+          "end": 39.0,
           "method": "even_fallback"
         }
       ],
@@ -268,93 +369,136 @@
     },
     {
       "scene_id": "scene_003",
-      "start": 29.3799991607666,
-      "end": 53.13999938964844,
-      "start_frame": 882,
-      "duration_frames": 713,
+      "start": 39.0,
+      "end": 63.380001068115234,
+      "start_frame": 1170,
+      "duration_frames": 732,
       "method": "even_fallback",
       "sentences": [
         {
           "sentence_id": "scene_003.n1.s1",
           "scene_id": "scene_003",
           "narration_index": 0,
-          "text": "Searchbloom reports measuring 68,631 AI answers in its category, with its own website cited 8.9% of the time.",
+          "text": "Searchbloom positions The SEO Works for regulated or service-driven industries.",
           "char_start": 0,
-          "char_end": 109,
+          "char_end": 79,
           "claim_ids": [
-            "claim_005"
+            "claim_013"
           ],
-          "word_start": 59,
-          "word_end": 79,
-          "score": 0.9613259668508287,
-          "transcript_text": "SearchBloom reports measuring 68 631 AI answers in its category with its own website cited 8 9 of the time",
-          "start": 29.3799991607666,
-          "end": 37.29999923706055,
-          "method": "even_fallback"
+          "word_start": 85,
+          "word_end": 96,
+          "score": 1.0,
+          "transcript_text": "SearchBloom positions the SEO works for regulated or service driven industries",
+          "start": 39.0,
+          "end": 45.09500026702881,
+          "aligned_start": 39.0,
+          "aligned_end": 42.84000015258789,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         },
         {
           "sentence_id": "scene_003.n2.s1",
           "scene_id": "scene_003",
           "narration_index": 1,
-          "text": "Searchbloom says the best AI SEO company manages SEO work, measures AI visibility daily, and identifies outside pages worth earning.",
+          "text": "Its DHL case reports AI Overview citations rising 287% quarter on quarter.",
           "char_start": 0,
-          "char_end": 132,
+          "char_end": 74,
           "claim_ids": [
-            "claim_006"
+            "claim_023"
           ],
-          "word_start": 79,
-          "word_end": 99,
-          "score": 1.0,
-          "transcript_text": "SearchBloom says the best AI SEO company manages SEO work measures AI visibility daily and identifies outside pages worth earning",
-          "start": 37.29999923706055,
-          "end": 45.21999931335449,
-          "method": "even_fallback"
+          "word_start": 96,
+          "word_end": 108,
+          "score": 0.9457364341085271,
+          "transcript_text": "Its DHL case reports AI overview citations rising 287 quarter on quarter",
+          "start": 45.09500026702881,
+          "end": 51.19000053405762,
+          "aligned_start": 43.65999984741211,
+          "aligned_end": 49.84000015258789,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         },
         {
           "sentence_id": "scene_003.n3.s1",
           "scene_id": "scene_003",
           "narration_index": 2,
-          "text": "PR, social, sponsorships, and partner listings remain with the client's own team.",
+          "text": "Searchbloom positions Tinuiti for enterprise brands wanting AI search measurement alongside paid media.",
           "char_start": 0,
-          "char_end": 81,
+          "char_end": 103,
           "claim_ids": [
-            "claim_006"
+            "claim_014"
           ],
-          "word_start": 99,
-          "word_end": 110,
-          "score": 0.967741935483871,
-          "transcript_text": "PR social sponsorships and partner listings remain with the client's own",
-          "start": 45.21999931335449,
-          "end": 53.13999938964844,
-          "method": "even_fallback"
+          "word_start": 108,
+          "word_end": 121,
+          "score": 0.9777777777777777,
+          "transcript_text": "SearchBloom positions Tenuity for enterprise brands wanting AI search measurement alongside paid media",
+          "start": 51.19000053405762,
+          "end": 57.285000801086426,
+          "aligned_start": 50.400001525878906,
+          "aligned_end": 55.91999816894531,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_003.n4.s1",
+          "scene_id": "scene_003",
+          "narration_index": 3,
+          "text": "Tinuiti’s Rough Country case reports AI referral traffic up 71% against the previous 90 days.",
+          "char_start": 0,
+          "char_end": 93,
+          "claim_ids": [
+            "claim_024"
+          ],
+          "word_start": 121,
+          "word_end": 136,
+          "score": 0.9299363057324841,
+          "transcript_text": "Tenuity's Rough Country case reports AI referral traffic up 71 against the previous 90 days",
+          "start": 57.285000801086426,
+          "end": 63.380001068115234,
+          "aligned_start": 56.779998779296875,
+          "aligned_end": 62.68000030517578,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         }
       ],
       "elements": [
         {
           "element_index": 0,
           "claim_ids": [
-            "claim_005"
+            "claim_004"
           ],
-          "start": 29.3799991607666,
-          "end": 37.29999923706055,
+          "start": 39.0,
+          "end": 45.09500026702881,
           "method": "even_fallback"
         },
         {
           "element_index": 1,
           "claim_ids": [
-            "claim_005"
+            "claim_023"
           ],
-          "start": 37.29999923706055,
-          "end": 45.21999931335449,
+          "start": 45.09500026702881,
+          "end": 51.19000053405762,
           "method": "even_fallback"
         },
         {
           "element_index": 2,
           "claim_ids": [
-            "claim_006"
+            "claim_005"
           ],
-          "start": 45.21999931335449,
-          "end": 53.13999938964844,
+          "start": 51.19000053405762,
+          "end": 57.285000801086426,
+          "method": "even_fallback"
+        },
+        {
+          "element_index": 3,
+          "claim_ids": [
+            "claim_024"
+          ],
+          "start": 57.285000801086426,
+          "end": 63.380001068115234,
           "method": "even_fallback"
         }
       ],
@@ -362,120 +506,137 @@
     },
     {
       "scene_id": "scene_004",
-      "start": 53.13999938964844,
-      "end": 80.0,
-      "start_frame": 1595,
-      "duration_frames": 805,
+      "start": 63.380001068115234,
+      "end": 91.5999984741211,
+      "start_frame": 1902,
+      "duration_frames": 846,
       "method": "even_fallback",
       "sentences": [
         {
           "sentence_id": "scene_004.n1.s1",
           "scene_id": "scene_004",
           "narration_index": 0,
-          "text": "Searchbloom ranks itself as the best overall AI SEO company in 2026 based on published methods and results.",
+          "text": "Graphite runs research-based AEO, SEO, and content, with technical SEO recommendations intended for client engineers to implement.",
           "char_start": 0,
-          "char_end": 107,
+          "char_end": 130,
           "claim_ids": [
-            "claim_072"
+            "claim_015",
+            "claim_046"
           ],
-          "word_start": 110,
-          "word_end": 128,
+          "word_start": 136,
+          "word_end": 154,
           "score": 1.0,
-          "transcript_text": "SearchBloom ranks itself as the best overall AI SEO company in 2026 based on published methods and results",
-          "start": 53.13999938964844,
-          "end": 59.85499954223633,
-          "method": "even_fallback"
+          "transcript_text": "Graphite runs research based AEO SEO and content with technical SEO recommendations intended for client engineers to implement",
+          "start": 63.380001068115234,
+          "end": 70.4350004196167,
+          "aligned_start": 63.380001068115234,
+          "aligned_end": 71.36000061035156,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         },
         {
           "sentence_id": "scene_004.n2.s1",
           "scene_id": "scene_004",
           "narration_index": 1,
-          "text": "Searchbloom reports a custom closet company's search leads rose 122% in a year.",
+          "text": "Its January 2026 Webflow results report LLMs’ share of sign-ups doubling from 4% to 8%.",
           "char_start": 0,
-          "char_end": 79,
+          "char_end": 87,
           "claim_ids": [
-            "claim_007"
+            "claim_026"
           ],
-          "word_start": 128,
-          "word_end": 141,
-          "score": 0.9473684210526315,
-          "transcript_text": "SearchBloom reports a custom closet company's search leads rose 122 in a year",
-          "start": 59.85499954223633,
-          "end": 66.56999969482422,
-          "method": "even_fallback"
+          "word_start": 154,
+          "word_end": 169,
+          "score": 0.8993288590604027,
+          "transcript_text": "Its January 2026 Webflow results report LLM's share of signups doubling from 4 to 8",
+          "start": 70.4350004196167,
+          "end": 77.48999977111816,
+          "aligned_start": 71.81999969482422,
+          "aligned_end": 78.94000244140625,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         },
         {
           "sentence_id": "scene_004.n3.s1",
           "scene_id": "scene_004",
           "narration_index": 2,
-          "text": "That company's CRM recorded 20 of its 51 September 2026 leads as coming from AI search.",
+          "text": "Searchbloom positions iPullRank for technically complex enterprise sites needing entity and relevance work.",
           "char_start": 0,
-          "char_end": 87,
+          "char_end": 107,
           "claim_ids": [
-            "claim_007"
+            "claim_016"
           ],
-          "word_start": 141,
-          "word_end": 157,
-          "score": 1.0,
-          "transcript_text": "That company's CRM recorded 20 of its 51 September 2026 leads as coming from AI search",
-          "start": 66.56999969482422,
-          "end": 73.28499984741211,
-          "method": "even_fallback"
+          "word_start": 169,
+          "word_end": 182,
+          "score": 0.9265536723163842,
+          "transcript_text": "SearchBloom positions iPoll rank for complex enterprise sites needing entity and relevance work",
+          "start": 77.48999977111816,
+          "end": 84.54499912261963,
+          "aligned_start": 78.94000244140625,
+          "aligned_end": 84.5,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         },
         {
           "sentence_id": "scene_004.n4.s1",
           "scene_id": "scene_004",
           "narration_index": 3,
-          "text": "In Searchbloom's ranking, the company scored 48 out of 50 for AI search tied to leads and revenue.",
+          "text": "Its national self-storage case reports AI-referred revenue increasing 21% during a three-month pilot.",
           "char_start": 0,
-          "char_end": 98,
+          "char_end": 101,
           "claim_ids": [
-            "claim_010"
+            "claim_027"
           ],
-          "word_start": 157,
-          "word_end": 175,
-          "score": 1.0,
-          "transcript_text": "In SearchBloom's ranking the company scored 48 out of 50 for AI search tied to leads and revenue",
-          "start": 73.28499984741211,
-          "end": 80.0,
-          "method": "even_fallback"
+          "word_start": 182,
+          "word_end": 198,
+          "score": 0.9580838323353293,
+          "transcript_text": "Its National Self Storage case reports AI referred revenue increasing 21 during a three month pilot",
+          "start": 84.54499912261963,
+          "end": 91.5999984741211,
+          "aligned_start": 85.16000366210938,
+          "aligned_end": 90.83999633789062,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         }
       ],
       "elements": [
         {
           "element_index": 0,
           "claim_ids": [
-            "claim_072"
+            "claim_006"
           ],
-          "start": 53.13999938964844,
-          "end": 59.85499954223633,
+          "start": 63.380001068115234,
+          "end": 70.4350004196167,
           "method": "even_fallback"
         },
         {
           "element_index": 1,
           "claim_ids": [
-            "claim_007"
+            "claim_026"
           ],
-          "start": 59.85499954223633,
-          "end": 66.56999969482422,
+          "start": 70.4350004196167,
+          "end": 77.48999977111816,
           "method": "even_fallback"
         },
         {
           "element_index": 2,
           "claim_ids": [
-            "claim_010"
+            "claim_007"
           ],
-          "start": 66.56999969482422,
-          "end": 73.28499984741211,
+          "start": 77.48999977111816,
+          "end": 84.54499912261963,
           "method": "even_fallback"
         },
         {
           "element_index": 3,
           "claim_ids": [
-            "claim_007"
+            "claim_027"
           ],
-          "start": 73.28499984741211,
-          "end": 80.0,
+          "start": 84.54499912261963,
+          "end": 91.5999984741211,
           "method": "even_fallback"
         }
       ],
@@ -483,75 +644,138 @@
     },
     {
       "scene_id": "scene_005",
-      "start": 80.0,
-      "end": 99.36000061035156,
-      "start_frame": 2400,
-      "duration_frames": 581,
+      "start": 91.5999984741211,
+      "end": 116.26000213623047,
+      "start_frame": 2748,
+      "duration_frames": 740,
       "method": "even_fallback",
       "sentences": [
         {
           "sentence_id": "scene_005.n1.s1",
           "scene_id": "scene_005",
           "narration_index": 0,
-          "text": "In Searchbloom's ranking, The SEO Works placed second with 44 out of 50 for specialist SEO and AI SEO partnerships, starting at GBP 1,500 a month.",
+          "text": "Single Grain combines AEO, SEO, paid media, and content in one team.",
           "char_start": 0,
-          "char_end": 146,
+          "char_end": 68,
           "claim_ids": [
-            "claim_011"
+            "claim_017"
           ],
-          "word_start": 175,
-          "word_end": 202,
-          "score": 1.0,
-          "transcript_text": "In SearchBloom's ranking the SEO works placed second with 44 out of 50 for specialist SEO and AI SEO partnerships starting at GBP 1 500 a month",
-          "start": 80.0,
-          "end": 89.68000030517578,
-          "method": "even_fallback"
+          "word_start": 198,
+          "word_end": 210,
+          "score": 0.9803921568627451,
+          "transcript_text": "Single Brain combines AEO SEO paid media and content in one team",
+          "start": 91.5999984741211,
+          "end": 97.76499938964844,
+          "aligned_start": 91.5999984741211,
+          "aligned_end": 96.13999938964844,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         },
         {
           "sentence_id": "scene_005.n2.s1",
           "scene_id": "scene_005",
           "narration_index": 1,
-          "text": "Searchbloom ranks Tinuiti third with 44 out of 50 for AI search within full-funnel media engagements; fees are not published.",
+          "text": "Its LS Building Products case reports more than 400 additional AI citations after 12 months.",
           "char_start": 0,
-          "char_end": 125,
+          "char_end": 92,
           "claim_ids": [
-            "claim_012"
+            "claim_028"
           ],
-          "word_start": 202,
-          "word_end": 223,
-          "score": 0.9787234042553191,
-          "transcript_text": "SearchBloom ranks tenuity third with 44 out of 50 for AI search within full funnel media engagements Fees are not published",
-          "start": 89.68000030517578,
-          "end": 99.36000061035156,
-          "method": "even_fallback"
+          "word_start": 210,
+          "word_end": 225,
+          "score": 1.0,
+          "transcript_text": "Its LS Building Products case reports more than 400 additional AI citations after 12 months",
+          "start": 97.76499938964844,
+          "end": 103.93000030517578,
+          "aligned_start": 96.81999969482422,
+          "aligned_end": 101.91999816894531,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_005.n3.s1",
+          "scene_id": "scene_005",
+          "narration_index": 2,
+          "text": "Searchbloom positions Siege Media for content and authority gaps rather than technical work.",
+          "char_start": 0,
+          "char_end": 92,
+          "claim_ids": [
+            "claim_018"
+          ],
+          "word_start": 225,
+          "word_end": 238,
+          "score": 1.0,
+          "transcript_text": "SearchBloom positions Siege Media for content and authority gaps rather than technical work",
+          "start": 103.93000030517578,
+          "end": 110.09500122070312,
+          "aligned_start": 102.68000030517578,
+          "aligned_end": 107.30000305175781,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_005.n4.s1",
+          "scene_id": "scene_005",
+          "narration_index": 3,
+          "text": "Its Grow Therapy case reports LLM visibility rising from 11% to 43% over the engagement, measured in Peec AI.",
+          "char_start": 0,
+          "char_end": 109,
+          "claim_ids": [
+            "claim_029"
+          ],
+          "word_start": 238,
+          "word_end": 257,
+          "score": 0.9042553191489362,
+          "transcript_text": "Its Grow Therapy case reports LLM visibility rising from 11 to 43 over the engagement measured in peak AI",
+          "start": 110.09500122070312,
+          "end": 116.26000213623047,
+          "aligned_start": 107.30000305175781,
+          "aligned_end": 115.54000091552734,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [
+            253
+          ],
+          "boundary_timestamp_review": false
         }
       ],
       "elements": [
         {
           "element_index": 0,
           "claim_ids": [
-            "claim_011"
+            "claim_008"
           ],
-          "start": 80.0,
-          "end": 86.45333353678386,
+          "start": 91.5999984741211,
+          "end": 97.76499938964844,
           "method": "even_fallback"
         },
         {
           "element_index": 1,
           "claim_ids": [
-            "claim_012"
+            "claim_028"
           ],
-          "start": 86.45333353678386,
-          "end": 92.9066670735677,
+          "start": 97.76499938964844,
+          "end": 103.93000030517578,
           "method": "even_fallback"
         },
         {
           "element_index": 2,
           "claim_ids": [
-            "claim_012"
+            "claim_009"
           ],
-          "start": 92.9066670735677,
-          "end": 99.36000061035156,
+          "start": 103.93000030517578,
+          "end": 110.09500122070312,
+          "method": "even_fallback"
+        },
+        {
+          "element_index": 3,
+          "claim_ids": [
+            "claim_029"
+          ],
+          "start": 110.09500122070312,
+          "end": 116.26000213623047,
           "method": "even_fallback"
         }
       ],
@@ -559,66 +783,138 @@
     },
     {
       "scene_id": "scene_006",
-      "start": 99.36000061035156,
-      "end": 119.33999633789062,
-      "start_frame": 2981,
-      "duration_frames": 600,
+      "start": 116.26000213623047,
+      "end": 144.36000061035156,
+      "start_frame": 3488,
+      "duration_frames": 843,
       "method": "even_fallback",
       "sentences": [
         {
           "sentence_id": "scene_006.n1.s1",
           "scene_id": "scene_006",
           "narration_index": 0,
-          "text": "Searchbloom ranks Graphite fourth with 42 out of 50 for AEO and SEO grounded in original research, with unpublished fees and a 12-month minimum SEO term.",
+          "text": "Searchbloom positions Seer Interactive for analytics-driven enterprise AI visibility work.",
           "char_start": 0,
-          "char_end": 153,
+          "char_end": 90,
           "claim_ids": [
-            "claim_013"
+            "claim_019"
           ],
-          "word_start": 223,
-          "word_end": 248,
-          "score": 0.9732142857142857,
-          "transcript_text": "SearchBloom ranks graphite fourth with 42 out of 50 for SEO grounded in original research with unpublished fees and a 12 month minimum SEO term",
-          "start": 99.36000061035156,
-          "end": 109.3499984741211,
-          "method": "even_fallback"
+          "word_start": 257,
+          "word_end": 268,
+          "score": 0.9873417721518988,
+          "transcript_text": "SearchBloom positions Sear Interactive for analytics driven enterprise AI visibility work",
+          "start": 116.26000213623047,
+          "end": 123.28500175476074,
+          "aligned_start": 116.26000213623047,
+          "aligned_end": 120.81999969482422,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         },
         {
           "sentence_id": "scene_006.n2.s1",
           "scene_id": "scene_006",
           "narration_index": 1,
-          "text": "Searchbloom ranks iPullRank fifth with 41 out of 50 for relevance engineering and technical AI search work; fees, minimums, and terms are not published.",
+          "text": "Its Trex case reports owned AI Overview references growing from 71 to 199 keywords year over year across optimized pages.",
           "char_start": 0,
-          "char_end": 152,
+          "char_end": 121,
           "claim_ids": [
-            "claim_014"
+            "claim_030"
           ],
-          "word_start": 248,
-          "word_end": 273,
-          "score": 0.9913793103448276,
-          "transcript_text": "SearchBloom ranks iPoll rank fifth with 41 out of 50 for relevance engineering and technical AI search work Fees minimums and terms are not published",
-          "start": 109.3499984741211,
-          "end": 119.33999633789062,
-          "method": "even_fallback"
+          "word_start": 268,
+          "word_end": 288,
+          "score": 1.0,
+          "transcript_text": "Its Trex case reports owned AI overview references growing from 71 to 199 keywords year over year across optimized pages",
+          "start": 123.28500175476074,
+          "end": 130.31000137329102,
+          "aligned_start": 121.44000244140625,
+          "aligned_end": 129.0800018310547,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_006.n3.s1",
+          "scene_id": "scene_006",
+          "narration_index": 2,
+          "text": "Amsive adds answer engine optimization and LLM tracking to enterprise SEO.",
+          "char_start": 0,
+          "char_end": 74,
+          "claim_ids": [
+            "claim_020"
+          ],
+          "word_start": 288,
+          "word_end": 299,
+          "score": 0.976,
+          "transcript_text": "Amsov adds answer engine optimization and LLM tracking to enterprise SEO",
+          "start": 130.31000137329102,
+          "end": 137.3350009918213,
+          "aligned_start": 129.8800048828125,
+          "aligned_end": 133.9600067138672,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
+        },
+        {
+          "sentence_id": "scene_006.n4.s1",
+          "scene_id": "scene_006",
+          "narration_index": 3,
+          "text": "Its OppLoans case reports blog sessions up 263% year over year, but Amsive had no published AI search result at the October 29, 2026 check.",
+          "char_start": 0,
+          "char_end": 139,
+          "claim_ids": [
+            "claim_031",
+            "claim_032"
+          ],
+          "word_start": 299,
+          "word_end": 324,
+          "score": 0.9515418502202643,
+          "transcript_text": "Its OpLoans case reports blog sessions up 263 year over year But Amsov had no published AI search result at the October 29 2026 check",
+          "start": 137.3350009918213,
+          "end": 144.36000061035156,
+          "aligned_start": 134.4600067138672,
+          "aligned_end": 144.05999755859375,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         }
       ],
       "elements": [
         {
           "element_index": 0,
           "claim_ids": [
-            "claim_013"
+            "claim_010"
           ],
-          "start": 99.36000061035156,
-          "end": 109.3499984741211,
+          "start": 116.26000213623047,
+          "end": 123.28500175476074,
           "method": "even_fallback"
         },
         {
           "element_index": 1,
           "claim_ids": [
-            "claim_014"
+            "claim_030"
           ],
-          "start": 109.3499984741211,
-          "end": 119.33999633789062,
+          "start": 123.28500175476074,
+          "end": 130.31000137329102,
+          "method": "even_fallback"
+        },
+        {
+          "element_index": 2,
+          "claim_ids": [
+            "claim_011"
+          ],
+          "start": 130.31000137329102,
+          "end": 137.3350009918213,
+          "method": "even_fallback"
+        },
+        {
+          "element_index": 3,
+          "claim_ids": [
+            "claim_031",
+            "claim_032"
+          ],
+          "start": 137.3350009918213,
+          "end": 144.36000061035156,
           "method": "even_fallback"
         }
       ],
@@ -626,138 +922,102 @@
     },
     {
       "scene_id": "scene_007",
-      "start": 119.33999633789062,
-      "end": 155.15,
-      "start_frame": 3581,
-      "duration_frames": 1080,
+      "start": 144.36000061035156,
+      "end": 167.7,
+      "start_frame": 4331,
+      "duration_frames": 706,
       "method": "even_fallback",
       "sentences": [
         {
           "sentence_id": "scene_007.n1.s1",
           "scene_id": "scene_007",
           "narration_index": 0,
-          "text": "Only three companies publish a price: Searchbloom starts SEO at $3,000 a month with no lengthy contracts, The SEO Works starts at GBP 1,500 a month, and Siege Media’s minimum is $8,000 a month.",
+          "text": "Only Searchbloom, The SEO Works, and Siege Media publish prices in the ranking.",
           "char_start": 0,
-          "char_end": 193,
+          "char_end": 79,
           "claim_ids": [
-            "claim_003"
+            "claim_033"
           ],
-          "word_start": 273,
-          "word_end": 310,
-          "score": 0.976271186440678,
-          "transcript_text": "Only three companies publish a price SearchBloom starts SEO at 3 000 a month with no lengthy contracts The SEO work starts at GBP 1 500 a month and Siege Media's minimum is 8 000 a month",
-          "start": 119.33999633789062,
-          "end": 128.29249725341796,
-          "method": "even_fallback"
+          "word_start": 324,
+          "word_end": 337,
+          "score": 1.0,
+          "transcript_text": "Only SearchBloom The SEO Works and Siege Media publish prices in the ranking",
+          "start": 144.36000061035156,
+          "end": 152.14000040690104,
+          "aligned_start": 144.36000061035156,
+          "aligned_end": 149.3000030517578,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         },
         {
           "sentence_id": "scene_007.n2.s1",
           "scene_id": "scene_007",
           "narration_index": 1,
-          "text": "Searchbloom says AI SEO priced at a few hundred dollars a month likely produces automated content flagged by Google's spam policies.",
+          "text": "Searchbloom’s SEO starts at $3,000 monthly, while The SEO Works publishes four monthly tiers from GBP 1,500 to GBP 6,000 or more.",
           "char_start": 0,
-          "char_end": 132,
+          "char_end": 129,
           "claim_ids": [
-            "claim_069"
+            "claim_034",
+            "claim_036"
           ],
-          "word_start": 310,
-          "word_end": 331,
-          "score": 1.0,
-          "transcript_text": "SearchBloom says AI SEO priced at a few hundred dollars a month likely produces automated content flagged by Google's spam policies",
-          "start": 128.29249725341796,
-          "end": 137.2449981689453,
-          "method": "even_fallback"
+          "word_start": 337,
+          "word_end": 362,
+          "score": 0.9847715736040609,
+          "transcript_text": "SearchBloom's SEO starts at 3 000 monthly while The SEO Works publishes four monthly tiers from GBP 1 500 to GBP 6 000 or more",
+          "start": 152.14000040690104,
+          "end": 159.9200002034505,
+          "aligned_start": 149.66000366210938,
+          "aligned_end": 158.47999572753906,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [],
+          "boundary_timestamp_review": false
         },
         {
           "sentence_id": "scene_007.n3.s1",
           "scene_id": "scene_007",
           "narration_index": 2,
-          "text": "The SEO Works and Siege Media publish all key transparency items, while Searchbloom publishes all but minimums beyond starting fees.",
+          "text": "The comparison spans citations, referral traffic, and sign-up share—not one common performance measure—and the results remain company-reported.",
           "char_start": 0,
-          "char_end": 132,
+          "char_end": 143,
           "claim_ids": [
-            "claim_070"
+            "claim_023",
+            "claim_024",
+            "claim_026",
+            "claim_048"
           ],
-          "word_start": 331,
-          "word_end": 351,
+          "word_start": 362,
+          "word_end": 383,
           "score": 1.0,
-          "transcript_text": "The SEO works and Siege Media publish all key transparency items while SearchBloom publishes all but minimums beyond starting fees",
-          "start": 137.2449981689453,
-          "end": 146.19749908447267,
-          "method": "even_fallback"
-        },
-        {
-          "sentence_id": "scene_007.n4.s1",
-          "scene_id": "scene_007",
-          "narration_index": 3,
-          "text": "Eight of the nine companies publish dated AI search results, and all nine say how they track AI visibility.",
-          "char_start": 0,
-          "char_end": 107,
-          "claim_ids": [
-            "claim_008a"
+          "transcript_text": "The comparison spans citations referral traffic and sign up share not one common performance measure And the results remain company reported",
+          "start": 159.9200002034505,
+          "end": 167.7,
+          "aligned_start": 158.83999633789062,
+          "aligned_end": 167.36000061035156,
+          "method": "even_fallback",
+          "zero_duration_word_indices": [
+            366
           ],
-          "word_start": 351,
-          "word_end": 370,
-          "score": 1.0,
-          "transcript_text": "Eight of the nine companies publish dated AI search results and all nine say how they track AI visibility",
-          "start": 146.19749908447267,
-          "end": 155.15,
-          "method": "even_fallback"
+          "boundary_timestamp_review": false
         }
       ],
       "elements": [
         {
           "element_index": 0,
           "claim_ids": [
-            "claim_003"
+            "claim_034"
           ],
-          "start": 119.33999633789062,
-          "end": 125.30833028157552,
+          "start": 144.36000061035156,
+          "end": 156.03000030517578,
           "method": "even_fallback"
         },
         {
           "element_index": 1,
           "claim_ids": [
-            "claim_003"
+            "claim_036"
           ],
-          "start": 125.30833028157552,
-          "end": 131.27666422526042,
-          "method": "even_fallback"
-        },
-        {
-          "element_index": 2,
-          "claim_ids": [
-            "claim_003"
-          ],
-          "start": 131.27666422526042,
-          "end": 137.2449981689453,
-          "method": "even_fallback"
-        },
-        {
-          "element_index": 3,
-          "claim_ids": [
-            "claim_069"
-          ],
-          "start": 137.2449981689453,
-          "end": 143.2133321126302,
-          "method": "even_fallback"
-        },
-        {
-          "element_index": 4,
-          "claim_ids": [
-            "claim_070"
-          ],
-          "start": 143.2133321126302,
-          "end": 149.18166605631512,
-          "method": "even_fallback"
-        },
-        {
-          "element_index": 5,
-          "claim_ids": [
-            "claim_070"
-          ],
-          "start": 149.18166605631512,
-          "end": 155.15,
+          "start": 156.03000030517578,
+          "end": 167.7,
           "method": "even_fallback"
         }
       ],
@@ -767,12 +1027,12 @@
   "schema_version": "1.0",
   "stage": "timing",
   "inputs": {
-    "script": "69806d5eeb657b925cb9bfb71d698dfece027b8947ef2f0acd971b60a8a2f043",
-    "script_approval": "31207c2bfb548629e03f81a1a5e1a1c11670ef4a75f06c6e8bf826cc8f4b2279",
-    "narration_metadata": "30cffae13d0a9c754511690510d6d05a44faca162af3314e91727bc980f163bb",
-    "audio_sha256": "e430df690e3efe560a675fdd848b1b9878178ebf55ac655dcb3abb2a0e072f2a"
+    "script": "90e3361d9be7e62577c3b7e62987d8a1e192804662742eddcdc22dc86376e50d",
+    "script_approval": "a04e110fcdab25092a432968dee3d83ad42afe8f8e8ebe323a27d94ed208ba09",
+    "narration_metadata": "c87a8696d81567aafc316bff892e5dca870e486d39065ba39a8fce0974c0ae6f",
+    "audio_sha256": "18ce6510472106c0d0a37e69bab4826e2aad35f6a507a2f5a74db6b2735af5f0"
   },
-  "alignment_version": "alignment.v1",
+  "alignment_version": "alignment.v3",
   "config": {
     "model": "whisper-1",
     "language": "en",
@@ -789,8 +1049,7 @@
     "min_sentence_score": 0.85,
     "max_word_cues_per_scene": 3
   },
-  "transcript_sha256": "03b6796b9f534d75dde66bed940643d2daf507bf3e9b486298caffdd9308ac96",
-  "transcription_cache_key": "18dbc6f34c9c0ca0c37885941389bb62857ca4c5a6694d76e77959101968b19d",
-  "listening_review": "pending",
-  "cache_key": "b81c382bb36946dc135ed6e6f7222606e48e879156883d42ffe30ddef39ae9c5"
+  "transcript_sha256": "1c89408f4f772b2caec8df57a8622cb331ba15b1804e477aff555a37170d8ccf",
+  "transcription_cache_key": "8764825fc901786dbbd753e7f3bc0130eed3961655d018a371070b38160ff4e5",
+  "cache_key": "465e030d8eb63237ce03da30f6eacdeee8d1e5e4ee640a900e28358189e5a47a"
 }

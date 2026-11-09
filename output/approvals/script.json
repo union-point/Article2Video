@@ -1,20 +1,11 @@
 {
+  "mode": "automatic",
   "stage": "script",
-  "artifact_sha256": "69806d5eeb657b925cb9bfb71d698dfece027b8947ef2f0acd971b60a8a2f043",
-  "review_sha256": "e411a687a1ddd592268b7f548783e465bee3ec97bf4ae25dfe284ff81dff3ad8",
-  "reviewer": "User (explicit approval in chat)",
-  "reviewed_at": "2026-11-08T18:06:08.820748+00:00",
-  "note": "The user explicitly approved the current script as-is in chat and instructed acceptance of all remaining review flags without content changes. Accepted the transparency checklist semantic partial concerning Searchbloom’s minimum-fee exception; the scene 5 and 6 title-scope and scene 7 disclosure-label coherence flags; the Traditional and Disclosure name-matching flags; and both deterministic $8,000/mo parsing flags. These findings are retained as explicit human exceptions, not represented as clean automated verification.",
-  "accepted_review_items": [
-    "3b663e6f88a5335b",
-    "74d07edb8e496f6f",
-    "8903dfaeff60813d",
-    "99ff427da975bb81",
-    "af5b4d6993a3f21a",
-    "b898e07d079039be",
-    "c9bac30b60316cab",
-    "df19f6ef9788f65f",
-    "f82d4fa01c9ad9d2"
-  ],
+  "artifact_sha256": "90e3361d9be7e62577c3b7e62987d8a1e192804662742eddcdc22dc86376e50d",
+  "review_sha256": "d004936b49c2f5cfe8e7fe98b425208c47ac23d68d6367b2f33d14febf956227",
+  "reviewer": "article_video:auto-approve",
+  "reviewed_at": "2026-11-08T23:34:38.928154+00:00",
+  "note": "Automatic validation: selected claims and script text are supported; length is advisory.",
+  "accepted_review_items": [],
   "approved_claim_ids": []
 }

@@ -3,238 +3,136 @@
   "stage": "script",
   "inputs": {
     "article": "2288fad3b123b449e29c4c733f88f6aadcfbffb742875401d913f24d7a068b53",
-    "config": "d0617f1793ecab584cdeb0e201b46c5306e9d58b8248df1b20fbae7aa3993f81",
-    "facts": "80f8a75f51d62a9056d86ac5a6e152e32817adb03c0b16478a0671a1dea4c3ad",
-    "facts_approval": "4c220e7079db9de00da4b8645117662491c4365f21509bd852b3e2ea1de41ed1"
+    "config": "9ab2305817d6a3817161e6b5432e5e669059e06ea2860c25bce11453aef24e87",
+    "facts": "9018ffde20be5f3b773982336e2a02839c5f235dadbd583525579c6dc0923b68",
+    "facts_approval": "5303cc15fe49b0f10ba1e7bfb2169d968c820e076062ae1c8bc49456d7ad5946"
   },
   "run": {
-    "requested_model": "local-targeted-edit",
-    "resolved_model": "local-targeted-edit",
-    "prompt_version": "script.minimal-repair.v1",
-    "cache_key": "eefaf26cec5049b42f8aead9a1b0ef949b18eb73c6de37e07fa88d3e809e099d",
-    "response_id": null,
-    "usage": {}
+    "requested_model": "gpt-6.1-sol",
+    "resolved_model": "gpt-6.1-sol",
+    "prompt_version": "script.v9",
+    "cache_key": "41252bf14ae8640b58ded6d582e9d9367c8baedea8cbfcf19c307044cd9b54a4",
+    "response_id": "resp_0e21a6c80065e9b0016af106e5c4d087d29c716c8e86acde7d",
+    "usage": {
+      "input_tokens": 5327,
+      "output_tokens": 4069,
+      "total_tokens": 9396
+    }
   },
   "data": {
     "title": {
-      "text": "AI SEO companies and published evidence",
+      "text": "Nine AI SEO agencies in Searchbloom’s 2026 ranking",
       "claim_ids": [
         "claim_001"
       ],
-      "company_names": []
+      "company_names": [
+        "Searchbloom"
+      ]
     },
     "scenes": [
       {
         "scene_id": "scene_001",
         "title": {
-          "text": "AI SEO and visibility",
+          "text": "The ranking’s context",
           "claim_ids": [
-            "claim_004"
-          ],
-          "company_names": []
-        },
-        "claim_ids": [
-          "claim_004",
-          "claim_001"
-        ],
-        "narration": [
-          {
-            "text": "Searchbloom lists Searchbloom, The SEO Works, Tinuiti, Graphite, and iPullRank as the best AI SEO companies in 2026.",
-            "claim_ids": [
-              "claim_001"
-            ],
-            "company_names": [
-              "Searchbloom",
-              "The SEO Works",
-              "Tinuiti",
-              "Graphite",
-              "iPullRank"
-            ]
-          },
-          {
-            "text": "AI SEO mostly involves traditional SEO work, but now adds measuring AI visibility and citations from external pages.",
-            "claim_ids": [
-              "claim_004"
-            ],
-            "company_names": []
-          }
-        ],
-        "on_screen": [
-          {
-            "text": "Searchbloom's AI SEO company list",
-            "claim_ids": [
-              "claim_001"
-            ],
-            "company_names": [
-              "Searchbloom"
-            ]
-          },
-          {
-            "text": "Traditional SEO plus AI visibility measurement",
-            "claim_ids": [
-              "claim_004"
-            ],
-            "company_names": []
-          }
-        ],
-        "visual_direction": "Arrange company names as plain text cards beside the AI SEO explanation; reveal the AI visibility measurement item as the narration moves to that topic. Use only the cited on-screen items, without logos or endorsement symbols."
-      },
-      {
-        "scene_id": "scene_002",
-        "title": {
-          "text": "AI SEO evaluation criteria",
-          "claim_ids": [
-            "claim_002"
-          ],
-          "company_names": []
-        },
-        "claim_ids": [
-          "claim_002"
-        ],
-        "narration": [
-          {
-            "text": "Searchbloom lists AI visibility, brand presence on external pages, technical and structured-data foundations, content and entity authority, and documented results as scoring criteria.",
-            "claim_ids": [
-              "claim_002"
-            ],
-            "company_names": [
-              "Searchbloom"
-            ]
-          }
-        ],
-        "on_screen": [
-          {
-            "text": "AI visibility and external citations",
-            "claim_ids": [
-              "claim_002"
-            ],
-            "company_names": []
-          },
-          {
-            "text": "Technical foundation and content authority",
-            "claim_ids": [
-              "claim_002"
-            ],
-            "company_names": []
-          }
-        ],
-        "visual_direction": "Show a checklist of the cited AI visibility, external-page, technical, content, and results criteria; highlight each row as it is narrated, without assigning weights or scores."
-      },
-      {
-        "scene_id": "scene_003",
-        "title": {
-          "text": "AI visibility and outside pages",
-          "claim_ids": [
-            "claim_006"
-          ],
-          "company_names": []
-        },
-        "claim_ids": [
-          "claim_006",
-          "claim_005"
-        ],
-        "narration": [
-          {
-            "text": "Searchbloom reports measuring 68,631 AI answers in its category, with its own website cited 8.9% of the time.",
-            "claim_ids": [
-              "claim_005"
-            ],
-            "company_names": [
-              "Searchbloom"
-            ]
-          },
-          {
-            "text": "Searchbloom says the best AI SEO company manages SEO work, measures AI visibility daily, and identifies outside pages worth earning.",
-            "claim_ids": [
-              "claim_006"
-            ],
-            "company_names": [
-              "Searchbloom"
-            ]
-          },
-          {
-            "text": "PR, social, sponsorships, and partner listings remain with the client's own team.",
-            "claim_ids": [
-              "claim_006"
-            ],
-            "company_names": []
-          }
-        ],
-        "on_screen": [
-          {
-            "text": "AI answers tracked: 68,631",
-            "claim_ids": [
-              "claim_005"
-            ],
-            "company_names": [
-              "Searchbloom"
-            ]
-          },
-          {
-            "text": "Searchbloom's website: 8.9% of AI answers",
-            "claim_ids": [
-              "claim_005"
-            ],
-            "company_names": [
-              "Searchbloom"
-            ]
-          },
-          {
-            "text": "SEO work, daily measurement, outside page guidance",
-            "claim_ids": [
-              "claim_006"
-            ],
-            "company_names": []
-          }
-        ],
-        "visual_direction": "Arrange the cited AI answer count and website citation percentage as static tiles; connect them to a conceptual SEO-work and outside-page layout, with a separate client-team area. Use no fabricated dashboard readings or trend lines."
-      },
-      {
-        "scene_id": "scene_004",
-        "title": {
-          "text": "Searchbloom's reported search leads",
-          "claim_ids": [
-            "claim_007"
+            "claim_001",
+            "claim_002",
+            "claim_048"
           ],
           "company_names": [
             "Searchbloom"
           ]
         },
         "claim_ids": [
-          "claim_007",
-          "claim_072",
-          "claim_010"
+          "claim_001",
+          "claim_002",
+          "claim_048"
         ],
         "narration": [
           {
-            "text": "Searchbloom ranks itself as the best overall AI SEO company in 2026 based on published methods and results.",
+            "text": "Searchbloom’s nine-company ranking includes Searchbloom itself in first place.",
             "claim_ids": [
-              "claim_072"
+              "claim_001"
             ],
             "company_names": [
               "Searchbloom"
             ]
           },
           {
-            "text": "Searchbloom reports a custom closet company's search leads rose 122% in a year.",
+            "text": "Five equally weighted categories produce a 50-point score.",
             "claim_ids": [
-              "claim_007"
-            ],
-            "company_names": [
-              "Searchbloom"
-            ]
-          },
-          {
-            "text": "That company's CRM recorded 20 of its 51 September 2026 leads as coming from AI search.",
-            "claim_ids": [
-              "claim_007"
+              "claim_002"
             ],
             "company_names": []
           },
           {
-            "text": "In Searchbloom's ranking, the company scored 48 out of 50 for AI search tied to leads and revenue.",
+            "text": "The guide checked company websites on October 29, 2026, and case-study figures are each company’s own reporting.",
             "claim_ids": [
-              "claim_010"
+              "claim_048"
+            ],
+            "company_names": []
+          }
+        ],
+        "on_screen": [
+          {
+            "text": "Searchbloom ranks itself first",
+            "claim_ids": [
+              "claim_001"
+            ],
+            "company_names": [
+              "Searchbloom"
+            ]
+          },
+          {
+            "text": "Case-study figures: company-reported",
+            "claim_ids": [
+              "claim_048"
+            ],
+            "company_names": []
+          }
+        ],
+        "visual_direction": "Open with a nine-card layout, bringing the publisher’s card forward alongside the self-ranking disclosure, then reveal the reporting qualifier beneath the cards."
+      },
+      {
+        "scene_id": "scene_002",
+        "title": {
+          "text": "Searchbloom’s integrated approach",
+          "claim_ids": [
+            "claim_012"
+          ],
+          "company_names": [
+            "Searchbloom"
+          ]
+        },
+        "claim_ids": [
+          "claim_003",
+          "claim_012",
+          "claim_021",
+          "claim_022"
+        ],
+        "narration": [
+          {
+            "text": "Searchbloom combines SEO, PPC, and CRO with its published MERIT methodology for AI visibility.",
+            "claim_ids": [
+              "claim_012"
+            ],
+            "company_names": [
+              "Searchbloom"
+            ]
+          },
+          {
+            "text": "Its custom closet case reports 51 search leads in September 2026, four months into the engagement, up 122% year over year.",
+            "claim_ids": [
+              "claim_021"
+            ],
+            "company_names": [
+              "Searchbloom"
+            ]
+          },
+          {
+            "text": "The partner’s CRM recorded 20 of those leads as coming from AI search.",
+            "claim_ids": [
+              "claim_022"
             ],
             "company_names": [
               "Searchbloom"
@@ -243,51 +141,33 @@
         ],
         "on_screen": [
           {
-            "text": "Searchbloom ranks itself best overall",
+            "text": "Searchbloom ranks itself #1: 48/50",
             "claim_ids": [
-              "claim_072"
+              "claim_003"
             ],
             "company_names": [
               "Searchbloom"
             ]
           },
           {
-            "text": "Searchbloom reports 122% search-lead growth in 1 year",
+            "text": "Searchbloom closet case: 20 AI-search leads recorded, September 2026",
             "claim_ids": [
-              "claim_007"
-            ],
-            "company_names": [
-              "Searchbloom"
-            ]
-          },
-          {
-            "text": "Searchbloom's score: 48 out of 50",
-            "claim_ids": [
-              "claim_010"
-            ],
-            "company_names": [
-              "Searchbloom"
-            ]
-          },
-          {
-            "text": "20 of 51 leads attributed to AI search",
-            "claim_ids": [
-              "claim_007"
+              "claim_022"
             ],
             "company_names": [
               "Searchbloom"
             ]
           }
         ],
-        "visual_direction": "Display the self-ranking disclosure above static search-lead and score tiles; reveal the cited client result alongside the CRM lead counts as they are narrated. Keep publisher attribution visible, with no award badge, logo, or invented time series."
+        "visual_direction": "Place Searchbloom’s score above an integrated service diagram; transition to a case card with the CRM-recorded AI lead count, without depicting all search leads as AI-generated."
       },
       {
-        "scene_id": "scene_005",
+        "scene_id": "scene_003",
         "title": {
           "text": "The SEO Works and Tinuiti",
           "claim_ids": [
-            "claim_011",
-            "claim_012"
+            "claim_013",
+            "claim_014"
           ],
           "company_names": [
             "The SEO Works",
@@ -295,14 +175,18 @@
           ]
         },
         "claim_ids": [
-          "claim_011",
-          "claim_012"
+          "claim_004",
+          "claim_005",
+          "claim_013",
+          "claim_014",
+          "claim_023",
+          "claim_024"
         ],
         "narration": [
           {
-            "text": "In Searchbloom's ranking, The SEO Works placed second with 44 out of 50 for specialist SEO and AI SEO partnerships, starting at GBP 1,500 a month.",
+            "text": "Searchbloom positions The SEO Works for regulated or service-driven industries.",
             "claim_ids": [
-              "claim_011"
+              "claim_013"
             ],
             "company_names": [
               "Searchbloom",
@@ -310,30 +194,61 @@
             ]
           },
           {
-            "text": "Searchbloom ranks Tinuiti third with 44 out of 50 for AI search within full-funnel media engagements; fees are not published.",
+            "text": "Its DHL case reports AI Overview citations rising 287% quarter on quarter.",
             "claim_ids": [
-              "claim_012"
+              "claim_023"
+            ],
+            "company_names": [
+              "The SEO Works",
+              "DHL"
+            ]
+          },
+          {
+            "text": "Searchbloom positions Tinuiti for enterprise brands wanting AI search measurement alongside paid media.",
+            "claim_ids": [
+              "claim_014"
             ],
             "company_names": [
               "Searchbloom",
               "Tinuiti"
+            ]
+          },
+          {
+            "text": "Tinuiti’s Rough Country case reports AI referral traffic up 71% against the previous 90 days.",
+            "claim_ids": [
+              "claim_024"
+            ],
+            "company_names": [
+              "Tinuiti",
+              "Rough Country"
             ]
           }
         ],
         "on_screen": [
           {
-            "text": "The SEO Works: from GBP 1,500 monthly",
+            "text": "Searchbloom ranks The SEO Works #2: 44/50",
             "claim_ids": [
-              "claim_011"
+              "claim_004"
             ],
             "company_names": [
+              "Searchbloom",
               "The SEO Works"
             ]
           },
           {
-            "text": "Searchbloom's ranking: Tinuiti third, 44/50",
+            "text": "The SEO Works/DHL: reported AI Overview citations +287% QoQ",
             "claim_ids": [
-              "claim_012"
+              "claim_023"
+            ],
+            "company_names": [
+              "The SEO Works",
+              "DHL"
+            ]
+          },
+          {
+            "text": "Searchbloom ranks Tinuiti #3: 44/50",
+            "claim_ids": [
+              "claim_005"
             ],
             "company_names": [
               "Searchbloom",
@@ -341,24 +256,25 @@
             ]
           },
           {
-            "text": "Tinuiti: AI search within full-funnel media",
+            "text": "Tinuiti/Rough Country: reported AI referral traffic +71% versus previous 90 days",
             "claim_ids": [
-              "claim_012"
+              "claim_024"
             ],
             "company_names": [
-              "Tinuiti"
+              "Tinuiti",
+              "Rough Country"
             ]
           }
         ],
-        "visual_direction": "Split the layout into The SEO Works and Tinuiti columns; reveal the cited price and specialty items alongside their narration, preserving GBP and the unpublished-fee status. Use text and simple layout shapes, not assumed company assets."
+        "visual_direction": "Use two agency columns, revealing each score above its case result as discussed; keep citations and referral traffic in separate cards rather than a shared chart."
       },
       {
-        "scene_id": "scene_006",
+        "scene_id": "scene_004",
         "title": {
-          "text": "Graphite and iPullRank strengths and terms",
+          "text": "Graphite and iPullRank",
           "claim_ids": [
-            "claim_013",
-            "claim_014"
+            "claim_015",
+            "claim_016"
           ],
           "company_names": [
             "Graphite",
@@ -366,81 +282,345 @@
           ]
         },
         "claim_ids": [
-          "claim_013",
-          "claim_014"
+          "claim_006",
+          "claim_007",
+          "claim_015",
+          "claim_016",
+          "claim_026",
+          "claim_027",
+          "claim_046"
         ],
         "narration": [
           {
-            "text": "Searchbloom ranks Graphite fourth with 42 out of 50 for AEO and SEO grounded in original research, with unpublished fees and a 12-month minimum SEO term.",
+            "text": "Graphite runs research-based AEO, SEO, and content, with technical SEO recommendations intended for client engineers to implement.",
             "claim_ids": [
-              "claim_013"
+              "claim_015",
+              "claim_046"
             ],
             "company_names": [
-              "Searchbloom",
               "Graphite"
             ]
           },
           {
-            "text": "Searchbloom ranks iPullRank fifth with 41 out of 50 for relevance engineering and technical AI search work; fees, minimums, and terms are not published.",
+            "text": "Its January 2026 Webflow results report LLMs’ share of sign-ups doubling from 4% to 8%.",
             "claim_ids": [
-              "claim_014"
+              "claim_026"
+            ],
+            "company_names": [
+              "Graphite",
+              "Webflow"
+            ]
+          },
+          {
+            "text": "Searchbloom positions iPullRank for technically complex enterprise sites needing entity and relevance work.",
+            "claim_ids": [
+              "claim_016"
             ],
             "company_names": [
               "Searchbloom",
+              "iPullRank"
+            ]
+          },
+          {
+            "text": "Its national self-storage case reports AI-referred revenue increasing 21% during a three-month pilot.",
+            "claim_ids": [
+              "claim_027"
+            ],
+            "company_names": [
               "iPullRank"
             ]
           }
         ],
         "on_screen": [
           {
-            "text": "Graphite: AEO/SEO grounded in original research",
+            "text": "Searchbloom ranks Graphite #4: 42/50",
             "claim_ids": [
-              "claim_013"
+              "claim_006"
             ],
             "company_names": [
+              "Searchbloom",
               "Graphite"
             ]
           },
           {
-            "text": "iPullRank: relevance engineering and technical AI search",
+            "text": "Graphite/Webflow: reported LLM sign-up share 4% → 8%, January 2026",
             "claim_ids": [
-              "claim_014"
+              "claim_026"
+            ],
+            "company_names": [
+              "Graphite",
+              "Webflow"
+            ]
+          },
+          {
+            "text": "Searchbloom ranks iPullRank #5: 41/50",
+            "claim_ids": [
+              "claim_007"
+            ],
+            "company_names": [
+              "Searchbloom",
+              "iPullRank"
+            ]
+          },
+          {
+            "text": "iPullRank self-storage case: reported AI-referred revenue +21%, three-month pilot",
+            "claim_ids": [
+              "claim_027"
             ],
             "company_names": [
               "iPullRank"
             ]
           }
         ],
-        "visual_direction": "Arrange Graphite and iPullRank in parallel text columns; highlight the cited research and technical-work items, then their narrated contract and disclosure terms. Use no logos or award symbols."
+        "visual_direction": "Build parallel agency panels; show a conceptual recommendation handoff toward client engineers for Graphite, then reveal the distinct sign-up-share and revenue result cards."
+      },
+      {
+        "scene_id": "scene_005",
+        "title": {
+          "text": "Single Grain and Siege Media",
+          "claim_ids": [
+            "claim_017",
+            "claim_018"
+          ],
+          "company_names": [
+            "Single Grain",
+            "Siege Media"
+          ]
+        },
+        "claim_ids": [
+          "claim_008",
+          "claim_009",
+          "claim_017",
+          "claim_018",
+          "claim_028",
+          "claim_029"
+        ],
+        "narration": [
+          {
+            "text": "Single Grain combines AEO, SEO, paid media, and content in one team.",
+            "claim_ids": [
+              "claim_017"
+            ],
+            "company_names": [
+              "Single Grain"
+            ]
+          },
+          {
+            "text": "Its LS Building Products case reports more than 400 additional AI citations after 12 months.",
+            "claim_ids": [
+              "claim_028"
+            ],
+            "company_names": [
+              "Single Grain",
+              "LS Building Products"
+            ]
+          },
+          {
+            "text": "Searchbloom positions Siege Media for content and authority gaps rather than technical work.",
+            "claim_ids": [
+              "claim_018"
+            ],
+            "company_names": [
+              "Searchbloom",
+              "Siege Media"
+            ]
+          },
+          {
+            "text": "Its Grow Therapy case reports LLM visibility rising from 11% to 43% over the engagement, measured in Peec AI.",
+            "claim_ids": [
+              "claim_029"
+            ],
+            "company_names": [
+              "Siege Media",
+              "Grow Therapy",
+              "Peec AI"
+            ]
+          }
+        ],
+        "on_screen": [
+          {
+            "text": "Searchbloom ranks Single Grain #6: 39/50",
+            "claim_ids": [
+              "claim_008"
+            ],
+            "company_names": [
+              "Searchbloom",
+              "Single Grain"
+            ]
+          },
+          {
+            "text": "Single Grain/LS Building Products: reported 400+ additional AI citations after 12 months",
+            "claim_ids": [
+              "claim_028"
+            ],
+            "company_names": [
+              "Single Grain",
+              "LS Building Products"
+            ]
+          },
+          {
+            "text": "Searchbloom ranks Siege Media #7: 39/50",
+            "claim_ids": [
+              "claim_009"
+            ],
+            "company_names": [
+              "Searchbloom",
+              "Siege Media"
+            ]
+          },
+          {
+            "text": "Siege Media/Grow Therapy: reported LLM visibility 11% → 43% over engagement, measured in Peec AI",
+            "claim_ids": [
+              "claim_029"
+            ],
+            "company_names": [
+              "Siege Media",
+              "Grow Therapy",
+              "Peec AI"
+            ]
+          }
+        ],
+        "visual_direction": "Arrange matching score headers above separate evidence cards; animate the citation count as a single reported total and the visibility figures as labeled endpoints, without comparing their magnitudes."
+      },
+      {
+        "scene_id": "scene_006",
+        "title": {
+          "text": "Seer Interactive and Amsive",
+          "claim_ids": [
+            "claim_019",
+            "claim_020"
+          ],
+          "company_names": [
+            "Seer Interactive",
+            "Amsive"
+          ]
+        },
+        "claim_ids": [
+          "claim_010",
+          "claim_011",
+          "claim_019",
+          "claim_020",
+          "claim_030",
+          "claim_031",
+          "claim_032"
+        ],
+        "narration": [
+          {
+            "text": "Searchbloom positions Seer Interactive for analytics-driven enterprise AI visibility work.",
+            "claim_ids": [
+              "claim_019"
+            ],
+            "company_names": [
+              "Searchbloom",
+              "Seer Interactive"
+            ]
+          },
+          {
+            "text": "Its Trex case reports owned AI Overview references growing from 71 to 199 keywords year over year across optimized pages.",
+            "claim_ids": [
+              "claim_030"
+            ],
+            "company_names": [
+              "Seer Interactive",
+              "Trex"
+            ]
+          },
+          {
+            "text": "Amsive adds answer engine optimization and LLM tracking to enterprise SEO.",
+            "claim_ids": [
+              "claim_020"
+            ],
+            "company_names": [
+              "Amsive"
+            ]
+          },
+          {
+            "text": "Its OppLoans case reports blog sessions up 263% year over year, but Amsive had no published AI search result at the October 29, 2026 check.",
+            "claim_ids": [
+              "claim_031",
+              "claim_032"
+            ],
+            "company_names": [
+              "Amsive",
+              "OppLoans"
+            ]
+          }
+        ],
+        "on_screen": [
+          {
+            "text": "Searchbloom ranks Seer Interactive #8: 37/50",
+            "claim_ids": [
+              "claim_010"
+            ],
+            "company_names": [
+              "Searchbloom",
+              "Seer Interactive"
+            ]
+          },
+          {
+            "text": "Seer Interactive/Trex: reported owned AI Overview references, 71 → 199 keywords YoY across optimized pages",
+            "claim_ids": [
+              "claim_030"
+            ],
+            "company_names": [
+              "Seer Interactive",
+              "Trex"
+            ]
+          },
+          {
+            "text": "Searchbloom ranks Amsive #9: 35/50",
+            "claim_ids": [
+              "claim_011"
+            ],
+            "company_names": [
+              "Searchbloom",
+              "Amsive"
+            ]
+          },
+          {
+            "text": "Amsive/OppLoans: reported blog sessions +263% YoY; not an AI-search result",
+            "claim_ids": [
+              "claim_031",
+              "claim_032"
+            ],
+            "company_names": [
+              "Amsive",
+              "OppLoans"
+            ]
+          }
+        ],
+        "visual_direction": "Reveal Seer Interactive’s AI-specific evidence on one side and Amsive’s SEO evidence on the other, preserving the explicit non-AI distinction on Amsive’s result card."
       },
       {
         "scene_id": "scene_007",
         "title": {
-          "text": "Pricing transparency and industry cautions",
+          "text": "Published costs and evidence",
           "claim_ids": [
-            "claim_003",
-            "claim_069",
-            "claim_070",
-            "claim_008a"
+            "claim_033",
+            "claim_034",
+            "claim_036",
+            "claim_048"
           ],
           "company_names": [
             "Searchbloom",
             "The SEO Works",
-            "Siege Media",
-            "Google"
+            "Siege Media"
           ]
         },
         "claim_ids": [
-          "claim_003",
-          "claim_069",
-          "claim_070",
-          "claim_008a"
+          "claim_023",
+          "claim_024",
+          "claim_026",
+          "claim_033",
+          "claim_034",
+          "claim_036",
+          "claim_048"
         ],
         "narration": [
           {
-            "text": "Only three companies publish a price: Searchbloom starts SEO at $3,000 a month with no lengthy contracts, The SEO Works starts at GBP 1,500 a month, and Siege Media’s minimum is $8,000 a month.",
+            "text": "Only Searchbloom, The SEO Works, and Siege Media publish prices in the ranking.",
             "claim_ids": [
-              "claim_003"
+              "claim_033"
             ],
             "company_names": [
               "Searchbloom",
@@ -449,85 +629,52 @@
             ]
           },
           {
-            "text": "Searchbloom says AI SEO priced at a few hundred dollars a month likely produces automated content flagged by Google's spam policies.",
+            "text": "Searchbloom’s SEO starts at $3,000 monthly, while The SEO Works publishes four monthly tiers from GBP 1,500 to GBP 6,000 or more.",
             "claim_ids": [
-              "claim_069"
+              "claim_034",
+              "claim_036"
             ],
             "company_names": [
               "Searchbloom",
-              "Google"
+              "The SEO Works"
             ]
           },
           {
-            "text": "The SEO Works and Siege Media publish all key transparency items, while Searchbloom publishes all but minimums beyond starting fees.",
+            "text": "The comparison spans citations, referral traffic, and sign-up share—not one common performance measure—and the results remain company-reported.",
             "claim_ids": [
-              "claim_070"
+              "claim_023",
+              "claim_024",
+              "claim_026",
+              "claim_048"
             ],
             "company_names": [
-              "Searchbloom",
               "The SEO Works",
-              "Siege Media"
+              "Tinuiti",
+              "Graphite"
             ]
-          },
-          {
-            "text": "Eight of the nine companies publish dated AI search results, and all nine say how they track AI visibility.",
-            "claim_ids": [
-              "claim_008a"
-            ],
-            "company_names": []
           }
         ],
         "on_screen": [
           {
-            "text": "Searchbloom: SEO from $3,000 a month",
+            "text": "Searchbloom SEO: starts at $3,000/month",
             "claim_ids": [
-              "claim_003"
+              "claim_034"
             ],
             "company_names": [
               "Searchbloom"
             ]
           },
           {
-            "text": "The SEO Works: from GBP 1,500 monthly",
+            "text": "The SEO Works: four monthly tiers, GBP 1,500–6,000+",
             "claim_ids": [
-              "claim_003"
+              "claim_036"
             ],
             "company_names": [
               "The SEO Works"
             ]
-          },
-          {
-            "text": "Siege Media: $8,000/mo minimum",
-            "claim_ids": [
-              "claim_003"
-            ],
-            "company_names": [
-              "Siege Media"
-            ]
-          },
-          {
-            "text": "AI SEO pricing and automated content",
-            "claim_ids": [
-              "claim_069"
-            ],
-            "company_names": []
-          },
-          {
-            "text": "Disclosure varies by company",
-            "claim_ids": [
-              "claim_070"
-            ],
-            "company_names": []
-          },
-          {
-            "text": "Fee, minimum, term, results, tracking, audit",
-            "claim_ids": [
-              "claim_070"
-            ],
-            "company_names": []
           }
         ],
-        "visual_direction": "Display each cited company price in its own row with its original currency and monthly basis; do not position currencies on a shared numerical axis. Then highlight the transparency checklist and close on the narrated AI-visibility disclosures, without a price range or a warning label against any named company."
+        "visual_direction": "Present the two supplied numeric price ranges as separate rows without currency conversion; close by returning to the previously shown citation, traffic, and sign-up evidence cards without adding a common axis."
       }
     ]
   }

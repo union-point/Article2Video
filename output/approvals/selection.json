@@ -1,10 +1,11 @@
 {
+  "mode": "automatic",
   "stage": "selection",
-  "artifact_sha256": "eca60dbad4269eaa13fe912e9dc9ebafd0b8b478ea7ab7b9592881732ca52d81",
-  "review_sha256": "920b19d275ebb47d39f43521e25837dec1669d7eda98e38b87863b46fb64074f",
-  "reviewer": "user",
-  "reviewed_at": "2026-11-08T14:50:31.045458+00:00",
-  "note": "Selection explicitly approved by the user in chat on 2026-11-08.",
+  "artifact_sha256": "9157745eba07e9ab4da333b894399f4ecc554f5bf0b8dbd64533dda184b0fe47",
+  "review_sha256": "8610a6c31808c37f64dfe836b41bff09847353bed3b0e85ea31a5eb58ac079de",
+  "reviewer": "article_video:auto-approve",
+  "reviewed_at": "2026-11-08T23:06:46.964171+00:00",
+  "note": "Automatic validation: selected claims and script text are supported; length is advisory.",
   "accepted_review_items": [],
   "approved_claim_ids": []
 }
