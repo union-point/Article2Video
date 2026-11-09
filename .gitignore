@@ -238,38 +238,16 @@ TASK.md
 # Regenerable LLM response cache; reviewed output artifacts remain trackable
 /cache/
 
-# Regenerable media; retain provenance and exact narration text in git
-/output/*.wav
-/output/*.mp4
-/output/*.mp3
-
-# Local script experiments duplicate the active reviewed artifacts
-/output/script_comparisons/
-/output/script_repairs/
-
-# Isolated run archives retain JSON provenance and caches, not generated media
-/runs/**/*.wav
-/runs/**/*.mp4
-/runs/**/*.mp3
-
-# Temporary render jobs and regenerable exported-frame checks
-/output/.video*/
-/runs/**/output/.video*/
-/output/render_frames/
-/runs/**/output/render_frames/
-
 # Remotion dependencies and regenerable bundles
 /video/node_modules/
 /video/build/
 /video/out/
 
-# Keep the concise implementation plan with the demo documentation
-!/docs/automation_plan.md
+# Local documentation and run archives
+/docs/
+/runs/
 
-# Keep fact sheets from generated output and run archives
-/output/**/*
-!/output/**/
+# Keep only the fact sheet and script from generated output
+/output/*
 !/output/fact_sheet.csv
-/runs/**/*
-!/runs/**/
-!/runs/fact_sheet.csv
+!/output/script.md
