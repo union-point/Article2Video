@@ -97,10 +97,6 @@ const Editorial: React.FC<{ scene: StoryScene }> = ({ scene }) => {
       extrapolateLeft: "clamp",
       extrapolateRight: "clamp",
     });
-  const body = scene.elements
-    .slice(1)
-    .filter((e) => e.start_frame <= frame && e.end_frame > frame)
-    .at(-1);
   const diagramX = intro ? 900 : wide ? 80 : 720;
   const diagramY = wide && !intro ? 340 : 180;
   const diagramW = 1840 - diagramX;
@@ -142,17 +138,6 @@ const Editorial: React.FC<{ scene: StoryScene }> = ({ scene }) => {
         overflow: "hidden",
       }}
     >
-      {/* The header rule is a scene-progress track, not an article statistic. */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          height: 8,
-          width: `${(100 * (local + 1)) / scene.duration_frames}%`,
-          background: t.accent,
-        }}
-      />
       <div
         style={{
           position: "absolute",
@@ -322,33 +307,6 @@ const Editorial: React.FC<{ scene: StoryScene }> = ({ scene }) => {
           );
         })}
       </div>
-      {body ? (
-        <div
-          data-source-ids={body.source_ids.join(" ")}
-          style={{
-            position: "absolute",
-            left: 80,
-            right: 80,
-            bottom: 64,
-            borderTop: `2px solid ${t.muted}`,
-            paddingTop: 30,
-            display: "flex",
-            gap: 32,
-            alignItems: "center",
-            opacity: progress(body.start_frame),
-          }}
-        >
-          <div
-            style={{
-              width: 10,
-              height: 64,
-              background: t.accent,
-              flexShrink: 0,
-            }}
-          />
-          <Fit text={body.text} width={1650} size={52} lines={2} weight={400} />
-        </div>
-      ) : null}
     </AbsoluteFill>
   );
 };
